@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0e3b2c">
+  <meta name="description" content="PiggyUp — אפליקציה לחינוך פיננסי לילדים ולהורים: חיסכון, יעדים, משימות ונקודות.">
+  <title>PiggyUp — חינוך פיננסי לילדים</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ============================================================
+   PiggyUp — static rebuild · styles
+   Mobile-first, Hebrew RTL, light + dark mode via CSS vars
+   ============================================================ */
+:root {
+  --green-950: #082a21;
+  --green-900: #0b352a;
+  --green-800: #0e3b2c;
+  --green-700: #155843;
+  --green-600: #1d6b52;
+  --cream: #f7f3ea;
+  --cream-2: #efe8d8;
+  --card: #ffffff;
+  --ink: #1e2a24;
+  --ink-soft: #42514a;
+  --muted: #75847b;
+  --line: #e7e0d0;
+  --yellow: #f2c14e;
+  --yellow-soft: #fdf3d7;
+  --red: #e4574f;
+  --gold: #e8a13d;
+  --mint: #7fb069;
+  --shadow: 0 8px 28px rgba(11, 53, 42, 0.12);
+  --radius: 22px;
+  --nav-h: 76px;
+  --font: "Heebo", "Segoe UI", Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  --cream: #0f1a16;
+  --cream-2: #14231d;
+  --card: #16281f;
+  --ink: #eef3ee;
+  --ink-soft: #c4d2c9;
+  --muted: #8fa39a;
+  --line: #274138;
+  --yellow-soft: #3a2f14;
+  --shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0; padding: 0;
+  font-family: var(--font);
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+body {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: calc(var(--nav-h) + 24px);
+  position: relative;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px 6px;
+}
+.family-label { font-size: 12px; color: var(--muted); }
+.family-name { font-size: 22px; font-weight: 800; margin: 0; }
+.mode-toggle {
+  display: flex; background: var(--cream-2); border-radius: 999px; padding: 4px;
+  border: 1px solid var(--line);
+}
+.mode-toggle button {
+  border: 0; background: transparent; border-radius: 999px;
+  padding: 7px 16px; font-family: var(--font); font-size: 14px; font-weight: 700;
+  color: var(--muted); cursor: pointer;
+}
+.mode-toggle button.active { background: var(--green-800); color: #fff; }
+
+/* ---------- Layout ---------- */
+.screen { padding: 8px 16px 16px; animation: fadeUp .25s ease; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none;} }
+
+.card {
+  background: var(--card); border-radius: var(--radius);
+  padding: 18px; margin: 12px 0; box-shadow: var(--shadow);
+  border: 1px solid var(--line);
+}
+.card.dark {
+  background: linear-gradient(160deg, var(--green-800), var(--green-950));
+  color: #fff; border: 0;
+}
+.card.dark .muted { color: #bcd2c6; }
+.section-title { font-size: 17px; font-weight: 800; margin: 18px 4px 4px; }
+.muted { color: var(--muted); font-size: 13px; }
+
+/* ---------- Balance / hero cards ---------- */
+.balance-card { position: relative; overflow: hidden; }
+.balance-top { display: flex; justify-content: space-between; align-items: flex-start; }
+.balance-label { font-size: 14px; color: #cfe0d6; }
+.balance-amount { font-size: 44px; font-weight: 800; margin: 2px 0 10px; letter-spacing: -1px; }
+.money-cols { display: flex; border-top: 1px solid rgba(255,255,255,.18); padding-top: 12px; }
+.money-col { flex: 1; text-align: center; }
+.money-col + .money-col { border-right: 1px solid rgba(255,255,255,.18); }
+.money-col .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-left: 6px; }
+.money-col .lbl { font-size: 12px; color: #cfe0d6; }
+.money-col .val { font-size: 17px; font-weight: 800; }
+/* light-card variant of the money columns */
+.card:not(.dark) .money-cols { border-top-color: var(--line); }
+.card:not(.dark) .money-col + .money-col { border-right-color: var(--line); }
+.card:not(.dark) .money-col .lbl { color: var(--muted); }
+.add-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.5); background: rgba(255,255,255,.12);
+  color: #fff; font-size: 26px; line-height: 1; cursor: pointer;
+}
+
+/* ---------- Kids avatar hero ---------- */
+.avatar-hero { text-align: center; position: relative; overflow: hidden; }
+.points-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25);
+  padding: 6px 16px; border-radius: 999px; font-weight: 800; font-size: 14px;
+}
+.pig-wrap {
+  width: 150px; height: 150px; margin: 10px auto 4px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 84px; background: rgba(255,255,255,.08);
+  border: 4px solid var(--avatar-ring, #7fb069);
+  box-shadow: 0 0 0 8px rgba(255,255,255,.06), 0 0 34px var(--avatar-ring, #7fb069);
+  position: relative;
+}
+.pig-badge {
+  position: absolute; bottom: 2px; left: 6px; font-size: 34px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.4));
+}
+.avatar-name { font-size: 13px; color: #cfe0d6; margin-top: 6px; }
+.avatar-level { font-size: 26px; font-weight: 800; margin: 2px 0 8px; }
+.progress { height: 10px; background: rgba(255,255,255,.18); border-radius: 999px; overflow: hidden; margin: 0 26px; }
+.progress > i { display: block; height: 100%; background: linear-gradient(90deg, var(--yellow), var(--gold)); border-radius: 999px; transition: width .4s; }
+.progress.light { background: var(--cream-2); }
+.progress-note { font-size: 12px; color: #cfe0d6; margin-top: 6px; }
+
+/* ---------- Goal ring ---------- */
+.goal-row { display: flex; align-items: center; gap: 16px; }
+.ring {
+  width: 76px; height: 76px; border-radius: 50%; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 17px; color: var(--ink);
+  background: conic-gradient(var(--green-600) var(--pct, 0%), var(--cream-2) 0);
+}
+.card.dark .ring {
+  color: #fff;
+  background: conic-gradient(var(--green-600) var(--pct, 0%), rgba(255,255,255,.18) 0);
+}
+
+/* ---------- Lists ---------- */
+.row-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 4px; border-bottom: 1px solid var(--line);
+}
+.row-item:last-child { border-bottom: 0; }
+.row-item .grow { flex: 1; }
+.row-item .sub { font-size: 12px; color: var(--muted); }
+.icon-badge {
+  width: 44px; height: 44px; border-radius: 14px; flex: none;
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+  background: var(--cream-2);
+}
+
+/* ---------- Buttons / forms ---------- */
+.btn {
+  display: inline-block; border: 0; cursor: pointer; font-family: var(--font);
+  background: var(--green-800); color: #fff; font-weight: 800; font-size: 15px;
+  padding: 12px 22px; border-radius: 14px; width: 100%; margin-top: 8px;
+}
+.btn.secondary { background: var(--cream-2); color: var(--ink); border: 1px solid var(--line); }
+.btn.warn { background: var(--red); }
+.btn.small { width: auto; padding: 8px 16px; font-size: 13px; margin-top: 0; }
+.btn:disabled { opacity: .5; cursor: default; }
+.chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+.chip {
+  border: 1.5px solid var(--green-700); color: var(--green-700);
+  background: transparent; border-radius: 999px; padding: 8px 14px;
+  font-family: var(--font); font-size: 13px; font-weight: 700; cursor: pointer;
+}
+[data-theme="dark"] .chip { color: #9fd4b8; border-color: #2c5a48; }
+.chip.active { background: var(--green-800); color: #fff; border-color: var(--green-800); }
+
+.field { margin: 10px 0; }
+.field label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 4px; color: var(--ink-soft); }
+.field input, .field select, .field textarea {
+  width: 100%; font-family: var(--font); font-size: 15px;
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px;
+  background: var(--card); color: var(--ink);
+}
+.split-3 { display: flex; gap: 8px; }
+.split-3 .field { flex: 1; }
+
+/* ---------- Modal ---------- */
+.modal-back {
+  position: fixed; inset: 0; background: rgba(8, 42, 33, .55);
+  display: flex; align-items: flex-end; justify-content: center; z-index: 50;
+  animation: fadeUp .2s ease;
+}
+.modal {
+  background: var(--card); color: var(--ink);
+  border-radius: 24px 24px 0 0; padding: 20px 18px 28px;
+  width: 100%; max-width: 480px; max-height: 88vh; overflow-y: auto;
+}
+.modal h3 { margin: 0 0 8px; font-size: 19px; }
+
+/* ---------- Bottom nav ---------- */
+.bottom-nav {
+  position: fixed; bottom: 12px; right: 50%; transform: translateX(50%);
+  width: min(440px, calc(100% - 32px));
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 26px; box-shadow: var(--shadow);
+  display: flex; padding: 8px 4px; z-index: 40;
+}
+.bottom-nav button {
+  flex: 1; border: 0; background: transparent; cursor: pointer;
+  font-family: var(--font); color: var(--muted);
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  font-size: 11px; font-weight: 700; padding: 6px 0;
+  border-radius: 18px;
+}
+.bottom-nav button .ico { font-size: 21px; }
+.bottom-nav button.active { color: var(--green-800); background: var(--cream-2); }
+[data-theme="dark"] .bottom-nav button.active { color: #9fd4b8; }
+
+/* ---------- Chat ---------- */
+.chat-box {
+  background: var(--cream-2); border-radius: 18px; padding: 14px;
+  max-height: 340px; overflow-y: auto; margin: 10px 0;
+}
+.msg { max-width: 88%; padding: 10px 14px; border-radius: 16px; margin: 8px 0; font-size: 14px; line-height: 1.55; }
+.msg.bot { background: var(--card); border: 1px solid var(--line); border-bottom-right-radius: 4px; margin-inline-end: auto; }
+.msg.user { background: var(--green-800); color: #fff; border-bottom-left-radius: 4px; margin-inline-start: auto; }
+.chat-input-row { display: flex; gap: 8px; }
+.chat-input-row input { flex: 1; }
+.chat-input-row .btn { width: auto; margin-top: 0; padding: 10px 16px; }
+
+/* ---------- Tip card ---------- */
+.tip-card {
+  background: linear-gradient(135deg, #f7c948, #f0ad3a);
+  color: #4a3205; border-radius: var(--radius); padding: 18px; margin: 12px 0;
+  box-shadow: var(--shadow); position: relative;
+}
+.tip-card .tip-head { display: flex; justify-content: space-between; align-items: center; font-weight: 800; font-size: 14px; }
+.tip-card p { margin: 8px 0 0; font-size: 15px; line-height: 1.6; font-weight: 600; }
+
+/* ---------- Lock / upgrade ---------- */
+.lock-wrap { text-align: center; padding: 30px 10px; }
+.lock-wrap .big { font-size: 56px; }
+.upgrade-card { border: 2px dashed var(--gold); }
+
+/* ---------- Misc ---------- */
+.empty { text-align: center; color: var(--muted); padding: 18px 8px; font-size: 14px; }
+.pill {
+  display: inline-block; font-size: 12px; font-weight: 800;
+  background: var(--cream-2); border: 1px solid var(--line);
+  padding: 4px 12px; border-radius: 999px; color: var(--ink-soft);
+}
+.pill.green { background: #e3f2e6; color: #1d6b52; border-color: #bfe3c9; }
+[data-theme="dark"] .pill.green { background: #14332a; color: #9fd4b8; }
+.pill.gold { background: #fdf3d7; color: #8a5b00; border-color: #f2d98c; }
+.kv { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
+.toast {
+  position: fixed; bottom: calc(var(--nav-h) + 20px); right: 50%; transform: translateX(50%);
+  background: var(--green-900); color: #fff; padding: 12px 22px; border-radius: 14px;
+  font-weight: 700; font-size: 14px; z-index: 99; box-shadow: var(--shadow);
+  animation: fadeUp .25s ease; max-width: calc(100% - 40px); text-align: center;
+}
+.demo-note {
+  background: var(--yellow-soft); border: 1px solid var(--yellow);
+  border-radius: 12px; padding: 10px 14px; font-size: 12.5px; margin: 10px 0; line-height: 1.6;
+}
+details.howto { margin: 8px 0; font-size: 13px; color: var(--muted); }
+details.howto summary { cursor: pointer; font-weight: 700; }
+
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <noscript><p style="text-align:center;padding:40px">PiggyUp דורשת JavaScript פעיל בדפדפן.</p></noscript>
+  <script>
+/* ============================================================
+   PiggyUp — static rebuild: data, content & pure logic helpers
+   No DOM usage here — safe to unit-test in Node.
+   ============================================================ */
+"use strict";
+
+const PIGGY = {};
+
+/* ---------- Avatar levels (4 stages by points) ---------- */
+PIGGY.LEVELS = [
+  { min: 0,   name: "חבר חדש",      badge: "",   ring: "#7fb069" },
+  { min: 60,  name: "חוסכת צעירה",   badge: "🌱", ring: "#4caf7d" },
+  { min: 150, name: "כוכבת החיסכון", badge: "⭐", ring: "#f5c542" },
+  { min: 300, name: "אלופת החיסכון", badge: "👑", ring: "#e4574f" },
+];
+
+PIGGY.avatarLevelFor = function (points) {
+  let idx = 0;
+  for (let i = 0; i < PIGGY.LEVELS.length; i++) {
+    if (points >= PIGGY.LEVELS[i].min) idx = i;
+  }
+  const level = PIGGY.LEVELS[idx];
+  const next = PIGGY.LEVELS[idx + 1] || null;
+  return {
+    index: idx,
+    name: level.name,
+    badge: level.badge,
+    ring: level.ring,
+    pointsToNext: next ? next.min - points : 0,
+    progressPct: next
+      ? Math.round(((points - level.min) / (next.min - level.min)) * 100)
+      : 100,
+    isMax: !next,
+  };
+};
+
+/* ---------- Daily tips (rotated by date) ---------- */
+PIGGY.TIPS = [
+  "כשהילד מקבל כסף — חלקו אותו מיד לשלוש קופות: חיסכון, השקעה והוצאות. הפעולה החזרתית הופכת רעיון להרגל.",
+  "תני לילד להחזיק שטרות ומטבעות אמיתיים. מגע פיזי עם כסף בונה הבנה טובה יותר ממספרים על מסך.",
+  "קבעי 'יום תקציב' שבועי קצר: 10 דקות שבהן עוברים יחד על מה נכנס ומה יצא.",
+  "כשהילד רוצה לקנות משהו בדחף — הציעי 'חוק 48 השעות': מחכים יומיים, ואם עדיין רוצים — קונים.",
+  "שאלי 'זה רצון או צורך?' לפני כל קנייה. השאלה הקטנה הזו בונה שריר חשיבה.",
+  "תני דוגמה אישית: ספרי לילד על משהו שויתרת עליו כדי לחסוך. ילדים לומדים מחיקוי.",
+  "הגדירו יעד חיסכון אחד קטן ומוחשי — לא 'לחסוך', אלא 'לחסוך 80 ש״ח למשחק'.",
+  "חגגו כל אבן דרך: 25%, 50%, 75% מהיעד. ההתקדמות הנראית מניעה יותר מהיעד עצמו.",
+  "אל תחלצי את הילד כשהכסף נגמר באמצע השבוע — זו ההזדמנות הכי טובה ללמוד תכנון.",
+  "למדי את ההבדל בין 'יקר' ל'לא משתלם': מוצר זול שמתקלקל מהר עולה יותר.",
+  "שחקו 'חנות' בבית עם מחירים אמיתיים — הילד לומד עודף, תקציב ובחירה.",
+  "הסבירי מהי ריבית דריבית במשפט אחד: 'כסף שחוסכים יכול לעבוד ולייצר עוד כסף'.",
+  "תני לילד להשוות מחירים בסופר — מי מוצא את אותו המוצר בזול יותר?",
+  "כתבו יחד 'רשימת משאלות' במקום לקנות מיד. רוב הפריטים יישכחו תוך שבוע.",
+  "דמי כיס קבועים מלמדים תכנון; דמי כיס אקראיים מלמדים לבקש.",
+  "אפשרי לילד להרוויח תוספת דרך משימות — הקשר בין מאמץ לכסף הוא שיעור חיים.",
+  "למדי לתת: קופה רביעית קטנה לצדקה מלמדת שכסף הוא גם כלי לעזור.",
+  "כשהילד טועה עם כסף — אל תנזפי. שאלי: 'מה למדת? מה תעשי אחרת בפעם הבאה?'",
+  "הראי לילד קבלה מהסופר והסבירי לאן הולך הכסף של המשפחה.",
+  "שחקו 'מה היית קונה ב-100 ש״ח?' — משחק דמיון שמפתח סדרי עדיפויות.",
+  "למדי לחכות למבצעים: 'אם זה לא דחוף, נחכה שירד המחיר'.",
+  "תני לילד לנהל תקציב קטן לאירוע משפחתי — אחריות אמיתית בונה ביטחון.",
+  "הסבירי פרסומות: 'הם רוצים שתקני. תחליטי את אם זה באמת שווה'.",
+  "עודדי חיסכון אוטומטי: חלק קבוע מדמי הכיס עובר מיד לחיסכון.",
+  "שאלי בסוף כל שבוע: 'על מה את הכי גאה השבוע בניהול הכסף שלך?'",
+  "למדי את המושג 'תקציב' כמשחק: מעטפה לכל קטגוריה, וכשהמעטפה ריקה — עוצרים.",
+  "הראי שהמתנה משתלמת: חפשו יחד איך אותו מוצר עולה פחות בעוד חודש.",
+  "תני לילד לבחור בין שתי אפשרויות באותו תקציב — בחירה מלמדת ויתור.",
+  "סכמי חודש בטבלה פשוטה: כמה נכנס, כמה יצא, כמה נחסך. שקיפות בונה אמון.",
+  "זכרי: המטרה היא לא ילד חסכן — אלא ילד שיודע לקבל החלטות מודעות עם כסף.",
+];
+
+PIGGY.dailyTipFor = function (date) {
+  const d = date instanceof Date ? date : new Date(date);
+  const start = new Date(d.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor((d - start) / 86400000);
+  return PIGGY.TIPS[dayOfYear % PIGGY.TIPS.length];
+};
+
+/* ---------- Weekly games (pool of 12, set of 4 rotates by ISO week) ---------- */
+PIGGY.GAMES = [
+  { id: "g1",  icon: "🏪", name: "חנות הבית", ages: "4–8", duration: "20 דקות",
+    desc: "הקימו חנות בסלון עם מוצרים אמיתיים ותגי מחיר. הילד מקבל תקציב מוגבל וצריך לבחור מה לקנות.",
+    debrief: "מה היה קשה לבחור? על מה ויתרת ולמה?" },
+  { id: "g2",  icon: "🍳", name: "מסעדת השף הקטן", ages: "5–9", duration: "30 דקות",
+    desc: "הילד מכין תפריט עם מחירים, את מזמינה מנות, והוא מחשב את החשבון והעודף.",
+    debrief: "איך קבעת את המחירים? מה היה קורה אם המחירים היו גבוהים מדי?" },
+  { id: "g3",  icon: "🪙", name: "ציד המטבעות", ages: "4–7", duration: "15 דקות",
+    desc: "החביאו מטבעות בבית. כל מטבע שנמצא — הילד מחליט: לחיסכון, להשקעה או לבזבוז.",
+    debrief: "לאן הלך רוב הכסף? למה בחרת ככה?" },
+  { id: "g4",  icon: "🏦", name: "הבנק המשפחתי", ages: "6–12", duration: "שבוע",
+    desc: "פתחו 'בנק' ביתי: הילד מפקיד חיסכון, ואת נותנת 'ריבית' של 10% בסוף השבוע.",
+    debrief: "כמה הרווחת מהריבית? מה היה קורה אם היית מפקידה יותר?" },
+  { id: "g5",  icon: "🧸", name: "שוק הפשפשים", ages: "5–10", duration: "40 דקות",
+    desc: "הילד בוחר צעצועים שהוא כבר לא צריך, מתמחר אותם ו'מוכר' לבני המשפחה.",
+    debrief: "איך הרגשת למכור? מה למדת על ערך של דברים?" },
+  { id: "g6",  icon: "🎉", name: "תכנון מסיבה", ages: "7–12", duration: "45 דקות",
+    desc: "תנו לילד תקציב אמיתי לתכנון מסיבה או ארוחה משפחתית — הוא מחליט על מה מוציאים.",
+    debrief: "איפה חסכת? על מה החלטת לא לוותר?" },
+  { id: "g7",  icon: "🃏", name: "משחק הזיכרון הכספי", ages: "6–10", duration: "20 דקות",
+    desc: "כרטיסי זיכרון עם זוגות: מוצר מול מחירו. מי שזוכר יותר זוגות — מנצח.",
+    debrief: "איזה מחירים הפתיעו אותך?" },
+  { id: "g8",  icon: "🛒", name: "סופרמרקט בתקציב", ages: "8–12", duration: "30 דקות",
+    desc: "בקנייה הבאה תני לילד רשימה ותקציב — הוא אחראי לא לחרוג.",
+    debrief: "איפה מצאת דרך לחסוך? מה היה הכי קשה?" },
+  { id: "g9",  icon: "🌟", name: "קופת החלומות", ages: "4–9", duration: "15 דקות",
+    desc: "מקשטים קופה יחד וכותבים עליה את היעד. כל הפקדה מלווה בציור של ההתקדמות.",
+    debrief: "איך זה מרגיש לראות את הקופה מתמלאת?" },
+  { id: "g10", icon: "🎨", name: "מכירה פומבית", ages: "7–12", duration: "25 דקות",
+    desc: "מכירה פומבית ביתית על ציורים או יצירות של הילד — בני המשפחה מציעים מחיר.",
+    debrief: "למה אנשים היו מוכנים לשלם יותר על יצירה מסוימת?" },
+  { id: "g11", icon: "📅", name: "אתגר 7 הימים", ages: "6–12", duration: "שבוע",
+    desc: "אתגר: שבוע שלם בלי קניית דחף. כל יום שעובר מסמנים ביומן — בסוף יש פרס.",
+    debrief: "באיזה יום היה הכי קשה? מה עזר לך להתאפק?" },
+  { id: "g12", icon: "📈", name: "משקיעים קטנים", ages: "9–12", duration: "30 דקות",
+    desc: "בחרו יחד 'מניה' דמיונית (למשל חברת ממתקים) ועקבו שבוע אחרי 'המחיר' שלה.",
+    debrief: "למה המחיר עלה או ירד? מה זה אומר על סיכון?" },
+];
+
+PIGGY.isoWeekNumber = function (date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
+};
+
+PIGGY.weeklyGamesFor = function (date) {
+  const d = date instanceof Date ? date : new Date(date);
+  const week = PIGGY.isoWeekNumber(d);
+  const year = d.getFullYear();
+  const setIndex = (week * 4) % PIGGY.GAMES.length;
+  const games = [];
+  for (let i = 0; i < 4; i++) games.push(PIGGY.GAMES[(setIndex + i) % PIGGY.GAMES.length]);
+  // next set opens next Monday
+  const next = new Date(d);
+  const dow = (d.getDay() + 6) % 7; // 0 = Monday
+  next.setDate(d.getDate() + (7 - dow));
+  return { week, year, games, nextSetDate: next };
+};
+
+/* ---------- Parent chatbot: rule-based decision tree (feminine Hebrew) ---------- */
+PIGGY.CHAT_TOPICS = [
+  { id: "talk",   label: "איך מתחילים לדבר על כסף?" },
+  { id: "saving", label: "איך בונים הרגל חיסכון?" },
+  { id: "delay",  label: "איך מלמדים לדחות קנייה?" },
+  { id: "pocket", label: "דמי כיס — מאיפה מתחילים?" },
+];
+
+PIGGY.CHAT_NODES = {
+  start: {
+    text: "היי! אני המדריכה הפיננסית שלך 🌟 אעזור לך צעד-אחר-צעד ללמד את הילד לנהל כסף נכון. מאיפה מתחילים?",
+    options: "topics",
+  },
+  talk_1: {
+    text: "נהדר שבחרת להתחיל משיחה! 💬 שלב 1: תני לילד להחזיק כסף אמיתי ביד — שטרות ומטבעות. שאלי אותו מה הוא חושב שכסף עושה.",
+    options: [{ label: "המשך לשלב 2 ←", next: "talk_2" }],
+  },
+  talk_2: {
+    text: "שלב 2: שאלי שאלה פתוחה — 'אם היה לך 50 ש״ח, מה היית עושה איתם?' הקשיבי בלי לשפוט ובלי לתקן. המטרה היא להבין איך הוא חושב.",
+    options: [{ label: "המשך לשלב 3 ←", next: "talk_3" }],
+  },
+  talk_3: {
+    text: "שלב 3: הסבירי במילים פשוטות את שלוש הקופות — חיסכון, השקעה והוצאות. הראי לו אותן באפליקציה. סיימת את השלב הראשון! 🎉 רוצה להמשיך לנושא הבא?",
+    options: "topics",
+  },
+  saving_1: {
+    text: "בניית הרגל חיסכון מתחילה ביעד אחד קטן ומוחשי 🎯 לא 'לחסוך', אלא 'לחסוך 80 ש״ח למשחק'. בחרו אותו יחד עכשיו.",
+    options: [{ label: "בחרנו יעד, מה הלאה? ←", next: "saving_2" }],
+  },
+  saving_2: {
+    text: "שלב 2 — הכלל הזהב: קודם חוסכים, אחר כך מבזבזים. כל סכום שהילד מקבל — חלקו מיד: למשל 50% לחיסכון, 30% להוצאות, 20% להשקעה.",
+    options: [{ label: "המשך לשלב 3 ←", next: "saving_3" }],
+  },
+  saving_3: {
+    text: "שלב 3: עקבו יחד אחרי ההתקדמות באפליקציה. כל עדכון באחוזים הוא סיבה לחגיגה קטנה 🎉 הרגל נבנה מחזרתיות, לא מנאומים.",
+    options: "topics",
+  },
+  delay_1: {
+    text: "הכירי את 'חוק 48 השעות' ⏳ כשהילד רוצה משהו בדחף — מחכים יומיים. אם אחרי יומיים הוא עדיין רוצה — קונים. רוב החשקים נעלמים.",
+    options: [{ label: "נשמע טוב, מה עוד? ←", next: "delay_2" }],
+  },
+  delay_2: {
+    text: "שלב 2: למדי את שאלת הקסם — 'זה רצון או צורך?' תרגלו אותה יחד לפני כל קנייה, גם שלך. היא הופכת מהר להרגל.",
+    options: [{ label: "המשך לשלב 3 ←", next: "delay_3" }],
+  },
+  delay_3: {
+    text: "שלב 3: תני דוגמה אישית מחייך — 'גם אני רציתי לקנות X והחלטתי לחכות'. ילדים לומדים מחיקוי הרבה יותר מהטפות. 💛",
+    options: "topics",
+  },
+  pocket_1: {
+    text: "דמי כיס הם כלי הלימוד הכי טוב 💰 שלב 1: התחילי בסכום קטן וקבוע — למשל 20–30 ש״ח בשבוע, ביום קבוע.",
+    options: [{ label: "המשך לשלב 2 ←", next: "pocket_2" }],
+  },
+  pocket_2: {
+    text: "שלב 2: קבעי כלל ברזל — דמי הכיס לא מתחדשים באמצע השבוע. נגמר? מחכים לשבוע הבא. זה השיעור הכי חשוב בתכנון.",
+    options: [{ label: "המשך לשלב 3 ←", next: "pocket_3" }],
+  },
+  pocket_3: {
+    text: "שלב 3: אפשרי להרוויח תוספת דרך משימות באפליקציה ✅ הקשר בין מאמץ לכסף הוא שיעור חיים. בהצלחה!",
+    options: "topics",
+  },
+};
+
+PIGGY.CHAT_KEYWORDS = [
+  { keys: ["דמי כיס", "דמי הכיס", "כיס"], node: "pocket_1" },
+  { keys: ["חיסכון", "לחסוך", "חוסך", "קופה"], node: "saving_1" },
+  { keys: ["דחף", "דחיית", "לדחות", "קנייה", "קניה", "רוצה לקנות"], node: "delay_1" },
+  { keys: ["לדבר", "שיחה", "להתחיל", "מאיפה"], node: "talk_1" },
+  { keys: ["משחק"], node: "games_hint" },
+];
+
+PIGGY.chatReplyFor = function (freeText) {
+  const t = (freeText || "").trim();
+  for (const entry of PIGGY.CHAT_KEYWORDS) {
+    if (entry.keys.some((k) => t.includes(k))) return entry.node;
+  }
+  return null;
+};
+
+/* ---------- Subscription / trial logic ---------- */
+PIGGY.TRIAL_MS = 7 * 24 * 3600 * 1000;
+
+PIGGY.trialStatus = function (sub, nowTs) {
+  const now = nowTs || Date.now();
+  if (!sub || !sub.trialStart) return { state: "none", daysLeft: 0 };
+  if (sub.plan === "premium") return { state: "premium", daysLeft: 0 };
+  const elapsed = now - sub.trialStart;
+  if (elapsed < PIGGY.TRIAL_MS) {
+    const daysLeft = Math.ceil((PIGGY.TRIAL_MS - elapsed) / 86400000);
+    return { state: "trial", daysLeft };
+  }
+  return { state: "expired", daysLeft: 0 };
+};
+
+PIGGY.hasGuidanceAccess = function (sub, nowTs) {
+  const s = PIGGY.trialStatus(sub, nowTs);
+  return s.state === "trial" || s.state === "premium";
+};
+
+PIGGY.priceForNextSubscriber = function (subsCount) {
+  return subsCount < 10 ? 19 : 29;
+};
+
+/* Node export for tests */
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = PIGGY;
+}
+
+</script>
+  <script>
+/* ============================================================
+   PiggyUp — static rebuild · app logic (localStorage only)
+   ============================================================ */
+"use strict";
+
+const LS_KEY = "piggyup_v1";
+
+/* ---------------- state ---------------- */
+function defaultState() {
+  return {
+    v: 1,
+    mode: "parent",
+    tab: "home",
+    children: [],
+    activeChildId: null,
+    goals: [],
+    tasks: [],
+    activity: [],
+    sub: { trialStart: null, plan: "none", subs: 0 },
+    dark: false,
+  };
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return defaultState();
+    const s = JSON.parse(raw);
+    return Object.assign(defaultState(), s);
+  } catch (e) {
+    return defaultState();
+  }
+}
+
+let S = loadState();
+function save() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(S)); } catch (e) {}
+}
+
+/* ---------------- helpers ---------------- */
+function uid() {
+  return "id" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+}
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function money(n) {
+  const v = Number(n) || 0;
+  return v.toFixed(2) + "₪";
+}
+function fmtDate(ts) {
+  const d = new Date(ts);
+  return d.toLocaleDateString("he-IL", { day: "numeric", month: "long" }) +
+    ", " + d.toLocaleTimeString("he-IL", { hour: "2-digit", minute: "2-digit" });
+}
+function fmtDay(ts) {
+  return new Date(ts).toLocaleDateString("he-IL", { weekday: "long", day: "numeric", month: "long" });
+}
+function activeChild() {
+  return S.children.find((c) => c.id === S.activeChildId) || null;
+}
+function childGoals(childId) {
+  return S.goals.filter((g) => g.childId === childId);
+}
+function childTasks(childId, status) {
+  let t = S.tasks.filter((t) => !childId || t.childId === childId);
+  if (status) t = t.filter((t) => t.status === status);
+  return t.sort((a, b) => b.created - a.created);
+}
+function logActivity(text) {
+  S.activity.unshift({ ts: Date.now(), text });
+  S.activity = S.activity.slice(0, 40);
+}
+function toast(msg) {
+  const old = document.querySelector(".toast");
+  if (old) old.remove();
+  const el = document.createElement("div");
+  el.className = "toast";
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 2600);
+}
+function trialInfo() {
+  return PIGGY.trialStatus(S.sub, Date.now());
+}
+function canAccessGuidance() {
+  return PIGGY.hasGuidanceAccess(S.sub, Date.now());
+}
+
+/* ---------------- header / nav ---------------- */
+const PARENT_TABS = [
+  { id: "home",   label: "בית",     icon: "🏠" },
+  { id: "guide",  label: "ליווי",   icon: "💬" },
+  { id: "games",  label: "משחקים", icon: "🎮" },
+  { id: "tasks",  label: "משימות", icon: "✓" },
+  { id: "manage", label: "ניהול",   icon: "⚙️" },
+];
+const KIDS_TABS = [
+  { id: "home",  label: "בית",     icon: "🏠" },
+  { id: "tasks", label: "משימות", icon: "✓" },
+  { id: "games", label: "משחקים", icon: "🎮" },
+];
+
+function renderHeader() {
+  const child = activeChild();
+  const name = child ? esc(child.name) : "המשפחה שלך";
+  return `
+  <header class="app-header">
+    <div>
+      <div class="family-label">המשפחה שלך</div>
+      <h1 class="family-name">${name}</h1>
+    </div>
+    <div class="mode-toggle" role="tablist" aria-label="מצב תצוגה">
+      <button class="${S.mode === "parent" ? "active" : ""}" onclick="A.setMode('parent')">הורה</button>
+      <button class="${S.mode === "kids" ? "active" : ""}" onclick="A.setMode('kids')">ילדים</button>
+    </div>
+  </header>`;
+}
+
+function renderNav() {
+  const tabs = S.mode === "parent" ? PARENT_TABS : KIDS_TABS;
+  return `<nav class="bottom-nav">` + tabs.map((t) =>
+    `<button class="${S.tab === t.id ? "active" : ""}" onclick="A.go('${t.id}')">
+       <span class="ico">${t.icon}</span><span>${t.label}</span>
+     </button>`
+  ).join("") + `</nav>`;
+}
+
+/* ---------------- shared bits ---------------- */
+function moneyCols(m) {
+  return `
+  <div class="money-cols">
+    <div class="money-col"><div class="lbl"><span class="dot" style="background:#7fb069"></span>חיסכון</div><div class="val">${money(m.save)}</div></div>
+    <div class="money-col"><div class="lbl"><span class="dot" style="background:#e8a13d"></span>השקעה</div><div class="val">${money(m.invest)}</div></div>
+    <div class="money-col"><div class="lbl"><span class="dot" style="background:#e4574f"></span>${S.mode === "kids" ? "לבזבוז" : "הוצאות"}</div><div class="val">${money(m.spend)}</div></div>
+  </div>`;
+}
+
+function goalCard(child) {
+  const goals = childGoals(child.id);
+  const g = goals[0];
+  if (!g) {
+    return `<div class="card">
+      <div class="section-title" style="margin-top:0">היעד הבא</div>
+      <p class="muted">עוד לא נבחר יעד. אפשר להגדיר יעד במסך הניהול ולראות כל הפקדה מקרבת אליו.</p>
+      ${S.mode === "parent" ? `<button class="btn secondary" onclick="A.go('manage')">להגדרת יעד ←</button>` : ""}
+    </div>`;
+  }
+  const pct = g.target > 0 ? Math.min(100, Math.round((g.saved / g.target) * 100)) : 0;
+  return `<div class="card">
+    <div class="section-title" style="margin-top:0">${S.mode === "kids" ? "היעד שלי" : "היעד הבא"}</div>
+    <div class="goal-row">
+      <div class="ring" style="--pct:${pct}%"><span>${pct}%</span></div>
+      <div class="grow">
+        <div style="font-weight:800;font-size:16px">${esc(g.title)}</div>
+        <div class="muted">${money(g.saved)} מתוך ${money(g.target)}</div>
+        ${S.mode === "parent" ? `<button class="btn small" style="margin-top:8px" onclick="A.openDeposit('${g.id}')">הפקדה ליעד</button>` : ""}
+      </div>
+    </div>
+  </div>`;
+}
+
+function lockScreen(title) {
+  const t = trialInfo();
+  const subLine = t.state === "expired"
+    ? "תקופת הניסיון החינמית הסתיימה."
+    : "כלי הליווי פתוחים בשבוע הניסיון החינמי ובמנוי בלבד.";
+  return `<div class="screen"><div class="card upgrade-card"><div class="lock-wrap">
+    <div class="big">🔒</div>
+    <h3>${title}</h3>
+    <p class="muted">${subLine}<br>הצטרפי למנוי כדי לפתוח את הטיפ היומי, המדריכה הפיננסית ורעיונות המשחקים.</p>
+    <button class="btn" onclick="A.openSubscription()">למסך המנוי ←</button>
+  </div></div></div>`;
+}
+
+/* ---------------- PARENT: home ---------------- */
+function parentHome() {
+  const child = activeChild();
+  if (!child) return noChildScreen();
+  const goals = childGoals(child.id);
+  const pending = childTasks(child.id, "pending");
+  const total = child.money.save + child.money.invest + child.money.spend;
+
+  const chips = S.children.length > 1
+    ? `<div class="chip-row">` + S.children.map((c) =>
+        `<button class="chip ${c.id === child.id ? "active" : ""}" onclick="A.selectChild('${c.id}')">${esc(c.name)}</button>`
+      ).join("") + `</div>` : "";
+
+  const pendHtml = pending.length === 0
+    ? `<div class="empty">אין כרגע משימות שמחכות לאישור.</div>`
+    : pending.map((t) => `
+      <div class="row-item">
+        <div class="icon-badge">⏳</div>
+        <div class="grow"><div style="font-weight:700">${esc(t.title)}</div>
+        <div class="sub">${esc(child.name)} · ${t.points} נקודות</div></div>
+        <button class="btn small" onclick="A.approveTask('${t.id}')">אשר</button>
+      </div>`).join("");
+
+  const actHtml = S.activity.length === 0
+    ? `<div class="empty">כאן יופיעו עדכונים על הפעילות של הילדים.</div>`
+    : S.activity.slice(0, 8).map((a) => `
+      <div class="row-item">
+        <div class="icon-badge">🧾</div>
+        <div class="grow"><div style="font-size:14px">${esc(a.text)}</div>
+        <div class="sub">${fmtDate(a.ts)}</div></div>
+      </div>`).join("");
+
+  return `<div class="screen">
+    ${chips}
+    <div class="card dark balance-card">
+      <div class="balance-top">
+        <div><div class="balance-label">היתרה של ${esc(child.name)}</div>
+        <div class="balance-amount">${money(total)}</div></div>
+        <button class="add-btn" onclick="A.openAddMoney('${child.id}')" aria-label="הוספת כסף">+</button>
+      </div>
+      ${moneyCols(child.money)}
+    </div>
+    ${goalCard(child)}
+    <div class="section-title">מחכה לאישור</div>
+    <div class="card" style="margin-top:6px">${pendHtml}</div>
+    <div class="section-title">מה קרה לאחרונה</div>
+    <div class="card" style="margin-top:6px">${actHtml}</div>
+  </div>`;
+}
+
+function noChildScreen() {
+  return `<div class="screen"><div class="card" style="text-align:center;padding:34px 18px">
+    <div style="font-size:56px">🐷</div>
+    <h3>ברוכה הבאה ל-PiggyUp!</h3>
+    <p class="muted">הוסיפי את הילד הראשון כדי להתחיל לחסוך, להגדיר יעדים ולצבור נקודות.</p>
+    <button class="btn" onclick="A.go('manage')">להוספת ילד ←</button>
+  </div></div>`;
+}
+
+/* ---------------- PARENT: guide (tip + chatbot + games teaser) ---------------- */
+let chatMsgs = [];
+let chatOptions = [];
+
+function chatFill(text) {
+  const child = activeChild();
+  return text.replace("{child}", child ? child.name : "הילד");
+}
+
+function parentGuide() {
+  if (!canAccessGuidance()) return lockScreen("ליווי להורה");
+  const t = trialInfo();
+  const pill = t.state === "premium"
+    ? `<span class="pill green">מנוי פעיל</span>`
+    : `<span class="pill gold">ניסיון: נותרו ${t.daysLeft} ימים</span>`;
+  const tip = PIGGY.dailyTipFor(new Date());
+
+  if (chatMsgs.length === 0) chatStart(true);
+
+  return `<div class="screen">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div class="muted">צעד אחד בכל פעם</div>
+      <h2 style="margin:2px 0">ליווי להורה</h2></div>
+      ${pill}
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-head"><span>הטיפ היומי ✨</span><span style="font-size:20px">💡</span></div>
+      <p>${esc(tip)}</p>
+    </div>
+
+    <div class="section-title">שיחה אישית</div>
+    <div class="card" style="margin-top:6px">
+      <div style="font-weight:800;font-size:16px">המדריכה הפיננסית</div>
+      <div class="muted">שאלי על מצב אמיתי עם ${esc(activeChild() ? activeChild().name : "הילד")}, וקבלי צעד-אחר-צעד לפעולה עכשיו בבית.</div>
+      <div class="chat-box" id="chatBox"></div>
+      <div class="chip-row" id="chatChips" style="margin-bottom:8px"></div>
+      <div class="chat-input-row">
+        <input id="chatInput" placeholder="למשל: היא רוצה לבזבז את כל דמי הכיס..." onkeydown="if(event.key==='Enter')A.chatSend()">
+        <button class="btn" onclick="A.chatSend()" aria-label="שליחה">←</button>
+      </div>
+    </div>
+
+    <div class="card dark" style="cursor:pointer" onclick="A.go('games')">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><div style="font-weight:800;font-size:17px">רעיונות למשחקים 🎮</div>
+        <div class="muted">4 משחקים שאפשר להתחיל בבית</div></div>
+        <div style="font-size:26px">←</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function chatStart(silent) {
+  chatMsgs = [];
+  chatOptions = [];
+  pushBot(PIGGY.CHAT_NODES.start.text);
+  showTopics();
+  if (!silent) renderChat();
+}
+function pushBot(text) { chatMsgs.push({ from: "bot", text: chatFill(text) }); }
+function pushUser(text) { chatMsgs.push({ from: "user", text }); }
+function showTopics() {
+  chatOptions = PIGGY.CHAT_TOPICS.map((t) => ({ label: t.label, next: t.id + "_1" }));
+}
+function chatGo(nodeId) {
+  const node = PIGGY.CHAT_NODES[nodeId];
+  if (!node) return;
+  if (nodeId === "games_hint") {
+    pushBot("בכיף! הכנתי לך 4 רעיונות למשחקים שמתחלפים כל שבוע 🎮 תמצאי אותם בלשונית 'משחקים' למטה.");
+    chatOptions = [{ label: "← בחזרה לנושאים", next: "__topics" }];
+    renderChat();
+    return;
+  }
+  pushBot(node.text);
+  if (node.options === "topics") showTopics();
+  else chatOptions = node.options.slice();
+  renderChat();
+}
+function renderChat() {
+  const box = document.getElementById("chatBox");
+  if (!box) return;
+  box.innerHTML = chatMsgs.map((m) =>
+    `<div class="msg ${m.from}">${esc(m.text)}</div>`).join("");
+  box.scrollTop = box.scrollHeight;
+  const chips = document.getElementById("chatChips");
+  if (chips) {
+    chips.innerHTML = chatOptions.map((o, i) =>
+      `<button class="chip" onclick="A.chatChoose(${i})">${esc(o.label)}</button>`).join("");
+  }
+}
+
+/* ---------------- PARENT: games ---------------- */
+function gamesListHtml() {
+  const wg = PIGGY.weeklyGamesFor(new Date());
+  const nextStr = wg.nextSetDate.toLocaleDateString("he-IL", { weekday: "long", day: "numeric", month: "long" });
+  return `
+    <div class="card"><div class="muted">סט השבוע · שבוע ${wg.week}</div>
+    <div class="muted" style="margin-top:4px">🗓️ הסט הבא נפתח ב${nextStr}</div></div>
+    ${wg.games.map((g) => `
+    <div class="card">
+      <div class="row-item" style="border:0;padding:0">
+        <div class="icon-badge" style="font-size:30px">${g.icon}</div>
+        <div class="grow">
+          <div style="font-weight:800;font-size:16px">${esc(g.name)}</div>
+          <div class="sub">גילאים ${esc(g.ages)} · ${esc(g.duration)}</div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.65;margin:10px 0 6px">${esc(g.desc)}</p>
+      <div class="demo-note" style="margin:4px 0 0">💬 שאלת סיכום: ${esc(g.debrief)}</div>
+    </div>`).join("")}`;
+}
+
+function parentGames() {
+  if (!canAccessGuidance()) return lockScreen("רעיונות למשחקים");
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">רעיונות למשחקים 🎮</h2>
+    <div class="muted">סט חדש של 4 משחקים נפתח כל שבוע</div>
+    ${gamesListHtml()}
+  </div>`;
+}
+
+/* ---------------- PARENT: tasks ---------------- */
+function parentTasks() {
+  const child = activeChild();
+  const pending = childTasks(child ? child.id : null, "pending");
+  const open = childTasks(child ? child.id : null, "open");
+  const done = childTasks(child ? child.id : null, "approved").slice(0, 10);
+
+  const taskRow = (t, actions) => {
+    const c = S.children.find((x) => x.id === t.childId);
+    return `<div class="row-item">
+      <div class="icon-badge">${t.status === "pending" ? "⏳" : t.status === "approved" ? "✅" : "📝"}</div>
+      <div class="grow"><div style="font-weight:700">${esc(t.title)}</div>
+      <div class="sub">${c ? esc(c.name) : ""} · ${t.points} נקודות</div></div>
+      ${actions || ""}
+    </div>`;
+  };
+
+  const childOpts = S.children.map((c) =>
+    `<option value="${c.id}" ${child && c.id === child.id ? "selected" : ""}>${esc(c.name)}</option>`).join("");
+
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">משימות</h2>
+    <div class="section-title">מחכות לאישור (${pending.length})</div>
+    <div class="card" style="margin-top:6px">
+      ${pending.length ? pending.map((t) => taskRow(t,
+        `<button class="btn small" onclick="A.approveTask('${t.id}')">אשר</button>`)).join("")
+        : `<div class="empty">אין משימות שמחכות לאישור.</div>`}
+    </div>
+    <div class="section-title">משימה חדשה</div>
+    <div class="card" style="margin-top:6px">
+      ${S.children.length === 0 ? `<div class="empty">הוסיפי קודם ילד במסך הניהול.</div>` : `
+      <div class="field"><label>ילד</label><select id="ntChild">${childOpts}</select></div>
+      <div class="field"><label>תיאור המשימה</label><input id="ntTitle" placeholder="למשל: לסדר את החדר"></div>
+      <div class="field"><label>נקודות</label><input id="ntPoints" type="number" min="1" value="10"></div>
+      <button class="btn" onclick="A.createTask()">הוספת משימה</button>`}
+    </div>
+    <div class="section-title">פתוחות (${open.length})</div>
+    <div class="card" style="margin-top:6px">
+      ${open.length ? open.map((t) => taskRow(t)).join("") : `<div class="empty">אין משימות פתוחות.</div>`}
+    </div>
+    ${done.length ? `<div class="section-title">אושרו לאחרונה</div>
+    <div class="card" style="margin-top:6px">${done.map((t) => taskRow(t)).join("")}</div>` : ""}
+  </div>`;
+}
+
+/* ---------------- PARENT: manage ---------------- */
+function parentManage() {
+  const t = trialInfo();
+  const price = PIGGY.priceForNextSubscriber(S.sub.subs);
+  let subHtml = "";
+  if (t.state === "premium") {
+    subHtml = `<div class="pill green">מנוי פעיל · ${S.sub.subs <= 10 ? "19₪" : "29₪"}/חודש</div>
+      <p class="muted">המנוי פעיל וכל כלי הליווי פתוחים.</p>`;
+  } else if (t.state === "trial") {
+    subHtml = `<div class="pill gold">שבוע ניסיון · נותרו ${t.daysLeft} ימים</div>
+      <p class="muted">בסוף הניסיון האפליקציה עוברת לגרסה בסיסית חינמית, וכלי הליווי יינעלו למנויים בלבד.</p>
+      <button class="btn" onclick="A.subscribe()">שדרוג למנוי · ${price}₪/חודש</button>
+      <div class="demo-note">הדגמה בלבד — לחיצה מפעילה את המנוי מקומית, <b>ללא חיוב כרטיס אשראי אמיתי</b>. חיבור סליקה אמיתי יתווסף בהמשך.</div>`;
+  } else if (t.state === "expired") {
+    subHtml = `<div class="pill">הניסיון הסתיים — גרסה בסיסית חינמית</div>
+      <p class="muted">כלי הליווי (טיפ יומי, מדריכה, משחקים) נעולים. שדרגי כדי לפתוח אותם.</p>
+      <button class="btn" onclick="A.subscribe()">שדרוג למנוי · ${price}₪/חודש</button>
+      <div class="demo-note">הדגמה בלבד — <b>ללא חיוב אמיתי</b>.</div>`;
+  } else {
+    subHtml = `<p class="muted">קבלי שבוע ראשון חינם עם גישה מלאה לכל כלי הליווי — ואחריו מעבר אוטומטי לגרסה בסיסית חינמית.</p>
+      <div class="kv"><span>מחיר השקה (10 ראשונים)</span><b>19₪/חודש</b></div>
+      <div class="kv"><span>מחיר רגיל</span><b>29₪/חודש</b></div>
+      <button class="btn" onclick="A.startTrial()">התחלת שבוע ניסיון חינם</button>`;
+  }
+
+  const kidsHtml = S.children.length === 0
+    ? `<div class="empty">עוד לא נוספו ילדים.</div>`
+    : S.children.map((c) => {
+        const goals = childGoals(c.id);
+        const gl = goals.length ? goals.map((g) => {
+          const pct = g.target > 0 ? Math.min(100, Math.round((g.saved / g.target) * 100)) : 0;
+          return `<div class="kv"><span>${esc(g.title)} · ${money(g.saved)}/${money(g.target)} (${pct}%)</span>
+            <button class="btn small secondary" onclick="A.openDeposit('${g.id}')">הפקדה</button></div>`;
+        }).join("") : `<div class="empty">אין יעדים עדיין.</div>`;
+        return `<div class="card" style="margin-top:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <b style="font-size:16px">🐷 ${esc(c.name)}</b>
+            <span class="pill">${c.points} נקודות</span>
+          </div>
+          ${moneyCols(c.money)}
+          <div class="chip-row" style="margin-top:10px">
+            <button class="chip" onclick="A.openAddMoney('${c.id}')">+ הוספת כסף</button>
+            <button class="chip" onclick="A.openGoal('${c.id}')">+ יעד חדש</button>
+            <button class="chip" onclick="A.selectChild('${c.id}');A.go('tasks')">+ משימה</button>
+          </div>
+          <div class="section-title" style="margin-top:6px">יעדים</div>${gl}
+        </div>`;
+      }).join("");
+
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">ניהול ⚙️</h2>
+
+    <div class="section-title">מנוי</div>
+    <div class="card upgrade-card" style="margin-top:6px">${subHtml}</div>
+
+    <div class="section-title">הילדים שלי</div>
+    ${kidsHtml}
+    <div class="card"><div class="field"><label>שם הילד</label>
+      <input id="ncName" placeholder="למשל: אליאן"></div>
+      <button class="btn" onclick="A.createChild()">הוספת ילד</button>
+    </div>
+
+    <div class="section-title">מראה</div>
+    <div class="card" style="margin-top:6px">
+      <div class="kv"><span>מצב כהה 🌙</span>
+      <button class="btn small secondary" onclick="A.toggleDark()">${S.dark ? "כיבוי" : "הפעלה"}</button></div>
+    </div>
+
+    <div class="section-title">נתונים</div>
+    <div class="card" style="margin-top:6px">
+      <p class="muted">כל הנתונים נשמרים מקומית בדפדפן שלך בלבד.</p>
+      <button class="btn warn" onclick="A.resetAll()">איפוס כל הנתונים</button>
+    </div>
+  </div>`;
+}
+
+/* ---------------- KIDS screens ---------------- */
+function avatarHero(child) {
+  const lv = PIGGY.avatarLevelFor(child.points);
+  const note = lv.isMax
+    ? "הגעת לשלב הגבוה ביותר — אלופה! 🏆"
+    : `עוד ${lv.pointsToNext} נקודות לשלב הבא`;
+  return `<div class="card dark avatar-hero" style="--avatar-ring:${lv.ring}">
+    <span class="points-pill">✨ ${child.points} נקודות</span>
+    <div class="pig-wrap">🐷${lv.badge ? `<span class="pig-badge">${lv.badge}</span>` : ""}</div>
+    <div class="avatar-name">האווטר שלי</div>
+    <div class="avatar-level">${esc(lv.name)}</div>
+    <div class="progress"><i style="width:${lv.progressPct}%"></i></div>
+    <div class="progress-note">${note}</div>
+  </div>`;
+}
+
+function kidsHome() {
+  const child = activeChild();
+  if (!child) return `<div class="screen"><div class="card" style="text-align:center">
+    <div style="font-size:56px">🐷</div><p class="muted">אמא או אבא צריכים להוסיף אותך קודם במסך הניהול 💛</p></div></div>`;
+  const myTasks = childTasks(child.id, "open").slice(0, 5);
+  const tasksHtml = myTasks.length === 0
+    ? `<div class="empty">הכל הושלם! 🎉<br><span class="muted">אין משימות פתוחות כרגע.</span></div>`
+    : myTasks.map((t) => `
+      <div class="row-item">
+        <div class="icon-badge">📝</div>
+        <div class="grow"><div style="font-weight:700">${esc(t.title)}</div>
+        <div class="sub">+${t.points} נקודות</div></div>
+        <button class="btn small" onclick="A.completeTask('${t.id}')">סיימתי!</button>
+      </div>`).join("");
+
+  return `<div class="screen">
+    ${avatarHero(child)}
+    ${goalCard(child)}
+    <div class="card dark">${moneyCols(child.money)}</div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">המשימות שלי</div>
+      ${tasksHtml}
+    </div>
+  </div>`;
+}
+
+function kidsTasks() {
+  const child = activeChild();
+  if (!child) return kidsHome();
+  const open = childTasks(child.id, "open");
+  const pending = childTasks(child.id, "pending");
+  const row = (t, btn) => `
+    <div class="row-item">
+      <div class="icon-badge">${t.status === "pending" ? "⏳" : "📝"}</div>
+      <div class="grow"><div style="font-weight:700">${esc(t.title)}</div>
+      <div class="sub">+${t.points} נקודות${t.status === "pending" ? " · מחכה לאישור ההורה" : ""}</div></div>
+      ${btn || ""}
+    </div>`;
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">המשימות שלי ✅</h2>
+    <div class="card">${open.length ? open.map((t) => row(t, `<button class="btn small" onclick="A.completeTask('${t.id}')">סיימתי!</button>`)).join("") : `<div class="empty">אין משימות פתוחות 🎉</div>`}</div>
+    ${pending.length ? `<div class="section-title">מחכות לאישור</div><div class="card" style="margin-top:6px">${pending.map((t) => row(t)).join("")}</div>` : ""}
+  </div>`;
+}
+
+function kidsGames() {
+  if (!canAccessGuidance()) return lockScreen("משחקים");
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">משחקים 🎮</h2>
+    <div class="muted">שחקו יחד עם אמא ואבא!</div>
+    ${gamesListHtml()}
+  </div>`;
+}
+
+/* ---------------- modals ---------------- */
+function openModal(html) {
+  closeModal();
+  const back = document.createElement("div");
+  back.className = "modal-back";
+  back.id = "modalBack";
+  back.innerHTML = `<div class="modal">${html}</div>`;
+  back.addEventListener("click", (e) => { if (e.target === back) closeModal(); });
+  document.body.appendChild(back);
+}
+function closeModal() {
+  const m = document.getElementById("modalBack");
+  if (m) m.remove();
+}
+
+function addMoneyModal(childId) {
+  const c = S.children.find((x) => x.id === childId);
+  openModal(`
+    <h3>הוספת כסף ל${esc(c.name)} 💰</h3>
+    <div class="split-3">
+      <div class="field"><label>חיסכון</label><input id="amSave" type="number" min="0" value="0"></div>
+      <div class="field"><label>השקעה</label><input id="amInvest" type="number" min="0" value="0"></div>
+      <div class="field"><label>הוצאות</label><input id="amSpend" type="number" min="0" value="0"></div>
+    </div>
+    <button class="btn" onclick="A.doAddMoney('${childId}')">הוספה</button>
+    <button class="btn secondary" onclick="A.closeModal()">ביטול</button>`);
+}
+function goalModal(childId) {
+  openModal(`
+    <h3>יעד חדש 🎯</h3>
+    <div class="field"><label>שם היעד</label><input id="ngTitle" placeholder="למשל: קורקינט"></div>
+    <div class="field"><label>סכום היעד (₪)</label><input id="ngTarget" type="number" min="1" value="100"></div>
+    <button class="btn" onclick="A.doCreateGoal('${childId}')">יצירת יעד</button>
+    <button class="btn secondary" onclick="A.closeModal()">ביטול</button>`);
+}
+function depositModal(goalId) {
+  const g = S.goals.find((x) => x.id === goalId);
+  const c = S.children.find((x) => x.id === g.childId);
+  openModal(`
+    <h3>הפקדה ליעד: ${esc(g.title)}</h3>
+    <p class="muted">יתרת חיסכון: ${money(c.money.save)}</p>
+    <div class="field"><label>סכום להפקדה (₪)</label>
+    <input id="depAmt" type="number" min="1" max="${c.money.save}" value="10"></div>
+    <button class="btn" onclick="A.doDeposit('${goalId}')">הפקדה</button>
+    <button class="btn secondary" onclick="A.closeModal()">ביטול</button>`);
+}
+
+/* ---------------- actions ---------------- */
+const A = {
+  go(tab) { S.tab = tab; save(); renderApp(); window.scrollTo(0, 0); },
+  openSubscription() { S.mode = "parent"; S.tab = "manage"; save(); renderApp(); window.scrollTo(0, 0); },
+  setMode(mode) {
+    S.mode = mode;
+    const tabs = mode === "parent" ? PARENT_TABS : KIDS_TABS;
+    if (!tabs.find((t) => t.id === S.tab)) S.tab = "home";
+    save(); renderApp(); window.scrollTo(0, 0);
+  },
+  selectChild(id) { S.activeChildId = id; save(); renderApp(); },
+  closeModal,
+
+  createChild() {
+    const inp = document.getElementById("ncName");
+    const name = (inp.value || "").trim();
+    if (!name) { toast("כתבי שם לילד 🙂"); return; }
+    const c = { id: uid(), name, points: 0, money: { save: 0, invest: 0, spend: 0 } };
+    S.children.push(c);
+    if (!S.activeChildId) S.activeChildId = c.id;
+    logActivity(`נפתח פרופיל עבור ${name}`);
+    save(); renderApp();
+    toast(`ברוכה הבאה, ${name}! 🐷`);
+  },
+
+  openAddMoney: addMoneyModal,
+  doAddMoney(childId) {
+    const c = S.children.find((x) => x.id === childId);
+    const s = Math.max(0, Number(document.getElementById("amSave").value) || 0);
+    const i = Math.max(0, Number(document.getElementById("amInvest").value) || 0);
+    const p = Math.max(0, Number(document.getElementById("amSpend").value) || 0);
+    if (s + i + p <= 0) { toast("הכניסי סכום גדול מאפס 🙂"); return; }
+    c.money.save += s; c.money.invest += i; c.money.spend += p;
+    logActivity(`הופקדו ${money(s + i + p)} עבור ${c.name}`);
+    save(); closeModal(); renderApp();
+    toast("הכסף נוסף בהצלחה 💰");
+  },
+
+  openGoal: goalModal,
+  doCreateGoal(childId) {
+    const title = (document.getElementById("ngTitle").value || "").trim();
+    const target = Math.max(1, Number(document.getElementById("ngTarget").value) || 0);
+    if (!title) { toast("תני שם ליעד 🎯"); return; }
+    S.goals.push({ id: uid(), childId, title, target, saved: 0 });
+    logActivity(`נוצר יעד חדש: ${title} (${money(target)})`);
+    save(); closeModal(); renderApp();
+    toast("היעד נוצר! 🎯");
+  },
+  openDeposit: depositModal,
+  doDeposit(goalId) {
+    const g = S.goals.find((x) => x.id === goalId);
+    const c = S.children.find((x) => x.id === g.childId);
+    const amt = Math.max(0, Number(document.getElementById("depAmt").value) || 0);
+    if (amt <= 0 || amt > c.money.save) { toast("סכום לא תקין 🙂"); return; }
+    c.money.save -= amt; g.saved += amt;
+    logActivity(`הופקדו ${money(amt)} ליעד ${g.title}`);
+    save(); closeModal(); renderApp();
+    toast("כל הכבוד! ההפקדה נרשמה 🌟");
+  },
+
+  createTask() {
+    const childId = document.getElementById("ntChild").value;
+    const title = (document.getElementById("ntTitle").value || "").trim();
+    const points = Math.max(1, Number(document.getElementById("ntPoints").value) || 10);
+    if (!title) { toast("כתבי תיאור למשימה 📝"); return; }
+    S.tasks.push({ id: uid(), childId, title, points, status: "open", created: Date.now() });
+    save(); renderApp();
+    toast("המשימה נוספה ✅");
+  },
+  completeTask(id) {
+    const t = S.tasks.find((x) => x.id === id);
+    t.status = "pending";
+    save(); renderApp();
+    toast("כל הכבוד! מחכה לאישור ההורה ⏳");
+  },
+  approveTask(id) {
+    const t = S.tasks.find((x) => x.id === id);
+    const c = S.children.find((x) => x.id === t.childId);
+    t.status = "approved";
+    c.points += t.points;
+    logActivity(`${c.name} השלים: ${t.title} (+${t.points} נקודות)`);
+    save(); renderApp();
+    toast(`אושר! +${t.points} נקודות ל${c.name} 🌟`);
+  },
+
+  startTrial() {
+    S.sub.trialStart = Date.now();
+    S.sub.plan = "trial";
+    save(); renderApp();
+    toast("שבוע הניסיון התחיל! תהני 🎉");
+  },
+  subscribe() {
+    S.sub.plan = "premium";
+    S.sub.subs += 1;
+    save(); renderApp();
+    toast("המנוי הופעל (הדגמה — ללא חיוב אמיתי) ✅");
+  },
+  toggleDark() {
+    S.dark = !S.dark;
+    document.documentElement.setAttribute("data-theme", S.dark ? "dark" : "light");
+    save();
+  },
+  resetAll() {
+    if (!confirm("למחוק את כל הנתונים? לא ניתן לשחזר.")) return;
+    localStorage.removeItem(LS_KEY);
+    S = defaultState();
+    chatMsgs = [];
+    renderApp();
+  },
+
+  /* chat */
+  chatChoose(i) {
+    const o = chatOptions[i];
+    if (!o) return;
+    pushUser(o.label);
+    if (o.next === "__topics") { pushBot("במה עוד אוכל לעזור?"); showTopics(); }
+    else chatGo(o.next);
+  },
+  chatSend() {
+    const inp = document.getElementById("chatInput");
+    const text = (inp.value || "").trim();
+    if (!text) return;
+    pushUser(text);
+    inp.value = "";
+    const nodeId = PIGGY.chatReplyFor(text);
+    if (nodeId) chatGo(nodeId);
+    else {
+      pushBot("שאלה טובה! 💛 בינתיים אני יודעת לעזור בנושאים האלה — בחרי אחד ונצלול פנימה:");
+      showTopics();
+      renderChat();
+    }
+  },
+};
+window.A = A;
+
+/* ---------------- render root ---------------- */
+function renderApp() {
+  document.documentElement.setAttribute("data-theme", S.dark ? "dark" : "light");
+  document.documentElement.setAttribute("dir", "rtl");
+  document.documentElement.setAttribute("lang", "he");
+  const root = document.getElementById("app");
+  let screen = "";
+  if (S.mode === "parent") {
+    screen =
+      S.tab === "home" ? parentHome() :
+      S.tab === "guide" ? parentGuide() :
+      S.tab === "games" ? parentGames() :
+      S.tab === "tasks" ? parentTasks() :
+      parentManage();
+  } else {
+    screen =
+      S.tab === "tasks" ? kidsTasks() :
+      S.tab === "games" ? kidsGames() :
+      kidsHome();
+  }
+  root.innerHTML = renderHeader() + screen + renderNav();
+  if (S.tab === "guide" && S.mode === "parent" && canAccessGuidance()) renderChat();
+  save();
+}
+
+document.addEventListener("DOMContentLoaded", renderApp);
+
+</script>
+</body>
+</html>
