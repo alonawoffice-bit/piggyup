@@ -1018,12 +1018,17 @@ function parentManage() {
       <p class="muted"><b>לא חויבת בכלום</b> — אין חיוב אוטומטי ואין מעבר אוטומטי למנוי בתשלום. רוצה להמשיך עם כלי הליווי? בקשי מנוי בתשלום:</p>
       <div class="kv"><span>מחיר השקה (10 ראשונים)</span><b>19₪/חודש</b></div>
       <div class="kv"><span>מחיר רגיל</span><b>29₪/חודש</b></div>
-      <button class="btn" onclick="A.requestSubscription()">בקשה למנוי בתשלום · ${price}₪/חודש</button>
-      <p class="muted">ההפעלה תתבצע רק לאחר אישור אלונה והשלמת תשלום אמיתי.</p>
+      <div class="field"><label>השם שלך (לא חובה)</label>
+        <input id="reqName" placeholder="למשל: דנה"></div>
+      <div class="field"><label>טלפון לחזרה (לא חובה)</label>
+        <input id="reqPhone" inputmode="tel" placeholder="05x-xxxxxxx"></div>
+      <button class="btn" onclick="A.requestSubscription()">שליחת בקשה בוואטסאפ · ${price}₪/חודש</button>
+      <p class="muted">הלחיצה פותחת וואטסאפ עם הודעה מוכנה לאלונה — שלחי אותה כדי להשלים את הבקשה. ההפעלה תתבצע רק לאחר אישור אלונה והשלמת תשלום אמיתי.</p>
       ${codeEntryHtml}`;
   } else if (t.state === "requested") {
     subHtml = `<div class="pill gold">הבקשה התקבלה ✅</div>
-      <p class="muted">אלונה תיצור איתך קשר להשלמת התשלום וההפעלה. עד אז אין מנוי בתשלום ואין חיוב.</p>
+      <p class="muted">אם שלחת את הודעת הוואטסאפ — אלונה תיצור איתך קשר להשלמת התשלום וההפעלה. עד אז אין מנוי בתשלום ואין חיוב.</p>
+      <button class="btn secondary" onclick="A.requestSubscription(true)">שליחה חוזרת בוואטסאפ</button>
       ${codeEntryHtml}`;
   } else {
     subHtml = `<p class="muted">קבלי שבוע הדגמה חינם עם גישה מלאה לכל כלי הליווי — <b>ללא כרטיס אשראי, ללא חיוב, ללא התחייבות</b>. בסוף השבוע הגישה מסתיימת אוטומטית.</p>
@@ -1294,14 +1299,28 @@ const A = {
     toast("שבוע ההדגמה התחיל! תהני 🎉");
   },
   // שלב 2: המשתמש רק *מבקש* מנוי בתשלום — אין הפעלה אוטומטית, אין חיוב.
-  // ההפעלה מתבצעת רק עם קוד מאלונה (לאחר אישורה והשלמת תשלום אמיתי).
-  requestSubscription() {
+  // הלחיצה פותחת וואטסאפ עם הודעה מוכנה לאלונה; ההפעלה מתבצעת רק עם קוד
+  // מאלונה (לאחר אישורה והשלמת תשלום אמיתי).
+  openWhatsAppRequest() {
+    var nameEl = document.getElementById("reqName");
+    var phoneEl = document.getElementById("reqPhone");
+    var name = nameEl ? nameEl.value.trim() : "";
+    var phone = phoneEl ? phoneEl.value.trim() : "";
+    var msg = "שלום אלונה! אשמח למנוי בתשלום ב-PiggyUp \uD83D\uDC37";
+    if (name) msg += "\nשם: " + name;
+    if (phone) msg += "\nטלפון: " + phone;
+    window.open("https://wa.me/972506575168?text=" + encodeURIComponent(msg), "_blank");
+  },
+  requestSubscription(resend) {
     const t = trialInfo();
-    if (t.state !== "expired") return; // בקשה אפשרית רק אחרי סיום ההדגמה
-    S.sub.plan = "requested";
-    S.sub.requestedAt = Date.now();
-    save(); renderApp();
-    toast("הבקשה נשלחה! אלונה תיצור איתך קשר להשלמת התשלום ✅");
+    if (!resend) {
+      if (t.state !== "expired") return; // בקשה אפשרית רק אחרי סיום ההדגמה
+      S.sub.plan = "requested";
+      S.sub.requestedAt = Date.now();
+      save(); renderApp();
+    }
+    A.openWhatsAppRequest();
+    toast("נפתח וואטסאפ עם הודעה מוכנה — שלחי אותה כדי להשלים את הבקשה \uD83D\uDCAC");
   },
   activateWithCode() {
     const input = document.getElementById("admin-code-input");
