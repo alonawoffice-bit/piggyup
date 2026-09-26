@@ -512,13 +512,25 @@ PIGGY.chatReplyFor = function (freeText) {
   return null;
 };
 
-/* ---------- Subscription / trial logic ---------- */
+/* ---------- Subscription / two-phase model ---------- */
+/*
+ * שלב 1 — תקופת הדגמה: 7 ימים, ללא כרטיס אשראי, ללא חיוב.
+ *   בסיום 7 הימים ההדגמה מסתיימת אוטומטית — אין מעבר אוטומטי לשום דבר.
+ * שלב 2 — מנוי בתשלום: מופעל אך ורק לאחר שני תנאים מצטברים:
+ *   (א) אישור מפורש של אלונה (מנהלת המערכת),
+ *   (ב) חיבור המשתמש לאמצעי תשלום אמיתי והשלמת התשלום.
+ * שני התנאים מתכנסים לקוד הפעלה יומי שרק אלונה יכולה להנפיק.
+ * אין הוספת כרטיס אוטומטית, אין חיוב אוטומטי, אין מעבר אוטומטי,
+ * אין חידוש אוטומטי. כל מעבר הוא פעולה נפרדת, מפורשת ומאושרת.
+ */
 PIGGY.TRIAL_MS = 7 * 24 * 3600 * 1000;
+PIGGY.ADMIN_SALT = "pu-admin-2026"; // שער קל לשלב הוולידציה; סליקה אמיתית (Stripe) תגיע בהמשך
 
 PIGGY.trialStatus = function (sub, nowTs) {
   const now = nowTs || Date.now();
   if (!sub || !sub.trialStart) return { state: "none", daysLeft: 0 };
-  if (sub.plan === "premium") return { state: "premium", daysLeft: 0 };
+  if (sub.plan === "premium" && sub.activatedBy === "admin-code") return { state: "premium", daysLeft: 0 };
+  if (sub.plan === "requested") return { state: "requested", daysLeft: 0 };
   const elapsed = now - sub.trialStart;
   if (elapsed < PIGGY.TRIAL_MS) {
     const daysLeft = Math.ceil((PIGGY.TRIAL_MS - elapsed) / 86400000);
@@ -534,6 +546,40 @@ PIGGY.hasGuidanceAccess = function (sub, nowTs) {
 
 PIGGY.priceForNextSubscriber = function (subsCount) {
   return subsCount < 10 ? 19 : 29;
+};
+
+/* --- Admin activation code: daily 6-digit code only Alona can issue --- */
+PIGGY._hash32 = function (str, seed) {
+  let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+  for (let i = 0; i < str.length; i++) {
+    const ch = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (h1 >>> 0) ^ (h2 >>> 0);
+};
+
+PIGGY._ilDateStr = function (d) {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Jerusalem", year: "numeric", month: "2-digit", day: "2-digit"
+  }).format(d || new Date());
+};
+
+PIGGY.adminCode = function (dateStr) {
+  const n = PIGGY._hash32(PIGGY.ADMIN_SALT + "|" + dateStr, 0x9e3779b9) >>> 0;
+  return String(n % 1000000).padStart(6, "0");
+};
+
+PIGGY.verifyAdminCode = function (code) {
+  const c = String(code == null ? "" : code).trim();
+  if (!/^\d{6}$/.test(c)) return false;
+  const now = Date.now();
+  for (let off = 0; off <= 1; off++) {
+    if (PIGGY.adminCode(PIGGY._ilDateStr(new Date(now - off * 86400000))) === c) return true;
+  }
+  return false;
 };
 
 /* Node export for tests */
@@ -710,8 +756,10 @@ function goalCard(child) {
 function lockScreen(title) {
   const t = trialInfo();
   const subLine = t.state === "expired"
-    ? "תקופת הניסיון החינמית הסתיימה."
-    : "כלי הליווי פתוחים בשבוע הניסיון החינמי ובמנוי בלבד.";
+    ? "תקופת ההדגמה הסתיימה — לא חויבת בכלום."
+    : t.state === "requested"
+    ? "הבקשה למנוי התקבלה — ממתינה לאישור אלונה והשלמת תשלום."
+    : "כלי הליווי פתוחים בשבוע ההדגמה החינמי ובמנוי בתשלום בלבד.";
   return `<div class="screen"><div class="card upgrade-card"><div class="lock-wrap">
     <div class="big">🔒</div>
     <h3>${title}</h3>
@@ -793,7 +841,7 @@ function parentGuide() {
   const t = trialInfo();
   const pill = t.state === "premium"
     ? `<span class="pill green">מנוי פעיל</span>`
-    : `<span class="pill gold">ניסיון: נותרו ${t.daysLeft} ימים</span>`;
+    : `<span class="pill gold">הדגמה: נותרו ${t.daysLeft} ימים</span>`;
   const tip = PIGGY.dailyTipFor(new Date());
 
   if (chatMsgs.length === 0) chatStart(true);
@@ -951,24 +999,37 @@ function parentManage() {
   const t = trialInfo();
   const price = PIGGY.priceForNextSubscriber(S.sub.subs);
   let subHtml = "";
+  const codeEntryHtml = `
+      <div class="kv" style="margin-top:10px"><span>קוד הפעלה מאלונה</span></div>
+      <div style="display:flex;gap:8px;margin-top:6px">
+        <input id="admin-code-input" inputmode="numeric" maxlength="6" placeholder="6 ספרות" style="flex:1;min-width:0">
+        <button class="btn" onclick="A.activateWithCode()">הפעלה</button>
+      </div>
+      <p class="muted" style="font-size:12px">קיבלת קוד מאלונה לאחר אישור ותשלום? הזיני אותו כאן.</p>`;
   if (t.state === "premium") {
     subHtml = `<div class="pill green">מנוי פעיל · ${S.sub.subs <= 10 ? "19₪" : "29₪"}/חודש</div>
-      <p class="muted">המנוי פעיל וכל כלי הליווי פתוחים.</p>`;
+      <p class="muted">המנוי פעיל וכל כלי הליווי פתוחים.</p>
+      <p class="muted">אין חידוש אוטומטי — להמשך המנוי פני לאלונה.</p>`;
   } else if (t.state === "trial") {
-    subHtml = `<div class="pill gold">שבוע ניסיון · נותרו ${t.daysLeft} ימים</div>
-      <p class="muted">בסוף הניסיון האפליקציה עוברת לגרסה בסיסית חינמית, וכלי הליווי יינעלו למנויים בלבד.</p>
-      <button class="btn" onclick="A.subscribe()">שדרוג למנוי · ${price}₪/חודש</button>
-      <div class="demo-note">הדגמה בלבד — לחיצה מפעילה את המנוי מקומית, <b>ללא חיוב כרטיס אשראי אמיתי</b>. חיבור סליקה אמיתי יתווסף בהמשך.</div>`;
+    subHtml = `<div class="pill gold">שבוע הדגמה · נותרו ${t.daysLeft} ימים</div>
+      <p class="muted">בסוף 7 הימים הגישה מסתיימת אוטומטית והאפליקציה עוברת לגרסה בסיסית חינמית. אין חיוב אוטומטי ואין מעבר אוטומטי למנוי בתשלום — לא נאסף כרטיס אשראי.</p>`;
   } else if (t.state === "expired") {
-    subHtml = `<div class="pill">הניסיון הסתיים — גרסה בסיסית חינמית</div>
-      <p class="muted">כלי הליווי (טיפ יומי, מדריכה, משחקים) נעולים. שדרגי כדי לפתוח אותם.</p>
-      <button class="btn" onclick="A.subscribe()">שדרוג למנוי · ${price}₪/חודש</button>
-      <div class="demo-note">הדגמה בלבד — <b>ללא חיוב אמיתי</b>.</div>`;
-  } else {
-    subHtml = `<p class="muted">קבלי שבוע ראשון חינם עם גישה מלאה לכל כלי הליווי — ואחריו מעבר אוטומטי לגרסה בסיסית חינמית.</p>
+    subHtml = `<div class="pill">תקופת ההדגמה הסתיימה</div>
+      <p class="muted"><b>לא חויבת בכלום</b> — אין חיוב אוטומטי ואין מעבר אוטומטי למנוי בתשלום. רוצה להמשיך עם כלי הליווי? בקשי מנוי בתשלום:</p>
       <div class="kv"><span>מחיר השקה (10 ראשונים)</span><b>19₪/חודש</b></div>
       <div class="kv"><span>מחיר רגיל</span><b>29₪/חודש</b></div>
-      <button class="btn" onclick="A.startTrial()">התחלת שבוע ניסיון חינם</button>`;
+      <button class="btn" onclick="A.requestSubscription()">בקשה למנוי בתשלום · ${price}₪/חודש</button>
+      <p class="muted">ההפעלה תתבצע רק לאחר אישור אלונה והשלמת תשלום אמיתי.</p>
+      ${codeEntryHtml}`;
+  } else if (t.state === "requested") {
+    subHtml = `<div class="pill gold">הבקשה התקבלה ✅</div>
+      <p class="muted">אלונה תיצור איתך קשר להשלמת התשלום וההפעלה. עד אז אין מנוי בתשלום ואין חיוב.</p>
+      ${codeEntryHtml}`;
+  } else {
+    subHtml = `<p class="muted">קבלי שבוע הדגמה חינם עם גישה מלאה לכל כלי הליווי — <b>ללא כרטיס אשראי, ללא חיוב, ללא התחייבות</b>. בסוף השבוע הגישה מסתיימת אוטומטית.</p>
+      <div class="kv"><span>מחיר השקה (10 ראשונים)</span><b>19₪/חודש</b></div>
+      <div class="kv"><span>מחיר רגיל</span><b>29₪/חודש</b></div>
+      <button class="btn" onclick="A.startTrial()">התחלת שבוע הדגמה חינם</button>`;
   }
 
   const kidsHtml = S.children.length === 0
@@ -1225,16 +1286,36 @@ const A = {
   },
 
   startTrial() {
+    const t = trialInfo();
+    if (t.state !== "none") return; // ניתן להתחיל הדגמה פעם אחת בלבד
     S.sub.trialStart = Date.now();
     S.sub.plan = "trial";
     save(); renderApp();
-    toast("שבוע הניסיון התחיל! תהני 🎉");
+    toast("שבוע ההדגמה התחיל! תהני 🎉");
   },
-  subscribe() {
+  // שלב 2: המשתמש רק *מבקש* מנוי בתשלום — אין הפעלה אוטומטית, אין חיוב.
+  // ההפעלה מתבצעת רק עם קוד מאלונה (לאחר אישורה והשלמת תשלום אמיתי).
+  requestSubscription() {
+    const t = trialInfo();
+    if (t.state !== "expired") return; // בקשה אפשרית רק אחרי סיום ההדגמה
+    S.sub.plan = "requested";
+    S.sub.requestedAt = Date.now();
+    save(); renderApp();
+    toast("הבקשה נשלחה! אלונה תיצור איתך קשר להשלמת התשלום ✅");
+  },
+  activateWithCode() {
+    const input = document.getElementById("admin-code-input");
+    const code = input ? input.value.trim() : "";
+    if (!PIGGY.verifyAdminCode(code)) {
+      toast("הקוד שגוי — בקשי מאלונה קוד הפעלה עדכני");
+      return;
+    }
     S.sub.plan = "premium";
+    S.sub.activatedBy = "admin-code";
+    S.sub.activatedAt = Date.now();
     S.sub.subs += 1;
     save(); renderApp();
-    toast("המנוי הופעל (הדגמה — ללא חיוב אמיתי) ✅");
+    toast("המנוי הופעל ✅ תהני!");
   },
   toggleDark() {
     S.dark = !S.dark;
