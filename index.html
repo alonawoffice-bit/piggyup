@@ -1295,6 +1295,7 @@ const A = {
     if (t.state !== "none") return; // ניתן להתחיל הדגמה פעם אחת בלבד
     S.sub.trialStart = Date.now();
     S.sub.plan = "trial";
+    if (window.__piggyPing) window.__piggyPing("trial_started");
     save(); renderApp();
     toast("שבוע ההדגמה התחיל! תהני 🎉");
   },
@@ -1401,6 +1402,30 @@ function renderApp() {
 
 document.addEventListener("DOMContentLoaded", renderApp);
 
+</script>
+<script>
+// PiggyUp ping beacon — anonymous usage analytics (event type + timestamp only, no PII)
+(function(){
+  var PING_URL = "https://script.google.com/macros/s/AKfycbwYR5sDa-c0kfUpZiGmVPTPHMLf_vn1QmGELKxNXhzB0SZQ2iAe9lYX1lKZGCEFMx3r/exec";
+  function ping(event){
+    try {
+      var body = "event=" + encodeURIComponent(event);
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(PING_URL, new Blob([body], {type: "application/x-www-form-urlencoded"}));
+      } else {
+        fetch(PING_URL, {method: "POST", mode: "no-cors", keepalive: true,
+          headers: {"Content-Type": "application/x-www-form-urlencoded"}, body: body});
+      }
+    } catch (e) {}
+  }
+  window.__piggyPing = ping;
+  try {
+    if (!sessionStorage.getItem("pu_ping_visit")) {
+      sessionStorage.setItem("pu_ping_visit", "1");
+      ping("visit");
+    }
+  } catch (e) { ping("visit"); }
+})();
 </script>
 </body>
 </html>
