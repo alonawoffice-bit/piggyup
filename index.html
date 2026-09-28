@@ -13,9 +13,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Rubik is self-hosted: see fonts/ + @font-face in chunk 00-core.css -->
   <style>
 /* ============================================================
    PiggyUp — static rebuild · styles
@@ -42,7 +40,7 @@
   --shadow: 0 8px 28px rgba(11, 53, 42, 0.12);
   --radius: 22px;
   --nav-h: 76px;
-  --font: "Rubik", "Segoe UI", Arial, sans-serif;
+  --font: "Rubik", system-ui, "Segoe UI", Arial, sans-serif;
 }
 
 [data-theme="dark"] {
@@ -307,6 +305,167 @@ details.howto summary { cursor: pointer; font-weight: 700; }
 
 
 /* ===== chunk: 00-core ===== */
+/* Rubik — self-hosted (OFL). Generated from Google Fonts css2 API. */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-ext-400.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-400.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/rubik-hebrew-400.woff2') format('woff2');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/rubik-latin-ext-400.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/rubik-latin-400.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-ext-600.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-600.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/rubik-hebrew-600.woff2') format('woff2');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/rubik-latin-ext-600.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('fonts/rubik-latin-600.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-ext-700.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-700.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/rubik-hebrew-700.woff2') format('woff2');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/rubik-latin-ext-700.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/rubik-latin-700.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-ext-800.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/rubik-cyrillic-800.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/rubik-hebrew-800.woff2') format('woff2');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/rubik-latin-ext-800.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('fonts/rubik-latin-800.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /* ============ PiggyUp UPGRADE CORE v2 — CSS ============ */
 
 /* Focus visibility (a11y) */
@@ -369,6 +528,19 @@ select:focus-visible, textarea:focus-visible {
   .print-page:last-child { page-break-after: avoid; }
   .card { box-shadow: none; border: 2px solid #0e3b2c; }
 }
+
+/* schema-guard refresh banner (cross-tab / mixed-version protection) */
+#upgRefreshBanner {
+  position: sticky; top: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 10px 14px; font-size: 14px; font-weight: 700;
+  background: #fff3cd; color: #664d03; border-bottom: 2px solid #ffda6a;
+}
+#upgRefreshBanner .btn.small { white-space: nowrap; }
+html[data-theme="dark"] #upgRefreshBanner { background: #4a3b00; color: #ffe69c; border-bottom-color: #997404; }
+
+/* language switcher stays clickable above an open modal (modal-back is z-50) */
+.lang-toggle { position: relative; z-index: 60; }
 
 /* ===== chunk: 10-money ===== */
 /* ============================================================
@@ -940,6 +1112,111 @@ select:focus-visible, textarea:focus-visible {
   .pk-table { page-break-inside: avoid; }
   .pk-cert { page-break-inside: avoid; }
 }
+
+/* legal disclaimer at the end of every legal page */
+.upg-legal-disclaimer {
+  margin-top: 14px; padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 13px; color: var(--muted); font-style: italic;
+}
+
+/* copyright footer */
+.upg-footer {
+  text-align: center; font-size: 12px; color: var(--muted);
+  margin: 22px 0 8px;
+}
+.upg-linkbtn {
+  border: 0; background: none; padding: 0;
+  font-family: var(--font); font-size: 12px; color: var(--green-700);
+  text-decoration: underline; cursor: pointer;
+}
+
+/* ===== chunk: 40-onboarding ===== */
+/* ============================================================
+   40 — Onboarding wizard styles
+   ============================================================ */
+
+#upgOnb {
+  position: fixed; inset: 0; z-index: 200;
+  background: var(--cream);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 28px 16px; overflow-y: auto;
+  animation: fadeUp .25s ease;
+}
+
+.upg-onb-card {
+  width: 100%; max-width: 420px;
+  background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 22px 20px 20px; margin-top: 4vh;
+}
+
+.upg-onb-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 18px; }
+.upg-onb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.upg-onb-dot.on { background: var(--green-800); }
+
+.upg-onb-body h2 { margin: 6px 0 10px; font-size: 21px; text-align: center; }
+.upg-onb-body .muted { text-align: center; }
+.upg-onb-hero { font-size: 56px; text-align: center; margin-bottom: 6px; }
+.upg-onb-body .btn.big { width: 100%; margin-top: 14px; }
+
+.upg-onb-row { display: flex; gap: 10px; margin-top: 14px; }
+.upg-onb-row .btn { flex: 1; }
+
+.upg-onb-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 18px;
+}
+
+.upg-onb-input {
+  width: 100%; padding: 13px 14px; margin-top: 10px;
+  border: 2px solid var(--line); border-radius: 14px;
+  font-family: var(--font); font-size: 16px; color: var(--ink);
+  background: var(--card);
+}
+.upg-onb-input:focus { outline: none; border-color: var(--green-700); }
+
+.upg-onb-label { font-weight: 700; margin: 16px 0 8px; font-size: 15px; }
+
+.upg-onb-ages { display: flex; gap: 8px; }
+.upg-onb-age {
+  flex: 1; padding: 12px 6px; border-radius: 14px;
+  border: 2px solid var(--line); background: var(--card);
+  font-family: var(--font); font-size: 15px; font-weight: 700; color: var(--ink);
+  cursor: pointer;
+}
+.upg-onb-age.on { border-color: var(--green-800); background: var(--yellow-soft); }
+
+.upg-onb-avatars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 6px; }
+.upg-onb-avatar {
+  font-size: 32px; padding: 12px 4px; border-radius: 16px;
+  border: 2px solid var(--line); background: var(--card); cursor: pointer;
+}
+.upg-onb-avatar.on { border-color: var(--green-800); background: var(--yellow-soft); transform: scale(1.06); }
+
+.upg-onb-split { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+.upg-onb-splitrow {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--cream-2); border-radius: 14px; padding: 10px 14px;
+  font-weight: 700; font-size: 15px;
+}
+.upg-onb-splitin { display: flex; align-items: center; gap: 4px; }
+.upg-onb-splitin input {
+  width: 64px; padding: 8px; text-align: center;
+  border: 2px solid var(--line); border-radius: 10px;
+  font-family: var(--font); font-size: 16px; font-weight: 700; color: var(--ink);
+  background: var(--card);
+}
+.upg-onb-sum { text-align: center; font-weight: 800; margin-top: 12px; font-size: 16px; }
+
+.upg-onb-about p {
+  background: var(--cream-2); border-radius: 14px;
+  padding: 12px 14px; font-size: 15px; font-weight: 600; margin: 8px 0;
+}
+
+/* companion emoji next to the piggy hero */
+.upg-companion { font-size: 30px; margin-inline-start: -4px; vertical-align: middle; }
 
 /*UPGRADE:CSS*/
 </style>
@@ -2762,14 +3039,139 @@ function ensureV2State(st) {
 }
 
 /* ---------------- migration v1 -> v2: silent, lossless ---------------- */
+/* ============================================================
+   MIGRATION v1 -> v2 — atomic, idempotent, verified.
+   Rules:
+   - Authority is the schema version INSIDE the data (S.v), never the
+     external key alone, never a magnitude guess ("big number = agorot").
+   - v2 data is NEVER converted again: v2 -> no-op (even if the external
+     version key is missing; the key is repaired, not the data).
+   - Data from a NEWER schema (S.v > DATA_VERSION) is never touched:
+     the app shows an incompatibility screen instead (see below).
+   - Before converting: snapshot the raw v1 JSON under
+     piggyup_backup_v1_<timestamp>. The backup is never auto-deleted.
+   - Conversion is verified field-by-field BEFORE save:
+     migrated === toAg(original) for every money field, counts preserved.
+   - On ANY failure: nothing partial is saved; the original state is
+     restored; a clear error is shown with a safe retry (reload retries
+     from the untouched v1 backup state).
+   - Never partially migrate financial data.
+   ============================================================ */
+var MIGRATION_BACKUP_PREFIX = "piggyup_backup_v1_";
+var MIGRATION_MAX_BACKUPS = 5;
+
+function migrationBackupKey() {
+  var d = new Date();
+  function p(n) { return (n < 10 ? "0" : "") + n; }
+  return MIGRATION_BACKUP_PREFIX +
+    d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()) + "_" +
+    p(d.getHours()) + p(d.getMinutes()) + p(d.getSeconds()) + "_" +
+    Math.random().toString(36).slice(2, 6);
+}
+
+function migrationPruneBackups() {
+  try {
+    var keys = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf(MIGRATION_BACKUP_PREFIX) === 0) keys.push(k);
+    }
+    keys.sort();
+    while (keys.length > MIGRATION_MAX_BACKUPS) {
+      localStorage.removeItem(keys.shift());
+    }
+  } catch (e) {}
+}
+
+/* Every money field that v1->v2 converts, as [path, value] pairs. */
+function migrationMoneyFields(st) {
+  var f = [];
+  (st.children || []).forEach(function (c, i) {
+    var m = c.money || {};
+    f.push(["child." + i + ".money.save", m.save]);
+    f.push(["child." + i + ".money.invest", m.invest]);
+    f.push(["child." + i + ".money.spend", m.spend]);
+  });
+  (st.goals || []).forEach(function (g, i) {
+    f.push(["goal." + i + ".saved", g.saved]);
+    f.push(["goal." + i + ".target", g.target]);
+  });
+  return f;
+}
+
+function migrationCounts(st) {
+  return {
+    children: (st.children || []).length,
+    goals: (st.goals || []).length,
+    tasks: (st.tasks || []).length
+  };
+}
+
+/* Exact verification: every converted field must equal toAg(original).
+ * Throws with a descriptive message on any mismatch. */
+function migrationVerify(beforeFields, countsBefore, st) {
+  var after = migrationMoneyFields(st);
+  if (after.length !== beforeFields.length) {
+    throw new Error("field count changed: " + beforeFields.length + " -> " + after.length);
+  }
+  for (var i = 0; i < beforeFields.length; i++) {
+    var path = beforeFields[i][0];
+    var expected = toAg(beforeFields[i][1]);
+    var got = after[i][1];
+    if (after[i][0] !== path) throw new Error("field order changed at " + path);
+    if (got !== expected) {
+      throw new Error("value mismatch at " + path + ": expected " + expected + ", got " + got);
+    }
+    if (!isFinite(got) || Math.round(got) !== got) {
+      throw new Error("non-integer amount at " + path + ": " + got);
+    }
+  }
+  var cAfter = migrationCounts(st);
+  ["children", "goals", "tasks"].forEach(function (k) {
+    if (cAfter[k] !== countsBefore[k]) throw new Error("count changed: " + k);
+  });
+  if (st.v !== DATA_VERSION) throw new Error("S.v not set to " + DATA_VERSION);
+}
+
+function schemaVersionOf(st) {
+  return (st && typeof st.v === "number") ? st.v : 0;
+}
+
 function migrateState() {
-  var dv = null;
-  try { dv = localStorage.getItem(DATA_VERSION_KEY); } catch (e) {}
-  if (dv === String(DATA_VERSION)) {
+  var sv = schemaVersionOf(S);
+
+  /* Forward-compat: data from a newer schema is NEVER touched.
+   * Boot continues into an incompatibility screen (wired below). */
+  if (sv > DATA_VERSION) {
+    window.__PIGGYUP_DATA_NEWER__ = sv;
+    return;
+  }
+
+  /* Idempotent no-op: v2 data stays v2. The external key is a cache —
+   * if it went missing, repair the key, never the data. */
+  if (sv === DATA_VERSION) {
+    try { localStorage.setItem(DATA_VERSION_KEY, String(DATA_VERSION)); } catch (e) {}
     ensureV2State(S);
     window.UpgradeHooks.ensure.forEach(function (fn) { try { fn(S); } catch (e) {} });
     return;
   }
+
+  /* Genuine migration: v1 (or unversioned legacy) -> v2. */
+  var rawBefore = null;
+  try { rawBefore = localStorage.getItem(LS_KEY); } catch (e) {}
+  var backupKey = null;
+  if (rawBefore != null) {
+    try {
+      backupKey = migrationBackupKey();
+      localStorage.setItem(backupKey, rawBefore);
+      migrationPruneBackups();
+    } catch (e) { backupKey = null; }
+  }
+
+  var beforeFields = migrationMoneyFields(S);
+  var countsBefore = migrationCounts(S);
+
+  window.__upgMigrating = true;
   try {
     /* floats -> agorot integers (Math.round: 10.5 -> 1050) */
     (S.children || []).forEach(function (c) {
@@ -2782,11 +3184,85 @@ function migrateState() {
     ensureV2State(S);
     window.UpgradeHooks.migrate.forEach(function (fn) { try { fn(S); } catch (e) {} });
     S.v = 2;
+    S.migratedAt = Date.now();
+    if (backupKey) S.migrationBackupKey = backupKey;
+
+    /* Verify BEFORE any write: value preservation is exact. */
+    migrationVerify(beforeFields, countsBefore, S);
+
     save();
     try { localStorage.setItem(DATA_VERSION_KEY, String(DATA_VERSION)); } catch (e) {}
-  } catch (e) { /* never break boot for existing users */ }
+    window.__PIGGYUP_MIGRATION_REPORT__ = {
+      ok: true, backupKey: backupKey, at: S.migratedAt,
+      fields: beforeFields.length
+    };
+  } catch (err) {
+    /* Recovery: restore the original state byte-for-byte, never partial. */
+    try {
+      if (rawBefore != null) localStorage.setItem(LS_KEY, rawBefore);
+      else { try { localStorage.removeItem(LS_KEY); } catch (e2) {} }
+    } catch (e3) {}
+    try { localStorage.removeItem(DATA_VERSION_KEY); } catch (e4) {}
+    try { S = loadState(); } catch (e5) {}
+    window.__PIGGYUP_MIGRATION_ERROR__ = String((err && err.message) || err);
+    window.__PIGGYUP_MIGRATION_REPORT__ = { ok: false, error: window.__PIGGYUP_MIGRATION_ERROR__ };
+  } finally {
+    window.__upgMigrating = false;
+  }
 }
 migrateState();
+
+/* ---------------- newer-schema incompatibility screen ----------------
+   Wired at parse time (before DOMContentLoaded -> setLang -> renderApp),
+   so v3+ data is never rendered through v2 screens. */
+(function () {
+  if (!window.__PIGGYUP_DATA_NEWER__) return;
+  var HE_MSG = "גרסת האפליקציה הזו אינה תואמת לנתונים שנשמרו בגרסה חדשה יותר. יש לעדכן את האפליקציה.";
+  var RU_MSG = "Эта версия приложения несовместима с данными, сохранёнными в более новой версии. Обновите приложение.";
+  var HE_TITLE = "נדרש עדכון";
+  var RU_TITLE = "Требуется обновление";
+  var HE_BTN = "רענני";
+  var RU_BTN = "Обновить";
+  renderApp = function () {
+    var lang = "he";
+    try { lang = localStorage.getItem("piggyup_lang") || "he"; } catch (e) {}
+    if (lang !== "ru") lang = "he";
+    var root = document.getElementById("app");
+    if (!root) return;
+    document.documentElement.setAttribute("dir", lang === "he" ? "rtl" : "ltr");
+    document.documentElement.setAttribute("lang", lang);
+    root.innerHTML =
+      '<div style="max-width:480px;margin:0 auto;padding:48px 20px;text-align:center">' +
+      '<div style="font-size:44px;margin-bottom:12px">🔄</div>' +
+      "<h2>" + (lang === "ru" ? RU_TITLE : HE_TITLE) + "</h2>" +
+      '<p class="muted">' + (lang === "ru" ? RU_MSG : HE_MSG) + "</p>" +
+      '<button class="btn" onclick="location.reload()">' +
+      (lang === "ru" ? RU_BTN : HE_BTN) + "</button></div>";
+  };
+})();
+
+/* ---------------- migration-failure banner ----------------
+   Shown once after boot if the migration failed and rolled back. */
+window.addEventListener("DOMContentLoaded", function () {
+  if (!window.__PIGGYUP_MIGRATION_ERROR__) return;
+  setTimeout(function () {
+    try {
+      var lang = "he";
+      try { lang = localStorage.getItem("piggyup_lang") || "he"; } catch (e) {}
+      if (lang !== "ru") lang = "he";
+      var title = lang === "ru" ? "Ошибка обновления данных" : "שגיאה בעדכון הנתונים";
+      var msg = lang === "ru"
+        ? "Не удалось обновить формат данных. Ваши данные в безопасности — ничего не изменилось. Попробуйте обновить страницу."
+        : "עדכון פורמט הנתונים נכשל. הנתונים שלך נשמרו — שום דבר לא השתנה. נסי לרענן את העמוד.";
+      var btn = lang === "ru" ? "Обновить страницу" : "רענני את העמוד";
+      openModal(
+        "<h3>⚠️ " + title + "</h3>" +
+        '<p class="muted">' + msg + "</p>" +
+        '<button class="btn" onclick="location.reload()">' + btn + "</button>"
+      );
+    } catch (e) {}
+  }, 300);
+});
 
 /* ---------------- PWA: service worker (guarded) ---------------- */
 window.addEventListener("load", function () {
@@ -2797,13 +3273,109 @@ window.addEventListener("load", function () {
   } catch (e) {}
 });
 
+/* ============================================================
+   SCHEMA VERSION GUARD — cross-tab / mixed-version protection.
+   Every save() re-reads the stored schema version and compares it
+   with the in-memory version:
+   - stored v2 + memory v2  -> write allowed (normal case)
+   - stored v1 + memory v2  -> an old tab overwrote the data: BLOCK,
+     show "refresh needed", never clobber v1 data with v2 writes
+     (and never let v1 writes silently continue either — the banner
+     tells the user to refresh into a consistent state).
+   - stored v2 + memory v1  -> this tab is stale (opened pre-migration):
+     BLOCK, show "refresh needed". Refresh re-runs the idempotent
+     migration, so no data is lost.
+   - stored v3+ (newer)     -> BLOCK all writes unconditionally.
+   The migration's own write is exempt via window.__upgMigrating.
+   ============================================================ */
+function upgStoredSchemaVersion() {
+  try {
+    var raw = localStorage.getItem(LS_KEY);
+    if (!raw) return null; /* nothing stored yet: first write is fine */
+    var s = JSON.parse(raw);
+    return schemaVersionOf(s) || 1;
+  } catch (e) { return -1; } /* unreadable: fail closed */
+}
+
+function upgShowRefreshNeeded() {
+  try {
+    if (document.getElementById("upgRefreshBanner")) return;
+    var lang = "he";
+    try { lang = localStorage.getItem("piggyup_lang") || "he"; } catch (e) {}
+    if (lang !== "ru") lang = "he";
+    var msg = lang === "ru"
+      ? "Данные были изменены в другой вкладке или версии. Обновите страницу, чтобы продолжить безопасно."
+      : "הנתונים השתנו בטאב אחר או בגרסה אחרת. רענני את העמוד כדי להמשיך בבטחה.";
+    var btn = lang === "ru" ? "Обновить сейчас" : "רענני עכשיו";
+    var div = document.createElement("div");
+    div.id = "upgRefreshBanner";
+    div.setAttribute("role", "alert");
+    div.innerHTML = '<span>🔄 ' + msg + '</span>' +
+      '<button class="btn small" onclick="location.reload()">' + btn + "</button>";
+    document.body.insertBefore(div, document.body.firstChild);
+  } catch (e) {}
+}
+
+(function installSchemaGuard() {
+  var origSave = save;
+  save = function () {
+    try {
+      if (window.__upgMigrating) { origSave(); return; }
+      if (window.__PIGGYUP_DATA_NEWER__) return; /* newer schema: never write */
+      var storedV = upgStoredSchemaVersion();
+      if (storedV == null || storedV === -1) {
+        if (storedV === -1) { upgShowRefreshNeeded(); return; }
+        origSave(); return; /* first write */
+      }
+      var memV = schemaVersionOf(S) || 1;
+      if (storedV !== memV || storedV > DATA_VERSION) {
+        upgShowRefreshNeeded();
+        return;
+      }
+      origSave();
+    } catch (e) {
+      try { origSave(); } catch (e2) {}
+    }
+  };
+
+  /* Detect changes made by other tabs as they happen. */
+  window.addEventListener("storage", function (e) {
+    try {
+      if (e.key !== LS_KEY && e.key !== DATA_VERSION_KEY) return;
+      if (window.__upgMigrating) return;
+      var storedV = upgStoredSchemaVersion();
+      if (storedV == null || storedV === -1) return;
+      var memV = schemaVersionOf(S) || 1;
+      if (storedV !== memV || storedV > DATA_VERSION) upgShowRefreshNeeded();
+    } catch (err) {}
+  });
+})();
+
+/* ---------------- language switch with an open modal ----------------
+   The .lang-toggle stays clickable above .modal-back (see CSS). When the
+   language is switched while a modal is open, the modal (rendered in the
+   old language) is closed and the user gets a clear hint to reopen it —
+   close -> switch -> reopen, without breaking modal behavior. */
+(function () {
+  if (!window.A || typeof A.setLang !== "function") return;
+  var origSetLang = A.setLang;
+  A.setLang = function (l) {
+    var modalWasOpen = !!document.getElementById("modalBack");
+    origSetLang(l);
+    if (modalWasOpen) {
+      try { closeModal(); } catch (e) {}
+      try { toast(t("upg.m.lang_modal_closed")); } catch (e) {}
+    }
+  };
+})();
+
 </script>
 <script>
 /* ===== chunk i18n: 10-money ===== */
 (function(){
 try{
-Object.assign(I18N.he, {"upg.m.add_money_aria": "הוספת כסף", "upg.m.am_add": "הוספה", "upg.m.am_added": "נוספו {0} ל{1} 🎉", "upg.m.am_amount": "סכום (₪)", "upg.m.am_bad": "נא להזין סכום חיובי", "upg.m.am_manual": "✏️ ידנית", "upg.m.am_mode": "אופן החלוקה", "upg.m.am_no_boxes": "כל הקופות מוסתרות — החזירו קופה לתצוגה כדי להוסיף כסף", "upg.m.am_note": "הערה (לא חובה)", "upg.m.am_note_ph": "למשל: דמי כיס לחודש…", "upg.m.am_preview": "תצוגה מקדימה", "upg.m.am_preview_hint": "הזינו סכום כדי לראות את החלוקה", "upg.m.am_quick": "סכומים מהירים:", "upg.m.am_smart": "✨ חלוקה חכמה", "upg.m.am_smart_hint": "יחולק אוטומטית: {0}% חיסכון · {1}% השקעה · {2}% הוצאות", "upg.m.am_source": "מקור הכסף", "upg.m.am_sum_bad": "החלוקה הידנית חייבת להסתכם בדיוק בסכום", "upg.m.am_title": "הוספת כסף — {0}", "upg.m.approve": "אישור", "upg.m.balance_label": "סך כל הכסף המתועד", "upg.m.box_invest": "השקעה", "upg.m.box_save": "חיסכון", "upg.m.box_spend": "הוצאות", "upg.m.boxes_active": "קופות פעילות", "upg.m.boxes_archive": "הסתרה", "upg.m.boxes_archived": "קופות מוסתרות", "upg.m.boxes_color": "צבע", "upg.m.boxes_default": "ברירת מחדל: {0}", "upg.m.boxes_history_warn": "לקופה הזו יש היסטוריה — אפשר להסתיר אותה, לא למחוק", "upg.m.boxes_icon": "אייקון", "upg.m.boxes_name_ph": "שם הקופה", "upg.m.boxes_restore": "החזרה לתצוגה", "upg.m.boxes_saved": "הקופות עודכנו ✅", "upg.m.boxes_title": "הקופות של {0}", "upg.m.common_cancel": "ביטול", "upg.m.common_close": "סגירה", "upg.m.common_save": "שמירה", "upg.m.goal_deposit": "הפקדה", "upg.m.goal_new": "יצירת מטרה", "upg.m.goal_none": "עדיין אין מטרה", "upg.m.goal_none_sub": "צרו מטרה כדי לראות כאן את ההתקדמות", "upg.m.goal_saved_of": "נחסכו {0} מתוך {1}", "upg.m.goal_title": "🎯 המטרה העיקרית", "upg.m.greet": "👋 שלום, {0}!", "upg.m.inv_already": "ההתאמה לחודש הזה כבר הוחלה", "upg.m.inv_applied": "הוחלה התאמה של {0} ✅", "upg.m.inv_apply": "החלת התאמה עכשיו", "upg.m.inv_bad": "נא להזין ערך חיובי תקין", "upg.m.inv_desc": "כשהילד שם כסף בקופת ההשקעה, ההורה מוסיף מעליו סכום — עידוד חינוכי לחיסכון לטווח ארוך.", "upg.m.inv_disclaimer": "⚠️ מעקב חינוכי בלבד — לא ייעוץ השקעות ולא המלצה פיננסית.", "upg.m.inv_match_note": "התאמת הורה לחודש {0}", "upg.m.inv_monthly": "אחוז חודשי מההפקדות", "upg.m.inv_monthly_pct": "איזה אחוז? (1–100)", "upg.m.inv_nothing": "אין החודש סכום להתאמה", "upg.m.inv_off": "כבוי — בלי התאמה", "upg.m.inv_per10": "סכום קבוע על כל 10 ₪ של הילד", "upg.m.inv_per10_amt": "כמה מוסיף ההורה על כל 10 ₪? (₪)", "upg.m.inv_save": "שמירת הכלל", "upg.m.inv_saved": "כלל ההתאמה נשמר ✅", "upg.m.inv_title": "כלל התאמת השקעה", "upg.m.ledger_confirm_q": "לבצע תיקון? תירשם תנועת היפוך — המקור נשמר.", "upg.m.ledger_corr_note": "תיקון לתנועה מ־{0}", "upg.m.ledger_correct": "תיקון", "upg.m.ledger_corrected": "נרשם תיקון ✅", "upg.m.ledger_empty": "עדיין אין תנועות מתועדות", "upg.m.ledger_no": "ביטול", "upg.m.ledger_title": "היסטוריית תנועות — {0}", "upg.m.ledger_type_correction": "תיקון", "upg.m.ledger_type_match": "התאמת הורה", "upg.m.ledger_yes": "כן, תקנו", "upg.m.log_money_added": "נוספו {0} ל{1} 🐷", "upg.m.no_activity": "עוד לא נרשמה פעילות — הוסיפו כסף ראשון! 🐷", "upg.m.no_pending": "אין משימות ממתינות — כל הכבוד! 🎉", "upg.m.pend_title": "ממתין לאישור ההורה", "upg.m.pts": "{0} נק׳", "upg.m.quick_add": "הוספת כסף", "upg.m.quick_goal": "מטרה חדשה", "upg.m.quick_task": "משימה חדשה", "upg.m.quick_title": "פעולות מהירות", "upg.m.recent_title": "פעילות אחרונה", "upg.m.split_err": "האחוזים חייבים להסתכם בדיוק ב־100%", "upg.m.split_hint": "כל סכום חדש יחולק אוטומטית בין הקופות לפי האחוזים האלה", "upg.m.split_note": "ℹ️ חל רק על כסף חדש — ההיסטוריה לא משתנה", "upg.m.split_saved": "כללי החלוקה נשמרו ✅", "upg.m.split_sum": "סך הכול: {0}%", "upg.m.split_title": "כללי חלוקה חכמה", "upg.m.src_allowance": "דמי כיס", "upg.m.src_chores": "עזרה בבית", "upg.m.src_found": "מציאה", "upg.m.src_gift": "מתנה", "upg.m.src_other": "אחר", "upg.m.src_sale": "מכירה", "upg.m.tool_boxes": "עריכת קופות", "upg.m.tool_invest": "התאמת השקעה", "upg.m.tool_ledger": "היסטוריה", "upg.m.tool_split": "כללי חלוקה", "upg.m.tools_title": "כלי כסף"});
-Object.assign(I18N.ru, {"upg.m.add_money_aria": "Добавить деньги", "upg.m.am_add": "Добавить", "upg.m.am_added": "Добавлено {0} — {1} 🎉", "upg.m.am_amount": "Сумма (₪)", "upg.m.am_bad": "Введите положительную сумму", "upg.m.am_manual": "✏️ Вручную", "upg.m.am_mode": "Способ деления", "upg.m.am_no_boxes": "Все копилки скрыты — верните копилку, чтобы добавить деньги", "upg.m.am_note": "Заметка (необязательно)", "upg.m.am_note_ph": "Например: карманные на месяц…", "upg.m.am_preview": "Предпросмотр", "upg.m.am_preview_hint": "Введите сумму, чтобы увидеть деление", "upg.m.am_quick": "Быстрые суммы:", "upg.m.am_smart": "✨ Умное деление", "upg.m.am_smart_hint": "Разделится автоматически: {0}% сбережения · {1}% инвестиции · {2}% траты", "upg.m.am_source": "Источник денег", "upg.m.am_sum_bad": "Ручное деление должно точно равняться сумме", "upg.m.am_title": "Добавить деньги — {0}", "upg.m.approve": "Подтвердить", "upg.m.balance_label": "Всего задокументировано денег", "upg.m.box_invest": "Инвестиции", "upg.m.box_save": "Сбережения", "upg.m.box_spend": "Траты", "upg.m.boxes_active": "Активные копилки", "upg.m.boxes_archive": "Скрыть", "upg.m.boxes_archived": "Скрытые копилки", "upg.m.boxes_color": "Цвет", "upg.m.boxes_default": "По умолчанию: {0}", "upg.m.boxes_history_warn": "У этой копилки есть история — её можно скрыть, но не удалить", "upg.m.boxes_icon": "Значок", "upg.m.boxes_name_ph": "Название копилки", "upg.m.boxes_restore": "Вернуть", "upg.m.boxes_saved": "Копилки обновлены ✅", "upg.m.boxes_title": "Копилки — {0}", "upg.m.common_cancel": "Отмена", "upg.m.common_close": "Закрыть", "upg.m.common_save": "Сохранить", "upg.m.goal_deposit": "Внести", "upg.m.goal_new": "Создать цель", "upg.m.goal_none": "Цели пока нет", "upg.m.goal_none_sub": "Создайте цель, чтобы видеть здесь прогресс", "upg.m.goal_saved_of": "Накоплено {0} из {1}", "upg.m.goal_title": "🎯 Главная цель", "upg.m.greet": "👋 Привет, {0}!", "upg.m.inv_already": "Совпадение за этот месяц уже применено", "upg.m.inv_applied": "Применено совпадение: {0} ✅", "upg.m.inv_apply": "Применить совпадение сейчас", "upg.m.inv_bad": "Введите корректное положительное значение", "upg.m.inv_desc": "Когда ребёнок кладёт деньги в копилку инвестиций, родитель добавляет сверху — образовательное поощрение долгосрочных сбережений.", "upg.m.inv_disclaimer": "⚠️ Только образовательный учёт — не инвестиционная рекомендация и не финансовый совет.", "upg.m.inv_match_note": "Совпадение родителя за {0}", "upg.m.inv_monthly": "Месячный процент от взносов", "upg.m.inv_monthly_pct": "Какой процент? (1–100)", "upg.m.inv_nothing": "В этом месяце нечего совпадать", "upg.m.inv_off": "Выкл — без совпадения", "upg.m.inv_per10": "Фикс. сумма за каждые 10 ₪ ребёнка", "upg.m.inv_per10_amt": "Сколько добавляет родитель за каждые 10 ₪? (₪)", "upg.m.inv_save": "Сохранить правило", "upg.m.inv_saved": "Правило совпадения сохранено ✅", "upg.m.inv_title": "Правило совпадения инвестиций", "upg.m.ledger_confirm_q": "Выполнить исправление? Будет записана обратная операция — оригинал сохранится.", "upg.m.ledger_corr_note": "Исправление операции от {0}", "upg.m.ledger_correct": "Исправить", "upg.m.ledger_corrected": "Исправление записано ✅", "upg.m.ledger_empty": "Записанных операций пока нет", "upg.m.ledger_no": "Отмена", "upg.m.ledger_title": "История операций — {0}", "upg.m.ledger_type_correction": "Исправление", "upg.m.ledger_type_match": "Совпадение родителя", "upg.m.ledger_yes": "Да, исправить", "upg.m.log_money_added": "Добавлено {0} — {1} 🐷", "upg.m.no_activity": "Событий пока нет — добавьте первые деньги! 🐷", "upg.m.no_pending": "Нет задач на проверку — молодцы! 🎉", "upg.m.pend_title": "Ожидает подтверждения родителя", "upg.m.pts": "{0} очк.", "upg.m.quick_add": "Добавить деньги", "upg.m.quick_goal": "Новая цель", "upg.m.quick_task": "Новая задача", "upg.m.quick_title": "Быстрые действия", "upg.m.recent_title": "Последние события", "upg.m.split_err": "Проценты должны давать ровно 100%", "upg.m.split_hint": "Каждая новая сумма будет автоматически делиться между копилками по этим процентам", "upg.m.split_note": "ℹ️ Применяется только к новым деньгам — история не меняется", "upg.m.split_saved": "Правила деления сохранены ✅", "upg.m.split_sum": "Итого: {0}%", "upg.m.split_title": "Умное деление денег", "upg.m.src_allowance": "Карманные деньги", "upg.m.src_chores": "Помощь по дому", "upg.m.src_found": "Находка", "upg.m.src_gift": "Подарок", "upg.m.src_other": "Другое", "upg.m.src_sale": "Продажа", "upg.m.tool_boxes": "Настроить копилки", "upg.m.tool_invest": "Совпадение инвестиций", "upg.m.tool_ledger": "История", "upg.m.tool_split": "Правила деления", "upg.m.tools_title": "Денежные инструменты"});
+Object.assign(I18N.he, {"upg.m.add_money_aria": "הוספת כסף", "upg.m.am_add": "הוספה", "upg.m.am_added": "נוספו {0} ל{1} 🎉", "upg.m.am_amount": "סכום (₪)", "upg.m.am_bad": "נא להזין סכום חיובי", "upg.m.am_manual": "✏️ ידנית", "upg.m.am_mode": "אופן החלוקה", "upg.m.am_no_boxes": "כל הקופות מוסתרות — החזירו קופה לתצוגה כדי להוסיף כסף", "upg.m.am_note": "הערה (לא חובה)", "upg.m.am_note_ph": "למשל: דמי כיס לחודש…", "upg.m.am_preview": "תצוגה מקדימה", "upg.m.am_preview_hint": "הזינו סכום כדי לראות את החלוקה", "upg.m.am_quick": "סכומים מהירים:", "upg.m.am_smart": "✨ חלוקה חכמה", "upg.m.am_smart_hint": "יחולק אוטומטית: {0}% חיסכון · {1}% השקעה · {2}% הוצאות", "upg.m.am_source": "מקור הכסף", "upg.m.am_sum_bad": "החלוקה הידנית חייבת להסתכם בדיוק בסכום", "upg.m.am_title": "הוספת כסף — {0}", "upg.m.approve": "אישור", "upg.m.balance_label": "סך כל הכסף המתועד", "upg.m.box_invest": "השקעה", "upg.m.box_save": "חיסכון", "upg.m.box_spend": "הוצאות", "upg.m.boxes_active": "קופות פעילות", "upg.m.boxes_archive": "הסתרה", "upg.m.boxes_archived": "קופות מוסתרות", "upg.m.boxes_color": "צבע", "upg.m.boxes_default": "ברירת מחדל: {0}", "upg.m.boxes_history_warn": "לקופה הזו יש היסטוריה — אפשר להסתיר אותה, לא למחוק", "upg.m.boxes_icon": "אייקון", "upg.m.boxes_name_ph": "שם הקופה", "upg.m.boxes_restore": "החזרה לתצוגה", "upg.m.boxes_saved": "הקופות עודכנו ✅", "upg.m.boxes_title": "הקופות של {0}", "upg.m.common_cancel": "ביטול", "upg.m.common_close": "סגירה", "upg.m.common_save": "שמירה", "upg.m.goal_deposit": "הפקדה", "upg.m.goal_new": "יצירת מטרה", "upg.m.goal_none": "עדיין אין מטרה", "upg.m.goal_none_sub": "צרו מטרה כדי לראות כאן את ההתקדמות", "upg.m.goal_saved_of": "נחסכו {0} מתוך {1}", "upg.m.goal_title": "🎯 המטרה העיקרית", "upg.m.greet": "👋 שלום, {0}!", "upg.m.inv_already": "ההתאמה לחודש הזה כבר הוחלה", "upg.m.inv_applied": "הוחלה התאמה של {0} ✅", "upg.m.inv_apply": "החלת התאמה עכשיו", "upg.m.inv_bad": "נא להזין ערך חיובי תקין", "upg.m.inv_desc": "כשהילד שם כסף בקופת ההשקעה, ההורה מוסיף מעליו סכום — עידוד חינוכי לחיסכון לטווח ארוך.", "upg.m.inv_disclaimer": "⚠️ מעקב חינוכי בלבד — לא ייעוץ השקעות ולא המלצה פיננסית.", "upg.m.inv_match_note": "התאמת הורה לחודש {0}", "upg.m.inv_monthly": "אחוז חודשי מההפקדות", "upg.m.inv_monthly_pct": "איזה אחוז? (1–100)", "upg.m.inv_nothing": "אין החודש סכום להתאמה", "upg.m.inv_off": "כבוי — בלי התאמה", "upg.m.inv_per10": "סכום קבוע על כל 10 ₪ של הילד", "upg.m.inv_per10_amt": "כמה מוסיף ההורה על כל 10 ₪? (₪)", "upg.m.inv_save": "שמירת הכלל", "upg.m.inv_saved": "כלל ההתאמה נשמר ✅", "upg.m.inv_title": "כלל התאמת השקעה", "upg.m.ledger_confirm_q": "לבצע תיקון? תירשם תנועת היפוך — המקור נשמר.", "upg.m.ledger_corr_note": "תיקון לתנועה מ־{0}", "upg.m.ledger_correct": "תיקון", "upg.m.ledger_corrected": "נרשם תיקון ✅", "upg.m.ledger_empty": "עדיין אין תנועות מתועדות", "upg.m.ledger_no": "ביטול", "upg.m.ledger_title": "היסטוריית תנועות — {0}", "upg.m.ledger_type_correction": "תיקון", "upg.m.ledger_type_match": "התאמת הורה", "upg.m.ledger_yes": "כן, תקנו", "upg.m.log_money_added": "נוספו {0} ל{1} 🐷", "upg.m.no_activity": "עוד לא נרשמה פעילות — הוסיפו כסף ראשון! 🐷", "upg.m.no_pending": "אין משימות ממתינות — כל הכבוד! 🎉", "upg.m.pend_title": "ממתין לאישור ההורה", "upg.m.pts": "{0} נק׳", "upg.m.quick_add": "הוספת כסף", "upg.m.quick_goal": "מטרה חדשה", "upg.m.quick_task": "משימה חדשה", "upg.m.quick_title": "פעולות מהירות", "upg.m.recent_title": "פעילות אחרונה", "upg.m.split_err": "האחוזים חייבים להסתכם בדיוק ב־100%", "upg.m.split_hint": "כל סכום חדש יחולק אוטומטית בין הקופות לפי האחוזים האלה", "upg.m.split_note": "ℹ️ חל רק על כסף חדש — ההיסטוריה לא משתנה", "upg.m.split_saved": "כללי החלוקה נשמרו ✅", "upg.m.split_sum": "סך הכול: {0}%", "upg.m.split_title": "כללי חלוקה חכמה", "upg.m.src_allowance": "דמי כיס", "upg.m.src_chores": "עזרה בבית", "upg.m.src_found": "מציאה", "upg.m.src_gift": "מתנה", "upg.m.src_other": "אחר", "upg.m.src_sale": "מכירה", "upg.m.tool_boxes": "עריכת קופות", "upg.m.tool_invest": "התאמת השקעה", "upg.m.tool_ledger": "היסטוריה", "upg.m.tool_split": "כללי חלוקה", "upg.m.tools_title": "כלי כסף", "upg.m.lang_modal_closed": "החלון נסגר — אפשר לפתוח אותו מחדש בשפה החדשה 🙂"});
+Object.assign(I18N.ru, {"upg.m.add_money_aria": "Добавить деньги", "upg.m.am_add": "Добавить", "upg.m.am_added": "Добавлено {0} — {1} 🎉", "upg.m.am_amount": "Сумма (₪)", "upg.m.am_bad": "Введите положительную сумму", "upg.m.am_manual": "✏️ Вручную", "upg.m.am_mode": "Способ деления", "upg.m.am_no_boxes": "Все копилки скрыты — верните копилку, чтобы добавить деньги", "upg.m.am_note": "Заметка (необязательно)", "upg.m.am_note_ph": "Например: карманные на месяц…", "upg.m.am_preview": "Предпросмотр", "upg.m.am_preview_hint": "Введите сумму, чтобы увидеть деление", "upg.m.am_quick": "Быстрые суммы:", "upg.m.am_smart": "✨ Умное деление", "upg.m.am_smart_hint": "Разделится автоматически: {0}% сбережения · {1}% инвестиции · {2}% траты", "upg.m.am_source": "Источник денег", "upg.m.am_sum_bad": "Ручное деление должно точно равняться сумме", "upg.m.am_title": "Добавить деньги — {0}", "upg.m.approve": "Подтвердить", "upg.m.balance_label": "Всего задокументировано денег", "upg.m.box_invest": "Инвестиции", "upg.m.box_save": "Сбережения", "upg.m.box_spend": "Траты", "upg.m.boxes_active": "Активные копилки", "upg.m.boxes_archive": "Скрыть", "upg.m.boxes_archived": "Скрытые копилки", "upg.m.boxes_color": "Цвет", "upg.m.boxes_default": "По умолчанию: {0}", "upg.m.boxes_history_warn": "У этой копилки есть история — её можно скрыть, но не удалить", "upg.m.boxes_icon": "Значок", "upg.m.boxes_name_ph": "Название копилки", "upg.m.boxes_restore": "Вернуть", "upg.m.boxes_saved": "Копилки обновлены ✅", "upg.m.boxes_title": "Копилки — {0}", "upg.m.common_cancel": "Отмена", "upg.m.common_close": "Закрыть", "upg.m.common_save": "Сохранить", "upg.m.goal_deposit": "Внести", "upg.m.goal_new": "Создать цель", "upg.m.goal_none": "Цели пока нет", "upg.m.goal_none_sub": "Создайте цель, чтобы видеть здесь прогресс", "upg.m.goal_saved_of": "Накоплено {0} из {1}", "upg.m.goal_title": "🎯 Главная цель", "upg.m.greet": "👋 Привет, {0}!", "upg.m.inv_already": "Совпадение за этот месяц уже применено", "upg.m.inv_applied": "Применено совпадение: {0} ✅", "upg.m.inv_apply": "Применить совпадение сейчас", "upg.m.inv_bad": "Введите корректное положительное значение", "upg.m.inv_desc": "Когда ребёнок кладёт деньги в копилку инвестиций, родитель добавляет сверху — образовательное поощрение долгосрочных сбережений.", "upg.m.inv_disclaimer": "⚠️ Только образовательный учёт — не инвестиционная рекомендация и не финансовый совет.", "upg.m.inv_match_note": "Совпадение родителя за {0}", "upg.m.inv_monthly": "Месячный процент от взносов", "upg.m.inv_monthly_pct": "Какой процент? (1–100)", "upg.m.inv_nothing": "В этом месяце нечего совпадать", "upg.m.inv_off": "Выкл — без совпадения", "upg.m.inv_per10": "Фикс. сумма за каждые 10 ₪ ребёнка", "upg.m.inv_per10_amt": "Сколько добавляет родитель за каждые 10 ₪? (₪)", "upg.m.inv_save": "Сохранить правило", "upg.m.inv_saved": "Правило совпадения сохранено ✅", "upg.m.inv_title": "Правило совпадения инвестиций", "upg.m.ledger_confirm_q": "Выполнить исправление? Будет записана обратная операция — оригинал сохранится.", "upg.m.ledger_corr_note": "Исправление операции от {0}", "upg.m.ledger_correct": "Исправить", "upg.m.ledger_corrected": "Исправление записано ✅", "upg.m.ledger_empty": "Записанных операций пока нет", "upg.m.ledger_no": "Отмена", "upg.m.ledger_title": "История операций — {0}", "upg.m.ledger_type_correction": "Исправление", "upg.m.ledger_type_match": "Совпадение родителя", "upg.m.ledger_yes": "Да, исправить", "upg.m.log_money_added": "Добавлено {0} — {1} 🐷", "upg.m.no_activity": "Событий пока нет — добавьте первые деньги! 🐷", "upg.m.no_pending": "Нет задач на проверку — молодцы! 🎉", "upg.m.pend_title": "Ожидает подтверждения родителя", "upg.m.pts": "{0} очк.", "upg.m.quick_add": "Добавить деньги", "upg.m.quick_goal": "Новая цель", "upg.m.quick_task": "Новая задача", "upg.m.quick_title": "Быстрые действия", "upg.m.recent_title": "Последние события", "upg.m.split_err": "Проценты должны давать ровно 100%", "upg.m.split_hint": "Каждая новая сумма будет автоматически делиться между копилками по этим процентам", "upg.m.split_note": "ℹ️ Применяется только к новым деньгам — история не меняется", "upg.m.split_saved": "Правила деления сохранены ✅", "upg.m.split_sum": "Итого: {0}%", "upg.m.split_title": "Умное деление денег", "upg.m.src_allowance": "Карманные деньги", "upg.m.src_chores": "Помощь по дому", "upg.m.src_found": "Находка", "upg.m.src_gift": "Подарок", "upg.m.src_other": "Другое", "upg.m.src_sale": "Продажа", "upg.m.tool_boxes": "Настроить копилки", "upg.m.tool_invest": "Совпадение инвестиций", "upg.m.tool_ledger": "История", "upg.m.tool_split": "Правила деления", "upg.m.tools_title": "Денежные инструменты", "upg.m.lang_modal_closed": "Окно закрыто — можно открыть его снова на новом языке 🙂"});
 }catch(e){}
 })();
 </script>
@@ -2939,6 +3511,10 @@ var UpgMoney = {
 
   /* ---- split rules editor ---- */
   splitPreview: function () {
+    var sEl = document.getElementById("sp_save");
+    var iEl = document.getElementById("sp_invest");
+    var pEl = document.getElementById("sp_spend");
+    if (!sEl || !iEl || !pEl) return; /* modal not in DOM (e.g. unit test) */
     ["save", "invest", "spend"].forEach(function (id) {
       var el = document.getElementById("sp_" + id);
       if (el && el.value !== "") {
@@ -2946,14 +3522,18 @@ var UpgMoney = {
         if (isFinite(n)) el.value = Math.max(0, Math.min(100, n));
       }
     });
-    var s = Number(document.getElementById("sp_save").value) || 0;
-    var iv = Number(document.getElementById("sp_invest").value) || 0;
-    var sp = Number(document.getElementById("sp_spend").value) || 0;
+    var s = Number(sEl.value) || 0;
+    var iv = Number(iEl.value) || 0;
+    var sp = Number(pEl.value) || 0;
     var sum = Math.round(s) + Math.round(iv) + Math.round(sp);
     var sumEl = document.getElementById("spSum");
     var errEl = document.getElementById("spErr");
     if (sumEl) sumEl.innerHTML = "<b>" + t("upg.m.split_sum", sum) + "</b>";
     if (errEl) errEl.style.display = sum === 100 ? "none" : "";
+    /* Blocked state: the save button looks disabled until the total is
+     * exactly 100% — no "click then error" anymore. */
+    var saveBtn = document.getElementById("spSave");
+    if (saveBtn) saveBtn.disabled = sum !== 100;
   },
 
   /* ---- boxes editor (draft, applied on save) ---- */
@@ -3056,7 +3636,7 @@ function parentHome() {
   var chips = children.length > 1
     ? '<div class="chip-row">' + children.map(function (c) {
         return '<button class="chip' + (c.id === child.id ? " active" : "") +
-          '" onclick="A.selectChild(\'' + c.id + "')\">" + esc(c.name) + "</button>";
+          '" onclick="A.selectChild(\'' + c.id + "')\">" + (c.avatar ? esc(c.avatar) + " " : "") + esc(c.name) + "</button>";
       }).join("") + "</div>"
     : "";
 
@@ -3069,20 +3649,30 @@ function parentHome() {
       }).join("") + "</div>"
     : '<div class="empty">' + t("upg.m.am_no_boxes") + "</div>";
 
-  /* main goal progress */
+  /* main goal progress (respects the parent's main-goal choice) */
   var goals = childGoals(child.id);
-  var g = goals.length ? goals[0] : null;
+  var mainId = child.mainGoalId || (goals.length ? goals[0].id : null);
+  var g = goals.filter(function (x) { return x.id === mainId; })[0] || null;
+  var otherGoals = goals.filter(function (x) { return !g || x.id !== g.id; });
   var goalHtml;
   if (g) {
     var pct = g.target > 0 ? Math.min(100, Math.round((g.saved / g.target) * 100)) : 0;
+    var othersHtml = otherGoals.length
+      ? '<div class="muted" style="margin-top:10px">' + t("upg.b.goal_others") + "</div>" +
+        otherGoals.map(function (o) {
+          return '<div class="kv"><span>' + esc(o.title) + "</span>" +
+            '<button class="upg-star" onclick="A.setMainGoal(\'' + child.id + "','" + o.id + "')\" title=\"" +
+            esc(t("upg.b.goal_set_main")) + '" aria-label="' + esc(t("upg.b.goal_set_main")) + '">☆</button></div>';
+        }).join("")
+      : "";
     goalHtml = '<div class="card"><div class="section-title" style="margin-top:0">' +
-      t("upg.m.goal_title") + "</div>" +
+      t("upg.m.goal_title") + ' <span class="upg-tag">' + t("upg.b.goal_main_badge") + "</span></div>" +
       '<div style="font-weight:800;font-size:16px">' + esc(g.title) + "</div>" +
       '<div class="muted">' + t("upg.m.goal_saved_of", fmtAg(g.saved), fmtAg(g.target)) + "</div>" +
       '<div class="upg-progress"><i style="width:' + pct + '%"></i></div>' +
       '<div class="muted" style="margin-top:4px">' + pct + '%</div>' +
       '<button class="btn small" style="margin-top:8px" onclick="A.openDeposit(\'' + g.id + "')\">" +
-      t("upg.m.goal_deposit") + "</button></div>";
+      t("upg.m.goal_deposit") + "</button>" + othersHtml + "</div>";
   } else {
     goalHtml = '<div class="card"><div class="section-title" style="margin-top:0">' +
       t("upg.m.goal_title") + "</div>" +
@@ -3256,6 +3846,11 @@ Object.assign(A, {
     var noteEl = document.getElementById("amNote");
     var note = noteEl ? String(noteEl.value || "").trim().slice(0, 120) : "";
 
+    /* Double-click protection: disable submit immediately; onceOp on the
+     * per-modal opId guarantees the money is applied exactly once. */
+    var confirmBtn = document.getElementById("amConfirm");
+    if (confirmBtn) { confirmBtn.disabled = true; }
+
     var applied = onceOp("addmoney-" + opId, function () {
       parts.forEach(function (p) {
         addTx({
@@ -3291,7 +3886,7 @@ Object.assign(A, {
       '<div id="spSum" class="upg-muted" style="margin:6px 0"></div>' +
       '<div id="spErr" class="upg-err" style="display:none">' + t("upg.m.split_err") + "</div>" +
       '<p class="muted">' + t("upg.m.split_note") + "</p>" +
-      '<button class="btn" onclick="A.doSaveSplit()">' + t("upg.m.common_save") + "</button>" +
+      '<button class="btn" id="spSave" onclick="A.doSaveSplit()">' + t("upg.m.common_save") + "</button>" +
       '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.m.common_cancel") + "</button>"
     );
     UpgMoney.splitPreview();
@@ -3516,8 +4111,8 @@ Object.assign(A, {
 /* ===== chunk i18n: 20-missions ===== */
 (function(){
 try{
-Object.assign(I18N.he, {"upg.b.ach_first_task": "משימה ראשונה", "upg.b.ach_goal_crusher": "שובר/ת יעדים", "upg.b.ach_mission_10": "מאסטר/ית המשימות", "upg.b.ach_new": "🏅 הישג חדש: {0}", "upg.b.ach_streak_7": "7 ימים ברצף", "upg.b.ach_title": "🏅 ההישגים שלי", "upg.b.deposit_blocked": "הסכום גבוה מיתרת החיסכון 🙂", "upg.b.goal_100_badge": "🎉 היעד הושל!", "upg.b.goal_100_msg": "מדהים! הגעת ל־{0} — כל הסכום נחסך!", "upg.b.goal_icon_lbl": "בחירת אייקון", "upg.b.goal_main_badge": "⭐ יעד ראשי", "upg.b.goal_ms_title": "{0}% מהיעד", "upg.b.goal_new_cta": "🎯 יצירת יעד חדש", "upg.b.goal_other": "יעדים נוספים", "upg.b.goal_star_title": "סימון כיעד ראשי", "upg.b.mission_approve": "✅ אישור והוספה לילד", "upg.b.mission_approved": "המשימה נוספה ל{0} ✅", "upg.b.mission_day": "יום {0} מתוך 30", "upg.b.mission_done_toast": "כל הכבוד! +{0} נקודות 🎉", "upg.b.mission_edu": "💡 ערך חינוכי", "upg.b.mission_kid": "🧒 משימה לילד", "upg.b.mission_minutes": "⏱ {0} דקות", "upg.b.mission_parent": "👩‍👧 מדריך להורה", "upg.b.mission_section": "🚀 משימות יומיות", "upg.b.mission_skip": "דלגי ⏭", "upg.b.mission_skipped": "דולג — מחר משימה חדשה 🙂", "upg.b.mission_today": "🎯 משימת היום", "upg.b.streak": "🔥 {0} ימים ברצף!", "upg.b.task_approval_lbl": "דורש אישור הורה", "upg.b.task_approved_money": "אושר! +{0} נקודות ו־{1} ל{2} 🌟", "upg.b.task_auto_approved": "הושלם! +{0} נקודות 🎉", "upg.b.task_create_btn": "הוספת משימה ✅", "upg.b.task_desc_lbl": "תיאור (אופציונלי)", "upg.b.task_desc_ph": "פרטים נוספים לילד…", "upg.b.task_due": "📅 עד {0}", "upg.b.task_due_lbl": "תאריך יעד (אופציונלי)", "upg.b.task_modal_title": "משימה חדשה 📝", "upg.b.task_money_lbl": "פרס כספי ב־₪ (אופציונלי)", "upg.b.task_new_btn": "➕ משימה חדשה", "upg.b.task_points_lbl": "נקודות", "upg.b.task_recur_daily": "כל יום", "upg.b.task_recur_daily_badge": "🔁 כל יום", "upg.b.task_recur_lbl": "חזרה", "upg.b.task_recur_once": "פעם אחת", "upg.b.task_recur_weekly": "כל שבוע", "upg.b.task_recur_weekly_badge": "🔁 כל שבוע", "upg.b.task_reject": "דחייה", "upg.b.task_reject_need": "כתבי סיבה קצרה לדחייה 🙂", "upg.b.task_reject_ok": "אישור דחייה", "upg.b.task_reject_ph": "כתבי סיבה קצרה…", "upg.b.task_reject_reason": "💬 ההורה ביקש/ה: {0}", "upg.b.task_rejected": "המשימה הוחזרה לילד עם הסבר 💬", "upg.b.task_reward_money": "💰 {0}", "upg.b.task_title_lbl": "כותרת", "upg.b.task_title_ph": "למשל: לסדר את החדר"});
-Object.assign(I18N.ru, {"upg.b.ach_first_task": "Первое задание", "upg.b.ach_goal_crusher": "Покоритель целей", "upg.b.ach_mission_10": "Мастер заданий", "upg.b.ach_new": "🏅 Новое достижение: {0}", "upg.b.ach_streak_7": "7 дней подряд", "upg.b.ach_title": "🏅 Мои достижения", "upg.b.deposit_blocked": "Сумма больше, чем в копилке 🙂", "upg.b.goal_100_badge": "🎉 Цель достигнута!", "upg.b.goal_100_msg": "Потрясающе! Ты собрал(а) {0} — всю сумму!", "upg.b.goal_icon_lbl": "Выберите иконку", "upg.b.goal_main_badge": "⭐ Главная цель", "upg.b.goal_ms_title": "{0}% цели", "upg.b.goal_new_cta": "🎯 Новая цель", "upg.b.goal_other": "Другие цели", "upg.b.goal_star_title": "Сделать главной целью", "upg.b.mission_approve": "✅ Одобрить и добавить ребёнку", "upg.b.mission_approved": "Задание добавлено для {0} ✅", "upg.b.mission_day": "День {0} из 30", "upg.b.mission_done_toast": "Отличная работа! +{0} баллов 🎉", "upg.b.mission_edu": "💡 Чему это учит", "upg.b.mission_kid": "🧒 Задание ребёнку", "upg.b.mission_minutes": "⏱ {0} мин", "upg.b.mission_parent": "👩‍👧 Гид для родителя", "upg.b.mission_section": "🚀 Ежедневные задания", "upg.b.mission_skip": "Пропустить ⏭", "upg.b.mission_skipped": "Пропущено — завтра новое задание 🙂", "upg.b.mission_today": "🎯 Задание дня", "upg.b.streak": "🔥 {0} дней подряд!", "upg.b.task_approval_lbl": "Требует подтверждения родителя", "upg.b.task_approved_money": "Готово! +{0} баллов и {1} для {2} 🌟", "upg.b.task_auto_approved": "Выполнено! +{0} баллов 🎉", "upg.b.task_create_btn": "Добавить задание ✅", "upg.b.task_desc_lbl": "Описание (необязательно)", "upg.b.task_desc_ph": "Подробности для ребёнка…", "upg.b.task_due": "📅 до {0}", "upg.b.task_due_lbl": "Срок (необязательно)", "upg.b.task_modal_title": "Новое задание 📝", "upg.b.task_money_lbl": "Денежная награда в ₪ (необязательно)", "upg.b.task_new_btn": "➕ Новое задание", "upg.b.task_points_lbl": "Баллы", "upg.b.task_recur_daily": "Каждый день", "upg.b.task_recur_daily_badge": "🔁 каждый день", "upg.b.task_recur_lbl": "Повторение", "upg.b.task_recur_once": "Один раз", "upg.b.task_recur_weekly": "Каждую неделю", "upg.b.task_recur_weekly_badge": "🔁 каждую неделю", "upg.b.task_reject": "Отклонить", "upg.b.task_reject_need": "Напишите короткую причину 🙂", "upg.b.task_reject_ok": "Подтвердить", "upg.b.task_reject_ph": "Напишите короткую причину…", "upg.b.task_reject_reason": "💬 Родитель попросил: {0}", "upg.b.task_rejected": "Задание возвращено ребёнку с объяснением 💬", "upg.b.task_reward_money": "💰 {0}", "upg.b.task_title_lbl": "Название", "upg.b.task_title_ph": "Например: убрать комнату"});
+Object.assign(I18N.he, {"upg.b.ach_first_task": "משימה ראשונה", "upg.b.ach_goal_crusher": "שובר/ת יעדים", "upg.b.ach_mission_10": "מאסטר/ית המשימות", "upg.b.ach_new": "🏅 הישג חדש: {0}", "upg.b.ach_streak_7": "7 ימים ברצף", "upg.b.ach_title": "🏅 ההישגים שלי", "upg.b.deposit_blocked": "הסכום גבוה מיתרת החיסכון 🙂", "upg.b.goal_100_badge": "🎉 היעד הושל!", "upg.b.goal_100_msg": "מדהים! הגעת ל־{0} — כל הסכום נחסך!", "upg.b.goal_icon_lbl": "בחירת אייקון", "upg.b.goal_main_badge": "⭐ יעד ראשי", "upg.b.goal_ms_title": "{0}% מהיעד", "upg.b.goal_new_cta": "🎯 יצירת יעד חדש", "upg.b.goal_other": "יעדים נוספים", "upg.b.goal_star_title": "סימון כיעד ראשי", "upg.b.mission_approve": "✅ אישור והוספה לילד", "upg.b.mission_approved": "המשימה נוספה ל{0} ✅", "upg.b.mission_day": "יום {0} מתוך 30", "upg.b.mission_done_toast": "כל הכבוד! +{0} נקודות 🎉", "upg.b.mission_edu": "💡 ערך חינוכי", "upg.b.mission_kid": "🧒 משימה לילד", "upg.b.mission_minutes": "⏱ {0} דקות", "upg.b.mission_parent": "👩‍👧 מדריך להורה", "upg.b.mission_section": "🚀 משימות יומיות", "upg.b.mission_skip": "דלגי ⏭", "upg.b.mission_skipped": "דולג — מחר משימה חדשה 🙂", "upg.b.mission_today": "🎯 משימת היום", "upg.b.streak": "🔥 {0} ימים ברצף!", "upg.b.task_approval_lbl": "דורש אישור הורה", "upg.b.task_approved_money": "אושר! +{0} נקודות ו־{1} ל{2} 🌟", "upg.b.task_auto_approved": "הושלם! +{0} נקודות 🎉", "upg.b.task_create_btn": "הוספת משימה ✅", "upg.b.task_desc_lbl": "תיאור (אופציונלי)", "upg.b.task_desc_ph": "פרטים נוספים לילד…", "upg.b.task_due": "📅 עד {0}", "upg.b.task_due_lbl": "תאריך יעד (אופציונלי)", "upg.b.task_modal_title": "משימה חדשה 📝", "upg.b.task_money_lbl": "פרס כספי ב־₪ (אופציונלי)", "upg.b.task_new_btn": "➕ משימה חדשה", "upg.b.task_points_lbl": "נקודות", "upg.b.task_recur_daily": "כל יום", "upg.b.task_recur_daily_badge": "🔁 כל יום", "upg.b.task_recur_lbl": "חזרה", "upg.b.task_recur_once": "פעם אחת", "upg.b.task_recur_weekly": "כל שבוע", "upg.b.task_recur_weekly_badge": "🔁 כל שבוע", "upg.b.task_reject": "דחייה", "upg.b.task_reject_need": "כתבי סיבה קצרה לדחייה 🙂", "upg.b.task_reject_ok": "אישור דחייה", "upg.b.task_reject_ph": "כתבי סיבה קצרה…", "upg.b.task_reject_reason": "💬 ההורה ביקש/ה: {0}", "upg.b.task_rejected": "המשימה הוחזרה לילד עם הסבר 💬", "upg.b.task_reward_money": "💰 {0}", "upg.b.task_title_lbl": "כותרת", "upg.b.task_title_ph": "למשל: לסדר את החדר", "upg.b.dep_over": "אי אפשר להפקיד יותר מהיתרה הזמינה.", "upg.b.dep_avail_req": "זמין: {0} · מבוקש: {1}", "upg.b.dep_saving": "שומרת…", "upg.b.goal_set_main": "הגדר כיעד ראשי ⭐", "upg.b.goal_others": "יעדים נוספים", "upg.b.goal_main_set": "הוגדר כיעד ראשי ⭐"});
+Object.assign(I18N.ru, {"upg.b.ach_first_task": "Первое задание", "upg.b.ach_goal_crusher": "Покоритель целей", "upg.b.ach_mission_10": "Мастер заданий", "upg.b.ach_new": "🏅 Новое достижение: {0}", "upg.b.ach_streak_7": "7 дней подряд", "upg.b.ach_title": "🏅 Мои достижения", "upg.b.deposit_blocked": "Сумма больше, чем в копилке 🙂", "upg.b.goal_100_badge": "🎉 Цель достигнута!", "upg.b.goal_100_msg": "Потрясающе! Ты собрал(а) {0} — всю сумму!", "upg.b.goal_icon_lbl": "Выберите иконку", "upg.b.goal_main_badge": "⭐ Главная цель", "upg.b.goal_ms_title": "{0}% цели", "upg.b.goal_new_cta": "🎯 Новая цель", "upg.b.goal_other": "Другие цели", "upg.b.goal_star_title": "Сделать главной целью", "upg.b.mission_approve": "✅ Одобрить и добавить ребёнку", "upg.b.mission_approved": "Задание добавлено для {0} ✅", "upg.b.mission_day": "День {0} из 30", "upg.b.mission_done_toast": "Отличная работа! +{0} баллов 🎉", "upg.b.mission_edu": "💡 Чему это учит", "upg.b.mission_kid": "🧒 Задание ребёнку", "upg.b.mission_minutes": "⏱ {0} мин", "upg.b.mission_parent": "👩‍👧 Гид для родителя", "upg.b.mission_section": "🚀 Ежедневные задания", "upg.b.mission_skip": "Пропустить ⏭", "upg.b.mission_skipped": "Пропущено — завтра новое задание 🙂", "upg.b.mission_today": "🎯 Задание дня", "upg.b.streak": "🔥 {0} дней подряд!", "upg.b.task_approval_lbl": "Требует подтверждения родителя", "upg.b.task_approved_money": "Готово! +{0} баллов и {1} для {2} 🌟", "upg.b.task_auto_approved": "Выполнено! +{0} баллов 🎉", "upg.b.task_create_btn": "Добавить задание ✅", "upg.b.task_desc_lbl": "Описание (необязательно)", "upg.b.task_desc_ph": "Подробности для ребёнка…", "upg.b.task_due": "📅 до {0}", "upg.b.task_due_lbl": "Срок (необязательно)", "upg.b.task_modal_title": "Новое задание 📝", "upg.b.task_money_lbl": "Денежная награда в ₪ (необязательно)", "upg.b.task_new_btn": "➕ Новое задание", "upg.b.task_points_lbl": "Баллы", "upg.b.task_recur_daily": "Каждый день", "upg.b.task_recur_daily_badge": "🔁 каждый день", "upg.b.task_recur_lbl": "Повторение", "upg.b.task_recur_once": "Один раз", "upg.b.task_recur_weekly": "Каждую неделю", "upg.b.task_recur_weekly_badge": "🔁 каждую неделю", "upg.b.task_reject": "Отклонить", "upg.b.task_reject_need": "Напишите короткую причину 🙂", "upg.b.task_reject_ok": "Подтвердить", "upg.b.task_reject_ph": "Напишите короткую причину…", "upg.b.task_reject_reason": "💬 Родитель попросил: {0}", "upg.b.task_rejected": "Задание возвращено ребёнку с объяснением 💬", "upg.b.task_reward_money": "💰 {0}", "upg.b.task_title_lbl": "Название", "upg.b.task_title_ph": "Например: убрать комнату", "upg.b.dep_over": "Нельзя внести больше доступного остатка.", "upg.b.dep_avail_req": "Доступно: {0} · Запрошено: {1}", "upg.b.dep_saving": "Сохранение…", "upg.b.goal_set_main": "Сделать главной целью ⭐", "upg.b.goal_others": "Другие цели", "upg.b.goal_main_set": "Назначена главной целью ⭐"});
 }catch(e){}
 })();
 </script>
@@ -3981,13 +4576,22 @@ function depositModal(goalId) {
   var c = S.children.find(function (x) { return x.id === g.childId; });
   var saveAg = c ? c.money.save : 0;
   var maxSh = Math.floor(saveAg / 100);
+  /* One operation id per modal open: a double-click re-sends the SAME op
+   * (blocked by idempotency), an intentional repeat opens a new modal
+   * with a NEW op id (always saved). */
+  var opId = uid();
   openModal(`
     <h3>${t("modal.deposit_title", esc(g.title))}</h3>
     <p class="muted">${t("modal.save_balance", fmtAg(saveAg))}</p>
+    <input type="hidden" id="depOpId" value="${opId}">
     <div class="field"><label>${t("modal.deposit_amt")}</label>
-    <input id="depAmt" type="number" min="1" step="1" max="${maxSh}" value="${maxSh >= 10 ? 10 : (maxSh || "")}"></div>
-    <button class="btn" onclick="A.doDeposit('${goalId}')">${t("modal.deposit")}</button>
+    <input id="depAmt" type="number" min="1" step="1" max="${maxSh}"
+      value="${maxSh >= 10 ? 10 : (maxSh || "")}"
+      oninput="A.depValidate('${goalId}')"></div>
+    <div id="depWarn" class="upg-err" style="display:none"></div>
+    <button class="btn" id="depSubmit" onclick="A.doDeposit('${goalId}')">${t("modal.deposit")}</button>
     <button class="btn secondary" onclick="A.closeModal()">${t("common.cancel")}</button>`);
+  A.depValidate(goalId);
 }
 
 function goalCard(child) {
@@ -4218,19 +4822,64 @@ Object.assign(A, {
     save(); renderApp();
   },
 
+  /* Parent picks the main goal directly: exactly one main goal. */
+  setMainGoal: function (childId, goalId) {
+    var c = S.children.find(function (x) { return x.id === childId; });
+    if (!c) return;
+    if (!(S.goals || []).some(function (x) { return x.id === goalId && x.childId === childId; })) return;
+    c.mainGoalId = goalId;
+    save(); renderApp();
+    toast(t("upg.b.goal_main_set"));
+  },
+
+  /* Live validation for the deposit modal: the submit button is disabled
+   * while the requested amount is not a valid, covered deposit. */
+  depValidate: function (goalId) {
+    var g = S.goals.find(function (x) { return x.id === goalId; });
+    if (!g) return false;
+    var c = S.children.find(function (x) { return x.id === g.childId; });
+    var saveAg = c ? c.money.save : 0;
+    var amtEl = document.getElementById("depAmt");
+    var btn = document.getElementById("depSubmit");
+    var warn = document.getElementById("depWarn");
+    var amtAg = toAg(amtEl ? amtEl.value : 0);
+    var over = amtAg > saveAg;
+    var bad = !(amtAg > 0);
+    if (warn) {
+      if (over) {
+        warn.style.display = "";
+        warn.innerHTML = "⚠️ " + t("upg.b.dep_over") + '<br><span class="muted">' +
+          t("upg.b.dep_avail_req", fmtAg(saveAg), fmtAg(amtAg)) + "</span>";
+      } else {
+        warn.style.display = "none";
+      }
+    }
+    if (btn) btn.disabled = over || bad;
+    return !over && !bad;
+  },
+
   doDeposit: function (goalId) {
     var g = S.goals.find(function (x) { return x.id === goalId; });
     if (!g) return;
     var c = S.children.find(function (x) { return x.id === g.childId; });
     if (!c) return;
-    var amtEl = document.getElementById("depAmt");
-    var amtAg = toAg(amtEl ? amtEl.value : 0);
-    if (amtAg <= 0) { toast(t("toast.bad_amount")); return; }
-    if (amtAg > c.money.save) { toast(t("upg.b.deposit_blocked")); return; }
-    var bucket = upgDayStr(Date.now());
+    if (!A.depValidate(goalId)) {
+      var amtAg0 = toAg((document.getElementById("depAmt") || {}).value || 0);
+      toast(amtAg0 > c.money.save ? t("upg.b.deposit_blocked") : t("toast.bad_amount"));
+      return;
+    }
+    var opIdEl = document.getElementById("depOpId");
+    var opId = (opIdEl && opIdEl.value) ? opIdEl.value : uid();
+    /* Double-click protection: disable submit immediately; the same opId
+     * can never be applied twice thanks to onceOp below. */
+    var btn = document.getElementById("depSubmit");
+    if (btn) { btn.disabled = true; btn.textContent = t("upg.b.dep_saving"); }
+    var amtAg = toAg(document.getElementById("depAmt").value);
     var before = upgGoalPct(g);
     var celebrated = false;
-    var ok = onceOp("deposit-" + goalId + "-" + amtAg + "-" + bucket, function () {
+    /* Idempotency key = the operation id, NOT goal+amount+day:
+     * same op resent -> no-op; new op (even same amount/day) -> new deposit. */
+    var ok = onceOp("deposit-" + opId, function () {
       c.money.save -= amtAg;
       g.saved += amtAg;
       addTx({ childId: c.id, boxId: "save", amountAg: -amtAg, type: "transfer",
@@ -4414,8 +5063,8 @@ Object.assign(A, {
 /* ===== chunk i18n: 30-care ===== */
 (function(){
 try{
-Object.assign(I18N.he, {"upg.c.bug_btn": "🐞 דיווח תקלה", "upg.c.bug_copied": "הדיווח הועתק — אפשר להדביק אותו בכל מייל ✅", "upg.c.bug_copy": "📋 העתקת הדיווח", "upg.c.bug_desc_lbl": "מה קרה?", "upg.c.bug_desc_ph": "למשל: המסך נתקע כשלוחצים על…", "upg.c.bug_empty": "כתבי בקצרה מה קרה כדי שנוכל לעזור 🙂", "upg.c.bug_opened_t": "אפליקציית המייל שלך נפתחה עם הדיווח מוכן — לחצי <b>שליחה</b> כדי לשלוח אותו אלינו. לא נרשם ׳נשלח׳ עד שתשלחי באמת.", "upg.c.bug_reopen": "✉️ פתיחת המייל שוב", "upg.c.bug_send": "שליחת דיווח", "upg.c.bug_title": "דיווח תקלה", "upg.c.bug_tried_lbl": "מה כבר ניסית? (לא חובה)", "upg.c.bug_tried_ph": "למשל: סגרתי ופתחתי את האפליקציה", "upg.c.bug_tried_prefix": "ניסיתי: ", "upg.c.close": "סגירה", "upg.c.data_delete": "מחיקת החשבון", "upg.c.data_delete_do": "המשך למחיקה", "upg.c.data_delete_final_do": "כן, למחוק הכול לצמיתות", "upg.c.data_delete_final_t": "זו ההזדמנות האחרונה להתחרט. למחוק הכול לצמיתות?", "upg.c.data_delete_type": "כדי לאשר, הקלידי את המילה:", "upg.c.data_delete_warn": "⚠️ פעולה זו מוחקת <b>לצמיתות</b> את כל הנתונים מהמכשיר — ילדים, מטרות, משימות, נקודות והיסטוריה. אין דרך לשחזר.", "upg.c.data_delete_wrong": "המילה לא תואמת — המחיקה בוטלה.", "upg.c.data_export": "📥 ייצוא הנתונים שלי", "upg.c.data_export_note": "מוריד קובץ JSON קריא עם כל הנתונים — בלי סודות, כי אין כאלה באפליקציה.", "upg.c.data_export_ok": "קובץ הנתונים הורד ✅", "upg.c.data_sub": "הנתונים שלך נשמרים על המכשיר שלך בלבד.", "upg.c.data_title": "הנתונים שלי", "upg.c.delete_word": "מחיקה", "upg.c.faq1_a": "במסך הניהול (⚙️) יש שדה ׳שם הילד׳ וכפתור הוספה. אפשר להוסיף כמה ילדים שרוצים — לכל ילד קופות, מטרות ונקודות משלו.", "upg.c.faq1_q": "איך מוסיפים ילד?", "upg.c.faq2_a": "בכרטיס הילד במסך הניהול לוחצים ׳הוספת כסף׳ ומזינים סכום לכל קופה: חיסכון, השקעה והוצאות. הרישום ידני — אין חיבור לבנק ואין כסף אמיתי.", "upg.c.faq2_q": "איך מוסיפים כסף?", "upg.c.faq3_a": "בכרטיס הילד לוחצים ׳מטרה חדשה׳, כותבים שם וסכום יעד. אחר כך לוחצים ׳הפקדה׳ כדי להעביר כסף מקופת החיסכון אל המטרה.", "upg.c.faq3_q": "איך יוצרים מטרת חיסכון?", "upg.c.faq4_a": "ההורה יוצר משימה עם נקודות במסך המשימות (✓). הילד מסמן ׳בוצע׳, ההורה מאשר — והנקודות נכנסות לחזיר. אין פרס כספי אוטומטי.", "upg.c.faq4_q": "איך עובדות המשימות?", "upg.c.faq5_a": "7 ימי גישה מלאה לכל כלי הליווי — ללא כרטיס אשראי וללא התחייבות. בסוף 7 הימים הגישה מסתיימת אוטומטית ולא מחייבים כלום.", "upg.c.faq5_q": "מה כולל שבוע ההדגמה?", "upg.c.faq6_a": "אין מה לבטל 🙂 אין חיוב אוטומטי ואין חידוש אוטומטי — מנוי בתשלום פשוט מסתיים מעצמו. להמשך פונים לאלונה.", "upg.c.faq6_q": "איך מבטלים מנוי?", "upg.c.faq7_a": "לוחצים ׳דיווח תקלה׳, כותבים מה קרה — והדיווח נפתח באפליקציית המייל שלך, מוכן לשליחה. יש גם כפתור העתקה כגיבוי.", "upg.c.faq7_q": "איך מדווחים על תקלה?", "upg.c.faq8_a": "בקשות מנוי — דרך כפתור הוואטסאפ במסך המנוי. כל השאר — בדף ׳צור קשר׳ בסעיף האמון והחוק.", "upg.c.faq8_q": "איך יוצרים קשר?", "upg.c.help_btn": "❓ מרכז עזרה", "upg.c.help_sub": "שאלות נפוצות — לחצי על שאלה כדי לראות תשובה.", "upg.c.help_title": "מרכז עזרה", "upg.c.league_ach": "🏆 {0}", "upg.c.league_empty": "עוד אין ילדים בליגה — הוסיפי ילד כדי להתחיל 🏁", "upg.c.league_note": "מוצגים רק שם, נקודות, רצף והישגים — לעולם לא סכומי כסף.", "upg.c.league_off": "כבוי", "upg.c.league_on": "פעיל ✅", "upg.c.league_streak": "רצף {0} ימים", "upg.c.league_title": "ליגה משפחתית", "upg.c.league_toggle": "ליגה משפחתית", "upg.c.legal_ai": "מדיניות שימוש ב־AI", "upg.c.legal_child": "בטיחות ילדים", "upg.c.legal_contact": "צור קשר", "upg.c.legal_data": "מדיניות מחיקת נתונים", "upg.c.legal_ip": "זכויות יוצרים", "upg.c.legal_privacy": "מדיניות פרטיות", "upg.c.legal_sub": "שקיפות מלאה — בלי אותיות קטנות.", "upg.c.legal_terms": "תנאי שימוש", "upg.c.legal_title": "אמון וחוק", "upg.c.print_boxes_note": "סה״כ השבוע:", "upg.c.print_boxes_t": "שלוש הקופות", "upg.c.print_btn": "🖨️ הדפסה", "upg.c.print_cert_line1": "תעודת הישג 🏆", "upg.c.print_cert_line2": "כל הכבוד! הגעת למטרת החיסכון שלך!", "upg.c.print_cert_t": "תעודת הישג", "upg.c.print_date": "תאריך", "upg.c.print_days": "ראשון,שני,שלישי,רביעי,חמישי,שישי,שבת", "upg.c.print_done": "בוצע ✓", "upg.c.print_goal": "המטרה שלי", "upg.c.print_goal_t": "דף מטרת חיסכון", "upg.c.print_name": "שם הילד/ה", "upg.c.print_open": "🖨️ ערכת בית להדפסה", "upg.c.print_saved": "נחסך עד כה", "upg.c.print_sign": "חתימת ההורה", "upg.c.print_target": "סכום היעד", "upg.c.print_task": "משימה", "upg.c.print_tasks_t": "טבלת משימות", "upg.c.print_title": "ערכת בית להדפסה", "upg.c.print_week_t": "מעקב שבועי", "upg.c.sub_code_wrong": "הקוד שגוי — בקשי מאלונה קוד הפעלה עדכני.", "upg.c.sub_no_card": "בלי סליקה באפליקציה: התשלום מתבצע ידנית מול אלונה, וההפעלה עם קוד שהיא מנפיקה. פרטי כרטיס אשראי אינם נאספים כאן.", "upg.c.sub_price_note": "מחיר ההשקה (19 ₪) מיועד ל־10 המצטרפים הראשונים. הספירה נעשית כרגע במכשיר הזה — כשהמערכת תעבור לשרת, הספירה הסופית תתבצע שם.", "upg.c.support_sub": "משהו לא עובד? יש שאלה? אנחנו כאן.", "upg.c.support_title": "תמיכה ועזרה"});
-Object.assign(I18N.ru, {"upg.c.bug_btn": "🐞 Сообщить об ошибке", "upg.c.bug_copied": "Отчёт скопирован — вставьте его в любое письмо ✅", "upg.c.bug_copy": "📋 Скопировать отчёт", "upg.c.bug_desc_lbl": "Что случилось?", "upg.c.bug_desc_ph": "Например: экран завис при нажатии на…", "upg.c.bug_empty": "Коротко опишите, что случилось, чтобы мы могли помочь 🙂", "upg.c.bug_opened_t": "Ваше почтовое приложение открылось с готовым отчётом — нажмите <b>«Отправить»</b>, чтобы отправить его нам. «Отправлено» не засчитывается, пока вы действительно не отправите.", "upg.c.bug_reopen": "✉️ Открыть письмо снова", "upg.c.bug_send": "Отправить отчёт", "upg.c.bug_title": "Сообщение об ошибке", "upg.c.bug_tried_lbl": "Что вы уже пробовали? (необязательно)", "upg.c.bug_tried_ph": "Например: закрыл(а) и снова открыл(а) приложение", "upg.c.bug_tried_prefix": "Пробовал(а): ", "upg.c.close": "Закрыть", "upg.c.data_delete": "Удаление аккаунта", "upg.c.data_delete_do": "Продолжить удаление", "upg.c.data_delete_final_do": "Да, удалить всё безвозвратно", "upg.c.data_delete_final_t": "Последний шанс передумать. Удалить всё безвозвратно?", "upg.c.data_delete_type": "Для подтверждения введите слово:", "upg.c.data_delete_warn": "⚠️ Это действие <b>безвозвратно</b> удалит все данные с устройства — детей, цели, задания, очки и историю. Восстановить их нельзя.", "upg.c.data_delete_wrong": "Слово не совпало — удаление отменено.", "upg.c.data_export": "📥 Экспорт моих данных", "upg.c.data_export_note": "Скачивает читаемый JSON-файл со всеми данными — без секретов, их в приложении просто нет.", "upg.c.data_export_ok": "Файл с данными скачан ✅", "upg.c.data_sub": "Ваши данные хранятся только на вашем устройстве.", "upg.c.data_title": "Мои данные", "upg.c.delete_word": "удалить", "upg.c.faq1_a": "На экране управления (⚙️) есть поле «Имя ребёнка» и кнопка добавления. Можно добавить сколько угодно детей — у каждого свои копилки, цели и очки.", "upg.c.faq1_q": "Как добавить ребёнка?", "upg.c.faq2_a": "В карточке ребёнка на экране управления нажмите «Добавить деньги» и введите сумму для каждой копилки: сбережения, инвестиции и расходы. Учёт ручной — подключения к банку и настоящих денег нет.", "upg.c.faq2_q": "Как добавить деньги?", "upg.c.faq3_a": "В карточке ребёнка нажмите «Новая цель», укажите название и сумму. Затем нажмите «Внести», чтобы перевести деньги из копилки сбережений в цель.", "upg.c.faq3_q": "Как создать цель накоплений?", "upg.c.faq4_a": "Родитель создаёт задание с очками на экране заданий (✓). Ребёнок отмечает «Выполнено», родитель подтверждает — и очки попадают в копилку. Автоматической денежной награды нет.", "upg.c.faq4_q": "Как работают задания?", "upg.c.faq5_a": "7 дней полного доступа ко всем инструментам гида — без карты и обязательств. Через 7 дней доступ завершается автоматически, списаний нет.", "upg.c.faq5_q": "Что входит в пробную неделю?", "upg.c.faq6_a": "Отменять нечего 🙂 Автоплатежей и автопродления нет — платная подписка просто заканчивается сама. Для продления обратитесь к Алоне.", "upg.c.faq6_q": "Как отменить подписку?", "upg.c.faq7_a": "Нажмите «Сообщить об ошибке», опишите, что случилось, — и отчёт откроется в вашем почтовом приложении, готовый к отправке. Есть и кнопка копирования про запас.", "upg.c.faq7_q": "Как сообщить об ошибке?", "upg.c.faq8_a": "Заявки на подписку — через кнопку WhatsApp на экране подписки. Всё остальное — на странице «Связаться с нами» в разделе доверия и права.", "upg.c.faq8_q": "Как связаться с нами?", "upg.c.help_btn": "❓ Центр помощи", "upg.c.help_sub": "Частые вопросы — нажмите на вопрос, чтобы увидеть ответ.", "upg.c.help_title": "Центр помощи", "upg.c.league_ach": "🏆 {0}", "upg.c.league_empty": "В лиге пока нет детей — добавьте ребёнка, чтобы начать 🏁", "upg.c.league_note": "Показываются только имя, очки, серия и достижения — никогда суммы денег.", "upg.c.league_off": "Выкл", "upg.c.league_on": "Вкл ✅", "upg.c.league_streak": "Серия {0} дн.", "upg.c.league_title": "Семейная лига", "upg.c.league_toggle": "Семейная лига", "upg.c.legal_ai": "Политика использования ИИ", "upg.c.legal_child": "Безопасность детей", "upg.c.legal_contact": "Связаться с нами", "upg.c.legal_data": "Политика удаления данных", "upg.c.legal_ip": "Авторские права", "upg.c.legal_privacy": "Политика конфиденциальности", "upg.c.legal_sub": "Полная прозрачность — без мелкого шрифта.", "upg.c.legal_terms": "Условия использования", "upg.c.legal_title": "Доверие и право", "upg.c.print_boxes_note": "Итого за неделю:", "upg.c.print_boxes_t": "Три копилки", "upg.c.print_btn": "🖨️ Печать", "upg.c.print_cert_line1": "Грамота за достижение 🏆", "upg.c.print_cert_line2": "Молодец! Ты достиг(ла) своей цели накоплений!", "upg.c.print_cert_t": "Грамота за достижение", "upg.c.print_date": "Дата", "upg.c.print_days": "Вс,Пн,Вт,Ср,Чт,Пт,Сб", "upg.c.print_done": "Готово ✓", "upg.c.print_goal": "Моя цель", "upg.c.print_goal_t": "Лист цели накоплений", "upg.c.print_name": "Имя ребёнка", "upg.c.print_open": "🖨️ Домашний набор для печати", "upg.c.print_saved": "Накоплено", "upg.c.print_sign": "Подпись родителя", "upg.c.print_target": "Целевая сумма", "upg.c.print_task": "Задание", "upg.c.print_tasks_t": "Таблица заданий", "upg.c.print_title": "Домашний набор для печати", "upg.c.print_week_t": "Недельный трекер", "upg.c.sub_code_wrong": "Неверный код — попросите у Алоны актуальный код активации.", "upg.c.sub_no_card": "Без оплаты в приложении: оплата производится вручную через Алону, активация — кодом, который она выдаёт. Данные карты здесь не собираются.", "upg.c.sub_price_note": "Стартовая цена (19 ₪) — для первых 10 подписчиков. Подсчёт пока ведётся на этом устройстве — после перехода на сервер финальный подсчёт будет там.", "upg.c.support_sub": "Что-то не работает? Есть вопрос? Мы рядом.", "upg.c.support_title": "Поддержка и помощь"});
+Object.assign(I18N.he, {"upg.c.bug_btn": "🐞 דיווח תקלה", "upg.c.bug_copied": "הדיווח הועתק — אפשר להדביק אותו בכל מייל ✅", "upg.c.bug_copy": "📋 העתקת הדיווח", "upg.c.bug_desc_lbl": "מה קרה?", "upg.c.bug_desc_ph": "למשל: המסך נתקע כשלוחצים על…", "upg.c.bug_empty": "כתבי בקצרה מה קרה כדי שנוכל לעזור 🙂", "upg.c.bug_opened_t": "אפליקציית המייל שלך נפתחה עם הדיווח מוכן — לחצי <b>שליחה</b> כדי לשלוח אותו אלינו. לא נרשם ׳נשלח׳ עד שתשלחי באמת.", "upg.c.bug_reopen": "✉️ פתיחת המייל שוב", "upg.c.bug_send": "שליחת דיווח", "upg.c.bug_title": "דיווח תקלה", "upg.c.bug_tried_lbl": "מה כבר ניסית? (לא חובה)", "upg.c.bug_tried_ph": "למשל: סגרתי ופתחתי את האפליקציה", "upg.c.bug_tried_prefix": "ניסיתי: ", "upg.c.close": "סגירה", "upg.c.data_delete": "מחיקת החשבון", "upg.c.data_delete_do": "המשך למחיקה", "upg.c.data_delete_final_do": "כן, למחוק הכול לצמיתות", "upg.c.data_delete_final_t": "זו ההזדמנות האחרונה להתחרט. למחוק הכול לצמיתות?", "upg.c.data_delete_type": "כדי לאשר, הקלידי את המילה:", "upg.c.data_delete_warn": "⚠️ פעולה זו מוחקת <b>לצמיתות</b> את כל הנתונים מהמכשיר — ילדים, מטרות, משימות, נקודות והיסטוריה. אין דרך לשחזר.", "upg.c.data_delete_wrong": "המילה לא תואמת — המחיקה בוטלה.", "upg.c.data_export": "📥 ייצוא הנתונים שלי", "upg.c.data_export_note": "מוריד קובץ JSON קריא עם כל הנתונים — בלי סודות, כי אין כאלה באפליקציה.", "upg.c.data_export_ok": "קובץ הנתונים הורד ✅", "upg.c.data_sub": "הנתונים שלך נשמרים על המכשיר שלך בלבד.", "upg.c.data_title": "הנתונים שלי", "upg.c.delete_word": "מחיקה", "upg.c.faq1_a": "במסך הניהול (⚙️) יש שדה ׳שם הילד׳ וכפתור הוספה. אפשר להוסיף כמה ילדים שרוצים — לכל ילד קופות, מטרות ונקודות משלו.", "upg.c.faq1_q": "איך מוסיפים ילד?", "upg.c.faq2_a": "בכרטיס הילד במסך הניהול לוחצים ׳הוספת כסף׳ ומזינים סכום לכל קופה: חיסכון, השקעה והוצאות. הרישום ידני — אין חיבור לבנק ואין כסף אמיתי.", "upg.c.faq2_q": "איך מוסיפים כסף?", "upg.c.faq3_a": "בכרטיס הילד לוחצים ׳מטרה חדשה׳, כותבים שם וסכום יעד. אחר כך לוחצים ׳הפקדה׳ כדי להעביר כסף מקופת החיסכון אל המטרה.", "upg.c.faq3_q": "איך יוצרים מטרת חיסכון?", "upg.c.faq4_a": "ההורה יוצר משימה עם נקודות במסך המשימות (✓). הילד מסמן ׳בוצע׳, ההורה מאשר — והנקודות נכנסות לחזיר. אין פרס כספי אוטומטי.", "upg.c.faq4_q": "איך עובדות המשימות?", "upg.c.faq5_a": "7 ימי גישה מלאה לכל כלי הליווי — ללא כרטיס אשראי וללא התחייבות. בסוף 7 הימים הגישה מסתיימת אוטומטית ולא מחייבים כלום.", "upg.c.faq5_q": "מה כולל שבוע ההדגמה?", "upg.c.faq6_a": "אין מה לבטל 🙂 אין חיוב אוטומטי ואין חידוש אוטומטי — מנוי בתשלום פשוט מסתיים מעצמו. להמשך פונים לאלונה.", "upg.c.faq6_q": "איך מבטלים מנוי?", "upg.c.faq7_a": "לוחצים ׳דיווח תקלה׳, כותבים מה קרה — והדיווח נפתח באפליקציית המייל שלך, מוכן לשליחה. יש גם כפתור העתקה כגיבוי.", "upg.c.faq7_q": "איך מדווחים על תקלה?", "upg.c.faq8_a": "בקשות מנוי — דרך כפתור הוואטסאפ במסך המנוי. כל השאר — בדף ׳צור קשר׳ בסעיף האמון והחוק.", "upg.c.faq8_q": "איך יוצרים קשר?", "upg.c.help_btn": "❓ מרכז עזרה", "upg.c.help_sub": "שאלות נפוצות — לחצי על שאלה כדי לראות תשובה.", "upg.c.help_title": "מרכז עזרה", "upg.c.league_ach": "🏆 {0}", "upg.c.league_empty": "עוד אין ילדים בליגה — הוסיפי ילד כדי להתחיל 🏁", "upg.c.league_note": "מוצגים רק שם, נקודות, רצף והישגים — לעולם לא סכומי כסף.", "upg.c.league_off": "כבוי", "upg.c.league_on": "פעיל ✅", "upg.c.league_streak": "רצף {0} ימים", "upg.c.league_title": "ליגה משפחתית", "upg.c.league_toggle": "ליגה משפחתית", "upg.c.legal_ai": "מדיניות שימוש ב־AI", "upg.c.legal_child": "בטיחות ילדים", "upg.c.legal_contact": "צור קשר", "upg.c.legal_data": "מדיניות מחיקת נתונים", "upg.c.legal_ip": "זכויות יוצרים", "upg.c.legal_privacy": "מדיניות פרטיות", "upg.c.legal_sub": "שקיפות מלאה — בלי אותיות קטנות.", "upg.c.legal_terms": "תנאי שימוש", "upg.c.legal_title": "אמון וחוק", "upg.c.print_boxes_note": "סה״כ השבוע:", "upg.c.print_boxes_t": "שלוש הקופות", "upg.c.print_btn": "🖨️ הדפסה", "upg.c.print_cert_line1": "תעודת הישג 🏆", "upg.c.print_cert_line2": "כל הכבוד! הגעת למטרת החיסכון שלך!", "upg.c.print_cert_t": "תעודת הישג", "upg.c.print_date": "תאריך", "upg.c.print_days": "ראשון,שני,שלישי,רביעי,חמישי,שישי,שבת", "upg.c.print_done": "בוצע ✓", "upg.c.print_goal": "המטרה שלי", "upg.c.print_goal_t": "דף מטרת חיסכון", "upg.c.print_name": "שם הילד/ה", "upg.c.print_open": "🖨️ ערכת בית להדפסה", "upg.c.print_saved": "נחסך עד כה", "upg.c.print_sign": "חתימת ההורה", "upg.c.print_target": "סכום היעד", "upg.c.print_task": "משימה", "upg.c.print_tasks_t": "טבלת משימות", "upg.c.print_title": "ערכת בית להדפסה", "upg.c.print_week_t": "מעקב שבועי", "upg.c.sub_code_wrong": "הקוד שגוי — בקשי מאלונה קוד הפעלה עדכני.", "upg.c.sub_no_card": "בלי סליקה באפליקציה: התשלום מתבצע ידנית מול אלונה, וההפעלה עם קוד שהיא מנפיקה. פרטי כרטיס אשראי אינם נאספים כאן.", "upg.c.sub_price_note": "מחיר ההשקה (19 ₪) מיועד ל־10 המצטרפים הראשונים. הספירה נעשית כרגע במכשיר הזה — כשהמערכת תעבור לשרת, הספירה הסופית תתבצע שם.", "upg.c.support_sub": "משהו לא עובד? יש שאלה? אנחנו כאן.", "upg.c.support_title": "תמיכה ועזרה", "upg.c.footer_rights": "© 2026 PiggyUp · כל הזכויות שמורות"});
+Object.assign(I18N.ru, {"upg.c.bug_btn": "🐞 Сообщить об ошибке", "upg.c.bug_copied": "Отчёт скопирован — вставьте его в любое письмо ✅", "upg.c.bug_copy": "📋 Скопировать отчёт", "upg.c.bug_desc_lbl": "Что случилось?", "upg.c.bug_desc_ph": "Например: экран завис при нажатии на…", "upg.c.bug_empty": "Коротко опишите, что случилось, чтобы мы могли помочь 🙂", "upg.c.bug_opened_t": "Ваше почтовое приложение открылось с готовым отчётом — нажмите <b>«Отправить»</b>, чтобы отправить его нам. «Отправлено» не засчитывается, пока вы действительно не отправите.", "upg.c.bug_reopen": "✉️ Открыть письмо снова", "upg.c.bug_send": "Отправить отчёт", "upg.c.bug_title": "Сообщение об ошибке", "upg.c.bug_tried_lbl": "Что вы уже пробовали? (необязательно)", "upg.c.bug_tried_ph": "Например: закрыл(а) и снова открыл(а) приложение", "upg.c.bug_tried_prefix": "Пробовал(а): ", "upg.c.close": "Закрыть", "upg.c.data_delete": "Удаление аккаунта", "upg.c.data_delete_do": "Продолжить удаление", "upg.c.data_delete_final_do": "Да, удалить всё безвозвратно", "upg.c.data_delete_final_t": "Последний шанс передумать. Удалить всё безвозвратно?", "upg.c.data_delete_type": "Для подтверждения введите слово:", "upg.c.data_delete_warn": "⚠️ Это действие <b>безвозвратно</b> удалит все данные с устройства — детей, цели, задания, очки и историю. Восстановить их нельзя.", "upg.c.data_delete_wrong": "Слово не совпало — удаление отменено.", "upg.c.data_export": "📥 Экспорт моих данных", "upg.c.data_export_note": "Скачивает читаемый JSON-файл со всеми данными — без секретов, их в приложении просто нет.", "upg.c.data_export_ok": "Файл с данными скачан ✅", "upg.c.data_sub": "Ваши данные хранятся только на вашем устройстве.", "upg.c.data_title": "Мои данные", "upg.c.delete_word": "удалить", "upg.c.faq1_a": "На экране управления (⚙️) есть поле «Имя ребёнка» и кнопка добавления. Можно добавить сколько угодно детей — у каждого свои копилки, цели и очки.", "upg.c.faq1_q": "Как добавить ребёнка?", "upg.c.faq2_a": "В карточке ребёнка на экране управления нажмите «Добавить деньги» и введите сумму для каждой копилки: сбережения, инвестиции и расходы. Учёт ручной — подключения к банку и настоящих денег нет.", "upg.c.faq2_q": "Как добавить деньги?", "upg.c.faq3_a": "В карточке ребёнка нажмите «Новая цель», укажите название и сумму. Затем нажмите «Внести», чтобы перевести деньги из копилки сбережений в цель.", "upg.c.faq3_q": "Как создать цель накоплений?", "upg.c.faq4_a": "Родитель создаёт задание с очками на экране заданий (✓). Ребёнок отмечает «Выполнено», родитель подтверждает — и очки попадают в копилку. Автоматической денежной награды нет.", "upg.c.faq4_q": "Как работают задания?", "upg.c.faq5_a": "7 дней полного доступа ко всем инструментам гида — без карты и обязательств. Через 7 дней доступ завершается автоматически, списаний нет.", "upg.c.faq5_q": "Что входит в пробную неделю?", "upg.c.faq6_a": "Отменять нечего 🙂 Автоплатежей и автопродления нет — платная подписка просто заканчивается сама. Для продления обратитесь к Алоне.", "upg.c.faq6_q": "Как отменить подписку?", "upg.c.faq7_a": "Нажмите «Сообщить об ошибке», опишите, что случилось, — и отчёт откроется в вашем почтовом приложении, готовый к отправке. Есть и кнопка копирования про запас.", "upg.c.faq7_q": "Как сообщить об ошибке?", "upg.c.faq8_a": "Заявки на подписку — через кнопку WhatsApp на экране подписки. Всё остальное — на странице «Связаться с нами» в разделе доверия и права.", "upg.c.faq8_q": "Как связаться с нами?", "upg.c.help_btn": "❓ Центр помощи", "upg.c.help_sub": "Частые вопросы — нажмите на вопрос, чтобы увидеть ответ.", "upg.c.help_title": "Центр помощи", "upg.c.league_ach": "🏆 {0}", "upg.c.league_empty": "В лиге пока нет детей — добавьте ребёнка, чтобы начать 🏁", "upg.c.league_note": "Показываются только имя, очки, серия и достижения — никогда суммы денег.", "upg.c.league_off": "Выкл", "upg.c.league_on": "Вкл ✅", "upg.c.league_streak": "Серия {0} дн.", "upg.c.league_title": "Семейная лига", "upg.c.league_toggle": "Семейная лига", "upg.c.legal_ai": "Политика использования ИИ", "upg.c.legal_child": "Безопасность детей", "upg.c.legal_contact": "Связаться с нами", "upg.c.legal_data": "Политика удаления данных", "upg.c.legal_ip": "Авторские права", "upg.c.legal_privacy": "Политика конфиденциальности", "upg.c.legal_sub": "Полная прозрачность — без мелкого шрифта.", "upg.c.legal_terms": "Условия использования", "upg.c.legal_title": "Доверие и право", "upg.c.print_boxes_note": "Итого за неделю:", "upg.c.print_boxes_t": "Три копилки", "upg.c.print_btn": "🖨️ Печать", "upg.c.print_cert_line1": "Грамота за достижение 🏆", "upg.c.print_cert_line2": "Молодец! Ты достиг(ла) своей цели накоплений!", "upg.c.print_cert_t": "Грамота за достижение", "upg.c.print_date": "Дата", "upg.c.print_days": "Вс,Пн,Вт,Ср,Чт,Пт,Сб", "upg.c.print_done": "Готово ✓", "upg.c.print_goal": "Моя цель", "upg.c.print_goal_t": "Лист цели накоплений", "upg.c.print_name": "Имя ребёнка", "upg.c.print_open": "🖨️ Домашний набор для печати", "upg.c.print_saved": "Накоплено", "upg.c.print_sign": "Подпись родителя", "upg.c.print_target": "Целевая сумма", "upg.c.print_task": "Задание", "upg.c.print_tasks_t": "Таблица заданий", "upg.c.print_title": "Домашний набор для печати", "upg.c.print_week_t": "Недельный трекер", "upg.c.sub_code_wrong": "Неверный код — попросите у Алоны актуальный код активации.", "upg.c.sub_no_card": "Без оплаты в приложении: оплата производится вручную через Алону, активация — кодом, который она выдаёт. Данные карты здесь не собираются.", "upg.c.sub_price_note": "Стартовая цена (19 ₪) — для первых 10 подписчиков. Подсчёт пока ведётся на этом устройстве — после перехода на сервер финальный подсчёт будет там.", "upg.c.support_sub": "Что-то не работает? Есть вопрос? Мы рядом.", "upg.c.support_title": "Поддержка и помощь", "upg.c.footer_rights": "© 2026 PiggyUp · Все права защищены"});
 }catch(e){}
 })();
 </script>
@@ -4625,8 +5274,8 @@ var CARE_LEGAL = {
   privacy: {
     t: { he: "מדיניות פרטיות", ru: "Политика конфиденциальности" },
     b: {
-      he: "PiggyUp פועלת כולה על המכשיר שלך: כל הנתונים — ילדים, מטרות, משימות, נקודות והיסטוריה — נשמרים ב-localStorage בדפדפן שלך בלבד. אין לנו שרת ואיננו אוספים את הנתונים שלך.\n\nאיננו מבקשים ואיננו שומרים שמות מלאים, כתובות, תעודות זהות או פרטי תשלום. הודעת הוואטסאפ לבקשת מנוי נשלחת על ידך מרצונך בלבד ומכילה רק את מה שכתבת בה.\n\nדיווח תקלה נשלח דרך אפליקציית המייל שלך — את מחליטה מה לשלוח ומתי.\n\nהאפליקציה נבנתה בעקרונות privacy-by-design: מינימום נתונים, בלי מעקב ובלי פרסומות לילדים.\n\nיש לך שליטה מלאה: ייצוא הנתונים ומחיקתם זמינים בכל עת ממסך הניהול.",
-      ru: "PiggyUp работает полностью на вашем устройстве: все данные — дети, цели, задания, очки и история — хранятся только в localStorage вашего браузера. У нас нет сервера, и мы не собираем ваши данные.\n\nМы не запрашиваем и не храним полные имена, адреса, документы и платёжные данные. Сообщение в WhatsApp для заявки на подписку отправляете вы сами и только с тем текстом, который написали.\n\nСообщение об ошибке отправляется через ваше почтовое приложение — вы решаете, что и когда отправлять.\n\nПриложение построено на принципах privacy-by-design: минимум данных, без слежки, без рекламы детям.\n\nУ вас полный контроль: экспорт и удаление данных доступны в любой момент на экране управления."
+      he: "PiggyUp פועלת כולה על המכשיר שלך: כל הנתונים — ילדים, מטרות, משימות, נקודות והיסטוריה — נשמרים ב-localStorage בדפדפן שלך בלבד. אין לנו שרת אפליקציה.\n\nמדידה אנונימית בלבד: בכל כניסה נשלחת משואה אנונימית (סוג אירוע בלבד, ללא פרטים מזהים) לצורכי ספירת שימוש — הפרטים המלאים בדף ׳מדיניות Cookies ומדידות׳.\n\nאיננו מבקשים ואיננו שומרים שמות מלאים, כתובות, תעודות זהות או פרטי תשלום. הודעת הוואטסאפ לבקשת מנוי נשלחת על ידך מרצונך בלבד ומכילה רק את מה שכתבת בה.\n\nדיווח תקלה נשלח דרך אפליקציית המייל שלך — את מחליטה מה לשלוח ומתי.\n\nהאפליקציה נבנתה בעקרונות privacy-by-design: מינימום נתונים, בלי מעקב ובלי פרסומות לילדים.\n\nיש לך שליטה מלאה: ייצוא הנתונים ומחיקתם זמינים בכל עת ממסך הניהול.",
+      ru: "PiggyUp работает полностью на вашем устройстве: все данные — дети, цели, задания, очки и история — хранятся только в localStorage вашего браузера. У нас нет сервера приложения.\n\nТолько анонимная аналитика: при каждом визите отправляется анонимный маячок (только тип события, без идентифицирующих данных) для подсчёта использования — подробности на странице «Политика cookies и аналитики».\n\nМы не запрашиваем и не храним полные имена, адреса, документы и платёжные данные. Сообщение в WhatsApp для заявки на подписку отправляете вы сами и только с тем текстом, который написали.\n\nСообщение об ошибке отправляется через ваше почтовое приложение — вы решаете, что и когда отправлять.\n\nПриложение построено на принципах privacy-by-design: минимум данных, без слежки, без рекламы детям.\n\nУ вас полный контроль: экспорт и удаление данных доступны в любой момент на экране управления."
     }
   },
   terms: {
@@ -4670,10 +5319,43 @@ var CARE_LEGAL = {
       he: "דוא״ל: piggyup2@gmail.com\n\nלדיווח תקלה: השתמשי בכפתור ׳דיווח תקלה׳ בסעיף התמיכה.\n\nלבקשות מנוי: דרך כפתור הוואטסאפ במסך המנוי.",
       ru: "Email: piggyup2@gmail.com\n\nСообщить об ошибке: кнопка «Сообщить об ошибке» в разделе поддержки.\n\nЗаявки на подписку: через кнопку WhatsApp на экране подписки."
     }
+  },
+  cookies: {
+    t: { he: "מדיניות Cookies ומדידות", ru: "Политика cookies и аналитики" },
+    b: {
+      he: "האפליקציה אינה משתמשת בעוגיות (Cookies) לצורכי מעקב או פרסום.\n\nנתונים תפעוליים נשמרים מקומית בדפדפן שלך (localStorage) בלבד: ההגדרות, הילדים, הקופות, היעדים והמשימות — כולם נשארים על המכשיר שלך.\n\nמדידה אנונימית: בכל כניסה נשלחת משואה אנונימית חד-פעמית לבעלת האפליקציה, המכילה סוג אירוע בלבד (למשל: כניסה, התחלת ניסיון) — ללא שם, ללא פרטי קשר וללא סכומי כסף. מטרתה ספירת שימוש כללית בלבד.\n\nיומן אירועים מקומי: האפליקציה שומרת עד 200 אירועי שימוש אחרונים על המכשיר (סוג פעולה + זמן) — ללא שמות וללא סכומים — לצורכי תפעול בלבד. היומן אינו נשלח לשום מקום.\n\nאין Google Analytics, אין פיקסלים פרסומיים ואין שיתוף נתוני שימוש עם צדדים שלישיים.",
+      ru: "Приложение не использует cookies для слежки или рекламы.\n\nОперационные данные хранятся только локально в вашем браузере (localStorage): настройки, дети, копилки, цели и задания — всё остаётся на вашем устройстве.\n\nАнонимная аналитика: при каждом визите владельцу приложения отправляется разовый анонимный маячок, содержащий только тип события (например: визит, начало пробного периода) — без имени, без контактов и без сумм денег. Цель — только общий подсчёт использования.\n\nЛокальный журнал событий: приложение хранит до 200 последних событий использования на устройстве (тип действия + время) — без имён и без сумм — только для работы. Журнал никуда не отправляется.\n\nНет Google Analytics, нет рекламных пикселей и нет передачи данных об использовании третьим лицам."
+    }
+  },
+  payments: {
+    t: { he: "מדיניות תשלומים וביטולים", ru: "Политика оплаты и отмены" },
+    b: {
+      he: "שבוע ההדגמה (Trial) הוא חינם לחלוטין, אינו דורש כרטיס אשראי ומסתיים אוטומטית — אין מעבר אוטומטי לתשלום.\n\nמנוי בתשלום מופעל רק ידנית: לאחר תשלום אמיתי מחוץ לאפליקציה, אלונה מנפיקה קוד הפעלה אישי. אין חיוב אוטומטי ואין חידוש אוטומטי — כל תקופת מנוי דורשת קוד חדש.\n\nמחירים: 19 ₪ לחודש לעשרת המנויים הראשונים, 29 ₪ לחודש לאחר מכן.\n\nביטול והחזר: ניתן לבטל בכל עת בפנייה אלינו (דף ׳צור קשר׳). החזרים יינתנו בהתאם לחוק הגנת הצרכן.\n\nפרטי אשראי או פרטי תשלום אינם נשמרים באפליקציה — התשלום מתבצע מחוץ לאפליקציה בלבד.",
+      ru: "Пробная неделя (Trial) полностью бесплатна, не требует карты и завершается автоматически — автоперехода к оплате нет.\n\nПлатная подписка активируется только вручную: после реальной оплаты вне приложения Алона выдаёт персональный код активации. Нет автоплатежей и автопродления — каждый период подписки требует новый код.\n\nЦены: 19 ₪ в месяц для первых десяти подписчиков, 29 ₪ в месяц далее.\n\nОтмена и возврат: отменить можно в любой момент, написав нам (страница «Связаться с нами»). Возвраты — в соответствии с законом о защите прав потребителей.\n\nДанные карт и платежей в приложении не хранятся — оплата производится только вне приложения."
+    }
+  },
+  content: {
+    t: { he: "מדיניות תוכן", ru: "Политика контента" },
+    b: {
+      he: "התכנים באפליקציה — משימות, הסברים וטיפים — הם חינוכיים בלבד ונועדו ללמידה משפחתית.\n\nאין תוכן גולשים ציבורי: אין העלאת תכנים, אין תגובות ואין שיתוף בין משפחות.\n\nההורה הוא היחיד שיוצר, עורך ומאשר משימות ותכנים עבור ילדיו.\n\nמצאת תוכן בעייתי? דווחי דרך כפתור ׳דיווח תקלה׳ בסעיף התמיכה — נבדוק ונתקן.",
+      ru: "Материалы приложения — задания, объяснения и советы — только образовательные и предназначены для семейного обучения.\n\nПубличного пользовательского контента нет: нет загрузок, комментариев и обмена между семьями.\n\nТолько родитель создаёт, редактирует и подтверждает задания и материалы для своих детей.\n\nНашли проблемный материал? Сообщите через кнопку «Сообщить об ошибке» в разделе поддержки — проверим и исправим."
+    }
+  },
+  a11y: {
+    t: { he: "הצהרת נגישות", ru: "Заявление о доступности" },
+    b: {
+      he: "אנו פועלים להנגיש את PiggyUp לכל המשפחות: כפתורים גדולים, ניגודיות גבוהה, תמיכה בהגדלת טקסט ותאימות בסיסית לקוראי מסך.\n\nהאפליקציה זמינה בעברית (RTL) וברוסית.\n\nנתקלת בבעיית נגישות? ספרי לנו דרך דף ׳צור קשר׳ ונשמח לשפר.",
+      ru: "Мы работаем над доступностью PiggyUp для всех семей: крупные кнопки, высокая контрастность, поддержка увеличения текста и базовая совместимость с экранными читалками.\n\nПриложение доступно на иврите (RTL) и русском языке.\n\nСтолкнулись с проблемой доступности? Напишите нам через страницу «Связаться с нами» — будем рады улучшить."
+    }
   }
 };
-var CARE_LEGAL_ORDER = ["privacy", "terms", "child", "ai", "ip", "datadel", "contact"];
-var CARE_LEGAL_ICONS = { privacy: "🔒", terms: "📜", child: "🧒", ai: "🤖", ip: "©️", datadel: "🗑️", contact: "✉️" };
+var CARE_LEGAL_ORDER = ["privacy", "terms", "child", "cookies", "payments", "content", "a11y", "ai", "ip", "datadel", "contact"];
+var CARE_LEGAL_ICONS = { privacy: "🔒", terms: "📜", child: "🧒", cookies: "🍪", payments: "💳", content: "📝", a11y: "♿", ai: "🤖", ip: "©️", datadel: "🗑️", contact: "✉️" };
+/* Shared legal disclaimer, appended to the end of every legal page. */
+var CARE_LEGAL_DISCLAIMER = {
+  he: "הבהרה: התכנים באפליקציה ובדפים אלה הם למטרות חינוכיות ומידע כללי בלבד, ואינם מהווים ייעוץ פיננסי, משפטי, רפואי או מקצועי אחר. השימוש באפליקציה הוא באחריותך.",
+  ru: "Уточнение: материалы приложения и этих страниц предназначены только для образовательных целей и общей информации и не являются финансовой, юридической, медицинской или иной профессиональной консультацией. Использование приложения — под вашу ответственность."
+};
 function openLegal(id) {
   var p = CARE_LEGAL[id];
   if (!p) return;
@@ -4687,7 +5369,8 @@ function openLegal(id) {
   }).join("");
   openModal(
     '<h3>' + (CARE_LEGAL_ICONS[id] || "📄") + " " + esc(p.t[lang]) + '</h3>' +
-    '<div class="upg-legal-body"><p class="upg-template-note">' + esc(note) + "</p>" + paras + "</div>" +
+    '<div class="upg-legal-body"><p class="upg-template-note">' + esc(note) + "</p>" + paras +
+    '<p class="upg-legal-disclaimer">' + esc(CARE_LEGAL_DISCLAIMER[lang]) + "</p></div>" +
     '<div class="upg-btn-row"><button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + "</button></div>"
   );
 }
@@ -4830,12 +5513,16 @@ function parentManage() {
         var goals = childGoals(c.id);
         var gl = goals.length ? goals.map(function (g) {
           var pct = g.target > 0 ? Math.min(100, Math.round((g.saved / g.target) * 100)) : 0;
-          return '<div class="kv"><span>' + esc(g.title) + " · " + fmtAg(g.saved) + "/" + fmtAg(g.target) + " (" + pct + "%)</span>" +
-            '<button class="btn small secondary" onclick="A.openDeposit(\'' + g.id + "')\">" + t("manage.deposit") + "</button></div>";
+          var isMain = c.mainGoalId === g.id || (!c.mainGoalId && goals[0] === g);
+          return '<div class="kv"><span>' + (isMain ? "⭐ " : "") + esc(g.title) + " · " + fmtAg(g.saved) + "/" + fmtAg(g.target) + " (" + pct + "%)</span>" +
+            '<span style="display:flex;gap:6px;align-items:center">' +
+            (isMain ? "" : '<button class="upg-star" style="min-width:40px;min-height:40px;font-size:18px" onclick="A.setMainGoal(\'' + c.id + "','" + g.id + "')\" title=\"" +
+              esc(t("upg.b.goal_set_main")) + '" aria-label="' + esc(t("upg.b.goal_set_main")) + '">☆</button>') +
+            '<button class="btn small secondary" onclick="A.openDeposit(\'' + g.id + "')\">" + t("manage.deposit") + "</button></span></div>";
         }).join("") : '<div class="empty">' + t("manage.no_goals") + "</div>";
         return '<div class="card" style="margin-top:8px">' +
           '<div style="display:flex;justify-content:space-between;align-items:center">' +
-            '<b style="font-size:16px">🐷 ' + esc(c.name) + "</b>" +
+            '<b style="font-size:16px">' + (c.avatar ? esc(c.avatar) : "🐷") + " " + esc(c.name) + "</b>" +
             '<span class="pill">' + t("common.points", c.points) + "</span>" +
           "</div>" +
           moneyCols(c.money) +
@@ -4909,6 +5596,9 @@ function parentManage() {
       "</div>" +
       '<p class="muted" style="font-size:12px;margin-top:8px">' + t("upg.c.data_export_note") + "</p>" +
     "</div>" +
+
+    '<div class="upg-footer">' + t("upg.c.footer_rights") + ' · <button class="upg-linkbtn" onclick="A.openLegal(\'terms\')">' +
+      t("upg.c.legal_title") + "</button></div>" +
   "</div>";
 }
 
@@ -4929,6 +5619,334 @@ Object.assign(A, {
   confirmDeleteStep1: confirmDeleteStep1,
   confirmDeleteStep2: confirmDeleteStep2,
   careToggleLeague: careToggleLeague
+});
+
+</script>
+<script>
+/* ===== chunk i18n: 40-onboarding ===== */
+(function(){
+try{
+Object.assign(I18N.he, {"upg.o.about_1": "💰 את מוסיפה כסף ומחלקת לקופות", "upg.o.about_2": "🎯 הילד/ה רואה יעדים והתקדמות", "upg.o.about_3": "📝 משימות יומיות עם תגמולים", "upg.o.about_title": "איך זה עובד?", "upg.o.age_12p": "12+", "upg.o.age_6_8": "6–8", "upg.o.age_9_11": "9–11", "upg.o.age_title": "קבוצת גיל", "upg.o.avatar_sub": "החבר ילווה את הילד/ה במסך שלו", "upg.o.avatar_title": "בחרי חבר למסע 🐾", "upg.o.back": "חזרה", "upg.o.child_need": "כתבי שם כדי להמשיך 🙂", "upg.o.child_ph": "שם הילד/ה", "upg.o.child_title": "ומי הכוכב/ת שלנו? 🌟", "upg.o.done_cta": "בואי נוסיף כסף", "upg.o.done_sub": "המשימה הראשונה שלך: להוסיף את הכסף הראשון של {0} 💰", "upg.o.done_title": "הכל מוכן! 🎉", "upg.o.goal_name_ph": "שם היעד", "upg.o.goal_sub": "למשל: קורקינט, לגו, אופניים. אפשר לדלג ולהוסיף אחר כך.", "upg.o.goal_target_ph": "סכום היעד (₪)", "upg.o.goal_title": "יעד ראשון? 🎯", "upg.o.lang_title": "בחרי שפה", "upg.o.next": "המשיכי", "upg.o.parent_need": "כתבי שם כדי להמשיך 🙂", "upg.o.parent_ph": "השם שלך", "upg.o.parent_title": "נעים להכיר! איך קוראים לך?", "upg.o.skip": "דלגי", "upg.o.split_invest": "השקעה 📈", "upg.o.split_need100": "יש להשלים ל-100% כדי להמשיך", "upg.o.split_save": "חיסכון 🐷", "upg.o.split_spend": "לבזבוז 🎁", "upg.o.split_sub": "כסף חדש יחולק אוטומטית לקופות לפי האחוזים האלה", "upg.o.split_sum": "סך הכל: {0}%", "upg.o.split_title": "איך מחלקים כל שקל שנכנס?", "upg.o.start": "בואי נתחיל", "upg.o.trial_later": "לא עכשיו", "upg.o.trial_start": "התחילי ניסיון", "upg.o.trial_sub": "כל כלי הליווי להורה פתוחים לשבוע — בלי כרטיס ובלי התחייבות.", "upg.o.trial_title": "שבוע ניסיון חינם 🎁", "upg.o.welcome_sub": "אפליקציה שמלמדת ילדים לנהל כסף — ביחד איתך, צעד אחר צעד.", "upg.o.welcome_title": "ברוכה הבאה ל-PiggyUp! 🐷", "upg.o.error": "אירעה שגיאה, נסי שוב"});
+Object.assign(I18N.ru, {"upg.o.about_1": "💰 Вы добавляете деньги и делите по копилкам", "upg.o.about_2": "🎯 Ребёнок видит цели и прогресс", "upg.o.about_3": "📝 Ежедневные задания с наградами", "upg.o.about_title": "Как это работает?", "upg.o.age_12p": "12+", "upg.o.age_6_8": "6–8", "upg.o.age_9_11": "9–11", "upg.o.age_title": "Возрастная группа", "upg.o.avatar_sub": "Друг будет сопровождать ребёнка на его экране", "upg.o.avatar_title": "Выберите друга для путешествия 🐾", "upg.o.back": "Назад", "upg.o.child_need": "Напишите имя, чтобы продолжить 🙂", "upg.o.child_ph": "Имя ребёнка", "upg.o.child_title": "А кто наша звезда? 🌟", "upg.o.done_cta": "Давайте добавим деньги", "upg.o.done_sub": "Ваше первое задание: добавить первые деньги для {0} 💰", "upg.o.done_title": "Всё готово! 🎉", "upg.o.goal_name_ph": "Название цели", "upg.o.goal_sub": "Например: самокат, лего, велосипед. Можно пропустить и добавить позже.", "upg.o.goal_target_ph": "Сумма цели (₪)", "upg.o.goal_title": "Первая цель? 🎯", "upg.o.lang_title": "Выберите язык", "upg.o.next": "Дальше", "upg.o.parent_need": "Напишите имя, чтобы продолжить 🙂", "upg.o.parent_ph": "Ваше имя", "upg.o.parent_title": "Приятно познакомиться! Как вас зовут?", "upg.o.skip": "Пропустить", "upg.o.split_invest": "Инвестиции 📈", "upg.o.split_need100": "Нужно ровно 100%, чтобы продолжить", "upg.o.split_save": "Копилка 🐷", "upg.o.split_spend": "На траты 🎁", "upg.o.split_sub": "Новые деньги будут автоматически делиться по копилкам в этих процентах", "upg.o.split_sum": "Всего: {0}%", "upg.o.split_title": "Как делим каждый входящий шекель?", "upg.o.start": "Начнём", "upg.o.trial_later": "Не сейчас", "upg.o.trial_start": "Начать пробный период", "upg.o.trial_sub": "Все инструменты для родителей открыты на неделю — без карты и обязательств.", "upg.o.trial_title": "Бесплатная пробная неделя 🎁", "upg.o.welcome_sub": "Приложение, которое учит детей обращаться с деньгами — вместе с вами, шаг за шагом.", "upg.o.welcome_title": "Добро пожаловать в PiggyUp! 🐷", "upg.o.error": "Произошла ошибка, попробуйте ещё раз"});
+}catch(e){}
+})();
+</script>
+<script>
+/* ===== chunk js: 40-onboarding ===== */
+/* ============================================================
+   40 — Onboarding wizard (NEW USERS ONLY)
+
+   Never shown when existing data is present: children, goals,
+   ledger, tasks, activity, or a started trial all count as
+   existing data. Completed once: S.onboarded = true.
+
+   Flow: Welcome -> Language -> Parent -> Child -> Avatar ->
+   Split -> Goal (optional) -> About -> Trial -> First Mission.
+
+   Everything is drafted in memory and committed atomically at
+   the end (child + split rule + goal + trial). No PII beyond a
+   display name is ever requested: no birth date, no address,
+   no phone number.
+   ============================================================ */
+
+var UPG_ONB_AVATARS = ["🐷", "🐰", "🦊", "🐼", "🦁", "🐯", "🐸", "🦄"];
+var UPG_ONB_AGES = [
+  { id: "6-8", key: "upg.o.age_6_8" },
+  { id: "9-11", key: "upg.o.age_9_11" },
+  { id: "12+", key: "upg.o.age_12p" }
+];
+
+function upgHasExistingData() {
+  try {
+    return (S.children || []).length > 0 ||
+      (S.goals || []).length > 0 ||
+      (S.ledger || []).length > 0 ||
+      (S.tasks || []).length > 0 ||
+      (S.activity || []).length > 0 ||
+      !!(S.sub && S.sub.trialStart);
+  } catch (e) { return true; }
+}
+
+var UpgOnb = {
+  i: 0,
+  draft: null,
+  steps: ["welcome", "lang", "parent", "child", "avatar", "split", "goal", "about", "trial", "done"],
+
+  start: function () {
+    this.i = 0;
+    this.draft = {
+      parentName: "", childName: "", ageGroup: "6-8", avatar: "🐷",
+      split: { save: 30, invest: 20, spend: 50 },
+      goalTitle: "", goalTarget: "", trial: false
+    };
+    this.render();
+  },
+
+  go: function (n) {
+    this.i = Math.max(0, Math.min(this.steps.length - 1, n));
+    this.render();
+  },
+
+  next: function () { this.go(this.i + 1); },
+  back: function () { this.go(this.i - 1); },
+
+  /* ---------- per-step "next" with validation ---------- */
+  nextFrom: function (step) {
+    var d = this.draft;
+    if (step === "parent") {
+      var p = document.getElementById("onbParent");
+      d.parentName = p ? p.value.trim() : "";
+      if (!d.parentName) { toast(t("upg.o.parent_need")); return; }
+    }
+    if (step === "child") {
+      var c = document.getElementById("onbChild");
+      d.childName = c ? c.value.trim() : "";
+      if (!d.childName) { toast(t("upg.o.child_need")); return; }
+    }
+    if (step === "split") {
+      var s = this.readSplit();
+      if (s.save + s.invest + s.spend !== 100) { toast(t("upg.o.split_need100")); return; }
+      d.split = s;
+    }
+    if (step === "goal") {
+      var gt = document.getElementById("onbGoalTitle");
+      var gv = document.getElementById("onbGoalTarget");
+      d.goalTitle = gt ? gt.value.trim() : "";
+      d.goalTarget = gv ? gv.value.trim() : "";
+      if (d.goalTitle && toAg(d.goalTarget) <= 0) { toast(t("toast.amount")); return; }
+    }
+    this.next();
+  },
+
+  readSplit: function () {
+    function num(id) {
+      var el = document.getElementById(id);
+      var v = el ? parseInt(el.value, 10) : 0;
+      return isNaN(v) ? 0 : Math.max(0, Math.min(100, v));
+    }
+    return { save: num("onbSplitSave"), invest: num("onbSplitInvest"), spend: num("onbSplitSpend") };
+  },
+
+  splitPreview: function () {
+    var s = this.readSplit();
+    var sum = s.save + s.invest + s.spend;
+    var sumEl = document.getElementById("onbSplitSum");
+    if (sumEl) sumEl.textContent = t("upg.o.split_sum", sum);
+    var btn = document.getElementById("onbSplitNext");
+    if (btn) btn.disabled = sum !== 100;
+  },
+
+  pickAvatar: function (a) {
+    this.draft.avatar = a;
+    var els = document.querySelectorAll(".upg-onb-avatar");
+    for (var k = 0; k < els.length; k++) {
+      els[k].classList.toggle("on", els[k].getAttribute("data-a") === a);
+    }
+  },
+
+  pickAge: function (id) {
+    this.draft.ageGroup = id;
+    var els = document.querySelectorAll(".upg-onb-age");
+    for (var k = 0; k < els.length; k++) {
+      els[k].classList.toggle("on", els[k].getAttribute("data-a") === id);
+    }
+  },
+
+  pickTrial: function (yes) {
+    this.draft.trial = !!yes;
+    this.next();
+  },
+
+  /* ---------- rendering ---------- */
+  dots: function () {
+    var h = '<div class="upg-onb-dots">';
+    for (var k = 0; k < this.steps.length; k++) {
+      h += '<span class="upg-onb-dot' + (k === this.i ? " on" : "") + '"></span>';
+    }
+    return h + "</div>";
+  },
+
+  nav: function (step, opts) {
+    opts = opts || {};
+    var h = '<div class="upg-onb-nav">';
+    if (this.i > 0) h += '<button class="btn small secondary" onclick="UpgOnb.back()">' + t("upg.o.back") + "</button>";
+    else h += "<span></span>";
+    if (opts.skip) h += '<button class="btn small secondary" onclick="UpgOnb.next()">' + t("upg.o.skip") + "</button>";
+    else if (opts.custom) h += opts.custom;
+    else h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
+    return h + "</div>";
+  },
+
+  stepHtml: function (step) {
+    var d = this.draft;
+    switch (step) {
+      case "welcome":
+        return '<div class="upg-onb-hero">🐷</div>' +
+          '<h2>' + t("upg.o.welcome_title") + "</h2>" +
+          '<p class="muted">' + t("upg.o.welcome_sub") + "</p>" +
+          '<button class="btn big" onclick="UpgOnb.next()">' + t("upg.o.start") + "</button>";
+
+      case "lang":
+        return "<h2>" + t("upg.o.lang_title") + "</h2>" +
+          '<div class="upg-onb-row">' +
+          '<button class="btn big secondary" onclick="A.setLang(\'he\');UpgOnb.render()">עברית</button>' +
+          '<button class="btn big secondary" onclick="A.setLang(\'ru\');UpgOnb.render()">Русский</button>' +
+          "</div>" + this.nav("lang");
+
+      case "parent":
+        return "<h2>" + t("upg.o.parent_title") + "</h2>" +
+          '<input id="onbParent" class="upg-onb-input" maxlength="30" placeholder="' + esc(t("upg.o.parent_ph")) +
+          '" value="' + esc(d.parentName) + '">' + this.nav("parent");
+
+      case "child":
+        return "<h2>" + t("upg.o.child_title") + "</h2>" +
+          '<input id="onbChild" class="upg-onb-input" maxlength="30" placeholder="' + esc(t("upg.o.child_ph")) +
+          '" value="' + esc(d.childName) + '">' +
+          '<div class="upg-onb-label">' + t("upg.o.age_title") + "</div>" +
+          '<div class="upg-onb-ages">' + UPG_ONB_AGES.map(function (a) {
+            return '<button class="upg-onb-age' + (d.ageGroup === a.id ? " on" : "") +
+              '" data-a="' + a.id + '" onclick="UpgOnb.pickAge(\'' + a.id + "')\">" + t(a.key) + "</button>";
+          }).join("") + "</div>" + this.nav("child");
+
+      case "avatar":
+        return "<h2>" + t("upg.o.avatar_title") + "</h2>" +
+          '<p class="muted">' + t("upg.o.avatar_sub") + "</p>" +
+          '<div class="upg-onb-avatars">' + UPG_ONB_AVATARS.map(function (a) {
+            return '<button class="upg-onb-avatar' + (d.avatar === a ? " on" : "") +
+              '" data-a="' + a + '" onclick="UpgOnb.pickAvatar(\'' + a + "')\">" + a + "</button>";
+          }).join("") + "</div>" + this.nav("avatar");
+
+      case "split":
+        return "<h2>" + t("upg.o.split_title") + "</h2>" +
+          '<p class="muted">' + t("upg.o.split_sub") + "</p>" +
+          '<div class="upg-onb-split">' +
+          this.splitRow("onbSplitSave", "upg.o.split_save", d.split.save) +
+          this.splitRow("onbSplitInvest", "upg.o.split_invest", d.split.invest) +
+          this.splitRow("onbSplitSpend", "upg.o.split_spend", d.split.spend) +
+          "</div>" +
+          '<div class="upg-onb-sum" id="onbSplitSum">' + t("upg.o.split_sum", d.split.save + d.split.invest + d.split.spend) + "</div>" +
+          this.nav("split", { nextId: "onbSplitNext" });
+
+      case "goal":
+        return "<h2>" + t("upg.o.goal_title") + "</h2>" +
+          '<p class="muted">' + t("upg.o.goal_sub") + "</p>" +
+          '<input id="onbGoalTitle" class="upg-onb-input" maxlength="40" placeholder="' + esc(t("upg.o.goal_name_ph")) +
+          '" value="' + esc(d.goalTitle) + '">' +
+          '<input id="onbGoalTarget" class="upg-onb-input" inputmode="decimal" placeholder="' + esc(t("upg.o.goal_target_ph")) +
+          '" value="' + esc(d.goalTarget) + '">' +
+          this.nav("goal", { skip: true });
+
+      case "about":
+        return "<h2>" + t("upg.o.about_title") + "</h2>" +
+          '<div class="upg-onb-about">' +
+          "<p>" + t("upg.o.about_1") + "</p>" +
+          "<p>" + t("upg.o.about_2") + "</p>" +
+          "<p>" + t("upg.o.about_3") + "</p></div>" +
+          this.nav("about");
+
+      case "trial":
+        return '<div class="upg-onb-hero">🎁</div>' +
+          "<h2>" + t("upg.o.trial_title") + "</h2>" +
+          '<p class="muted">' + t("upg.o.trial_sub") + "</p>" +
+          '<div class="upg-onb-row">' +
+          '<button class="btn big" onclick="UpgOnb.pickTrial(true)">' + t("upg.o.trial_start") + "</button>" +
+          '<button class="btn big secondary" onclick="UpgOnb.pickTrial(false)">' + t("upg.o.trial_later") + "</button>" +
+          "</div>" + this.nav("trial", { custom: "<span></span>" });
+
+      case "done":
+        return '<div class="upg-onb-hero">🎉</div>' +
+          "<h2>" + t("upg.o.done_title") + "</h2>" +
+          '<p class="muted">' + t("upg.o.done_sub", esc(d.childName)) + "</p>" +
+          '<button class="btn big" onclick="UpgOnb.finish(true)">' + t("upg.o.done_cta") + "</button>";
+    }
+    return "";
+  },
+
+  splitRow: function (id, labelKey, val) {
+    return '<label class="upg-onb-splitrow"><span>' + t(labelKey) + "</span>" +
+      '<span class="upg-onb-splitin"><input id="' + id + '" type="number" min="0" max="100" value="' + val +
+      '" oninput="UpgOnb.splitPreview()">%</span></label>';
+  },
+
+  render: function () {
+    var old = document.getElementById("upgOnb");
+    if (old) old.remove();
+    var step = this.steps[this.i];
+    var ov = document.createElement("div");
+    ov.id = "upgOnb";
+    ov.innerHTML = '<div class="upg-onb-card">' + this.dots() +
+      '<div class="upg-onb-body">' + this.stepHtml(step) + "</div></div>";
+    document.body.appendChild(ov);
+    window.scrollTo(0, 0);
+    if (step === "split") this.splitPreview();
+  },
+
+  /* ---------- atomic commit at the end ---------- */
+  finish: function (addMoney) {
+    var d = this.draft;
+    try {
+      var c = {
+        id: uid(), name: d.childName, ageGroup: d.ageGroup, avatar: d.avatar,
+        points: 0, money: { save: 0, invest: 0, spend: 0 },
+        achievements: [], streak: 0, mainGoalId: null
+      };
+      S.children.push(c);
+      S.activeChildId = c.id;
+      if (d.parentName) S.parentName = d.parentName;
+      S.splitRule = { save: d.split.save, invest: d.split.invest, spend: d.split.spend };
+      if (d.goalTitle) {
+        var tg = toAg(d.goalTarget);
+        if (tg > 0) {
+          var g = { id: uid(), childId: c.id, title: d.goalTitle, target: tg, saved: 0, icon: "🎯" };
+          S.goals.push(g);
+          c.mainGoalId = g.id;
+        }
+      }
+      if (d.trial) {
+        S.sub.trialStart = Date.now();
+        S.sub.plan = "trial";
+        try { Analytics.track("trial_started"); } catch (e) {}
+      }
+      S.onboarded = true;
+      S.mode = "parent";
+      S.tab = "home";
+      save();
+      var ov = document.getElementById("upgOnb");
+      if (ov) ov.remove();
+      renderApp();
+      if (addMoney) A.openAddMoney(c.id);
+    } catch (e) {
+      toast(t("upg.o.error"));
+    }
+  }
+};
+
+/* Show the onboarding-chosen companion next to the piggy hero. */
+(function () {
+  try {
+    if (typeof avatarHero !== "function") return;
+    var baseHero = avatarHero;
+    avatarHero = function (child) {
+      var html = baseHero(child);
+      if (child && child.avatar && child.avatar !== "🐷") {
+        html = html.replace("🐷", "🐷" + '<span class="upg-companion">' + esc(child.avatar) + "</span>");
+      }
+      return html;
+    };
+  } catch (e) {}
+})();
+
+/* Boot: new users only, after the app has rendered. */
+window.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    try {
+      if (window.__PIGGYUP_DATA_NEWER__) return;
+      if (window.__PIGGYUP_MIGRATION_ERROR__) return;
+      if (S.onboarded) return;
+      if (upgHasExistingData()) return;
+      UpgOnb.start();
+    } catch (e) {}
+  }, 500);
 });
 
 </script>
