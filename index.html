@@ -6,10 +6,16 @@
   <meta name="theme-color" content="#0e3b2c">
   <meta name="description" content="PiggyUp — אפליקציה לחינוך פיננסי לילדים ולהורים: חיסכון, יעדים, משימות ונקודות.">
   <title>PiggyUp — חינוך פיננסי לילדים</title>
+  <!--UPGRADE:HEAD-->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐷</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800&family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ============================================================
    PiggyUp — static rebuild · styles
@@ -36,7 +42,7 @@
   --shadow: 0 8px 28px rgba(11, 53, 42, 0.12);
   --radius: 22px;
   --nav-h: 76px;
-  --font: "Heebo", "Rubik", "Segoe UI", Arial, sans-serif;
+  --font: "Rubik", "Segoe UI", Arial, sans-serif;
 }
 
 [data-theme="dark"] {
@@ -299,6 +305,643 @@ body {
 details.howto { margin: 8px 0; font-size: 13px; color: var(--muted); }
 details.howto summary { cursor: pointer; font-weight: 700; }
 
+
+/* ===== chunk: 00-core ===== */
+/* ============ PiggyUp UPGRADE CORE v2 — CSS ============ */
+
+/* Focus visibility (a11y) */
+.upg-focusable:focus-visible,
+button:focus-visible, a:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* Reduced motion: respect the user */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Small utilities */
+.upg-muted { color: var(--muted); font-size: 13px; }
+.upg-row { display: flex; gap: 8px; align-items: center; }
+.upg-grow { flex: 1; }
+.upg-center { text-align: center; }
+.upg-mt { margin-top: 12px; }
+.upg-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px;
+  background: var(--yellow-soft); color: var(--ink);
+  font-size: 12px; font-weight: 700;
+}
+.upg-err {
+  background: #fdecea; color: #a33; border: 1px solid #f3c1bd;
+  border-radius: 12px; padding: 10px 12px; font-size: 14px; margin: 8px 0;
+}
+[data-theme="dark"] .upg-err { background: #3a1f1d; color: #f2b8b3; border-color: #5c2f2c; }
+.upg-ok {
+  background: #e7f4ea; color: #1d6b52; border: 1px solid #bfe3c9;
+  border-radius: 12px; padding: 10px 12px; font-size: 14px; margin: 8px 0;
+}
+.upg-skel {
+  border-radius: 12px; background: var(--cream-2); min-height: 54px;
+  animation: upgPulse 1.2s ease-in-out infinite;
+}
+@keyframes upgPulse { 50% { opacity: .55; } }
+
+/* Celebration (CSS-only confetti, no libs) */
+.upg-confetti { position: fixed; inset: 0; pointer-events: none; z-index: 99; overflow: hidden; }
+.upg-confetti i {
+  position: absolute; top: -12px; width: 9px; height: 14px; border-radius: 2px;
+  animation: upgFall 2.6s ease-in forwards;
+}
+@keyframes upgFall {
+  to { transform: translateY(105vh) rotate(720deg); opacity: .9; }
+}
+
+/* Print: home kit */
+@media print {
+  body { max-width: none; background: #fff; }
+  .app-header, .bottom-nav, .mode-toggle, .no-print { display: none !important; }
+  .print-page { page-break-after: always; }
+  .print-page:last-child { page-break-after: avoid; }
+  .card { box-shadow: none; border: 2px solid #0e3b2c; }
+}
+
+/* ===== chunk: 10-money ===== */
+/* ============================================================
+   PiggyUp MONEY CORE v2 (10-money) — styles
+   Mobile-first, RTL/LTR-safe (logical properties only),
+   touch targets >= 44px, theme-aware via CSS vars.
+   ============================================================ */
+
+/* ---------- parent home ---------- */
+.upg-greet { font-size: 20px; font-weight: 800; margin: 2px 0 10px; }
+
+.upg-box-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px; margin-top: 14px;
+}
+.upg-box-card {
+  background: rgba(255,255,255,.10);
+  border-radius: 16px; padding: 12px 6px;
+  text-align: center;
+  border-top: 4px solid var(--box-color, #7fb069);
+  min-height: 44px;
+}
+.card:not(.dark) .upg-box-card { background: var(--cream-2); }
+.upg-box-ico { font-size: 26px; line-height: 1.2; }
+.upg-box-name {
+  font-size: 12px; font-weight: 700; margin-top: 4px;
+  color: #dcebe2; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+.card:not(.dark) .upg-box-name { color: var(--ink-soft); }
+.upg-box-amt { font-size: 16px; font-weight: 800; margin-top: 2px; }
+
+.upg-progress {
+  height: 14px; background: rgba(255,255,255,.18);
+  border-radius: 999px; overflow: hidden; margin-top: 10px;
+}
+.card:not(.dark) .upg-progress { background: var(--cream-2); }
+.upg-progress > i {
+  display: block; height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--mint), var(--gold));
+  transition: width .3s ease;
+}
+
+/* ---------- quick actions & tools ---------- */
+.upg-quick-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px; margin: 8px 0 4px;
+}
+.upg-quick {
+  min-height: 72px; border: 1.5px solid var(--line);
+  background: var(--card); color: var(--ink);
+  border-radius: 16px; font-family: var(--font);
+  font-weight: 800; font-size: 13px; cursor: pointer;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 5px; padding: 10px 6px;
+}
+.upg-quick .q-ico { font-size: 24px; line-height: 1; }
+.upg-quick:active { transform: scale(.97); }
+
+.upg-tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.upg-tool {
+  min-height: 52px; border: 1.5px solid var(--line);
+  background: var(--card); color: var(--ink);
+  border-radius: 14px; font-family: var(--font);
+  font-weight: 700; font-size: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 10px 8px;
+}
+.upg-tool:active { transform: scale(.98); }
+
+/* ---------- segmented mode toggle ---------- */
+.upg-seg { display: flex; gap: 8px; margin: 8px 0; }
+.upg-seg button {
+  flex: 1; min-height: 48px; border-radius: 14px;
+  border: 1.5px solid var(--line); background: var(--card);
+  color: var(--ink); font-family: var(--font);
+  font-weight: 800; font-size: 14px; cursor: pointer;
+}
+.upg-seg button.on {
+  background: var(--green-800); color: #fff;
+  border-color: var(--green-800);
+}
+
+/* ---------- live split preview ---------- */
+.upg-preview {
+  background: var(--cream-2); border-radius: 14px;
+  padding: 12px 14px; margin: 10px 0; font-size: 14px;
+}
+.upg-preview .pr-row {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 4px 0; gap: 8px;
+}
+.upg-preview .pr-total {
+  font-weight: 800; border-top: 1px solid var(--line);
+  margin-top: 6px; padding-top: 8px;
+}
+.upg-preview .pr-ok { color: var(--green-600); font-weight: 800; }
+.upg-preview .pr-bad { color: var(--red); font-weight: 800; }
+.upg-preview .pr-head { font-weight: 800; margin-bottom: 4px; }
+
+/* ---------- ledger ---------- */
+.upg-ledger-row {
+  display: flex; gap: 10px; align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.upg-ledger-row:last-child { border-bottom: 0; }
+.upg-ledger-ico {
+  font-size: 24px; width: 44px; height: 44px; flex: 0 0 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream-2); border-radius: 12px;
+}
+.upg-ledger-main { flex: 1; min-width: 0; }
+.upg-ledger-amt { font-weight: 800; font-size: 15px; white-space: nowrap; }
+.upg-ledger-amt.pos { color: var(--green-600); }
+.upg-ledger-amt.neg { color: var(--red); }
+.upg-ledger-date { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.upg-ledger-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.upg-tag {
+  display: inline-block; font-size: 11px; font-weight: 800;
+  background: var(--yellow-soft); color: var(--ink);
+  border-radius: 999px; padding: 2px 8px;
+  margin-inline-start: 6px;
+}
+.upg-corr-btn {
+  min-height: 44px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink-soft);
+  border-radius: 12px; font-family: var(--font);
+  font-size: 13px; font-weight: 700; cursor: pointer;
+  padding: 8px 14px;
+}
+.upg-confirm-box {
+  background: var(--yellow-soft); border: 1px solid var(--gold);
+  border-radius: 14px; padding: 10px 12px; margin: 8px 0;
+  font-size: 14px;
+}
+.upg-confirm-box .upg-row-btns { display: flex; gap: 8px; margin-top: 8px; }
+.upg-confirm-box .upg-row-btns .btn { margin-top: 0; }
+
+/* ---------- boxes editor ---------- */
+.upg-box-edit {
+  border: 1.5px solid var(--line); border-radius: 16px;
+  padding: 12px; margin: 10px 0;
+}
+.upg-box-edit.archived { opacity: .8; background: var(--cream-2); }
+.upg-box-prev {
+  width: 52px; height: 52px; flex: 0 0 52px;
+  border-radius: 16px; display: flex;
+  align-items: center; justify-content: center;
+  font-size: 28px; color: #fff;
+}
+.upg-pick-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0; }
+.upg-ico-btn {
+  width: 48px; height: 48px; font-size: 24px;
+  border-radius: 14px; border: 2px solid var(--line);
+  background: var(--card); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.upg-ico-btn.on { border-color: var(--green-700); background: var(--yellow-soft); }
+.upg-swatch {
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 3px solid transparent; cursor: pointer; padding: 0;
+}
+.upg-swatch.on { border-color: var(--ink); }
+.upg-flex { display: flex; gap: 10px; align-items: center; }
+
+/* ---------- invest rule ---------- */
+.upg-radio-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  border: 1.5px solid var(--line); border-radius: 14px;
+  padding: 12px; margin: 8px 0; cursor: pointer;
+  min-height: 44px; font-size: 14px; font-weight: 600;
+}
+.upg-radio-row input { width: 22px; height: 22px; margin-top: 2px; flex: 0 0 22px; }
+.upg-disclaimer {
+  background: var(--yellow-soft); border: 1px solid var(--gold);
+  border-radius: 12px; padding: 10px 12px;
+  font-size: 13px; margin: 12px 0; line-height: 1.5;
+}
+
+/* ---------- modal form polish ---------- */
+.upg-amount-row { display: flex; gap: 8px; align-items: stretch; }
+.upg-amount-row .field { flex: 1; }
+.upg-amount-row input { font-size: 20px; font-weight: 800; text-align: center; }
+.upg-quick-amounts { display: flex; gap: 8px; flex-wrap: wrap; margin: 2px 0 6px; }
+.upg-quick-amounts .chip { min-height: 44px; padding: 8px 18px; font-size: 14px; }
+.upg-manual-rows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.upg-manual-rows input { text-align: center; font-weight: 800; }
+@media (max-width: 360px) {
+  .upg-manual-rows { grid-template-columns: 1fr; }
+  .upg-box-grid { gap: 6px; }
+  .upg-box-amt { font-size: 14px; }
+}
+
+/* ===== chunk: 20-missions ===== */
+/* ============ PiggyUp UPGRADE 20 — Goals + Tasks + Missions ============ */
+
+/* --- goal progress with milestone markers --- */
+.upg-goal { position: relative; }
+.upg-goal-head { display: flex; align-items: center; gap: 10px; }
+.upg-goal-ico { font-size: 30px; line-height: 1; }
+.upg-goal-title { font-weight: 800; font-size: 16px; }
+.upg-goal-amounts { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.upg-star {
+  margin-inline-start: auto;
+  min-width: 44px; min-height: 44px;
+  border: 0; border-radius: 12px; background: var(--cream-2);
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
+.upg-star.on { background: var(--yellow-soft); }
+.upg-pbar {
+  position: relative; height: 14px; border-radius: 999px;
+  background: var(--cream-2); margin: 12px 0 4px; overflow: visible;
+}
+.card.dark .upg-pbar { background: rgba(255,255,255,.15); }
+.upg-pbar > .upg-fill {
+  display: block; height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--yellow), var(--gold));
+  transition: width .5s;
+}
+.upg-ms {
+  position: absolute; top: -3px; bottom: -3px; width: 3px;
+  inset-inline-start: var(--pos);
+  transform: translateX(0);
+  background: var(--muted); opacity: .55; border-radius: 2px;
+}
+[dir="rtl"] .upg-ms { transform: translateX(50%); }
+[dir="ltr"] .upg-ms { transform: translateX(-50%); }
+.upg-ms.hit { background: var(--gold); opacity: 1; box-shadow: 0 0 6px var(--gold); }
+.upg-ms-lbls { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+.upg-goal-done {
+  margin-top: 10px; padding: 10px 12px; border-radius: 12px;
+  background: var(--yellow-soft); font-weight: 800; text-align: center;
+}
+.upg-other-goals { margin-top: 10px; border-top: 1px dashed var(--muted); padding-top: 8px; }
+.upg-other-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 14px; }
+
+/* --- icon picker in goal modal --- */
+.upg-icon-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.upg-icon-grid label {
+  min-width: 48px; min-height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; border-radius: 12px; background: var(--cream-2);
+  cursor: pointer; border: 2px solid transparent;
+}
+.upg-icon-grid input { position: absolute; opacity: 0; pointer-events: none; }
+.upg-icon-grid input:checked + span,
+.upg-icon-grid label:has(input:checked) { border-color: var(--gold); background: var(--yellow-soft); }
+
+/* --- mission card (parent dashboard) --- */
+.upg-mission { border-inline-start: 5px solid var(--gold); }
+.upg-mission-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.upg-mission-day { font-size: 12px; color: var(--muted); font-weight: 700; }
+.upg-mission-title { font-size: 17px; font-weight: 800; margin: 6px 0; }
+.upg-mission-block { margin: 8px 0; font-size: 14px; }
+.upg-mission-block b { display: block; font-size: 13px; color: var(--muted); margin-bottom: 2px; }
+.upg-mission-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.upg-mission-actions .btn { flex: 1; min-height: 48px; }
+
+/* --- kids mission rows --- */
+.upg-kid-mission { border-inline-start: 4px solid var(--gold); }
+
+/* --- achievements --- */
+.upg-ach-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.upg-ach {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--yellow-soft); border-radius: 999px;
+  padding: 8px 14px; font-size: 13px; font-weight: 800; min-height: 44px;
+}
+
+/* --- reject inline form --- */
+.upg-reject-form { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.upg-reject-form input { flex: 1; min-width: 0; min-height: 44px; }
+.upg-reject-note {
+  margin-top: 6px; font-size: 13px; color: var(--muted);
+  background: var(--cream-2); border-radius: 10px; padding: 8px 10px;
+}
+
+/* --- task meta bits --- */
+.upg-task-meta { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.upg-task-reward { font-weight: 800; color: var(--gold); }
+
+/* ===== chunk: 30-care ===== */
+/* ============================================================
+   PiggyUp CARE module (30-care) — subscription, support,
+   legal, data, print kit, family league.
+   Mobile-first, >=44px touch targets, RTL/LTR safe
+   (logical properties; no physical left/right).
+   ============================================================ */
+
+/* --- touch targets --- */
+.upg-scope .btn,
+.upg-scope .chip,
+.upg-scope .upg-acc-head,
+.upg-scope .upg-legal-btn,
+.modal .btn {
+  min-height: 44px;
+}
+.upg-scope .btn.small,
+.upg-scope .btn.small.secondary {
+  min-height: 44px;
+}
+
+/* --- buttons row --- */
+.upg-btn-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.upg-btn-row .btn {
+  flex: 1 1 auto;
+}
+
+/* --- support buttons --- */
+.upg-support-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 520px) {
+  .upg-support-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- warning / notice boxes --- */
+.upg-warn {
+  background: #fdf0ec;
+  border: 1px solid #e8a13d;
+  border-inline-start: 4px solid #e4574f;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+[data-theme="dark"] .upg-warn {
+  background: #3a2a22;
+  border-color: #8a5b2d;
+}
+.upg-note {
+  background: #f0f7f2;
+  border: 1px dashed #7fb069;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+[data-theme="dark"] .upg-note { background: #16302a; }
+
+/* --- FAQ accordion --- */
+.upg-acc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+.upg-acc-item {
+  border: 1px solid var(--line, #e2ddd2);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card, #fffdf7);
+}
+[data-theme="dark"] .upg-acc-item {
+  background: #1b2b25;
+  border-color: #2e4a40;
+}
+.upg-acc-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: none;
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  text-align: start;
+  cursor: pointer;
+  color: inherit;
+}
+.upg-acc-arrow {
+  flex: 0 0 auto;
+  transition: transform 0.2s;
+  font-size: 14px;
+  opacity: 0.7;
+}
+.upg-acc-item.open .upg-acc-arrow { transform: rotate(180deg); }
+.upg-acc-body {
+  display: none;
+  padding: 0 14px 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft, #5a6b62);
+}
+.upg-acc-item.open .upg-acc-body { display: block; }
+
+/* --- legal buttons --- */
+.upg-legal-grid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr;
+  margin-top: 8px;
+}
+@media (min-width: 520px) {
+  .upg-legal-grid { grid-template-columns: 1fr 1fr; }
+}
+.upg-legal-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line, #e2ddd2);
+  background: var(--card, #fffdf7);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: start;
+  color: inherit;
+}
+[data-theme="dark"] .upg-legal-btn {
+  background: #1b2b25;
+  border-color: #2e4a40;
+}
+.upg-legal-btn:active { transform: scale(0.98); }
+.upg-legal-body p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+.upg-legal-body .upg-template-note {
+  font-size: 12px;
+  opacity: 0.75;
+  font-style: italic;
+}
+
+/* --- subscription extras --- */
+.upg-price-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-soft, #5a6b62);
+  margin: 8px 0 0;
+}
+
+/* --- family league --- */
+.upg-league {
+  margin-top: 10px;
+  border: 1px solid var(--line, #e2ddd2);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.08), transparent);
+}
+.upg-league-head {
+  font-weight: 800;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.upg-league-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px dashed var(--line, #e2ddd2);
+  flex-wrap: wrap;
+}
+.upg-league-row:first-of-type { border-top: 0; }
+.upg-league-av { font-size: 26px; line-height: 1; }
+.upg-league-name {
+  font-weight: 700;
+  font-size: 15px;
+  flex: 1 1 90px;
+}
+.upg-league-stat {
+  font-size: 13px;
+  background: var(--chip, #f4efe3);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+[data-theme="dark"] .upg-league-stat { background: #243b33; }
+
+/* --- print kit (screen preview) --- */
+.print-kit {
+  background: #fff;
+  color: #1c2a24;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.print-kit h4 {
+  margin: 18px 0 8px;
+  font-size: 17px;
+  border-bottom: 2px solid #0e3b2c;
+  padding-bottom: 4px;
+}
+.print-kit h4:first-child { margin-top: 0; }
+.pk-lines { display: flex; flex-direction: column; gap: 10px; margin: 8px 0; }
+.pk-line {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+.pk-line .lbl { font-weight: 700; white-space: nowrap; }
+.pk-line .fill {
+  flex: 1;
+  border-bottom: 1px dashed #888;
+  min-height: 1.4em;
+}
+.pk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 13px;
+}
+.pk-table th, .pk-table td {
+  border: 1px solid #999;
+  padding: 8px 6px;
+  text-align: center;
+}
+.pk-table th { background: #eef5ef; font-weight: 700; }
+.pk-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 8px 0;
+}
+.pk-box {
+  border: 2px solid #0e3b2c;
+  border-radius: 10px;
+  padding: 10px 6px;
+  text-align: center;
+}
+.pk-box .ico { font-size: 30px; }
+.pk-box .nm { font-weight: 800; margin: 4px 0; }
+.pk-box .tot { font-size: 12px; color: #444; }
+.pk-cert {
+  border: 3px double #d4af37;
+  border-radius: 12px;
+  padding: 18px 12px;
+  text-align: center;
+  margin: 8px 0;
+}
+.pk-cert .big { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+.pk-cert .pig { font-size: 44px; margin: 8px 0; }
+
+/* --- print rules: only the kit prints --- */
+@media print {
+  body > *:not(#modalBack) { display: none !important; }
+  #modalBack {
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  #modalBack .modal {
+    box-shadow: none !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .no-print { display: none !important; }
+  .print-kit { border-radius: 0; padding: 0; }
+  .pk-table { page-break-inside: avoid; }
+  .pk-cert { page-break-inside: avoid; }
+}
+
+/*UPGRADE:CSS*/
 </style>
 </head>
 <body>
@@ -1903,6 +2546,2404 @@ function renderApp() {
 document.addEventListener("DOMContentLoaded", () => setLang(LANG));
 
 </script>
+<script>
+/* ===== chunk js: 00-core ===== */
+/* ============================================================
+   PiggyUp UPGRADE CORE v2 — migration, services, agorot money
+   Runs at parse time, BEFORE first render (DOMContentLoaded).
+   Never breaks boot: every risky step is guarded.
+   ============================================================ */
+"use strict";
+
+/* ---------------- version ---------------- */
+var APP_VERSION = "2.0.0-validation";
+var DATA_VERSION = 2;
+var DATA_VERSION_KEY = "piggyup_data_version";
+
+/* ---------------- agorot: integer money (no float errors) ---------------- */
+function toAg(v) {
+  var n = Number(v);
+  if (!isFinite(n)) return 0;
+  return Math.round(n * 100);
+}
+function fmtAg(ag) {
+  var v = Math.round(Number(ag) || 0);
+  var neg = v < 0;
+  var a = Math.abs(v);
+  var shek = Math.floor(a / 100);
+  var cents = a % 100;
+  var main = shek.toLocaleString("en-US");
+  var str = cents === 0 ? main : main + "." + (cents < 10 ? "0" : "") + cents;
+  return (neg ? "-" : "") + str + " ₪";
+}
+/* Override: stored amounts are agorot integers from v2 on. */
+function money(ag) { return fmtAg(ag); }
+
+/* ---------------- upgrade hooks (feature chunks register here) ---------------- */
+window.UpgradeHooks = window.UpgradeHooks || { ensure: [], migrate: [] };
+
+/* ---------------- idempotency: double-click can never award twice ---------------- */
+function onceOp(id, fn) {
+  S.processedOps = S.processedOps || [];
+  if (S.processedOps.indexOf(id) !== -1) return false;
+  var r = fn();
+  S.processedOps.push(id);
+  if (S.processedOps.length > 500) S.processedOps = S.processedOps.slice(-500);
+  save();
+  return r === undefined ? true : r;
+}
+
+/* ---------------- ledger: every money move is a transaction ---------------- */
+function addTx(e) {
+  S.ledger = S.ledger || [];
+  var tx = {
+    id: uid(), ts: Date.now(),
+    childId: e.childId || null, boxId: e.boxId || null,
+    amountAg: Math.round(Number(e.amountAg) || 0),
+    type: e.type || "income", source: e.source || "",
+    note: e.note || "", by: e.by || "parent"
+  };
+  S.ledger.push(tx);
+  return tx;
+}
+function txForChild(childId) {
+  return (S.ledger || []).filter(function (x) { return x.childId === childId; });
+}
+/* Balances are a cache; the ledger is the source of truth. */
+function rebuildBalances(child) {
+  var m = { save: 0, invest: 0, spend: 0 };
+  txForChild(child.id).forEach(function (tx) {
+    if (tx.boxId === "save") m.save += tx.amountAg;
+    else if (tx.boxId === "invest") m.invest += tx.amountAg;
+    else if (tx.boxId === "spend") m.spend += tx.amountAg;
+  });
+  child.money = m;
+}
+
+/* ---------------- services (seams for a future backend) ---------------- */
+var Store = {
+  exportData: function () {
+    var copy;
+    try { copy = JSON.parse(JSON.stringify(S)); } catch (e) { copy = {}; }
+    /* never export secrets; there are none client-side by design */
+    return { app: "PiggyUp", version: APP_VERSION, exportedAt: new Date().toISOString(), lang: LANG, data: copy };
+  },
+  wipe: function () {
+    try { localStorage.removeItem(LS_KEY); } catch (e) {}
+    try { localStorage.removeItem(DATA_VERSION_KEY); } catch (e) {}
+  }
+};
+
+var Sub = {
+  /* Validation stage: local state only. Server-side enforcement comes later. */
+  status: function () { return PIGGY.trialStatus(S.sub, Date.now()); },
+  hasAccess: function () { return PIGGY.hasGuidanceAccess(S.sub, Date.now()); },
+  /* Local heuristic for the validation stage.
+     FUTURE(server): atomic subscriber_number, price locked per user. */
+  price: function () { return PIGGY.priceForNextSubscriber(S.sub.subs); },
+  startTrial: function () {
+    S.sub.trialStart = Date.now(); S.sub.plan = "trial";
+    Analytics.track("trial_started"); save(); renderApp();
+  },
+  request: function () {
+    S.sub.plan = "requested"; S.sub.requestedAt = Date.now();
+    Analytics.track("subscription_requested"); save(); renderApp();
+  },
+  activate: function (code) {
+    if (!PIGGY.verifyAdminCode(String(code == null ? "" : code))) return false;
+    onceOp("sub-activate-" + String(code).trim(), function () {
+      S.sub.plan = "premium"; S.sub.activatedBy = "admin-code";
+      S.sub.activatedAt = Date.now(); S.sub.subs += 1;
+    });
+    Analytics.track("subscription_activated"); save(); return true;
+  }
+};
+
+var Analytics = {
+  /* Privacy-safe allowlist: no names, no amounts, no notes. */
+  ALLOW: ["signup", "trial_started", "child_created", "task_created", "task_completed",
+    "task_approved", "goal_created", "game_completed", "subscription_requested",
+    "subscription_activated", "bug_reported", "mission_approved"],
+  track: function (ev) {
+    if (this.ALLOW.indexOf(ev) === -1) return;
+    try {
+      S.events = S.events || [];
+      S.events.push({ e: ev, ts: Date.now() });
+      if (S.events.length > 200) S.events = S.events.slice(-200);
+      if (window.__piggyPing) window.__piggyPing(ev);
+    } catch (e) {}
+  }
+};
+
+var EmailService = {
+  BUG_TO: "piggyup2@gmail.com",
+  /* Validation stage: no backend mailer. Compose a REAL email through the
+     user's own mail app (mailto:) + keep a local outbox log. Never fake "sent". */
+  composeBugReport: function (desc) {
+    var page = S.mode + "/" + S.tab;
+    var ua = "";
+    try { ua = (navigator.userAgent || "").slice(0, 120); } catch (e) {}
+    return {
+      to: this.BUG_TO,
+      subject: "PiggyUp Bug Report",
+      body: "תיאור: " + desc + "\n\nמסך: " + page + "\nגרסה: " + APP_VERSION +
+        "\nשפה: " + LANG + "\nדפדפן: " + ua + "\nזמן: " + new Date().toISOString()
+    };
+  },
+  sendBugReport: function (desc) {
+    var m = this.composeBugReport(desc);
+    S.bugOutbox = S.bugOutbox || [];
+    var entry = { id: uid(), ts: Date.now(), to: m.to, subject: m.subject, body: m.body, via: "mailto", status: "composed" };
+    S.bugOutbox.push(entry); save();
+    Analytics.track("bug_reported");
+    try {
+      var a = document.createElement("a");
+      a.href = "mailto:" + encodeURIComponent(m.to) +
+        "?subject=" + encodeURIComponent(m.subject) +
+        "&body=" + encodeURIComponent(m.body);
+      document.body.appendChild(a); a.click(); a.remove();
+    } catch (e) {}
+    return { ok: true, via: "mailto", id: entry.id, mailto: "mailto:" + m.to };
+  }
+};
+
+var AIService = {
+  /* Local curated bank only (no network, no open chat).
+     Parent approves generated content BEFORE it reaches the child. */
+  bank: [],
+  registerBank: function (arr) { this.bank = arr || []; },
+  pickFor: function (dayIndex) {
+    var bank = this.bank;
+    if (!bank.length) return null;
+    var done = S.missionsDone || [];
+    for (var k = 0; k < bank.length; k++) {
+      var m = bank[(dayIndex + k) % bank.length];
+      if (done.indexOf(m.id) === -1) return m;
+    }
+    return bank[dayIndex % bank.length];
+  },
+  markDone: function (id) {
+    S.missionsDone = S.missionsDone || [];
+    if (S.missionsDone.indexOf(id) === -1) { S.missionsDone.push(id); save(); }
+  }
+};
+
+/* ---------------- state shape v2 (defaults for new fields) ---------------- */
+function ensureV2State(st) {
+  if (!st.splitRule) st.splitRule = { save: 30, invest: 20, spend: 50 };
+  if (!st.boxes) st.boxes = [
+    { id: "save", icon: "💰", color: "#7fb069", customName: null },
+    { id: "invest", icon: "📈", color: "#4caf7d", customName: null },
+    { id: "spend", icon: "🎁", color: "#e8a13d", customName: null }
+  ];
+  if (!st.ledger) st.ledger = [];
+  if (!st.processedOps) st.processedOps = [];
+  if (!st.events) st.events = [];
+  if (!st.missionsDone) st.missionsDone = [];
+  if (!st.pendingMissions) st.pendingMissions = [];
+  if (!st.bugOutbox) st.bugOutbox = [];
+  if (st.investRule === undefined) st.investRule = null;
+  if (st.leagueOn === undefined) st.leagueOn = true;
+  (st.children || []).forEach(function (c) {
+    if (!c.achievements) c.achievements = [];
+    if (c.streak == null) c.streak = 0;
+    if (c.mainGoalId === undefined) c.mainGoalId = null;
+    if (!c.money) c.money = { save: 0, invest: 0, spend: 0 };
+  });
+  (st.tasks || []).forEach(function (tk) {
+    if (tk.moneyAg == null) tk.moneyAg = 0;
+    if (!tk.status) tk.status = "open";
+  });
+  (st.goals || []).forEach(function (g) {
+    if (g.saved == null) g.saved = 0;
+    if (g.target == null) g.target = 0;
+  });
+  return st;
+}
+
+/* ---------------- migration v1 -> v2: silent, lossless ---------------- */
+function migrateState() {
+  var dv = null;
+  try { dv = localStorage.getItem(DATA_VERSION_KEY); } catch (e) {}
+  if (dv === String(DATA_VERSION)) {
+    ensureV2State(S);
+    window.UpgradeHooks.ensure.forEach(function (fn) { try { fn(S); } catch (e) {} });
+    return;
+  }
+  try {
+    /* floats -> agorot integers (Math.round: 10.5 -> 1050) */
+    (S.children || []).forEach(function (c) {
+      var m = c.money || {};
+      c.money = { save: toAg(m.save), invest: toAg(m.invest), spend: toAg(m.spend) };
+      c.points = Math.round(Number(c.points) || 0);
+    });
+    (S.goals || []).forEach(function (g) { g.saved = toAg(g.saved); g.target = toAg(g.target); });
+    (S.tasks || []).forEach(function (tk) { tk.points = Math.round(Number(tk.points) || 0); });
+    ensureV2State(S);
+    window.UpgradeHooks.migrate.forEach(function (fn) { try { fn(S); } catch (e) {} });
+    S.v = 2;
+    save();
+    try { localStorage.setItem(DATA_VERSION_KEY, String(DATA_VERSION)); } catch (e) {}
+  } catch (e) { /* never break boot for existing users */ }
+}
+migrateState();
+
+/* ---------------- PWA: service worker (guarded) ---------------- */
+window.addEventListener("load", function () {
+  try {
+    if ("serviceWorker" in navigator && /^https?:$/.test(location.protocol)) {
+      navigator.serviceWorker.register("sw.js").catch(function () {});
+    }
+  } catch (e) {}
+});
+
+</script>
+<script>
+/* ===== chunk i18n: 10-money ===== */
+(function(){
+try{
+Object.assign(I18N.he, {"upg.m.add_money_aria": "הוספת כסף", "upg.m.am_add": "הוספה", "upg.m.am_added": "נוספו {0} ל{1} 🎉", "upg.m.am_amount": "סכום (₪)", "upg.m.am_bad": "נא להזין סכום חיובי", "upg.m.am_manual": "✏️ ידנית", "upg.m.am_mode": "אופן החלוקה", "upg.m.am_no_boxes": "כל הקופות מוסתרות — החזירו קופה לתצוגה כדי להוסיף כסף", "upg.m.am_note": "הערה (לא חובה)", "upg.m.am_note_ph": "למשל: דמי כיס לחודש…", "upg.m.am_preview": "תצוגה מקדימה", "upg.m.am_preview_hint": "הזינו סכום כדי לראות את החלוקה", "upg.m.am_quick": "סכומים מהירים:", "upg.m.am_smart": "✨ חלוקה חכמה", "upg.m.am_smart_hint": "יחולק אוטומטית: {0}% חיסכון · {1}% השקעה · {2}% הוצאות", "upg.m.am_source": "מקור הכסף", "upg.m.am_sum_bad": "החלוקה הידנית חייבת להסתכם בדיוק בסכום", "upg.m.am_title": "הוספת כסף — {0}", "upg.m.approve": "אישור", "upg.m.balance_label": "סך כל הכסף המתועד", "upg.m.box_invest": "השקעה", "upg.m.box_save": "חיסכון", "upg.m.box_spend": "הוצאות", "upg.m.boxes_active": "קופות פעילות", "upg.m.boxes_archive": "הסתרה", "upg.m.boxes_archived": "קופות מוסתרות", "upg.m.boxes_color": "צבע", "upg.m.boxes_default": "ברירת מחדל: {0}", "upg.m.boxes_history_warn": "לקופה הזו יש היסטוריה — אפשר להסתיר אותה, לא למחוק", "upg.m.boxes_icon": "אייקון", "upg.m.boxes_name_ph": "שם הקופה", "upg.m.boxes_restore": "החזרה לתצוגה", "upg.m.boxes_saved": "הקופות עודכנו ✅", "upg.m.boxes_title": "הקופות של {0}", "upg.m.common_cancel": "ביטול", "upg.m.common_close": "סגירה", "upg.m.common_save": "שמירה", "upg.m.goal_deposit": "הפקדה", "upg.m.goal_new": "יצירת מטרה", "upg.m.goal_none": "עדיין אין מטרה", "upg.m.goal_none_sub": "צרו מטרה כדי לראות כאן את ההתקדמות", "upg.m.goal_saved_of": "נחסכו {0} מתוך {1}", "upg.m.goal_title": "🎯 המטרה העיקרית", "upg.m.greet": "👋 שלום, {0}!", "upg.m.inv_already": "ההתאמה לחודש הזה כבר הוחלה", "upg.m.inv_applied": "הוחלה התאמה של {0} ✅", "upg.m.inv_apply": "החלת התאמה עכשיו", "upg.m.inv_bad": "נא להזין ערך חיובי תקין", "upg.m.inv_desc": "כשהילד שם כסף בקופת ההשקעה, ההורה מוסיף מעליו סכום — עידוד חינוכי לחיסכון לטווח ארוך.", "upg.m.inv_disclaimer": "⚠️ מעקב חינוכי בלבד — לא ייעוץ השקעות ולא המלצה פיננסית.", "upg.m.inv_match_note": "התאמת הורה לחודש {0}", "upg.m.inv_monthly": "אחוז חודשי מההפקדות", "upg.m.inv_monthly_pct": "איזה אחוז? (1–100)", "upg.m.inv_nothing": "אין החודש סכום להתאמה", "upg.m.inv_off": "כבוי — בלי התאמה", "upg.m.inv_per10": "סכום קבוע על כל 10 ₪ של הילד", "upg.m.inv_per10_amt": "כמה מוסיף ההורה על כל 10 ₪? (₪)", "upg.m.inv_save": "שמירת הכלל", "upg.m.inv_saved": "כלל ההתאמה נשמר ✅", "upg.m.inv_title": "כלל התאמת השקעה", "upg.m.ledger_confirm_q": "לבצע תיקון? תירשם תנועת היפוך — המקור נשמר.", "upg.m.ledger_corr_note": "תיקון לתנועה מ־{0}", "upg.m.ledger_correct": "תיקון", "upg.m.ledger_corrected": "נרשם תיקון ✅", "upg.m.ledger_empty": "עדיין אין תנועות מתועדות", "upg.m.ledger_no": "ביטול", "upg.m.ledger_title": "היסטוריית תנועות — {0}", "upg.m.ledger_type_correction": "תיקון", "upg.m.ledger_type_match": "התאמת הורה", "upg.m.ledger_yes": "כן, תקנו", "upg.m.log_money_added": "נוספו {0} ל{1} 🐷", "upg.m.no_activity": "עוד לא נרשמה פעילות — הוסיפו כסף ראשון! 🐷", "upg.m.no_pending": "אין משימות ממתינות — כל הכבוד! 🎉", "upg.m.pend_title": "ממתין לאישור ההורה", "upg.m.pts": "{0} נק׳", "upg.m.quick_add": "הוספת כסף", "upg.m.quick_goal": "מטרה חדשה", "upg.m.quick_task": "משימה חדשה", "upg.m.quick_title": "פעולות מהירות", "upg.m.recent_title": "פעילות אחרונה", "upg.m.split_err": "האחוזים חייבים להסתכם בדיוק ב־100%", "upg.m.split_hint": "כל סכום חדש יחולק אוטומטית בין הקופות לפי האחוזים האלה", "upg.m.split_note": "ℹ️ חל רק על כסף חדש — ההיסטוריה לא משתנה", "upg.m.split_saved": "כללי החלוקה נשמרו ✅", "upg.m.split_sum": "סך הכול: {0}%", "upg.m.split_title": "כללי חלוקה חכמה", "upg.m.src_allowance": "דמי כיס", "upg.m.src_chores": "עזרה בבית", "upg.m.src_found": "מציאה", "upg.m.src_gift": "מתנה", "upg.m.src_other": "אחר", "upg.m.src_sale": "מכירה", "upg.m.tool_boxes": "עריכת קופות", "upg.m.tool_invest": "התאמת השקעה", "upg.m.tool_ledger": "היסטוריה", "upg.m.tool_split": "כללי חלוקה", "upg.m.tools_title": "כלי כסף"});
+Object.assign(I18N.ru, {"upg.m.add_money_aria": "Добавить деньги", "upg.m.am_add": "Добавить", "upg.m.am_added": "Добавлено {0} — {1} 🎉", "upg.m.am_amount": "Сумма (₪)", "upg.m.am_bad": "Введите положительную сумму", "upg.m.am_manual": "✏️ Вручную", "upg.m.am_mode": "Способ деления", "upg.m.am_no_boxes": "Все копилки скрыты — верните копилку, чтобы добавить деньги", "upg.m.am_note": "Заметка (необязательно)", "upg.m.am_note_ph": "Например: карманные на месяц…", "upg.m.am_preview": "Предпросмотр", "upg.m.am_preview_hint": "Введите сумму, чтобы увидеть деление", "upg.m.am_quick": "Быстрые суммы:", "upg.m.am_smart": "✨ Умное деление", "upg.m.am_smart_hint": "Разделится автоматически: {0}% сбережения · {1}% инвестиции · {2}% траты", "upg.m.am_source": "Источник денег", "upg.m.am_sum_bad": "Ручное деление должно точно равняться сумме", "upg.m.am_title": "Добавить деньги — {0}", "upg.m.approve": "Подтвердить", "upg.m.balance_label": "Всего задокументировано денег", "upg.m.box_invest": "Инвестиции", "upg.m.box_save": "Сбережения", "upg.m.box_spend": "Траты", "upg.m.boxes_active": "Активные копилки", "upg.m.boxes_archive": "Скрыть", "upg.m.boxes_archived": "Скрытые копилки", "upg.m.boxes_color": "Цвет", "upg.m.boxes_default": "По умолчанию: {0}", "upg.m.boxes_history_warn": "У этой копилки есть история — её можно скрыть, но не удалить", "upg.m.boxes_icon": "Значок", "upg.m.boxes_name_ph": "Название копилки", "upg.m.boxes_restore": "Вернуть", "upg.m.boxes_saved": "Копилки обновлены ✅", "upg.m.boxes_title": "Копилки — {0}", "upg.m.common_cancel": "Отмена", "upg.m.common_close": "Закрыть", "upg.m.common_save": "Сохранить", "upg.m.goal_deposit": "Внести", "upg.m.goal_new": "Создать цель", "upg.m.goal_none": "Цели пока нет", "upg.m.goal_none_sub": "Создайте цель, чтобы видеть здесь прогресс", "upg.m.goal_saved_of": "Накоплено {0} из {1}", "upg.m.goal_title": "🎯 Главная цель", "upg.m.greet": "👋 Привет, {0}!", "upg.m.inv_already": "Совпадение за этот месяц уже применено", "upg.m.inv_applied": "Применено совпадение: {0} ✅", "upg.m.inv_apply": "Применить совпадение сейчас", "upg.m.inv_bad": "Введите корректное положительное значение", "upg.m.inv_desc": "Когда ребёнок кладёт деньги в копилку инвестиций, родитель добавляет сверху — образовательное поощрение долгосрочных сбережений.", "upg.m.inv_disclaimer": "⚠️ Только образовательный учёт — не инвестиционная рекомендация и не финансовый совет.", "upg.m.inv_match_note": "Совпадение родителя за {0}", "upg.m.inv_monthly": "Месячный процент от взносов", "upg.m.inv_monthly_pct": "Какой процент? (1–100)", "upg.m.inv_nothing": "В этом месяце нечего совпадать", "upg.m.inv_off": "Выкл — без совпадения", "upg.m.inv_per10": "Фикс. сумма за каждые 10 ₪ ребёнка", "upg.m.inv_per10_amt": "Сколько добавляет родитель за каждые 10 ₪? (₪)", "upg.m.inv_save": "Сохранить правило", "upg.m.inv_saved": "Правило совпадения сохранено ✅", "upg.m.inv_title": "Правило совпадения инвестиций", "upg.m.ledger_confirm_q": "Выполнить исправление? Будет записана обратная операция — оригинал сохранится.", "upg.m.ledger_corr_note": "Исправление операции от {0}", "upg.m.ledger_correct": "Исправить", "upg.m.ledger_corrected": "Исправление записано ✅", "upg.m.ledger_empty": "Записанных операций пока нет", "upg.m.ledger_no": "Отмена", "upg.m.ledger_title": "История операций — {0}", "upg.m.ledger_type_correction": "Исправление", "upg.m.ledger_type_match": "Совпадение родителя", "upg.m.ledger_yes": "Да, исправить", "upg.m.log_money_added": "Добавлено {0} — {1} 🐷", "upg.m.no_activity": "Событий пока нет — добавьте первые деньги! 🐷", "upg.m.no_pending": "Нет задач на проверку — молодцы! 🎉", "upg.m.pend_title": "Ожидает подтверждения родителя", "upg.m.pts": "{0} очк.", "upg.m.quick_add": "Добавить деньги", "upg.m.quick_goal": "Новая цель", "upg.m.quick_task": "Новая задача", "upg.m.quick_title": "Быстрые действия", "upg.m.recent_title": "Последние события", "upg.m.split_err": "Проценты должны давать ровно 100%", "upg.m.split_hint": "Каждая новая сумма будет автоматически делиться между копилками по этим процентам", "upg.m.split_note": "ℹ️ Применяется только к новым деньгам — история не меняется", "upg.m.split_saved": "Правила деления сохранены ✅", "upg.m.split_sum": "Итого: {0}%", "upg.m.split_title": "Умное деление денег", "upg.m.src_allowance": "Карманные деньги", "upg.m.src_chores": "Помощь по дому", "upg.m.src_found": "Находка", "upg.m.src_gift": "Подарок", "upg.m.src_other": "Другое", "upg.m.src_sale": "Продажа", "upg.m.tool_boxes": "Настроить копилки", "upg.m.tool_invest": "Совпадение инвестиций", "upg.m.tool_ledger": "История", "upg.m.tool_split": "Правила деления", "upg.m.tools_title": "Денежные инструменты"});
+}catch(e){}
+})();
+</script>
+<script>
+/* ===== chunk js: 10-money ===== */
+/* ============================================================
+   PiggyUp MONEY CORE v2 (10-money)
+   Parent home · add money (smart/manual split) · split rules ·
+   boxes customization · ledger history · investment matching.
+   All amounts are integers in agorot (fmtAg for display).
+   Overrides: parentHome, addMoneyModal (rebound on A too).
+   ============================================================ */
+"use strict";
+
+/* ---------------- money helpers ---------------- */
+function upgBoxById(id) {
+  var boxes = S.boxes || [];
+  for (var i = 0; i < boxes.length; i++) if (boxes[i].id === id) return boxes[i];
+  return { id: id, icon: "🐷", color: "#7fb069", customName: null, archived: false };
+}
+function upgActiveBoxes() {
+  return (S.boxes || []).filter(function (b) { return !b.archived; });
+}
+function upgBoxName(box) {
+  if (box.customName && String(box.customName).trim()) return String(box.customName).trim();
+  return t("upg.m.box_" + box.id);
+}
+/* Parse a ₪ input into agorot. Returns null when invalid (NaN / negative). */
+function upgParseAg(elId) {
+  var el = document.getElementById(elId);
+  if (!el) return null;
+  var raw = String(el.value == null ? "" : el.value).replace(",", ".").trim();
+  if (raw === "") return null;
+  var n = Number(raw);
+  if (!isFinite(n) || n < 0) return null;
+  return Math.round(n * 100);
+}
+function upgChildTotal(child) {
+  var m = (child && child.money) || {};
+  return (m.save || 0) + (m.invest || 0) + (m.spend || 0);
+}
+/* Smart split: integer agorot, shares always sum EXACTLY to totalAg.
+   Rule percentages are normalized across the given (active) boxes. */
+function upgSmartSplit(totalAg, boxes) {
+  var r = S.splitRule || { save: 30, invest: 20, spend: 50 };
+  var tot = 0, i;
+  for (i = 0; i < boxes.length; i++) tot += (Number(r[boxes[i].id]) || 0);
+  var parts = boxes.map(function (b) {
+    var raw = tot > 0 ? totalAg * (Number(r[b.id]) || 0) / tot : 0;
+    return { id: b.id, box: b, raw: raw, ag: Math.floor(raw) };
+  });
+  var rest = totalAg - parts.reduce(function (s, p) { return s + p.ag; }, 0);
+  parts.sort(function (a, b) { return (b.raw - b.ag) - (a.raw - a.ag); });
+  for (i = 0; i < rest; i++) parts[i % parts.length].ag += 1;
+  var order = {};
+  boxes.forEach(function (b, idx) { order[b.id] = idx; });
+  parts.sort(function (a, b) { return order[a.id] - order[b.id]; });
+  return parts;
+}
+function upgSrcLabel(src) {
+  if (!src) return "";
+  var s = t("upg.m.src_" + src);
+  if (s.indexOf("upg.m.") === 0) return src; /* unknown source: show raw */
+  return s;
+}
+function upgBoxHasHistory(boxId) {
+  return (S.ledger || []).some(function (x) { return x.boxId === boxId; });
+}
+function upgTypeTag(type) {
+  if (type === "correction") return t("upg.m.ledger_type_correction");
+  if (type === "match") return t("upg.m.ledger_type_match");
+  return "";
+}
+
+/* ---------------- modal-internal handlers ---------------- */
+var UpgMoney = {
+  SOURCES: ["allowance", "gift", "chores", "sale", "found", "other"],
+  ICONS: ["💰", "📈", "🎁", "🐷", "⭐", "🎮", "🚲", "📚"],
+  COLORS: ["#7fb069", "#4caf7d", "#e8a13d", "#e4574f", "#5aa9e6", "#9b7fb0"],
+  confirmTxId: null,
+  boxDraft: null,
+
+  setMode: function (mode, childId) {
+    var h = document.getElementById("amMode");
+    if (h) h.value = mode;
+    var seg = document.querySelectorAll(".upg-seg button");
+    for (var i = 0; i < seg.length; i++) {
+      seg[i].classList.toggle("on", seg[i].getAttribute("data-mode") === mode);
+    }
+    var rows = document.getElementById("amManualRows");
+    if (rows) rows.style.display = mode === "manual" ? "" : "none";
+    var hint = document.getElementById("amSmartHint");
+    if (hint) hint.style.display = mode === "smart" ? "" : "none";
+    this.preview(childId);
+  },
+  quickAmt: function (q, childId) {
+    var el = document.getElementById("amAmount");
+    if (el) el.value = q;
+    this.preview(childId);
+  },
+  preview: function (childId) {
+    var prevEl = document.getElementById("amPreview");
+    if (!prevEl) return;
+    var modeEl = document.getElementById("amMode");
+    var mode = (modeEl && modeEl.value) || "smart";
+    var amountAg = upgParseAg("amAmount");
+    var boxes = upgActiveBoxes();
+    if (amountAg == null || amountAg <= 0 || !boxes.length) {
+      prevEl.innerHTML = '<div class="upg-muted">' + t("upg.m.am_preview_hint") + "</div>";
+      return;
+    }
+    var parts, ok = true, sum = amountAg;
+    if (mode === "smart") {
+      parts = upgSmartSplit(amountAg, boxes);
+    } else {
+      parts = boxes.map(function (b) {
+        return { id: b.id, box: b, ag: upgParseAg("amBox_" + b.id) || 0 };
+      });
+      sum = parts.reduce(function (s, p) { return s + p.ag; }, 0);
+      ok = (sum === amountAg);
+    }
+    var rows = parts.map(function (p) {
+      return '<div class="pr-row"><span>' + esc(p.box.icon || "🐷") + " " +
+        esc(upgBoxName(p.box)) + '</span><span><b>' + fmtAg(p.ag) + "</b></span></div>";
+    }).join("");
+    var sumLine = mode === "manual"
+      ? '<div class="pr-row pr-total"><span>' + t("upg.m.am_preview") + '</span><span class="' +
+        (ok ? "pr-ok" : "pr-bad") + '">' + fmtAg(sum) + (ok ? " ✓" : " ✗") + "</span></div>"
+      : '<div class="pr-row pr-total"><span>' + t("upg.m.am_preview") + '</span><span><b>' +
+        fmtAg(amountAg) + "</b></span></div>";
+    prevEl.innerHTML = '<div class="pr-head">' + t("upg.m.am_preview") + "</div>" + rows + sumLine;
+  },
+
+  /* ---- split rules editor ---- */
+  splitPreview: function () {
+    ["save", "invest", "spend"].forEach(function (id) {
+      var el = document.getElementById("sp_" + id);
+      if (el && el.value !== "") {
+        var n = Math.round(Number(String(el.value).replace(",", ".")));
+        if (isFinite(n)) el.value = Math.max(0, Math.min(100, n));
+      }
+    });
+    var s = Number(document.getElementById("sp_save").value) || 0;
+    var iv = Number(document.getElementById("sp_invest").value) || 0;
+    var sp = Number(document.getElementById("sp_spend").value) || 0;
+    var sum = Math.round(s) + Math.round(iv) + Math.round(sp);
+    var sumEl = document.getElementById("spSum");
+    var errEl = document.getElementById("spErr");
+    if (sumEl) sumEl.innerHTML = "<b>" + t("upg.m.split_sum", sum) + "</b>";
+    if (errEl) errEl.style.display = sum === 100 ? "none" : "";
+  },
+
+  /* ---- boxes editor (draft, applied on save) ---- */
+  boxDraftName: function (id, v) {
+    if (!this.boxDraft) return;
+    var b = this.boxDraft.filter(function (x) { return x.id === id; })[0];
+    if (b) b.customName = v;
+  },
+  boxPick: function (id, field, val, el) {
+    if (!this.boxDraft) return;
+    var b = this.boxDraft.filter(function (x) { return x.id === id; })[0];
+    if (!b) return;
+    b[field] = val;
+    var sibs = el.parentNode.querySelectorAll("button");
+    for (var i = 0; i < sibs.length; i++) sibs[i].classList.remove("on");
+    el.classList.add("on");
+    var prev = document.getElementById("bxPrev_" + id);
+    if (prev) {
+      if (field === "icon") prev.textContent = val;
+      if (field === "color") prev.style.background = val;
+    }
+  },
+  boxToggleArchive: function (id, childId) {
+    if (!this.boxDraft) return;
+    var b = this.boxDraft.filter(function (x) { return x.id === id; })[0];
+    if (b) b.archived = !b.archived;
+    this.renderBoxesModal(childId);
+  },
+  renderBoxesModal: function (childId) {
+    var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+    if (!this.boxDraft) {
+      this.boxDraft = JSON.parse(JSON.stringify(S.boxes || []));
+    }
+    var self = this;
+    function card(b) {
+      var hasHist = upgBoxHasHistory(b.id);
+      var icons = self.ICONS.map(function (ic) {
+        return '<button type="button" class="upg-ico-btn' + (b.icon === ic ? " on" : "") +
+          '" onclick="UpgMoney.boxPick(\'' + b.id + "','icon','" + ic + '\',this)">' + ic + "</button>";
+      }).join("");
+      var colors = self.COLORS.map(function (cl) {
+        return '<button type="button" class="upg-swatch' + (b.color === cl ? " on" : "") +
+          '" style="background:' + cl + '" aria-label="' + cl +
+          '" onclick="UpgMoney.boxPick(\'' + b.id + "','color','" + cl + '\',this)"></button>';
+      }).join("");
+      return '<div class="upg-box-edit' + (b.archived ? " archived" : "") + '">' +
+        '<div class="upg-flex">' +
+        '<span class="upg-box-prev" id="bxPrev_' + b.id + '" style="background:' +
+        esc(b.color || "#7fb069") + '">' + esc(b.icon || "🐷") + "</span>" +
+        '<div style="flex:1;min-width:0">' +
+        '<input id="bxName_' + b.id + '" value="' + esc(b.customName || "") + '" maxlength="24" ' +
+        'placeholder="' + esc(t("upg.m.boxes_name_ph")) + '" ' +
+        'onchange="UpgMoney.boxDraftName(\'' + b.id + "',this.value)\">" +
+        '<div class="upg-muted">' + esc(t("upg.m.boxes_default", t("upg.m.box_" + b.id))) + "</div>" +
+        "</div></div>" +
+        '<div class="field"><label>' + t("upg.m.boxes_icon") + '</label><div class="upg-pick-row">' +
+        icons + "</div></div>" +
+        '<div class="field"><label>' + t("upg.m.boxes_color") + '</label><div class="upg-pick-row">' +
+        colors + "</div></div>" +
+        (hasHist ? '<div class="upg-muted">⚠️ ' + t("upg.m.boxes_history_warn") + "</div>" : "") +
+        '<button type="button" class="btn secondary small" style="width:auto" ' +
+        "onclick=\"UpgMoney.boxToggleArchive('" + b.id + "','" + childId + "')\">" +
+        (b.archived ? t("upg.m.boxes_restore") : t("upg.m.boxes_archive")) + "</button>" +
+        "</div>";
+    }
+    var active = this.boxDraft.filter(function (b) { return !b.archived; });
+    var archived = this.boxDraft.filter(function (b) { return b.archived; });
+    openModal(
+      "<h3>" + t("upg.m.boxes_title", esc(c ? c.name : "")) + "</h3>" +
+      '<div class="section-title">' + t("upg.m.boxes_active") + "</div>" +
+      active.map(card).join("") +
+      (archived.length
+        ? '<div class="section-title">' + t("upg.m.boxes_archived") + "</div>" + archived.map(card).join("")
+        : "") +
+      '<button class="btn" onclick="A.doSaveBoxes()">' + t("upg.m.common_save") + "</button>" +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.m.common_cancel") + "</button>"
+    );
+  },
+
+  /* ---- invest rule ---- */
+  invTypeChanged: function () {
+    var checked = document.querySelector('input[name="invType"]:checked');
+    var v = checked ? checked.value : "off";
+    var p10 = document.getElementById("invPer10Wrap");
+    var mp = document.getElementById("invMonthlyWrap");
+    if (p10) p10.style.display = v === "per10" ? "" : "none";
+    if (mp) mp.style.display = v === "monthlyPct" ? "" : "none";
+  }
+};
+window.UpgMoney = UpgMoney;
+
+/* ---------------- PARENT: home (override) ---------------- */
+function parentHome() {
+  var child = activeChild();
+  if (!child) return noChildScreen();
+  var children = S.children || [];
+  var total = upgChildTotal(child);
+  var boxes = upgActiveBoxes();
+
+  var chips = children.length > 1
+    ? '<div class="chip-row">' + children.map(function (c) {
+        return '<button class="chip' + (c.id === child.id ? " active" : "") +
+          '" onclick="A.selectChild(\'' + c.id + "')\">" + esc(c.name) + "</button>";
+      }).join("") + "</div>"
+    : "";
+
+  var boxCards = boxes.length
+    ? '<div class="upg-box-grid">' + boxes.map(function (b) {
+        return '<div class="upg-box-card" style="--box-color:' + esc(b.color || "#7fb069") + '">' +
+          '<div class="upg-box-ico">' + esc(b.icon || "🐷") + "</div>" +
+          '<div class="upg-box-name">' + esc(upgBoxName(b)) + "</div>" +
+          '<div class="upg-box-amt">' + fmtAg((child.money || {})[b.id] || 0) + "</div></div>";
+      }).join("") + "</div>"
+    : '<div class="empty">' + t("upg.m.am_no_boxes") + "</div>";
+
+  /* main goal progress */
+  var goals = childGoals(child.id);
+  var g = goals.length ? goals[0] : null;
+  var goalHtml;
+  if (g) {
+    var pct = g.target > 0 ? Math.min(100, Math.round((g.saved / g.target) * 100)) : 0;
+    goalHtml = '<div class="card"><div class="section-title" style="margin-top:0">' +
+      t("upg.m.goal_title") + "</div>" +
+      '<div style="font-weight:800;font-size:16px">' + esc(g.title) + "</div>" +
+      '<div class="muted">' + t("upg.m.goal_saved_of", fmtAg(g.saved), fmtAg(g.target)) + "</div>" +
+      '<div class="upg-progress"><i style="width:' + pct + '%"></i></div>' +
+      '<div class="muted" style="margin-top:4px">' + pct + '%</div>' +
+      '<button class="btn small" style="margin-top:8px" onclick="A.openDeposit(\'' + g.id + "')\">" +
+      t("upg.m.goal_deposit") + "</button></div>";
+  } else {
+    goalHtml = '<div class="card"><div class="section-title" style="margin-top:0">' +
+      t("upg.m.goal_title") + "</div>" +
+      '<div class="empty">🎯<br>' + t("upg.m.goal_none") + "<br>" +
+      '<span class="muted">' + t("upg.m.goal_none_sub") + "</span></div>" +
+      '<button class="btn secondary" onclick="A.openGoal(\'' + child.id + "')\">" +
+      t("upg.m.goal_new") + "</button></div>";
+  }
+
+  /* today's mission slot (provided by the missions module) */
+  var missionHtml = (typeof UpgMissionCard === "function") ? UpgMissionCard() : "";
+
+  /* pending approvals */
+  var pending = childTasks(child.id, "pending");
+  var pendHtml = pending.length === 0
+    ? '<div class="empty">' + t("upg.m.no_pending") + "</div>"
+    : pending.map(function (task) {
+        return '<div class="row-item"><div class="icon-badge">⏳</div>' +
+          '<div class="grow"><div style="font-weight:700">' + esc(task.title) + "</div>" +
+          '<div class="sub">' + esc(child.name) + " · " + t("upg.m.pts", task.points) + "</div></div>" +
+          '<button class="btn small" onclick="A.approveTask(\'' + task.id + "')\">" +
+          t("upg.m.approve") + "</button></div>";
+      }).join("");
+
+  /* recent activity */
+  var actHtml = S.activity.length === 0
+    ? '<div class="empty">' + t("upg.m.no_activity") + "</div>"
+    : S.activity.slice(0, 8).map(function (a) {
+        return '<div class="row-item"><div class="icon-badge">🧾</div>' +
+          '<div class="grow"><div style="font-size:14px">' + esc(a.text) + "</div>" +
+          '<div class="sub">' + fmtDate(a.ts) + "</div></div></div>";
+      }).join("");
+
+  /* quick actions */
+  var taskBtn = (typeof A.openTaskModal === "function")
+    ? '<button class="upg-quick" onclick="A.openTaskModal(\'' + child.id + "')\">" +
+      '<span class="q-ico">📝</span><span>' + t("upg.m.quick_task") + "</span></button>"
+    : "";
+  var quickHtml =
+    '<div class="section-title">' + t("upg.m.quick_title") + "</div>" +
+    '<div class="upg-quick-grid">' +
+    '<button class="upg-quick" onclick="A.openAddMoney(\'' + child.id + "')\">" +
+    '<span class="q-ico">💵</span><span>' + t("upg.m.quick_add") + "</span></button>" +
+    taskBtn +
+    '<button class="upg-quick" onclick="A.openGoal(\'' + child.id + "')\">" +
+    '<span class="q-ico">🎯</span><span>' + t("upg.m.quick_goal") + "</span></button>" +
+    "</div>";
+
+  /* money tools */
+  var toolsHtml =
+    '<div class="section-title">' + t("upg.m.tools_title") + "</div>" +
+    '<div class="card" style="margin-top:6px"><div class="upg-tools">' +
+    '<button class="upg-tool" onclick="A.openSplitModal()">⚖️ ' + t("upg.m.tool_split") + "</button>" +
+    '<button class="upg-tool" onclick="A.openBoxesModal(\'' + child.id + "')\">🎨 " +
+    t("upg.m.tool_boxes") + "</button>" +
+    '<button class="upg-tool" onclick="A.openLedgerModal(\'' + child.id + "')\">🧾 " +
+    t("upg.m.tool_ledger") + "</button>" +
+    '<button class="upg-tool" onclick="A.openInvestRuleModal()">📈 ' +
+    t("upg.m.tool_invest") + "</button>" +
+    "</div></div>";
+
+  return '<div class="screen">' +
+    chips +
+    '<div class="upg-greet">' + t("upg.m.greet", esc(child.name)) + "</div>" +
+    '<div class="card dark balance-card"><div class="balance-top">' +
+    '<div><div class="balance-label">' + t("upg.m.balance_label") + "</div>" +
+    '<div class="balance-amount">' + fmtAg(total) + "</div></div>" +
+    '<button class="add-btn" onclick="A.openAddMoney(\'' + child.id + "')\" aria-label=\"" +
+    t("upg.m.add_money_aria") + '">+</button></div>' +
+    boxCards + "</div>" +
+    goalHtml +
+    missionHtml +
+    quickHtml +
+    '<div class="section-title">' + t("upg.m.pend_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' + pendHtml + "</div>" +
+    '<div class="section-title">' + t("upg.m.recent_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' + actHtml + "</div>" +
+    toolsHtml +
+    "</div>";
+}
+
+/* ---------------- add money (override) ---------------- */
+function addMoneyModal(childId) {
+  var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+  if (!c) return;
+  var opId = uid();
+  var r = S.splitRule || { save: 30, invest: 20, spend: 50 };
+  var boxes = upgActiveBoxes();
+
+  var quick = [10, 20, 50, 100].map(function (q) {
+    return '<button type="button" class="chip" onclick="UpgMoney.quickAmt(' + q + ",'" + childId + "')\">" +
+      q + " ₪</button>";
+  }).join("");
+
+  var srcOpts = UpgMoney.SOURCES.map(function (s) {
+    return '<option value="' + s + '"' + (s === "allowance" ? " selected" : "") + ">" +
+      t("upg.m.src_" + s) + "</option>";
+  }).join("");
+
+  var manualRows = boxes.map(function (b) {
+    return '<div class="field"><label>' + esc(b.icon || "🐷") + " " + esc(upgBoxName(b)) + "</label>" +
+      '<input id="amBox_' + b.id + '" type="number" min="0" step="0.5" value="" placeholder="0" ' +
+      'inputmode="decimal" oninput="UpgMoney.preview(\'' + childId + "')\"></div>";
+  }).join("");
+
+  openModal(
+    "<h3>" + t("upg.m.am_title", esc(c.name)) + "</h3>" +
+    '<input type="hidden" id="amOpId" value="' + opId + '">' +
+    '<input type="hidden" id="amMode" value="smart">' +
+    (boxes.length ? "" : '<div class="upg-err">' + t("upg.m.am_no_boxes") + "</div>") +
+    '<div class="field"><label>' + t("upg.m.am_amount") + "</label>" +
+    '<div class="upg-amount-row"><div class="field" style="margin:0">' +
+    '<input id="amAmount" type="number" min="0" step="0.5" placeholder="0" inputmode="decimal" ' +
+    'oninput="UpgMoney.preview(\'' + childId + "')\"></div></div></div>" +
+    '<div class="upg-quick-amounts"><span class="upg-muted" style="align-self:center">' +
+    t("upg.m.am_quick") + "</span>" + quick + "</div>" +
+    '<div class="field"><label>' + t("upg.m.am_source") + "</label>" +
+    '<select id="amSource">' + srcOpts + "</select></div>" +
+    '<div class="field"><label>' + t("upg.m.am_mode") + "</label>" +
+    '<div class="upg-seg">' +
+    '<button type="button" class="on" data-mode="smart" onclick="UpgMoney.setMode(\'smart\',\'' +
+    childId + "')\">" + t("upg.m.am_smart") + "</button>" +
+    '<button type="button" data-mode="manual" onclick="UpgMoney.setMode(\'manual\',\'' +
+    childId + "')\">" + t("upg.m.am_manual") + "</button></div>" +
+    '<div class="upg-muted" id="amSmartHint">' +
+    t("upg.m.am_smart_hint", r.save || 0, r.invest || 0, r.spend || 0) + "</div></div>" +
+    '<div id="amManualRows" style="display:none"><div class="upg-manual-rows">' +
+    manualRows + "</div></div>" +
+    '<div class="upg-preview" id="amPreview"></div>' +
+    '<div class="field"><label>' + t("upg.m.am_note") + "</label>" +
+    '<input id="amNote" maxlength="120" placeholder="' + esc(t("upg.m.am_note_ph")) + '"></div>' +
+    (boxes.length
+      ? '<button class="btn" id="amConfirm" onclick="A.doAddMoney(\'' + childId + "')\">" +
+        t("upg.m.am_add") + "</button>"
+      : "") +
+    '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.m.common_cancel") + "</button>"
+  );
+  UpgMoney.preview(childId);
+}
+
+/* ---------------- A: money actions ---------------- */
+Object.assign(A, {
+  openAddMoney: addMoneyModal,
+
+  doAddMoney: function (childId) {
+    var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+    if (!c) return;
+    var opIdEl = document.getElementById("amOpId");
+    var opId = opIdEl ? opIdEl.value : uid();
+    var mode = (document.getElementById("amMode") || {}).value || "smart";
+    var amountAg = upgParseAg("amAmount");
+    var boxes = upgActiveBoxes();
+    if (amountAg == null || amountAg <= 0 || !boxes.length) {
+      toast(t(boxes.length ? "upg.m.am_bad" : "upg.m.am_no_boxes"));
+      return;
+    }
+    var parts;
+    if (mode === "smart") {
+      parts = upgSmartSplit(amountAg, boxes);
+    } else {
+      parts = boxes.map(function (b) {
+        return { id: b.id, ag: upgParseAg("amBox_" + b.id) || 0 };
+      });
+      var sum = parts.reduce(function (s, p) { return s + p.ag; }, 0);
+      if (sum !== amountAg) { toast(t("upg.m.am_sum_bad")); return; }
+    }
+    parts = parts.filter(function (p) { return p.ag > 0; });
+    if (!parts.length) { toast(t("upg.m.am_bad")); return; }
+    var srcEl = document.getElementById("amSource");
+    var source = srcEl ? srcEl.value : "other";
+    var noteEl = document.getElementById("amNote");
+    var note = noteEl ? String(noteEl.value || "").trim().slice(0, 120) : "";
+
+    var applied = onceOp("addmoney-" + opId, function () {
+      parts.forEach(function (p) {
+        addTx({
+          childId: childId, boxId: p.id, amountAg: p.ag,
+          type: "income", source: source, note: note, by: "parent"
+        });
+      });
+      /* ledger is the source of truth; balances are a cache */
+      rebuildBalances(c);
+      logActivity(t("upg.m.log_money_added", fmtAg(amountAg), c.name));
+      return true;
+    });
+    save();
+    A.closeModal();
+    renderApp();
+    if (applied) toast(t("upg.m.am_added", fmtAg(amountAg), c.name));
+  },
+
+  /* ---- split rules editor ---- */
+  openSplitModal: function () {
+    var r = S.splitRule || { save: 30, invest: 20, spend: 50 };
+    var ids = ["save", "invest", "spend"];
+    openModal(
+      "<h3>" + t("upg.m.split_title") + "</h3>" +
+      '<p class="muted">' + t("upg.m.split_hint") + "</p>" +
+      ids.map(function (id) {
+        var b = upgBoxById(id);
+        return '<div class="field"><label>' + esc(b.icon || "🐷") + " " + esc(upgBoxName(b)) +
+          " (%)</label>" +
+          '<input id="sp_' + id + '" type="number" min="0" max="100" step="1" value="' +
+          (Number(r[id]) || 0) + '" inputmode="numeric" oninput="UpgMoney.splitPreview()"></div>';
+      }).join("") +
+      '<div id="spSum" class="upg-muted" style="margin:6px 0"></div>' +
+      '<div id="spErr" class="upg-err" style="display:none">' + t("upg.m.split_err") + "</div>" +
+      '<p class="muted">' + t("upg.m.split_note") + "</p>" +
+      '<button class="btn" onclick="A.doSaveSplit()">' + t("upg.m.common_save") + "</button>" +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.m.common_cancel") + "</button>"
+    );
+    UpgMoney.splitPreview();
+  },
+  doSaveSplit: function () {
+    function pct(id) {
+      var el = document.getElementById("sp_" + id);
+      if (!el) return null;
+      var raw = String(el.value == null ? "" : el.value).replace(",", ".").trim();
+      if (raw === "") return null;
+      var n = Number(raw);
+      if (!isFinite(n) || n < 0 || n > 100) return null;
+      return Math.round(n);
+    }
+    var s = pct("save"), iv = pct("invest"), sp = pct("spend");
+    var errEl = document.getElementById("spErr");
+    if (s == null || iv == null || sp == null || s + iv + sp !== 100) {
+      if (errEl) errEl.style.display = "";
+      UpgMoney.splitPreview();
+      return;
+    }
+    S.splitRule = { save: s, invest: iv, spend: sp };
+    save();
+    A.closeModal();
+    renderApp();
+    toast(t("upg.m.split_saved"));
+  },
+
+  /* ---- boxes customization ---- */
+  openBoxesModal: function (childId) {
+    UpgMoney.boxDraft = null;
+    UpgMoney.renderBoxesModal(childId);
+  },
+  doSaveBoxes: function () {
+    var draft = UpgMoney.boxDraft || [];
+    (S.boxes || []).forEach(function (b) {
+      var d = draft.filter(function (x) { return x.id === b.id; })[0];
+      if (!d) return;
+      b.customName = (d.customName && String(d.customName).trim()) ? String(d.customName).trim() : null;
+      b.icon = d.icon || b.icon;
+      b.color = d.color || b.color;
+      b.archived = !!d.archived;
+    });
+    UpgMoney.boxDraft = null;
+    save();
+    A.closeModal();
+    renderApp();
+    toast(t("upg.m.boxes_saved"));
+  },
+
+  /* ---- ledger history ---- */
+  openLedgerModal: function (childId) {
+    var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+    if (!c) return;
+    var txs = txForChild(childId).slice().sort(function (a, b) { return b.ts - a.ts; });
+    var rows = txs.length ? txs.map(function (tx) {
+      var b = upgBoxById(tx.boxId);
+      var pos = tx.amountAg >= 0;
+      var tag = upgTypeTag(tx.type);
+      var sub = [];
+      var sl = upgSrcLabel(tx.source);
+      if (sl) sub.push(esc(sl));
+      if (tx.note) sub.push(esc(tx.note));
+      var action;
+      if (UpgMoney.confirmTxId === tx.id) {
+        action = '<div class="upg-confirm-box">' + t("upg.m.ledger_confirm_q") +
+          '<div class="upg-row-btns">' +
+          '<button class="btn warn small" style="flex:1" onclick="A.doCorrectTx(\'' + tx.id + "','" +
+          childId + "')\">" + t("upg.m.ledger_yes") + "</button>" +
+          '<button class="btn secondary small" style="flex:1" onclick="A.askCorrectTx(null,\'' +
+          childId + "')\">" + t("upg.m.ledger_no") + "</button></div></div>";
+      } else if (tx.type !== "correction") {
+        action = '<button class="upg-corr-btn" onclick="A.askCorrectTx(\'' + tx.id + "','" +
+          childId + "')\">" + t("upg.m.ledger_correct") + "</button>";
+      } else {
+        action = "";
+      }
+      return '<div><div class="upg-ledger-row">' +
+        '<span class="upg-ledger-ico">' + esc(b.icon || "🧾") + "</span>" +
+        '<div class="upg-ledger-main">' +
+        '<span class="upg-ledger-amt ' + (pos ? "pos" : "neg") + '">' + (pos ? "+" : "") +
+        fmtAg(tx.amountAg) + "</span>" +
+        (tag ? '<span class="upg-tag">' + tag + "</span>" : "") +
+        (sub.length ? '<div class="upg-ledger-sub">' + sub.join(" · ") + "</div>" : "") +
+        "</div>" +
+        '<span class="upg-ledger-date">' + fmtDate(tx.ts) + "</span></div>" +
+        action + "</div>";
+    }).join("") : '<div class="empty">' + t("upg.m.ledger_empty") + "</div>";
+    openModal(
+      "<h3>" + t("upg.m.ledger_title", esc(c.name)) + "</h3>" +
+      '<div style="max-height:56vh;overflow-y:auto">' + rows + "</div>" +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.m.common_close") + "</button>"
+    );
+  },
+  askCorrectTx: function (txId, childId) {
+    UpgMoney.confirmTxId = txId || null;
+    A.openLedgerModal(childId);
+  },
+  doCorrectTx: function (txId, childId) {
+    var tx = (S.ledger || []).filter(function (x) { return x.id === txId; })[0];
+    if (!tx || tx.type === "correction") return;
+    var child = (S.children || []).filter(function (x) { return x.id === tx.childId; })[0];
+    onceOp("correct-" + tx.id, function () {
+      addTx({
+        childId: tx.childId, boxId: tx.boxId, amountAg: -tx.amountAg,
+        type: "correction", source: tx.source,
+        note: t("upg.m.ledger_corr_note", fmtDate(tx.ts)) + " · #" + tx.id,
+        by: "parent"
+      });
+      if (child) rebuildBalances(child);
+      logActivity(t("upg.m.ledger_corrected"));
+      return true;
+    });
+    UpgMoney.confirmTxId = null;
+    save();
+    A.openLedgerModal(childId || tx.childId);
+    renderApp();
+  },
+
+  /* ---- investment matching rule ---- */
+  openInvestRuleModal: function () {
+    var rule = S.investRule || null;
+    var cur = rule ? rule.type : "off";
+    function radio(v, label, checked) {
+      return '<label class="upg-radio-row"><input type="radio" name="invType" value="' + v + '"' +
+        (checked ? " checked" : "") + ' onchange="UpgMoney.invTypeChanged()"><span>' + label + "</span></label>";
+    }
+    var summary = "";
+    if (rule && rule.type === "per10") {
+      summary = '<div class="upg-ok">✅ ' + t("upg.m.inv_per10") + ": <b>" + fmtAg(rule.amountAg) +
+        "</b></div>";
+    } else if (rule && rule.type === "monthlyPct") {
+      summary = '<div class="upg-ok">✅ ' + t("upg.m.inv_monthly") + ": <b>" + rule.pct + "%</b></div>";
+    }
+    openModal(
+      "<h3>" + t("upg.m.inv_title") + "</h3>" +
+      '<p class="muted">' + t("upg.m.inv_desc") + "</p>" +
+      summary +
+      radio("off", t("upg.m.inv_off"), cur === "off") +
+      radio("per10", t("upg.m.inv_per10"), cur === "per10") +
+      '<div class="field" id="invPer10Wrap" style="display:' + (cur === "per10" ? "" : "none") + '">' +
+      "<label>" + t("upg.m.inv_per10_amt") + "</label>" +
+      '<input id="invPer10Amt" type="number" min="0" step="0.5" inputmode="decimal" value="' +
+      (rule && rule.type === "per10" ? (rule.amountAg / 100) : "") + '"></div>' +
+      radio("monthlyPct", t("upg.m.inv_monthly"), cur === "monthlyPct") +
+      '<div class="field" id="invMonthlyWrap" style="display:' + (cur === "monthlyPct" ? "" : "none") + '">' +
+      "<label>" + t("upg.m.inv_monthly_pct") + "</label>" +
+      '<input id="invMonthlyPct" type="number" min="1" max="100" step="1" inputmode="numeric" value="' +
+      (rule && rule.type === "monthlyPct" ? rule.pct : "") + '"></div>' +
+      '<div class="upg-disclaimer">' + t("upg.m.inv_disclaimer") + "</div>" +
+      '<button class="btn" onclick="A.doSaveInvestRule()">' + t("upg.m.inv_save") + "</button>" +
+      (rule
+        ? '<button class="btn secondary" onclick="A.applyInvestMatch()">📈 ' +
+          t("upg.m.inv_apply") + "</button>"
+        : "") +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.m.common_cancel") + "</button>"
+    );
+    UpgMoney.invTypeChanged();
+  },
+  doSaveInvestRule: function () {
+    var checked = document.querySelector('input[name="invType"]:checked');
+    var v = checked ? checked.value : "off";
+    var rule = null;
+    if (v === "per10") {
+      var ag = upgParseAg("invPer10Amt");
+      if (ag == null || ag <= 0) { toast(t("upg.m.inv_bad")); return; }
+      rule = { type: "per10", amountAg: ag };
+    } else if (v === "monthlyPct") {
+      var el = document.getElementById("invMonthlyPct");
+      var p = el ? Number(String(el.value == null ? "" : el.value).replace(",", ".")) : NaN;
+      if (!isFinite(p) || p <= 0 || p > 100) { toast(t("upg.m.inv_bad")); return; }
+      rule = { type: "monthlyPct", pct: Math.round(p) };
+    }
+    S.investRule = rule;
+    save();
+    A.closeModal();
+    renderApp();
+    toast(t("upg.m.inv_saved"));
+  },
+  applyInvestMatch: function () {
+    var rule = S.investRule;
+    if (!rule) { toast(t("upg.m.inv_bad")); return; }
+    var now = new Date();
+    var mk = now.getFullYear() + "-" + (now.getMonth() + 1);
+    var monthLabel = (now.getMonth() + 1) + "/" + now.getFullYear();
+    var jobs = [];
+    (S.children || []).forEach(function (c) {
+      var inc = txForChild(c.id).reduce(function (s, x) {
+        if (x.type !== "income" || x.boxId !== "invest" || !(x.amountAg > 0)) return s;
+        var d = new Date(x.ts);
+        if (d.getFullYear() !== now.getFullYear() || d.getMonth() !== now.getMonth()) return s;
+        return s + x.amountAg;
+      }, 0);
+      var matchAg = 0;
+      if (rule.type === "per10") matchAg = Math.floor(inc / 1000) * rule.amountAg;
+      else if (rule.type === "monthlyPct") matchAg = Math.round(inc * rule.pct / 100);
+      if (matchAg > 0) jobs.push({ child: c, matchAg: matchAg });
+    });
+    if (!jobs.length) { toast(t("upg.m.inv_nothing")); return; }
+    var total = jobs.reduce(function (s, j) { return s + j.matchAg; }, 0);
+    var applied = onceOp("match-" + mk, function () {
+      jobs.forEach(function (j) {
+        addTx({
+          childId: j.child.id, boxId: "invest", amountAg: j.matchAg,
+          type: "match", source: "invest_match",
+          note: t("upg.m.inv_match_note", monthLabel), by: "parent"
+        });
+        rebuildBalances(j.child);
+      });
+      logActivity(t("upg.m.inv_applied", fmtAg(total)));
+      return true;
+    });
+    save();
+    A.closeModal();
+    renderApp();
+    toast(applied ? t("upg.m.inv_applied", fmtAg(total)) : t("upg.m.inv_already"));
+  }
+});
+
+</script>
+<script>
+/* ===== chunk i18n: 20-missions ===== */
+(function(){
+try{
+Object.assign(I18N.he, {"upg.b.ach_first_task": "משימה ראשונה", "upg.b.ach_goal_crusher": "שובר/ת יעדים", "upg.b.ach_mission_10": "מאסטר/ית המשימות", "upg.b.ach_new": "🏅 הישג חדש: {0}", "upg.b.ach_streak_7": "7 ימים ברצף", "upg.b.ach_title": "🏅 ההישגים שלי", "upg.b.deposit_blocked": "הסכום גבוה מיתרת החיסכון 🙂", "upg.b.goal_100_badge": "🎉 היעד הושל!", "upg.b.goal_100_msg": "מדהים! הגעת ל־{0} — כל הסכום נחסך!", "upg.b.goal_icon_lbl": "בחירת אייקון", "upg.b.goal_main_badge": "⭐ יעד ראשי", "upg.b.goal_ms_title": "{0}% מהיעד", "upg.b.goal_new_cta": "🎯 יצירת יעד חדש", "upg.b.goal_other": "יעדים נוספים", "upg.b.goal_star_title": "סימון כיעד ראשי", "upg.b.mission_approve": "✅ אישור והוספה לילד", "upg.b.mission_approved": "המשימה נוספה ל{0} ✅", "upg.b.mission_day": "יום {0} מתוך 30", "upg.b.mission_done_toast": "כל הכבוד! +{0} נקודות 🎉", "upg.b.mission_edu": "💡 ערך חינוכי", "upg.b.mission_kid": "🧒 משימה לילד", "upg.b.mission_minutes": "⏱ {0} דקות", "upg.b.mission_parent": "👩‍👧 מדריך להורה", "upg.b.mission_section": "🚀 משימות יומיות", "upg.b.mission_skip": "דלגי ⏭", "upg.b.mission_skipped": "דולג — מחר משימה חדשה 🙂", "upg.b.mission_today": "🎯 משימת היום", "upg.b.streak": "🔥 {0} ימים ברצף!", "upg.b.task_approval_lbl": "דורש אישור הורה", "upg.b.task_approved_money": "אושר! +{0} נקודות ו־{1} ל{2} 🌟", "upg.b.task_auto_approved": "הושלם! +{0} נקודות 🎉", "upg.b.task_create_btn": "הוספת משימה ✅", "upg.b.task_desc_lbl": "תיאור (אופציונלי)", "upg.b.task_desc_ph": "פרטים נוספים לילד…", "upg.b.task_due": "📅 עד {0}", "upg.b.task_due_lbl": "תאריך יעד (אופציונלי)", "upg.b.task_modal_title": "משימה חדשה 📝", "upg.b.task_money_lbl": "פרס כספי ב־₪ (אופציונלי)", "upg.b.task_new_btn": "➕ משימה חדשה", "upg.b.task_points_lbl": "נקודות", "upg.b.task_recur_daily": "כל יום", "upg.b.task_recur_daily_badge": "🔁 כל יום", "upg.b.task_recur_lbl": "חזרה", "upg.b.task_recur_once": "פעם אחת", "upg.b.task_recur_weekly": "כל שבוע", "upg.b.task_recur_weekly_badge": "🔁 כל שבוע", "upg.b.task_reject": "דחייה", "upg.b.task_reject_need": "כתבי סיבה קצרה לדחייה 🙂", "upg.b.task_reject_ok": "אישור דחייה", "upg.b.task_reject_ph": "כתבי סיבה קצרה…", "upg.b.task_reject_reason": "💬 ההורה ביקש/ה: {0}", "upg.b.task_rejected": "המשימה הוחזרה לילד עם הסבר 💬", "upg.b.task_reward_money": "💰 {0}", "upg.b.task_title_lbl": "כותרת", "upg.b.task_title_ph": "למשל: לסדר את החדר"});
+Object.assign(I18N.ru, {"upg.b.ach_first_task": "Первое задание", "upg.b.ach_goal_crusher": "Покоритель целей", "upg.b.ach_mission_10": "Мастер заданий", "upg.b.ach_new": "🏅 Новое достижение: {0}", "upg.b.ach_streak_7": "7 дней подряд", "upg.b.ach_title": "🏅 Мои достижения", "upg.b.deposit_blocked": "Сумма больше, чем в копилке 🙂", "upg.b.goal_100_badge": "🎉 Цель достигнута!", "upg.b.goal_100_msg": "Потрясающе! Ты собрал(а) {0} — всю сумму!", "upg.b.goal_icon_lbl": "Выберите иконку", "upg.b.goal_main_badge": "⭐ Главная цель", "upg.b.goal_ms_title": "{0}% цели", "upg.b.goal_new_cta": "🎯 Новая цель", "upg.b.goal_other": "Другие цели", "upg.b.goal_star_title": "Сделать главной целью", "upg.b.mission_approve": "✅ Одобрить и добавить ребёнку", "upg.b.mission_approved": "Задание добавлено для {0} ✅", "upg.b.mission_day": "День {0} из 30", "upg.b.mission_done_toast": "Отличная работа! +{0} баллов 🎉", "upg.b.mission_edu": "💡 Чему это учит", "upg.b.mission_kid": "🧒 Задание ребёнку", "upg.b.mission_minutes": "⏱ {0} мин", "upg.b.mission_parent": "👩‍👧 Гид для родителя", "upg.b.mission_section": "🚀 Ежедневные задания", "upg.b.mission_skip": "Пропустить ⏭", "upg.b.mission_skipped": "Пропущено — завтра новое задание 🙂", "upg.b.mission_today": "🎯 Задание дня", "upg.b.streak": "🔥 {0} дней подряд!", "upg.b.task_approval_lbl": "Требует подтверждения родителя", "upg.b.task_approved_money": "Готово! +{0} баллов и {1} для {2} 🌟", "upg.b.task_auto_approved": "Выполнено! +{0} баллов 🎉", "upg.b.task_create_btn": "Добавить задание ✅", "upg.b.task_desc_lbl": "Описание (необязательно)", "upg.b.task_desc_ph": "Подробности для ребёнка…", "upg.b.task_due": "📅 до {0}", "upg.b.task_due_lbl": "Срок (необязательно)", "upg.b.task_modal_title": "Новое задание 📝", "upg.b.task_money_lbl": "Денежная награда в ₪ (необязательно)", "upg.b.task_new_btn": "➕ Новое задание", "upg.b.task_points_lbl": "Баллы", "upg.b.task_recur_daily": "Каждый день", "upg.b.task_recur_daily_badge": "🔁 каждый день", "upg.b.task_recur_lbl": "Повторение", "upg.b.task_recur_once": "Один раз", "upg.b.task_recur_weekly": "Каждую неделю", "upg.b.task_recur_weekly_badge": "🔁 каждую неделю", "upg.b.task_reject": "Отклонить", "upg.b.task_reject_need": "Напишите короткую причину 🙂", "upg.b.task_reject_ok": "Подтвердить", "upg.b.task_reject_ph": "Напишите короткую причину…", "upg.b.task_reject_reason": "💬 Родитель попросил: {0}", "upg.b.task_rejected": "Задание возвращено ребёнку с объяснением 💬", "upg.b.task_reward_money": "💰 {0}", "upg.b.task_title_lbl": "Название", "upg.b.task_title_ph": "Например: убрать комнату"});
+}catch(e){}
+})();
+</script>
+<script>
+/* ===== chunk js: 20-missions ===== */
+/* ============================================================
+   PiggyUp UPGRADE 20 — GOALS + TASKS + AI MISSIONS (structured)
+   Overrides: goalModal, depositModal, goalCard, parentTasks,
+             kidsTasks, kidsHome (+ A.* extensions).
+   Parent-approved daily missions: NO open chat, curated bank only.
+   Money: agorot integers everywhere. Awards via onceOp.
+   ============================================================ */
+"use strict";
+
+/* ---------------- private helpers (upg* namespace) ---------------- */
+function upgLoc(o) { return (typeof LANG !== "undefined" && LANG === "ru") ? o.ru : o.he; }
+function upgDayStr(ts) {
+  var d = new Date(ts);
+  return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+}
+function upgDayIndex() {
+  var start = (S.sub && S.sub.trialStart) ? S.sub.trialStart : 0;
+  return Math.floor((Date.now() - start) / 86400000);
+}
+function upgGoalPct(g) {
+  if (!g || !(g.target > 0)) return 0;
+  return Math.min(100, Math.round((g.saved / g.target) * 100));
+}
+/* CSS-only confetti (core CSS provides .upg-confetti; reduced-motion neuters it) */
+function upgConfetti() {
+  try {
+    var d = document.createElement("div");
+    d.className = "upg-confetti";
+    var colors = ["#f6c453", "#7fb069", "#4caf7d", "#e8a13d", "#e4574f", "#ffffff", "#ffd166"];
+    for (var i = 0; i < 24; i++) {
+      var s = document.createElement("i");
+      s.style.left = (Math.random() * 100) + "%";
+      s.style.background = colors[i % colors.length];
+      s.style.animationDelay = (Math.random() * 0.6) + "s";
+      d.appendChild(s);
+    }
+    document.body.appendChild(d);
+    setTimeout(function () { d.remove(); }, 3000);
+  } catch (e) {}
+}
+
+var UPG_GOAL_ICONS = ["🎯", "🚲", "🎮", "📚", "⚽", "✈️", "🎸", "🧸", "💻", "🐶", "🎨", "🏖️"];
+var UPG_ACH = {
+  first_task:   { icon: "🌟", key: "upg.b.ach_first_task" },
+  streak_7:     { icon: "🔥", key: "upg.b.ach_streak_7" },
+  goal_crusher: { icon: "🎯", key: "upg.b.ach_goal_crusher" },
+  mission_10:   { icon: "🏆", key: "upg.b.ach_mission_10" }
+};
+
+/* Streak: consecutive active days only move forward. Never decrements,
+   never shows a "failed" state — purely positive. */
+function upgBumpStreak(child) {
+  if (!child) return;
+  var today = upgDayStr(Date.now());
+  if (child.lastActiveDay === today) return;
+  var yesterday = upgDayStr(Date.now() - 86400000);
+  child.streak = (child.lastActiveDay === yesterday) ? ((child.streak || 0) + 1) : 1;
+  child.lastActiveDay = today;
+  if (child.streak >= 7) upgAwardAch(child, "streak_7");
+}
+/* Achievements: awarded once, toast + confetti on new. Positive only. */
+function upgAwardAch(child, id) {
+  if (!child) return false;
+  child.achievements = child.achievements || [];
+  for (var i = 0; i < child.achievements.length; i++) {
+    if (child.achievements[i].id === id) return false;
+  }
+  child.achievements.push({ id: id, ts: Date.now() });
+  var m = UPG_ACH[id];
+  upgConfetti();
+  toast(t("upg.b.ach_new", m ? t(m.key) : id));
+  return true;
+}
+/* Shared award path for task approval: points + optional money reward. */
+function upgAwardTask(tsk, c) {
+  var pts = Math.round(Number(tsk.points) || 0);
+  var mAg = Math.round(Number(tsk.moneyAg) || 0);
+  tsk.status = "approved";
+  tsk.approvedAt = Date.now();
+  tsk.rejectReason = null;
+  if (c) {
+    c.points += pts;
+    if (mAg > 0) {
+      c.money.spend += mAg;
+      addTx({ childId: c.id, boxId: "spend", amountAg: mAg, type: "income",
+              source: "task", note: tsk.title, by: "parent" });
+    }
+    upgBumpStreak(c);
+    upgAwardAch(c, "first_task");
+  }
+  if (tsk.recurring && tsk.recurring !== "once") upgSpawnNext(tsk);
+  return { pts: pts, mAg: mAg };
+}
+/* Recurring tasks: spawn the next instance when the current one is approved. */
+function upgSpawnNext(tsk) {
+  var days = tsk.recurring === "daily" ? 1 : 7;
+  var base = tsk.dueTs || Date.now();
+  S.tasks.push({
+    id: uid(), childId: tsk.childId, title: tsk.title, desc: tsk.desc || "",
+    points: tsk.points, moneyAg: tsk.moneyAg || 0, status: "open",
+    recurring: tsk.recurring, requiresApproval: tsk.requiresApproval !== false,
+    dueTs: base + days * 86400000, rejectReason: null, created: Date.now()
+  });
+}
+
+/* ============================================================
+   JOURNEY30 — 30-day family finance journey (structured data).
+   Rules baked into the content:
+   - positive-only language, no punishment/shame;
+   - 3-5 minute activities, ages 6-12;
+   - AI never asks the child for personal info (no amounts, no names);
+   - investing = concept only (growth, patience, risk-as-game),
+     NO real asset advice, NO recommendations.
+   ============================================================ */
+var JOURNEY30 = [
+/* ---- days 1-5: money basics ---- */
+{ id:"j01", day:1, phase:"money", minutes:3, coins:10, topic:"money", difficulty:1,
+  he:{ title:"מה זה בכלל כסף?",
+    childTask:"מצאו יחד 3 מטבעות או שטרות שונים והסתכלו עליהם מקרוב — מה מצויר עליהם?",
+    parentGuide:"הסבירי שכסף הוא כלי שעוזר לנו להחליף דברים: נותנים כסף ומקבלים בתמורה משהו שצריך.",
+    eduValue:"כסף הוא אמצעי חליפין שעוזר לנו בחיים." },
+  ru:{ title:"Что такое деньги?",
+    childTask:"Найдите вместе 3 разные монеты или купюры и рассмотрите их — что на них нарисовано?",
+    parentGuide:"Объясните: деньги — это инструмент обмена: мы отдаём деньги и получаем то, что нам нужно.",
+    eduValue:"Деньги — средство обмена, которое помогает нам жить." } },
+{ id:"j02", day:2, phase:"money", minutes:5, coins:10, topic:"money", difficulty:1,
+  he:{ title:"מטבעות ושטרות",
+    childTask:"מייני מטבעות לשתי קבוצות: לפי גודל ולפי ערך. הפתעה: הגדול ביותר הוא לא תמיד השווה ביותר!",
+    parentGuide:"עזרי לילד לקרוא את המספרים על המטבעות ולסדר אותם מהקטן לגדול בערך.",
+    eduValue:"היכרות עם ערכי הכסף השונים." },
+  ru:{ title:"Монеты и купюры",
+    childTask:"Разложи монеты в два ряда: по размеру и по ценности. Сюрприз: самая большая — не всегда самая ценная!",
+    parentGuide:"Помогите ребёнку прочитать цифры на монетах и разложить их по возрастанию ценности.",
+    eduValue:"Знакомство с разными номиналами денег." } },
+{ id:"j03", day:3, phase:"money", minutes:3, coins:10, topic:"money", difficulty:1,
+  he:{ title:"מאיפה מגיע הכסף?",
+    childTask:"שאלי את ההורה: מה את או אתה עושים בעבודה? איך העבודה עוזרת לאנשים אחרים?",
+    parentGuide:"ספרי בפשטות על העבודה שלך, בלי מספרים — הדגישי שכסף מגיע מעבודה שעוזרת לאחרים.",
+    eduValue:"כסף מגיע מעבודה ומערך שאנחנו נותנים." },
+  ru:{ title:"Откуда берутся деньги?",
+    childTask:"Спроси родителя: кем ты работаешь? Чем твоя работа помогает другим людям?",
+    parentGuide:"Просто расскажите о своей работе, без цифр, — подчеркните, что деньги приходят от работы, которая помогает другим.",
+    eduValue:"Деньги приходят от работы и пользы, которую мы приносим." } },
+{ id:"j04", day:4, phase:"money", minutes:5, coins:10, topic:"money", difficulty:2,
+  he:{ title:"צריך או רוצה?",
+    childTask:"ציירי שני עמודים: 'צריך' ו'רוצה'. שימי בכל עמוד 3 דברים מהבית.",
+    parentGuide:"עזרי להבחין: 'צריך' זה מה שחייבים כדי לחיות טוב (אוכל, בגדים); 'רוצה' זה מה שכיף (עוד צעצוע).",
+    eduValue:"הבחנה בין צרכים לרצונות — בסיס לכל החלטה כספית." },
+  ru:{ title:"Надо или хочется?",
+    childTask:"Нарисуй две колонки: «надо» и «хочется». Положи в каждую 3 вещи из дома.",
+    parentGuide:"Помогите различать: «надо» — то, без чего трудно жить (еда, одежда); «хочется» — то, что просто приятно (ещё одна игрушка).",
+    eduValue:"Различие потребностей и желаний — основа любого денежного решения." } },
+{ id:"j05", day:5, phase:"money", minutes:5, coins:10, topic:"money", difficulty:1,
+  he:{ title:"כסף מסביבנו",
+    childTask:"בטיול קצר עם ההורה, מצאו 3 מקומות שבהם משתמשים בכסף (חנות, אוטובוס, כספומט).",
+    parentGuide:"שאלי: מה קורה בכל מקום? מי נותן כסף ולמי?",
+    eduValue:"כסף הוא חלק טבעי מחיי היומיום." },
+  ru:{ title:"Деньги вокруг нас",
+    childTask:"На короткой прогулке с родителем найдите 3 места, где используют деньги (магазин, автобус, банкомат).",
+    parentGuide:"Спросите: что происходит в каждом месте? Кто кому даёт деньги?",
+    eduValue:"Деньги — естественная часть повседневной жизни." } },
+/* ---- days 6-10: earning ---- */
+{ id:"j06", day:6, phase:"earn", minutes:5, coins:10, topic:"earning", difficulty:2,
+  he:{ title:"כישרונות ששווים כסף",
+    childTask:"כתבי 3 דברים שאת או אתה טובים בהם (למשל: לצייר, לסדר, לשיר).",
+    parentGuide:"הראי איך כל כישרון יכול לעזור למישהו — ועזרה כזו היא בדיוק מה שמבוגרים מקבלים עליו כסף.",
+    eduValue:"כישרונות ויכולות הם מקור הערך שלנו." },
+  ru:{ title:"Таланты, которые стоят денег",
+    childTask:"Напиши 3 вещи, которые у тебя хорошо получаются (например: рисовать, убирать, петь).",
+    parentGuide:"Покажите, как каждый талант может помочь кому-то, — именно за такую помощь взрослые получают деньги.",
+    eduValue:"Таланты и умения — источник нашей ценности." } },
+{ id:"j07", day:7, phase:"earn", minutes:3, coins:10, topic:"earning", difficulty:2,
+  he:{ title:"עבודה ראשונה בבית",
+    childTask:"בחרי משימה ביתית אחת (למשל: לקפל כביסה) ובצעי אותה הכי טוב שאת או אתה יכולים.",
+    parentGuide:"תאמי מראש מה המשימה ומה התגמול (נקודות או מטבעות) — כמו 'חוזה עבודה' קטן.",
+    eduValue:"מאמץ מביא תגמול — כמו בעבודה אמיתית." },
+  ru:{ title:"Первая работа по дому",
+    childTask:"Выбери одно домашнее дело (например: сложить бельё) и сделай его как можно лучше.",
+    parentGuide:"Договоритесь заранее, какое дело и какая награда (баллы или монеты), — как маленький «трудовой договор».",
+    eduValue:"Усилие приносит награду — как на настоящей работе." } },
+{ id:"j08", day:8, phase:"earn", minutes:5, coins:10, topic:"earning", difficulty:2,
+  he:{ title:"הזמן שווה כסף",
+    childTask:"אתגר 5 דקות: כמה צעצועים אפשר להחזיר למקום לפני שהטיימר מצלצל?",
+    parentGuide:"הסבירי שגם למבוגרים משלמים לפי זמן — ולכן כדאי להשתמש בו בחוכמה.",
+    eduValue:"לזמן יש ערך, וכדאי לנצל אותו היטב." },
+  ru:{ title:"Время — деньги",
+    childTask:"Челлендж на 5 минут: сколько игрушек успеешь убрать, пока звенит таймер?",
+    parentGuide:"Объясните, что взрослым тоже платят за время, — поэтому им стоит распоряжаться с умом.",
+    eduValue:"Время ценно, и им стоит распоряжаться разумно." } },
+{ id:"j09", day:9, phase:"earn", minutes:3, coins:10, topic:"earning", difficulty:1,
+  he:{ title:"תודה לעובדים",
+    childTask:"אמרי היום 'תודה' למישהו שעובד — למוכר או למוכרת, לנהג או לשומר.",
+    parentGuide:"דברו אחר כך: איך הרגיש להגיד תודה? איך לדעתך הרגיש מי שקיבל אותה?",
+    eduValue:"כבוד לעבודה של אחרים." },
+  ru:{ title:"Спасибо тем, кто работает",
+    childTask:"Скажи сегодня «спасибо» кому-то, кто работает, — продавцу, водителю или охраннику.",
+    parentGuide:"Поговорите потом: каково было говорить спасибо? А как, по-твоему, чувствовал себя тот, кто его получил?",
+    eduValue:"Уважение к чужому труду." } },
+{ id:"j10", day:10, phase:"earn", minutes:5, coins:10, topic:"earning", difficulty:3,
+  he:{ title:"רעיון עסקי קטן",
+    childTask:"המציאי שירות קטן שתוכלי לתת למשפחה (למשל: 'מכבסת צעצועים') וציירי לו שלט.",
+    parentGuide:"עודדי יצירתיות: מה השירות נותן? למי הוא עוזר? כמה הוא 'יעלה'?",
+    eduValue:"רעיונות טובים יכולים להפוך לעזרה שאנשים מעריכים." },
+  ru:{ title:"Маленькая бизнес-идея",
+    childTask:"Придумай маленькую услугу для семьи (например, «мойка игрушек») и нарисуй вывеску.",
+    parentGuide:"Поощряйте креативность: что даёт услуга? Кому помогает? Сколько будет «стоить»?",
+    eduValue:"Хорошие идеи могут стать помощью, которую люди ценят." } },
+/* ---- days 11-15: saving ---- */
+{ id:"j11", day:11, phase:"save", minutes:3, coins:10, topic:"saving", difficulty:1,
+  he:{ title:"למה בכלל לחסוך?",
+    childTask:"בחרי חלום אחד שהיית רוצה לחסוך אליו וציירי אותו.",
+    parentGuide:"עזרי לבחור חלום ממשי ומדיד (צעצוע, טיול) — זה יהפוך ליעד החיסכון באפליקציה.",
+    eduValue:"לחיסכון יש מטרה — וזה מה שהופך אותו לכיף." },
+  ru:{ title:"Зачем копить?",
+    childTask:"Выбери одну мечту, на которую хочешь накопить, и нарисуй её.",
+    parentGuide:"Помогите выбрать реальную и измеримую мечту (игрушка, поездка) — она станет целью накоплений в приложении.",
+    eduValue:"У накоплений есть цель — и это делает их увлекательными." } },
+{ id:"j12", day:12, phase:"save", minutes:5, coins:10, topic:"saving", difficulty:1,
+  he:{ title:"ספירת הקופה",
+    childTask:"רוקני את הקופה, מייני את הכסף וספרי כמה יש — ורשמי את הסכום.",
+    parentGuide:"ספרו יחד לאט, בקבוצות של 10 — זו גם תרגול חשבון נהדר.",
+    eduValue:"מעקב אחרי החיסכון נותן תחושת שליטה." },
+  ru:{ title:"Считаем копилку",
+    childTask:"Вытряхни копилку, разложи деньги и посчитай, сколько там, — запиши сумму.",
+    parentGuide:"Считайте вместе не спеша, десятками, — это ещё и отличная тренировка счёта.",
+    eduValue:"Учёт накоплений даёт чувство контроля." } },
+{ id:"j13", day:13, phase:"save", minutes:3, coins:10, topic:"saving", difficulty:2,
+  he:{ title:"קודם שמים בצד",
+    childTask:"בפעם הבאה שתקבלי כסף (דמי כיס, מתנה), שימי חלק בצד לפני הכל.",
+    parentGuide:"הסכימו מראש על 'חוק הבית': למשל, מכל 10 שקלים — 3 לחיסכון.",
+    eduValue:"משלמים קודם לעצמנו — לעצמי העתידי." },
+  ru:{ title:"Сначала — отложить",
+    childTask:"В следующий раз, когда получишь деньги (карманные, подарок), сначала отложи часть в сторону.",
+    parentGuide:"Договоритесь о «домашнем правиле»: например, из каждых 10 шекелей — 3 в накопления.",
+    eduValue:"Сначала платим себе — себе будущему." } },
+{ id:"j14", day:14, phase:"save", minutes:5, coins:10, topic:"saving", difficulty:2,
+  he:{ title:"שקל ביום",
+    childTask:"התחילי אתגר: שימי שקל אחד בקופה כל יום השבוע וסמני ✅ ביומן.",
+    parentGuide:"עזרי לעקוב אחרי הימים — העקביות חשובה יותר מהסכום.",
+    eduValue:"סכומים קטנים ועקביים גדלים עם הזמן." },
+  ru:{ title:"Шекель в день",
+    childTask:"Начни челлендж: клади 1 шекель в копилку каждый день недели и отмечай ✅ в календаре.",
+    parentGuide:"Помогайте следить за днями — регулярность важнее суммы.",
+    eduValue:"Маленькие регулярные суммы со временем вырастают." } },
+{ id:"j15", day:15, phase:"save", minutes:5, coins:10, topic:"saving", difficulty:3,
+  he:{ title:"משחק ההמתנה",
+    childTask:"בחרי משהו קטן שאת או אתה רוצים לקנות — וחכו יומיים לפני שמחליטים.",
+    parentGuide:"אחרי יומיים שאלי: את או אתה עדיין רוצים את זה באותה מידה? לפעמים החשק פשוט עובר.",
+    eduValue:"המתנה עוזרת להחליט בחוכמה ולא בדחף." },
+  ru:{ title:"Игра в ожидание",
+    childTask:"Выбери что-то небольшое, что хочется купить, — и подожди два дня, прежде чем решать.",
+    parentGuide:"Через два дня спросите: хочется так же сильно? Иногда желание просто проходит.",
+    eduValue:"Ожидание помогает решать разумно, а не импульсивно." } },
+/* ---- days 16-20: spending ---- */
+{ id:"j16", day:16, phase:"spend", minutes:5, coins:10, topic:"spending", difficulty:1,
+  he:{ title:"רשימת קניות חכמה",
+    childTask:"לפני הקניות הבאות, כתבי עם ההורה רשימה של מה שצריך — וקנו רק מהרשימה.",
+    parentGuide:"הראי איך רשימה מונעת קניות מיותרות — וחוסכת כסף אמיתי.",
+    eduValue:"תכנון לפני קנייה חוסך כסף." },
+  ru:{ title:"Умный список покупок",
+    childTask:"Перед следующим походом в магазин составь с родителем список нужного — и покупайте только по списку.",
+    parentGuide:"Покажите, как список предотвращает лишние покупки и экономит настоящие деньги.",
+    eduValue:"Планирование перед покупкой экономит деньги." } },
+{ id:"j17", day:17, phase:"spend", minutes:5, coins:10, topic:"spending", difficulty:2,
+  he:{ title:"בלש או בלשית המחירים",
+    childTask:"בחנות, בחרי שני מוצרים דומים והשוו: מה גדול יותר? מה משתלם יותר?",
+    parentGuide:"למדי להסתכל על המחיר ליחידה או למשקל — זה ה'טריק' של קונים חכמים.",
+    eduValue:"השוואת מחירים היא מיומנות של קונה חכם." },
+  ru:{ title:"Ценовой детектив",
+    childTask:"В магазине выбери два похожих товара и сравни: что больше? Что выгоднее?",
+    parentGuide:"Научите смотреть на цену за единицу или за вес — это «трюк» умных покупателей.",
+    eduValue:"Сравнение цен — навык умного покупателя." } },
+{ id:"j18", day:18, phase:"spend", minutes:3, coins:10, topic:"spending", difficulty:2,
+  he:{ title:"אתגר העודף",
+    childTask:"בקנייה הבאה, חשב או חשבי מראש כמה עודף אמורים לקבל — ובדקו אם צדקתם.",
+    parentGuide:"עזרי בחישוב בראש לפני התשלום — זו מתמטיקה אמיתית מהחיים.",
+    eduValue:"חישוב עצמאי נותן ביטחון בכסף." },
+  ru:{ title:"Челлендж со сдачей",
+    childTask:"При следующей покупке заранее посчитай, сколько сдачи должны дать, — и проверь, прав(а) ли ты.",
+    parentGuide:"Помогите посчитать в уме до оплаты — это настоящая математика из жизни.",
+    eduValue:"Самостоятельный расчёт даёт уверенность в деньгах." } },
+{ id:"j19", day:19, phase:"spend", minutes:5, coins:10, topic:"spending", difficulty:2,
+  he:{ title:"קנייה בשמחה",
+    childTask:"תכנני פינוק קטן בתקציב שההורה קבע — ובחרי אותו בשמחה, בלי רגשות אשם.",
+    parentGuide:"הדגישי: להוציא כסף על דברים שאוהבים זה בסדר גמור — כשהתקציב מאפשר.",
+    eduValue:"הוצאה מתוכננת היא בריאה ומשמחת." },
+  ru:{ title:"Покупка с радостью",
+    childTask:"Запланируй маленькое удовольствие в рамках бюджета, который назвал родитель, — и выбери его с радостью, без чувства вины.",
+    parentGuide:"Подчеркните: тратить деньги на любимое — совершенно нормально, когда бюджет позволяет.",
+    eduValue:"Запланированные траты — это здорово и радостно." } },
+{ id:"j20", day:20, phase:"spend", minutes:5, coins:10, topic:"spending", difficulty:2,
+  he:{ title:"לתת זה לקבל",
+    childTask:"בחרי משהו לתת: צעצוע שכבר לא משחקים בו, ציור למישהו, או עזרה קטנה.",
+    parentGuide:"דברו על ההרגשה הטובה שבלתת — כסף הוא לא רק לקחת, אלא גם לשתף.",
+    eduValue:"נתינה היא חלק בריא מיחסים עם כסף." },
+  ru:{ title:"Дарить — значит получать",
+    childTask:"Выбери, что подарить: игрушку, в которую уже не играешь, рисунок кому-то или маленькую помощь.",
+    parentGuide:"Поговорите о приятном чувстве, когда даришь, — деньги нужны не только чтобы брать, но и чтобы делиться.",
+    eduValue:"Щедрость — здоровая часть отношений с деньгами." } }
+];
+
+/* ---- days 21-25: investing AS CONCEPT ONLY (no assets, no advice) ---- */
+JOURNEY30.push(
+{ id:"j21", day:21, phase:"invest", minutes:5, coins:10, topic:"investing", difficulty:2,
+  he:{ title:"מה זה 'לצמוח'?",
+    childTask:"שתלו יחד זרע בעציץ (או שעועית על צמר גפן) — ועקבו כל יום מה קורה.",
+    parentGuide:"הסבירי: כמו שצמח צריך זמן וסבלנות, כך גם דברים טובים בחיים — כולל חיסכון — גדלים לאט.",
+    eduValue:"דברים טובים צריכים זמן כדי לצמוח." },
+  ru:{ title:"Что значит «расти»?",
+    childTask:"Посадите вместе семечко в горшок (или фасоль на вату) — и каждый день наблюдайте, что происходит.",
+    parentGuide:"Объясните: как растению нужны время и терпение, так и хорошее в жизни — в том числе накопления — растёт медленно.",
+    eduValue:"Хорошему нужно время, чтобы вырасти." } },
+{ id:"j22", day:22, phase:"invest", minutes:3, coins:10, topic:"investing", difficulty:2,
+  he:{ title:"כסף יכול 'לעבוד'?",
+    childTask:"שאלי את ההורה: מה קורה לכסף ששומרים הרבה זמן בבנק?",
+    parentGuide:"הסבירי בפשטות: לפעמים כסף שמחכה בסבלנות יכול לגדול מעט מעצמו — בלי לקנות שום דבר ספציפי.",
+    eduValue:"הרעיון שכסף יכול לגדול עם הזמן." },
+  ru:{ title:"Деньги могут «работать»?",
+    childTask:"Спроси родителя: что происходит с деньгами, которые долго хранят в банке?",
+    parentGuide:"Объясните просто: иногда деньги, которые терпеливо ждут, могут немного вырасти сами — без покупки чего-то конкретного.",
+    eduValue:"Идея, что деньги могут расти со временем." } },
+{ id:"j23", day:23, phase:"invest", minutes:5, coins:10, topic:"investing", difficulty:3,
+  he:{ title:"סבלנות משתלמת",
+    childTask:"שחקו משחק קופסה — ובחרו פעם אחת במהלך איטי ובטוח במקום מהיר ומסוכן.",
+    parentGuide:"דברו אחרי המשחק: מתי כדאי לחכות ומתי כדאי למהר? אין תשובה אחת נכונה.",
+    eduValue:"לפעמים לחכות זו הבחירה החכמה." },
+  ru:{ title:"Терпение окупается",
+    childTask:"Сыграйте в настольную игру — и один раз выбери медленный и надёжный ход вместо быстрого и рискованного.",
+    parentGuide:"Поговорите после игры: когда стоит подождать, а когда поспешить? Одного правильного ответа нет.",
+    eduValue:"Иногда подождать — самое умное решение." } },
+{ id:"j24", day:24, phase:"invest", minutes:5, coins:10, topic:"investing", difficulty:3,
+  he:{ title:"מה זה סיכון?",
+    childTask:"שחקו: בחרו בין 'בטוח' (מקבלים נקודה אחת בטוח) ל'מסוכן' (מטבע: 3 נקודות או 0).",
+    parentGuide:"הסבירי: סיכון זה כשלא יודעים מה יקרה — ולכן חכמים לא מסכנים את כל מה שיש להם.",
+    eduValue:"הבנת המושג 'סיכון' בצורה בטוחה ומשחקית." },
+  ru:{ title:"Что такое риск?",
+    childTask:"Сыграйте: выбери «надёжно» (точно 1 балл) или «рискованно» (монетка: 3 балла или 0).",
+    parentGuide:"Объясните: риск — это когда не знаешь, что будет, — поэтому умные люди не рискуют всем, что у них есть.",
+    eduValue:"Понимание понятия «риск» в безопасной игровой форме." } },
+{ id:"j25", day:25, phase:"invest", minutes:3, coins:10, topic:"investing", difficulty:2,
+  he:{ title:"ההשקעה הכי טובה: את או אתה!",
+    childTask:"למדי היום משהו חדש אחד (מילה, טריק, עובדה) — וספרי עליו בארוחת הערב.",
+    parentGuide:"הדגישי: ידע וכישורים נשארים איתנו לתמיד — שום דבר לא יכול לקחת אותם.",
+    eduValue:"למידה היא השקעה בעצמנו." },
+  ru:{ title:"Лучшая инвестиция — это ты!",
+    childTask:"Выучи сегодня что-то одно новое (слово, трюк, факт) — и расскажи об этом за ужином.",
+    parentGuide:"Подчеркните: знания и навыки остаются с нами навсегда — их никто не отнимет.",
+    eduValue:"Учёба — это инвестиция в себя." } },
+/* ---- days 26-30: financial thinking ---- */
+{ id:"j26", day:26, phase:"think", minutes:5, coins:10, topic:"thinking", difficulty:2,
+  he:{ title:"כסף ורגשות",
+    childTask:"ציירי שני פרצופים: איך את או אתה מרגישים כשחוסכים, ואיך כשמוציאים.",
+    parentGuide:"אשרי כל רגש — אין רגש 'לא נכון' סביב כסף. דברו על מה שעולה.",
+    eduValue:"לזהות רגשות סביב כסף ולדבר עליהם." },
+  ru:{ title:"Деньги и чувства",
+    childTask:"Нарисуй два лица: как ты чувствуешь себя, когда копишь, и как — когда тратишь.",
+    parentGuide:"Примите любое чувство — «неправильных» чувств про деньги не бывает. Поговорите о том, что возникло.",
+    eduValue:"Распознавать чувства про деньги и говорить о них." } },
+{ id:"j27", day:27, phase:"think", minutes:3, coins:10, topic:"thinking", difficulty:2,
+  he:{ title:"שיחה משפחתית על כסף",
+    childTask:"שאלי את ההורה שאלה אחת על כסף במשפחה (בלי סכומים!) — למשל: מה החוק הכי חשוב שלנו?",
+    parentGuide:"עני בכנות ברמת הילד — שיחה פתוחה על כסף היא מתנה.",
+    eduValue:"לדבר על כסף זה בריא ונורמלי." },
+  ru:{ title:"Семейный разговор о деньгах",
+    childTask:"Задай родителю один вопрос о деньгах в семье (без сумм!) — например: какое у нас самое важное правило?",
+    parentGuide:"Ответьте честно на уровне ребёнка — открытый разговор о деньгах бесценен.",
+    eduValue:"Говорить о деньгах — здорово и нормально." } },
+{ id:"j28", day:28, phase:"think", minutes:5, coins:10, topic:"thinking", difficulty:3,
+  he:{ title:"חוקי הכסף שלי",
+    childTask:"כתבי 3 חוקי כסף אישיים שלך (למשל: 'אני תמיד שומר או שומרת חלק').",
+    parentGuide:"תלי את החוקים על המקרר — חוקים שהילד כתב בעצמו נשמרים טוב יותר.",
+    eduValue:"עקרונות אישיים מנחים החלטות טובות." },
+  ru:{ title:"Мои денежные правила",
+    childTask:"Напиши 3 своих денежных правила (например: «я всегда откладываю часть»).",
+    parentGuide:"Повесьте правила на холодильник — правила, написанные самим ребёнком, соблюдаются лучше.",
+    eduValue:"Личные принципы помогают принимать хорошие решения." } },
+{ id:"j29", day:29, phase:"think", minutes:5, coins:10, topic:"thinking", difficulty:3,
+  he:{ title:"יום החלומות בתקציב",
+    childTask:"תכנני 'יום חלומות' עם תקציב דמיוני של 100 ₪: מה תעשי, וכמה כל דבר 'יעלה'?",
+    parentGuide:"שחקו יחד: מה קורה אם נגמר התקציב באמצע היום? על מה מוותרים קודם?",
+    eduValue:"תרגול תקציב בצורה משחקית וללא לחץ." },
+  ru:{ title:"День мечты по бюджету",
+    childTask:"Спланируй «день мечты» с воображаемым бюджетом 100 ₪: что будешь делать и сколько что «стоит»?",
+    parentGuide:"Поиграйте вместе: что будет, если бюджет кончится посреди дня? От чего откажешься первым?",
+    eduValue:"Тренировка бюджета в игре, без стресса." } },
+{ id:"j30", day:30, phase:"think", minutes:5, coins:10, topic:"thinking", difficulty:1,
+  he:{ title:"מסיבת סיום המסע 🎉",
+    childTask:"ספרי: מה הדבר הכי מעניין שלמדת ב־30 הימים? מה תרצי להמשיך לעשות?",
+    parentGuide:"חגגו יחד את הסיום — הדגישי את הדרך, לא רק את התוצאות. הילד או הילדה עשו מסע אמיתי!",
+    eduValue:"רפלקציה וחגיגת למידה — הסיום הכי חשוב." },
+  ru:{ title:"Финал путешествия 🎉",
+    childTask:"Расскажи: что самого интересного ты узнал(а) за 30 дней? Что хочешь продолжать делать?",
+    parentGuide:"Отпразднуйте финал вместе — подчеркните путь, а не только результаты. Ребёнок прошёл настоящий путь!",
+    eduValue:"Рефлексия и празднование учёбы — самый важный финал." } }
+);
+
+if (typeof AIService !== "undefined" && AIService.registerBank) {
+  AIService.registerBank(JOURNEY30);
+}
+
+/* ============================================================
+   DAILY MISSION CARD (parent dashboard slot).
+   Child B (money module) calls UpgMissionCard() from parentHome.
+   Returns "" when there is nothing to show.
+   ============================================================ */
+window.UpgMissionCard = function () {
+  try {
+    if (typeof AIService === "undefined" || !AIService.bank || !AIService.bank.length) return "";
+    var child = activeChild();
+    if (!child) return "";
+    var bank = AIService.bank;
+    var done = S.missionsDone || [];
+    var allDone = bank.every(function (x) { return done.indexOf(x.id) !== -1; });
+    if (allDone) return "";
+    var m = AIService.pickFor(upgDayIndex());
+    if (!m || done.indexOf(m.id) !== -1) return "";
+    var c = upgLoc(m);
+    return `<div class="card upg-mission">
+      <div class="upg-mission-top">
+        <span class="upg-badge">${t("upg.b.mission_today")}</span>
+        <span class="upg-mission-day">${t("upg.b.mission_day", m.day)}</span>
+        <span class="upg-mission-day">${t("upg.b.mission_minutes", m.minutes)}</span>
+        <span class="upg-mission-day">${t("common.points_plus", m.coins)}</span>
+      </div>
+      <div class="upg-mission-title">${esc(c.title)}</div>
+      <div class="upg-mission-block"><b>${t("upg.b.mission_kid")}</b>${esc(c.childTask)}</div>
+      <div class="upg-mission-block"><b>${t("upg.b.mission_parent")}</b>${esc(c.parentGuide)}</div>
+      <div class="upg-mission-block"><b>${t("upg.b.mission_edu")}</b>${esc(c.eduValue)}</div>
+      <div class="upg-mission-actions">
+        <button class="btn" onclick="A.approveMission('${m.id}')">${t("upg.b.mission_approve")}</button>
+        <button class="btn secondary" onclick="A.skipMission('${m.id}')">${t("upg.b.mission_skip")}</button>
+      </div>
+    </div>`;
+  } catch (e) { return ""; }
+};
+
+/* ============================================================
+   OVERRIDES — goals
+   ============================================================ */
+function goalModal(childId) {
+  var icons = UPG_GOAL_ICONS.map(function (ic, i) {
+    return `<label><input type="radio" name="ngIcon" value="${ic}"${i === 0 ? " checked" : ""}><span>${ic}</span></label>`;
+  }).join("");
+  openModal(`
+    <h3>${t("modal.new_goal")}</h3>
+    <div class="field"><label>${t("modal.goal_name")}</label><input id="ngTitle" placeholder="${t("modal.goal_name_ph")}"></div>
+    <div class="field"><label>${t("modal.goal_target")}</label><input id="ngTarget" type="number" min="1" step="1" value="100"></div>
+    <div class="field"><label>${t("upg.b.goal_icon_lbl")}</label><div class="upg-icon-grid" role="radiogroup">${icons}</div></div>
+    <button class="btn" onclick="A.doCreateGoal('${childId}')">${t("modal.create_goal")}</button>
+    <button class="btn secondary" onclick="A.closeModal()">${t("common.cancel")}</button>`);
+}
+
+function depositModal(goalId) {
+  var g = S.goals.find(function (x) { return x.id === goalId; });
+  if (!g) return;
+  var c = S.children.find(function (x) { return x.id === g.childId; });
+  var saveAg = c ? c.money.save : 0;
+  var maxSh = Math.floor(saveAg / 100);
+  openModal(`
+    <h3>${t("modal.deposit_title", esc(g.title))}</h3>
+    <p class="muted">${t("modal.save_balance", fmtAg(saveAg))}</p>
+    <div class="field"><label>${t("modal.deposit_amt")}</label>
+    <input id="depAmt" type="number" min="1" step="1" max="${maxSh}" value="${maxSh >= 10 ? 10 : (maxSh || "")}"></div>
+    <button class="btn" onclick="A.doDeposit('${goalId}')">${t("modal.deposit")}</button>
+    <button class="btn secondary" onclick="A.closeModal()">${t("common.cancel")}</button>`);
+}
+
+function goalCard(child) {
+  var goals = childGoals(child.id);
+  var isParent = S.mode === "parent";
+  if (!goals.length) {
+    return `<div class="card">
+      <div class="section-title" style="margin-top:0">${isParent ? t("goal.next_parent") : t("goal.next_kids")}</div>
+      <p class="muted">${t("goal.none_text")}</p>
+      ${isParent ? `<button class="btn secondary" onclick="A.go('manage')">${t("goal.goto_manage")}</button>` : ""}
+    </div>`;
+  }
+  var mainId = child.mainGoalId || goals[0].id;
+  var g = goals.find(function (x) { return x.id === mainId; }) || goals[0];
+  var pct = upgGoalPct(g);
+  var done100 = pct >= 100;
+  var isMain = child.mainGoalId === g.id || (!child.mainGoalId && goals[0].id === g.id);
+  var marks = [25, 50, 75, 100].map(function (mk) {
+    return `<span class="upg-ms${pct >= mk ? " hit" : ""}" style="--pos:${mk}%" title="${t("upg.b.goal_ms_title", mk)}"></span>`;
+  }).join("");
+  var others = goals.filter(function (x) { return x.id !== g.id; });
+  var othersHtml = "";
+  if (isParent && others.length) {
+    othersHtml = `<div class="upg-other-goals"><div class="upg-task-meta">${t("upg.b.goal_other")}</div>` +
+      others.map(function (o) {
+        var op = upgGoalPct(o);
+        return `<div class="upg-other-row">
+          <button class="upg-star" onclick="A.toggleMainGoal('${child.id}','${o.id}')" title="${t("upg.b.goal_star_title")}" aria-label="${t("upg.b.goal_star_title")}: ${esc(o.title)}">☆</button>
+          <span style="font-size:20px">${esc(o.icon || "🎯")}</span>
+          <span style="flex:1"><b>${esc(o.title)}</b><br><span class="muted" style="font-size:12px">${fmtAg(o.saved)} / ${fmtAg(o.target)} (${op}%)</span></span>
+        </div>`;
+      }).join("") + `</div>`;
+  }
+  return `<div class="card upg-goal">
+    <div class="section-title" style="margin-top:0">${isParent ? t("goal.next_parent") : t("goal.next_kids")}</div>
+    <div class="upg-goal-head">
+      <div class="upg-goal-ico">${esc(g.icon || "🎯")}</div>
+      <div style="flex:1;min-width:0">
+        <div class="upg-goal-title">${esc(g.title)}</div>
+        <div class="upg-goal-amounts">${fmtAg(g.saved)} / ${fmtAg(g.target)} · ${pct}%</div>
+      </div>
+      ${isParent
+        ? `<button class="upg-star${isMain ? " on" : ""}" onclick="A.toggleMainGoal('${child.id}','${g.id}')" title="${t("upg.b.goal_star_title")}" aria-label="${t("upg.b.goal_star_title")}: ${esc(g.title)}">${isMain ? "★" : "☆"}</button>`
+        : (isMain ? `<span class="upg-badge">${t("upg.b.goal_main_badge")}</span>` : "")}
+    </div>
+    <div class="upg-pbar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${esc(g.title)}">
+      <i class="upg-fill" style="width:${pct}%"></i>${marks}
+    </div>
+    <div class="upg-ms-lbls"><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+    ${done100
+      ? `<div class="upg-goal-done">${t("upg.b.goal_100_badge")}</div>
+         ${isParent ? `<button class="btn" style="margin-top:10px;width:100%" onclick="A.openGoal('${child.id}')">${t("upg.b.goal_new_cta")}</button>` : ""}`
+      : (isParent ? `<button class="btn small" style="margin-top:10px" onclick="A.openDeposit('${g.id}')">${t("goal.deposit")}</button>` : "")}
+    ${othersHtml}
+  </div>`;
+}
+
+/* ============================================================
+   OVERRIDES — parent tasks
+   ============================================================ */
+function parentTasks() {
+  var child = activeChild();
+  var pending = childTasks(child ? child.id : null, "pending");
+  var open = childTasks(child ? child.id : null, "open");
+  var done = childTasks(child ? child.id : null, "approved").slice(0, 10);
+
+  var metaLine = function (task) {
+    var bits = [t("common.points_plus", task.points)];
+    var mAg = Math.round(Number(task.moneyAg) || 0);
+    if (mAg > 0) bits.push(t("upg.b.task_reward_money", fmtAg(mAg)));
+    if (task.dueTs) bits.push(t("upg.b.task_due", fmtDate(task.dueTs)));
+    if (task.recurring === "daily") bits.push(t("upg.b.task_recur_daily_badge"));
+    else if (task.recurring === "weekly") bits.push(t("upg.b.task_recur_weekly_badge"));
+    if (task.kind === "mission") bits.push("🎯");
+    return bits.join(" · ");
+  };
+
+  var taskRow = function (task, actions) {
+    var c = S.children.find(function (x) { return x.id === task.childId; });
+    return `<div class="row-item">
+      <div class="icon-badge">${task.status === "pending" ? "⏳" : task.status === "approved" ? "✅" : "📝"}</div>
+      <div class="grow"><div style="font-weight:700">${esc(task.title)}</div>
+      <div class="sub">${c ? esc(c.name) + " · " : ""}${metaLine(task)}</div>
+      ${task.desc ? `<div class="upg-task-meta">${esc(task.desc)}</div>` : ""}
+      ${task.rejectReason ? `<div class="upg-reject-note">${t("upg.b.task_reject_reason", esc(task.rejectReason))}</div>` : ""}
+      </div>
+      ${actions || ""}
+    </div>`;
+  };
+
+  var pendingActions = function (task) {
+    if (window.__upgRejecting === task.id) {
+      return `<div class="upg-reject-form">
+        <input id="upgRej-${task.id}" placeholder="${t("upg.b.task_reject_ph")}" aria-label="${t("upg.b.task_reject")}">
+        <button class="btn small" onclick="A.confirmRejectTask('${task.id}')">${t("upg.b.task_reject_ok")}</button>
+        <button class="btn small secondary" onclick="A.cancelRejectTask()">${t("common.cancel")}</button>
+      </div>`;
+    }
+    return `<div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn small" onclick="A.approveTask('${task.id}')">${t("common.approve")}</button>
+      <button class="btn small secondary" onclick="A.rejectTask('${task.id}')">${t("upg.b.task_reject")}</button>
+    </div>`;
+  };
+
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">${t("tasks.title")}</h2>
+    <div class="section-title">${t("tasks.pending", pending.length)}</div>
+    <div class="card" style="margin-top:6px">
+      ${pending.length ? pending.map(function (task) { return taskRow(task, pendingActions(task)); }).join("")
+        : `<div class="empty">${t("tasks.no_pending")}</div>`}
+    </div>
+    <div class="section-title">${t("tasks.new")}</div>
+    <div class="card" style="margin-top:6px">
+      ${S.children.length === 0 ? `<div class="empty">${t("tasks.no_child")}</div>`
+        : `<button class="btn" onclick="A.openTaskModal()">${t("upg.b.task_new_btn")}</button>`}
+    </div>
+    <div class="section-title">${t("tasks.open", open.length)}</div>
+    <div class="card" style="margin-top:6px">
+      ${open.length ? open.map(function (task) { return taskRow(task); }).join("") : `<div class="empty">${t("tasks.no_open")}</div>`}
+    </div>
+    ${done.length ? `<div class="section-title">${t("tasks.recent")}</div>
+    <div class="card" style="margin-top:6px">${done.map(function (task) { return taskRow(task); }).join("")}</div>` : ""}
+  </div>`;
+}
+
+/* ============================================================
+   OVERRIDES — kids
+   ============================================================ */
+function kidsTasks() {
+  var child = activeChild();
+  if (!child) return kidsHome();
+  var open = childTasks(child.id, "open").filter(function (x) { return x.kind !== "mission"; });
+  var missions = childTasks(child.id, "open").filter(function (x) { return x.kind === "mission"; });
+  var pending = childTasks(child.id, "pending");
+  var row = function (task, btn, badge) {
+    var mAg = Math.round(Number(task.moneyAg) || 0);
+    return `<div class="row-item${badge ? " upg-kid-mission" : ""}">
+      <div class="icon-badge">${badge || (task.status === "pending" ? "⏳" : "📝")}</div>
+      <div class="grow"><div style="font-weight:700">${esc(task.title)}</div>
+      <div class="sub">${t("common.points_plus", task.points)}${mAg > 0 ? " · " + t("upg.b.task_reward_money", fmtAg(mAg)) : ""}${task.status === "pending" ? t("kids.wait_parent") : ""}</div>
+      ${task.desc ? `<div class="upg-task-meta">${esc(task.desc)}</div>` : ""}
+      ${task.rejectReason ? `<div class="upg-reject-note">${t("upg.b.task_reject_reason", esc(task.rejectReason))}</div>` : ""}
+      </div>
+      ${btn || ""}
+    </div>`;
+  };
+  return `<div class="screen">
+    <h2 style="margin:6px 0 2px">${t("kids.tasks_title")}</h2>
+    ${missions.length ? `<div class="section-title">${t("upg.b.mission_section")}</div>
+    <div class="card" style="margin-top:6px">${missions.map(function (task) {
+      return row(task, `<button class="btn small" onclick="A.doneMission('${task.id}')">${t("kids.done_btn")}</button>`, "🚀");
+    }).join("")}</div>` : ""}
+    <div class="card">${open.length ? open.map(function (task) {
+      return row(task, `<button class="btn small" onclick="A.completeTask('${task.id}')">${t("kids.done_btn")}</button>`);
+    }).join("") : `<div class="empty">${t("kids.no_open")}</div>`}</div>
+    ${pending.length ? `<div class="section-title">${t("kids.pending_approval")}</div><div class="card" style="margin-top:6px">${pending.map(function (task) { return row(task); }).join("")}</div>` : ""}
+  </div>`;
+}
+
+function kidsHome() {
+  var child = activeChild();
+  if (!child) return `<div class="screen"><div class="card" style="text-align:center">
+    <div style="font-size:56px">🐷</div><p class="muted">${t("kids.no_child")}</p></div></div>`;
+  var myTasks = childTasks(child.id, "open").filter(function (x) { return x.kind !== "mission"; }).slice(0, 5);
+  var tasksHtml = myTasks.length === 0
+    ? `<div class="empty">${t("kids.all_done")}<br><span class="muted">${t("kids.no_open_tasks")}</span></div>`
+    : myTasks.map(function (task) {
+      return `<div class="row-item">
+        <div class="icon-badge">📝</div>
+        <div class="grow"><div style="font-weight:700">${esc(task.title)}</div>
+        <div class="sub">${t("common.points_plus", task.points)}</div></div>
+        <button class="btn small" onclick="A.completeTask('${task.id}')">${t("kids.done_btn")}</button>
+      </div>`;
+    }).join("");
+  var ach = (child.achievements || []).filter(function (a) { return UPG_ACH[a.id]; });
+  var achHtml = ach.length
+    ? `<div class="card"><div class="section-title" style="margin-top:0">${t("upg.b.ach_title")}</div>
+       <div class="upg-ach-row">${ach.map(function (a) {
+         return `<span class="upg-ach">${UPG_ACH[a.id].icon} ${t(UPG_ACH[a.id].key)}</span>`;
+       }).join("")}</div></div>` : "";
+  var streakHtml = (child.streak > 0)
+    ? `<div class="upg-center" style="margin:8px 0"><span class="upg-badge">${t("upg.b.streak", child.streak)}</span></div>` : "";
+
+  return `<div class="screen">
+    ${avatarHero(child)}
+    ${streakHtml}
+    ${goalCard(child)}
+    ${achHtml}
+    <div class="card dark">${moneyCols(child.money)}</div>
+    <div class="card">
+      <div class="section-title" style="margin-top:0">${t("kids.my_tasks")}</div>
+      ${tasksHtml}
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   A.* — new & overridden actions
+   ============================================================ */
+Object.assign(A, {
+  /* re-point (A captured the old function objects at literal creation) */
+  openGoal: goalModal,
+  openDeposit: depositModal,
+
+  doCreateGoal: function (childId) {
+    var titleEl = document.getElementById("ngTitle");
+    var title = titleEl ? (titleEl.value || "").trim() : "";
+    var tgtEl = document.getElementById("ngTarget");
+    var targetAg = toAg(tgtEl ? tgtEl.value : 0);
+    if (!title) { toast(t("toast.goal_name")); return; }
+    if (targetAg <= 0) { toast(t("toast.amount")); return; }
+    var iconEl = document.querySelector('input[name="ngIcon"]:checked');
+    var icon = iconEl ? iconEl.value : UPG_GOAL_ICONS[0];
+    var c = S.children.find(function (x) { return x.id === childId; });
+    var g = { id: uid(), childId: childId, title: title, target: targetAg, saved: 0, icon: icon };
+    S.goals.push(g);
+    if (c && !c.mainGoalId) c.mainGoalId = g.id;
+    logActivity(t("log.goal_created", title, fmtAg(targetAg)));
+    Analytics.track("goal_created");
+    save(); A.closeModal(); renderApp();
+    toast(t("toast.goal_created"));
+  },
+
+  toggleMainGoal: function (childId, goalId) {
+    var c = S.children.find(function (x) { return x.id === childId; });
+    if (!c) return;
+    c.mainGoalId = (c.mainGoalId === goalId) ? null : goalId;
+    save(); renderApp();
+  },
+
+  doDeposit: function (goalId) {
+    var g = S.goals.find(function (x) { return x.id === goalId; });
+    if (!g) return;
+    var c = S.children.find(function (x) { return x.id === g.childId; });
+    if (!c) return;
+    var amtEl = document.getElementById("depAmt");
+    var amtAg = toAg(amtEl ? amtEl.value : 0);
+    if (amtAg <= 0) { toast(t("toast.bad_amount")); return; }
+    if (amtAg > c.money.save) { toast(t("upg.b.deposit_blocked")); return; }
+    var bucket = upgDayStr(Date.now());
+    var before = upgGoalPct(g);
+    var celebrated = false;
+    var ok = onceOp("deposit-" + goalId + "-" + amtAg + "-" + bucket, function () {
+      c.money.save -= amtAg;
+      g.saved += amtAg;
+      addTx({ childId: c.id, boxId: "save", amountAg: -amtAg, type: "transfer",
+              source: "goal_deposit", note: g.title, by: "parent" });
+      if (before < 100 && upgGoalPct(g) >= 100) {
+        celebrated = true;
+        upgConfetti();
+        upgAwardAch(c, "goal_crusher");
+      }
+      return true;
+    });
+    if (!ok) { A.closeModal(); renderApp(); return; }
+    logActivity(t("log.deposited", fmtAg(amtAg), g.title));
+    save(); A.closeModal(); renderApp();
+    toast(celebrated ? t("upg.b.goal_100_msg", fmtAg(g.target)) : t("toast.deposited"));
+  },
+
+  /* ---- task modal ---- */
+  openTaskModal: function (childId) {
+    var child = activeChild();
+    if (childId && S.children.some(function (c) { return c.id === childId; })) {
+      child = S.children.find(function (c) { return c.id === childId; });
+    }
+    if (!S.children.length) { toast(t("tasks.no_child")); return; }
+    var opts = S.children.map(function (c) {
+      return `<option value="${c.id}"${child && c.id === child.id ? " selected" : ""}>${esc(c.name)}</option>`;
+    }).join("");
+    openModal(`
+      <h3>${t("upg.b.task_modal_title")}</h3>
+      <div class="field"><label>${t("tasks.child_lbl")}</label><select id="ntChild">${opts}</select></div>
+      <div class="field"><label>${t("upg.b.task_title_lbl")}</label><input id="ntTitle" placeholder="${t("upg.b.task_title_ph")}"></div>
+      <div class="field"><label>${t("upg.b.task_desc_lbl")}</label><input id="ntDesc" placeholder="${t("upg.b.task_desc_ph")}"></div>
+      <div class="split-3">
+        <div class="field"><label>${t("upg.b.task_points_lbl")}</label><input id="ntPoints" type="number" min="1" step="1" value="10"></div>
+        <div class="field"><label>${t("upg.b.task_money_lbl")}</label><input id="ntMoney" type="number" min="0" step="1" value="0"></div>
+        <div class="field"><label>${t("upg.b.task_due_lbl")}</label><input id="ntDue" type="date"></div>
+      </div>
+      <div class="field"><label>${t("upg.b.task_recur_lbl")}</label><select id="ntRecur">
+        <option value="once">${t("upg.b.task_recur_once")}</option>
+        <option value="daily">${t("upg.b.task_recur_daily")}</option>
+        <option value="weekly">${t("upg.b.task_recur_weekly")}</option>
+      </select></div>
+      <div class="field"><label style="display:flex;align-items:center;gap:10px;min-height:44px;cursor:pointer"><input type="checkbox" id="ntAppr" checked style="width:22px;height:22px">${t("upg.b.task_approval_lbl")}</label></div>
+      <button class="btn" onclick="A.doCreateTask()">${t("upg.b.task_create_btn")}</button>
+      <button class="btn secondary" onclick="A.closeModal()">${t("common.cancel")}</button>`);
+  },
+  doCreateTask: function () {
+    var childId = document.getElementById("ntChild").value;
+    var title = (document.getElementById("ntTitle").value || "").trim();
+    var desc = (document.getElementById("ntDesc").value || "").trim();
+    var points = Math.max(1, Math.round(Number(document.getElementById("ntPoints").value) || 10));
+    var moneyAg = Math.max(0, toAg(document.getElementById("ntMoney").value || 0));
+    var dueVal = document.getElementById("ntDue").value;
+    var dueTs = dueVal ? new Date(dueVal + "T12:00:00").getTime() : null;
+    var recurring = document.getElementById("ntRecur").value || "once";
+    var appr = document.getElementById("ntAppr").checked;
+    if (!title) { toast(t("toast.task_desc")); return; }
+    S.tasks.push({
+      id: uid(), childId: childId, title: title, desc: desc, points: points,
+      moneyAg: moneyAg, status: "open", recurring: recurring,
+      requiresApproval: appr, dueTs: dueTs, rejectReason: null, created: Date.now()
+    });
+    Analytics.track("task_created");
+    save(); A.closeModal(); renderApp();
+    toast(t("toast.task_added"));
+  },
+  /* legacy entry point -> modal */
+  createTask: function () { A.openTaskModal(); },
+
+  completeTask: function (id) {
+    var tsk = S.tasks.find(function (x) { return x.id === id; });
+    if (!tsk || tsk.status !== "open") return;
+    if (tsk.requiresApproval === false) {
+      /* no-approval task: completing awards immediately (idempotent) */
+      var c = S.children.find(function (x) { return x.id === tsk.childId; });
+      var res = null;
+      onceOp("task-approve-" + tsk.id, function () { res = upgAwardTask(tsk, c); });
+      save(); renderApp();
+      if (res) {
+        Analytics.track("task_approved");
+        toast(t("upg.b.task_auto_approved", res.pts));
+      }
+      return;
+    }
+    tsk.status = "pending";
+    save(); renderApp();
+    toast(t("toast.task_done"));
+  },
+
+  approveTask: function (id) {
+    var tsk = S.tasks.find(function (x) { return x.id === id; });
+    if (!tsk || tsk.status !== "pending") return;
+    var c = S.children.find(function (x) { return x.id === tsk.childId; });
+    var res = null;
+    onceOp("task-approve-" + tsk.id, function () { res = upgAwardTask(tsk, c); });
+    save(); renderApp();
+    if (res) {
+      Analytics.track("task_approved");
+      logActivity(t("log.task_approved", c ? c.name : "", tsk.title, res.pts));
+      if (res.mAg > 0) toast(t("upg.b.task_approved_money", res.pts, fmtAg(res.mAg), c ? c.name : ""));
+      else toast(t("toast.approved", res.pts, c ? c.name : ""));
+    }
+  },
+
+  /* ---- reject with reason (inline) ---- */
+  rejectTask: function (id) {
+    window.__upgRejecting = id;
+    renderApp();
+  },
+  cancelRejectTask: function () {
+    window.__upgRejecting = null;
+    renderApp();
+  },
+  confirmRejectTask: function (id) {
+    var tsk = S.tasks.find(function (x) { return x.id === id; });
+    if (!tsk) { window.__upgRejecting = null; renderApp(); return; }
+    var inp = document.getElementById("upgRej-" + id);
+    var reason = inp ? (inp.value || "").trim() : "";
+    if (!reason) { toast(t("upg.b.task_reject_need")); return; }
+    tsk.status = "open";
+    tsk.rejectReason = reason;
+    window.__upgRejecting = null;
+    save(); renderApp();
+    toast(t("upg.b.task_rejected"));
+  },
+
+  /* ---- daily missions (parent-approved, no open chat) ---- */
+  approveMission: function (mid) {
+    var m = null;
+    if (typeof AIService !== "undefined" && AIService.bank) {
+      m = AIService.bank.find(function (x) { return x.id === mid; });
+    }
+    var child = activeChild();
+    if (!m || !child) return;
+    var c = upgLoc(m);
+    S.tasks.push({
+      id: uid(), childId: child.id, title: c.title, desc: c.childTask,
+      points: m.coins, moneyAg: 0, status: "open",
+      recurring: "once", requiresApproval: false,
+      kind: "mission", missionId: m.id, dueTs: null, rejectReason: null,
+      created: Date.now()
+    });
+    AIService.markDone(m.id);
+    Analytics.track("mission_approved");
+    logActivity(t("upg.b.mission_approved", child.name));
+    save(); renderApp();
+    toast(t("upg.b.mission_approved", child.name));
+  },
+  skipMission: function (mid) {
+    if (typeof AIService !== "undefined") AIService.markDone(mid);
+    save(); renderApp();
+    toast(t("upg.b.mission_skipped"));
+  },
+  doneMission: function (taskId) {
+    var tsk = S.tasks.find(function (x) { return x.id === taskId; });
+    if (!tsk || tsk.status !== "open") return;
+    var c = S.children.find(function (x) { return x.id === tsk.childId; });
+    var pts = Math.round(Number(tsk.points) || 0);
+    var ok = onceOp("mission-done-" + tsk.id, function () {
+      tsk.status = "approved";
+      tsk.approvedAt = Date.now();
+      if (c) {
+        c.points += pts;
+        upgBumpStreak(c);
+        upgAwardAch(c, "first_task");
+        var mc = S.tasks.filter(function (x) {
+          return x.childId === c.id && x.kind === "mission" && x.status === "approved";
+        }).length;
+        if (mc >= 10) upgAwardAch(c, "mission_10");
+      }
+      Analytics.track("task_completed");
+      return true;
+    });
+    save(); renderApp();
+    if (ok) toast(t("upg.b.mission_done_toast", pts));
+  }
+});
+
+</script>
+<script>
+/* ===== chunk i18n: 30-care ===== */
+(function(){
+try{
+Object.assign(I18N.he, {"upg.c.bug_btn": "🐞 דיווח תקלה", "upg.c.bug_copied": "הדיווח הועתק — אפשר להדביק אותו בכל מייל ✅", "upg.c.bug_copy": "📋 העתקת הדיווח", "upg.c.bug_desc_lbl": "מה קרה?", "upg.c.bug_desc_ph": "למשל: המסך נתקע כשלוחצים על…", "upg.c.bug_empty": "כתבי בקצרה מה קרה כדי שנוכל לעזור 🙂", "upg.c.bug_opened_t": "אפליקציית המייל שלך נפתחה עם הדיווח מוכן — לחצי <b>שליחה</b> כדי לשלוח אותו אלינו. לא נרשם ׳נשלח׳ עד שתשלחי באמת.", "upg.c.bug_reopen": "✉️ פתיחת המייל שוב", "upg.c.bug_send": "שליחת דיווח", "upg.c.bug_title": "דיווח תקלה", "upg.c.bug_tried_lbl": "מה כבר ניסית? (לא חובה)", "upg.c.bug_tried_ph": "למשל: סגרתי ופתחתי את האפליקציה", "upg.c.bug_tried_prefix": "ניסיתי: ", "upg.c.close": "סגירה", "upg.c.data_delete": "מחיקת החשבון", "upg.c.data_delete_do": "המשך למחיקה", "upg.c.data_delete_final_do": "כן, למחוק הכול לצמיתות", "upg.c.data_delete_final_t": "זו ההזדמנות האחרונה להתחרט. למחוק הכול לצמיתות?", "upg.c.data_delete_type": "כדי לאשר, הקלידי את המילה:", "upg.c.data_delete_warn": "⚠️ פעולה זו מוחקת <b>לצמיתות</b> את כל הנתונים מהמכשיר — ילדים, מטרות, משימות, נקודות והיסטוריה. אין דרך לשחזר.", "upg.c.data_delete_wrong": "המילה לא תואמת — המחיקה בוטלה.", "upg.c.data_export": "📥 ייצוא הנתונים שלי", "upg.c.data_export_note": "מוריד קובץ JSON קריא עם כל הנתונים — בלי סודות, כי אין כאלה באפליקציה.", "upg.c.data_export_ok": "קובץ הנתונים הורד ✅", "upg.c.data_sub": "הנתונים שלך נשמרים על המכשיר שלך בלבד.", "upg.c.data_title": "הנתונים שלי", "upg.c.delete_word": "מחיקה", "upg.c.faq1_a": "במסך הניהול (⚙️) יש שדה ׳שם הילד׳ וכפתור הוספה. אפשר להוסיף כמה ילדים שרוצים — לכל ילד קופות, מטרות ונקודות משלו.", "upg.c.faq1_q": "איך מוסיפים ילד?", "upg.c.faq2_a": "בכרטיס הילד במסך הניהול לוחצים ׳הוספת כסף׳ ומזינים סכום לכל קופה: חיסכון, השקעה והוצאות. הרישום ידני — אין חיבור לבנק ואין כסף אמיתי.", "upg.c.faq2_q": "איך מוסיפים כסף?", "upg.c.faq3_a": "בכרטיס הילד לוחצים ׳מטרה חדשה׳, כותבים שם וסכום יעד. אחר כך לוחצים ׳הפקדה׳ כדי להעביר כסף מקופת החיסכון אל המטרה.", "upg.c.faq3_q": "איך יוצרים מטרת חיסכון?", "upg.c.faq4_a": "ההורה יוצר משימה עם נקודות במסך המשימות (✓). הילד מסמן ׳בוצע׳, ההורה מאשר — והנקודות נכנסות לחזיר. אין פרס כספי אוטומטי.", "upg.c.faq4_q": "איך עובדות המשימות?", "upg.c.faq5_a": "7 ימי גישה מלאה לכל כלי הליווי — ללא כרטיס אשראי וללא התחייבות. בסוף 7 הימים הגישה מסתיימת אוטומטית ולא מחייבים כלום.", "upg.c.faq5_q": "מה כולל שבוע ההדגמה?", "upg.c.faq6_a": "אין מה לבטל 🙂 אין חיוב אוטומטי ואין חידוש אוטומטי — מנוי בתשלום פשוט מסתיים מעצמו. להמשך פונים לאלונה.", "upg.c.faq6_q": "איך מבטלים מנוי?", "upg.c.faq7_a": "לוחצים ׳דיווח תקלה׳, כותבים מה קרה — והדיווח נפתח באפליקציית המייל שלך, מוכן לשליחה. יש גם כפתור העתקה כגיבוי.", "upg.c.faq7_q": "איך מדווחים על תקלה?", "upg.c.faq8_a": "בקשות מנוי — דרך כפתור הוואטסאפ במסך המנוי. כל השאר — בדף ׳צור קשר׳ בסעיף האמון והחוק.", "upg.c.faq8_q": "איך יוצרים קשר?", "upg.c.help_btn": "❓ מרכז עזרה", "upg.c.help_sub": "שאלות נפוצות — לחצי על שאלה כדי לראות תשובה.", "upg.c.help_title": "מרכז עזרה", "upg.c.league_ach": "🏆 {0}", "upg.c.league_empty": "עוד אין ילדים בליגה — הוסיפי ילד כדי להתחיל 🏁", "upg.c.league_note": "מוצגים רק שם, נקודות, רצף והישגים — לעולם לא סכומי כסף.", "upg.c.league_off": "כבוי", "upg.c.league_on": "פעיל ✅", "upg.c.league_streak": "רצף {0} ימים", "upg.c.league_title": "ליגה משפחתית", "upg.c.league_toggle": "ליגה משפחתית", "upg.c.legal_ai": "מדיניות שימוש ב־AI", "upg.c.legal_child": "בטיחות ילדים", "upg.c.legal_contact": "צור קשר", "upg.c.legal_data": "מדיניות מחיקת נתונים", "upg.c.legal_ip": "זכויות יוצרים", "upg.c.legal_privacy": "מדיניות פרטיות", "upg.c.legal_sub": "שקיפות מלאה — בלי אותיות קטנות.", "upg.c.legal_terms": "תנאי שימוש", "upg.c.legal_title": "אמון וחוק", "upg.c.print_boxes_note": "סה״כ השבוע:", "upg.c.print_boxes_t": "שלוש הקופות", "upg.c.print_btn": "🖨️ הדפסה", "upg.c.print_cert_line1": "תעודת הישג 🏆", "upg.c.print_cert_line2": "כל הכבוד! הגעת למטרת החיסכון שלך!", "upg.c.print_cert_t": "תעודת הישג", "upg.c.print_date": "תאריך", "upg.c.print_days": "ראשון,שני,שלישי,רביעי,חמישי,שישי,שבת", "upg.c.print_done": "בוצע ✓", "upg.c.print_goal": "המטרה שלי", "upg.c.print_goal_t": "דף מטרת חיסכון", "upg.c.print_name": "שם הילד/ה", "upg.c.print_open": "🖨️ ערכת בית להדפסה", "upg.c.print_saved": "נחסך עד כה", "upg.c.print_sign": "חתימת ההורה", "upg.c.print_target": "סכום היעד", "upg.c.print_task": "משימה", "upg.c.print_tasks_t": "טבלת משימות", "upg.c.print_title": "ערכת בית להדפסה", "upg.c.print_week_t": "מעקב שבועי", "upg.c.sub_code_wrong": "הקוד שגוי — בקשי מאלונה קוד הפעלה עדכני.", "upg.c.sub_no_card": "בלי סליקה באפליקציה: התשלום מתבצע ידנית מול אלונה, וההפעלה עם קוד שהיא מנפיקה. פרטי כרטיס אשראי אינם נאספים כאן.", "upg.c.sub_price_note": "מחיר ההשקה (19 ₪) מיועד ל־10 המצטרפים הראשונים. הספירה נעשית כרגע במכשיר הזה — כשהמערכת תעבור לשרת, הספירה הסופית תתבצע שם.", "upg.c.support_sub": "משהו לא עובד? יש שאלה? אנחנו כאן.", "upg.c.support_title": "תמיכה ועזרה"});
+Object.assign(I18N.ru, {"upg.c.bug_btn": "🐞 Сообщить об ошибке", "upg.c.bug_copied": "Отчёт скопирован — вставьте его в любое письмо ✅", "upg.c.bug_copy": "📋 Скопировать отчёт", "upg.c.bug_desc_lbl": "Что случилось?", "upg.c.bug_desc_ph": "Например: экран завис при нажатии на…", "upg.c.bug_empty": "Коротко опишите, что случилось, чтобы мы могли помочь 🙂", "upg.c.bug_opened_t": "Ваше почтовое приложение открылось с готовым отчётом — нажмите <b>«Отправить»</b>, чтобы отправить его нам. «Отправлено» не засчитывается, пока вы действительно не отправите.", "upg.c.bug_reopen": "✉️ Открыть письмо снова", "upg.c.bug_send": "Отправить отчёт", "upg.c.bug_title": "Сообщение об ошибке", "upg.c.bug_tried_lbl": "Что вы уже пробовали? (необязательно)", "upg.c.bug_tried_ph": "Например: закрыл(а) и снова открыл(а) приложение", "upg.c.bug_tried_prefix": "Пробовал(а): ", "upg.c.close": "Закрыть", "upg.c.data_delete": "Удаление аккаунта", "upg.c.data_delete_do": "Продолжить удаление", "upg.c.data_delete_final_do": "Да, удалить всё безвозвратно", "upg.c.data_delete_final_t": "Последний шанс передумать. Удалить всё безвозвратно?", "upg.c.data_delete_type": "Для подтверждения введите слово:", "upg.c.data_delete_warn": "⚠️ Это действие <b>безвозвратно</b> удалит все данные с устройства — детей, цели, задания, очки и историю. Восстановить их нельзя.", "upg.c.data_delete_wrong": "Слово не совпало — удаление отменено.", "upg.c.data_export": "📥 Экспорт моих данных", "upg.c.data_export_note": "Скачивает читаемый JSON-файл со всеми данными — без секретов, их в приложении просто нет.", "upg.c.data_export_ok": "Файл с данными скачан ✅", "upg.c.data_sub": "Ваши данные хранятся только на вашем устройстве.", "upg.c.data_title": "Мои данные", "upg.c.delete_word": "удалить", "upg.c.faq1_a": "На экране управления (⚙️) есть поле «Имя ребёнка» и кнопка добавления. Можно добавить сколько угодно детей — у каждого свои копилки, цели и очки.", "upg.c.faq1_q": "Как добавить ребёнка?", "upg.c.faq2_a": "В карточке ребёнка на экране управления нажмите «Добавить деньги» и введите сумму для каждой копилки: сбережения, инвестиции и расходы. Учёт ручной — подключения к банку и настоящих денег нет.", "upg.c.faq2_q": "Как добавить деньги?", "upg.c.faq3_a": "В карточке ребёнка нажмите «Новая цель», укажите название и сумму. Затем нажмите «Внести», чтобы перевести деньги из копилки сбережений в цель.", "upg.c.faq3_q": "Как создать цель накоплений?", "upg.c.faq4_a": "Родитель создаёт задание с очками на экране заданий (✓). Ребёнок отмечает «Выполнено», родитель подтверждает — и очки попадают в копилку. Автоматической денежной награды нет.", "upg.c.faq4_q": "Как работают задания?", "upg.c.faq5_a": "7 дней полного доступа ко всем инструментам гида — без карты и обязательств. Через 7 дней доступ завершается автоматически, списаний нет.", "upg.c.faq5_q": "Что входит в пробную неделю?", "upg.c.faq6_a": "Отменять нечего 🙂 Автоплатежей и автопродления нет — платная подписка просто заканчивается сама. Для продления обратитесь к Алоне.", "upg.c.faq6_q": "Как отменить подписку?", "upg.c.faq7_a": "Нажмите «Сообщить об ошибке», опишите, что случилось, — и отчёт откроется в вашем почтовом приложении, готовый к отправке. Есть и кнопка копирования про запас.", "upg.c.faq7_q": "Как сообщить об ошибке?", "upg.c.faq8_a": "Заявки на подписку — через кнопку WhatsApp на экране подписки. Всё остальное — на странице «Связаться с нами» в разделе доверия и права.", "upg.c.faq8_q": "Как связаться с нами?", "upg.c.help_btn": "❓ Центр помощи", "upg.c.help_sub": "Частые вопросы — нажмите на вопрос, чтобы увидеть ответ.", "upg.c.help_title": "Центр помощи", "upg.c.league_ach": "🏆 {0}", "upg.c.league_empty": "В лиге пока нет детей — добавьте ребёнка, чтобы начать 🏁", "upg.c.league_note": "Показываются только имя, очки, серия и достижения — никогда суммы денег.", "upg.c.league_off": "Выкл", "upg.c.league_on": "Вкл ✅", "upg.c.league_streak": "Серия {0} дн.", "upg.c.league_title": "Семейная лига", "upg.c.league_toggle": "Семейная лига", "upg.c.legal_ai": "Политика использования ИИ", "upg.c.legal_child": "Безопасность детей", "upg.c.legal_contact": "Связаться с нами", "upg.c.legal_data": "Политика удаления данных", "upg.c.legal_ip": "Авторские права", "upg.c.legal_privacy": "Политика конфиденциальности", "upg.c.legal_sub": "Полная прозрачность — без мелкого шрифта.", "upg.c.legal_terms": "Условия использования", "upg.c.legal_title": "Доверие и право", "upg.c.print_boxes_note": "Итого за неделю:", "upg.c.print_boxes_t": "Три копилки", "upg.c.print_btn": "🖨️ Печать", "upg.c.print_cert_line1": "Грамота за достижение 🏆", "upg.c.print_cert_line2": "Молодец! Ты достиг(ла) своей цели накоплений!", "upg.c.print_cert_t": "Грамота за достижение", "upg.c.print_date": "Дата", "upg.c.print_days": "Вс,Пн,Вт,Ср,Чт,Пт,Сб", "upg.c.print_done": "Готово ✓", "upg.c.print_goal": "Моя цель", "upg.c.print_goal_t": "Лист цели накоплений", "upg.c.print_name": "Имя ребёнка", "upg.c.print_open": "🖨️ Домашний набор для печати", "upg.c.print_saved": "Накоплено", "upg.c.print_sign": "Подпись родителя", "upg.c.print_target": "Целевая сумма", "upg.c.print_task": "Задание", "upg.c.print_tasks_t": "Таблица заданий", "upg.c.print_title": "Домашний набор для печати", "upg.c.print_week_t": "Недельный трекер", "upg.c.sub_code_wrong": "Неверный код — попросите у Алоны актуальный код активации.", "upg.c.sub_no_card": "Без оплаты в приложении: оплата производится вручную через Алону, активация — кодом, который она выдаёт. Данные карты здесь не собираются.", "upg.c.sub_price_note": "Стартовая цена (19 ₪) — для первых 10 подписчиков. Подсчёт пока ведётся на этом устройстве — после перехода на сервер финальный подсчёт будет там.", "upg.c.support_sub": "Что-то не работает? Есть вопрос? Мы рядом.", "upg.c.support_title": "Поддержка и помощь"});
+}catch(e){}
+})();
+</script>
+<script>
+/* ===== chunk js: 30-care ===== */
+/* ============================================================
+   PiggyUp CARE module (30-care.js) — subscription + support +
+   legal + data + print kit + family league.
+   Overrides: parentManage (only). Extends A with new actions.
+   Depends on: 00-core (Sub, EmailService, Store, Analytics),
+   base globals (S, save, t, esc, uid, LANG, fmtDate, openModal,
+   renderApp, fmtAg, moneyCols, childGoals, activeChild, toast).
+   i18n: the coordinator injects `var CARE_I18N = {...}` (from
+   30-care.i18n.json) BEFORE this file. Missing injection is
+   harmless (t() falls back to Hebrew; merge is guarded).
+   ============================================================ */
+"use strict";
+
+/* ---------------- i18n merge ---------------- */
+try {
+  if (typeof CARE_I18N !== "undefined" && CARE_I18N) {
+    if (CARE_I18N.he) for (var _k1 in CARE_I18N.he) I18N.he[_k1] = CARE_I18N.he[_k1];
+    if (CARE_I18N.ru) for (var _k2 in CARE_I18N.ru) I18N.ru[_k2] = CARE_I18N.ru[_k2];
+  }
+} catch (e) { /* never break boot */ }
+
+/* ---------------- subscription actions ---------------- */
+function careStartTrial() {
+  if (Sub.status().state !== "none") return;
+  Sub.startTrial();
+  toast(t("toast.trial_started"));
+}
+/* WhatsApp request flow: number + message format preserved exactly
+   from the original implementation. Message is built BEFORE any
+   re-render so the typed name/phone are kept. */
+function careRequestSub(resend) {
+  var st = Sub.status();
+  if (!resend && st.state !== "expired") return;
+  var nameEl = document.getElementById("reqName");
+  var phoneEl = document.getElementById("reqPhone");
+  var name = nameEl ? nameEl.value.trim() : "";
+  var phone = phoneEl ? phoneEl.value.trim() : "";
+  var msg = t("wa.msg");
+  if (name) msg += "\n" + t("wa.name_line", name);
+  if (phone) msg += "\n" + t("wa.phone_line", phone);
+  window.open("https://wa.me/972506575168?text=" + encodeURIComponent(msg), "_blank");
+  if (!resend) Sub.request();
+  toast(t("toast.wa_opened"));
+}
+function careActivateCode() {
+  var inp = document.getElementById("admin-code-input");
+  var code = inp ? inp.value.trim() : "";
+  if (!Sub.activate(code)) {
+    toast(t("upg.c.sub_code_wrong"));
+    return;
+  }
+  toast(t("toast.sub_activated"));
+}
+
+/* ---------------- subscription card (driven by Sub.status()) ---------------- */
+function careSubCard() {
+  var st = Sub.status();
+  var price = Sub.price(); /* 19 for the first 10, else 29 */
+  var codeEntryHtml =
+    '<div class="kv" style="margin-top:10px"><span>' + t("sub.code_lbl") + '</span></div>' +
+    '<div style="display:flex;gap:8px;margin-top:6px">' +
+      '<input id="admin-code-input" inputmode="numeric" maxlength="6" placeholder="' + t("sub.code_ph") + '" style="flex:1;min-width:0">' +
+      '<button class="btn" onclick="A.careActivateCode()">' + t("sub.activate") + '</button>' +
+    '</div>' +
+    '<p class="muted" style="font-size:12px">' + t("sub.code_help") + '</p>';
+  var priceRows =
+    '<div class="kv"><span>' + t("sub.price_launch") + '</span><b>' + t("sub.price_per_month", "19") + '</b></div>' +
+    '<div class="kv"><span>' + t("sub.price_regular") + '</span><b>' + t("sub.price_per_month", "29") + '</b></div>' +
+    '<p class="upg-price-note">' + t("upg.c.sub_price_note") + '</p>' +
+    '<p class="upg-price-note">' + t("upg.c.sub_no_card") + '</p>';
+  var html = "";
+  if (st.state === "premium") {
+    html = '<div class="pill green">' + t("sub.premium_pill", S.sub.subs <= 10 ? "19" : "29") + '</div>' +
+      '<p class="muted">' + t("sub.premium_t1") + '</p>' +
+      '<p class="muted">' + t("sub.premium_t2") + '</p>';
+  } else if (st.state === "trial") {
+    html = '<div class="pill gold">' + t("sub.trial_pill", st.daysLeft) + '</div>' +
+      '<p class="muted">' + t("sub.trial_t") + '</p>';
+  } else if (st.state === "expired") {
+    html = '<div class="pill">' + t("sub.expired_pill") + '</div>' +
+      '<p class="muted">' + t("sub.expired_t") + '</p>' +
+      priceRows +
+      '<div class="field"><label>' + t("sub.name_lbl") + '</label>' +
+        '<input id="reqName" placeholder="' + t("sub.name_ph") + '"></div>' +
+      '<div class="field"><label>' + t("sub.phone_lbl") + '</label>' +
+        '<input id="reqPhone" inputmode="tel" placeholder="' + t("sub.phone_ph") + '"></div>' +
+      '<button class="btn" onclick="A.careRequestSub()">' + t("sub.request_wa", price) + '</button>' +
+      '<p class="muted">' + t("sub.request_help") + '</p>' +
+      codeEntryHtml;
+  } else if (st.state === "requested") {
+    html = '<div class="pill gold">' + t("sub.requested_pill") + '</div>' +
+      '<p class="muted">' + t("sub.requested_t") + '</p>' +
+      '<button class="btn secondary" onclick="A.careRequestSub(true)">' + t("sub.resend") + '</button>' +
+      codeEntryHtml;
+  } else {
+    html = '<p class="muted">' + t("sub.none_t") + '</p>' +
+      priceRows +
+      '<button class="btn" onclick="A.careStartTrial()">' + t("sub.start") + '</button>';
+  }
+  return html;
+}
+
+/* ---------------- bug report ---------------- */
+function openBugModal() {
+  openModal(
+    '<h3>' + t("upg.c.bug_title") + '</h3>' +
+    '<div class="field"><label>' + t("upg.c.bug_desc_lbl") + '</label>' +
+      '<textarea id="bugDesc" rows="4" placeholder="' + t("upg.c.bug_desc_ph") + '"></textarea></div>' +
+    '<div class="field"><label>' + t("upg.c.bug_tried_lbl") + '</label>' +
+      '<input id="bugTried" placeholder="' + t("upg.c.bug_tried_ph") + '"></div>' +
+    '<div class="upg-btn-row">' +
+      '<button class="btn" onclick="A.submitBugReport()">' + t("upg.c.bug_send") + '</button>' +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + '</button>' +
+    '</div>'
+  );
+}
+function submitBugReport() {
+  var d = ((document.getElementById("bugDesc") || {}).value || "").trim();
+  var tr = ((document.getElementById("bugTried") || {}).value || "").trim();
+  if (!d) { toast(t("upg.c.bug_empty")); return; }
+  var full = d + (tr ? "\n\n" + t("upg.c.bug_tried_prefix") + tr : "");
+  /* Real mailto send through the user's own mail app + local outbox log.
+     We never claim "sent" — the user still has to press Send. */
+  EmailService.sendBugReport(full);
+  var m = EmailService.composeBugReport(full);
+  window.__upgBugMail = m;
+  window.__upgBugMailto = "mailto:" + encodeURIComponent(m.to) +
+    "?subject=" + encodeURIComponent(m.subject) +
+    "&body=" + encodeURIComponent(m.body);
+  openModal(
+    '<h3>✅ ' + t("upg.c.bug_title") + '</h3>' +
+    '<p class="muted">' + t("upg.c.bug_opened_t") + '</p>' +
+    '<div class="upg-btn-row">' +
+      '<button class="btn" onclick="A.copyBugReport()">' + t("upg.c.bug_copy") + '</button>' +
+      '<button class="btn secondary" onclick="A.reopenBugMail()">' + t("upg.c.bug_reopen") + '</button>' +
+    '</div>' +
+    '<div class="upg-btn-row">' +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + '</button>' +
+    '</div>'
+  );
+}
+function fallbackCopyText(text) {
+  try {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    ta.remove();
+  } catch (e) {}
+}
+function copyBugReport() {
+  var m = window.__upgBugMail;
+  if (!m) return;
+  var text = m.subject + "\n\n" + m.body;
+  var done = function () { toast(t("upg.c.bug_copied")); };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopyText(text); done(); });
+  } else {
+    fallbackCopyText(text);
+    done();
+  }
+}
+function reopenBugMail() {
+  if (window.__upgBugMailto) window.location.href = window.__upgBugMailto;
+}
+
+/* ---------------- help center (FAQ) ---------------- */
+var CARE_FAQS = [
+  ["upg.c.faq1_q", "upg.c.faq1_a"],
+  ["upg.c.faq2_q", "upg.c.faq2_a"],
+  ["upg.c.faq3_q", "upg.c.faq3_a"],
+  ["upg.c.faq4_q", "upg.c.faq4_a"],
+  ["upg.c.faq5_q", "upg.c.faq5_a"],
+  ["upg.c.faq6_q", "upg.c.faq6_a"],
+  ["upg.c.faq7_q", "upg.c.faq7_a"],
+  ["upg.c.faq8_q", "upg.c.faq8_a"]
+];
+function openHelpModal() {
+  var items = CARE_FAQS.map(function (f) {
+    return '<div class="upg-acc-item">' +
+      '<button class="upg-acc-head" onclick="this.parentNode.classList.toggle(\'open\')">' +
+        '<span>' + t(f[0]) + '</span><span class="upg-acc-arrow">▾</span>' +
+      '</button>' +
+      '<div class="upg-acc-body">' + t(f[1]) + '</div>' +
+    '</div>';
+  }).join("");
+  openModal(
+    '<h3>' + t("upg.c.help_title") + '</h3>' +
+    '<p class="muted">' + t("upg.c.help_sub") + '</p>' +
+    '<div class="upg-acc">' + items + '</div>' +
+    '<div class="upg-btn-row">' +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + '</button>' +
+    '</div>'
+  );
+}
+
+/* ---------------- legal pages (concise honest templates) ---------------- */
+var CARE_LEGAL = {
+  privacy: {
+    t: { he: "מדיניות פרטיות", ru: "Политика конфиденциальности" },
+    b: {
+      he: "PiggyUp פועלת כולה על המכשיר שלך: כל הנתונים — ילדים, מטרות, משימות, נקודות והיסטוריה — נשמרים ב-localStorage בדפדפן שלך בלבד. אין לנו שרת ואיננו אוספים את הנתונים שלך.\n\nאיננו מבקשים ואיננו שומרים שמות מלאים, כתובות, תעודות זהות או פרטי תשלום. הודעת הוואטסאפ לבקשת מנוי נשלחת על ידך מרצונך בלבד ומכילה רק את מה שכתבת בה.\n\nדיווח תקלה נשלח דרך אפליקציית המייל שלך — את מחליטה מה לשלוח ומתי.\n\nהאפליקציה נבנתה בעקרונות privacy-by-design: מינימום נתונים, בלי מעקב ובלי פרסומות לילדים.\n\nיש לך שליטה מלאה: ייצוא הנתונים ומחיקתם זמינים בכל עת ממסך הניהול.",
+      ru: "PiggyUp работает полностью на вашем устройстве: все данные — дети, цели, задания, очки и история — хранятся только в localStorage вашего браузера. У нас нет сервера, и мы не собираем ваши данные.\n\nМы не запрашиваем и не храним полные имена, адреса, документы и платёжные данные. Сообщение в WhatsApp для заявки на подписку отправляете вы сами и только с тем текстом, который написали.\n\nСообщение об ошибке отправляется через ваше почтовое приложение — вы решаете, что и когда отправлять.\n\nПриложение построено на принципах privacy-by-design: минимум данных, без слежки, без рекламы детям.\n\nУ вас полный контроль: экспорт и удаление данных доступны в любой момент на экране управления."
+    }
+  },
+  terms: {
+    t: { he: "תנאי שימוש", ru: "Условия использования" },
+    b: {
+      he: "PiggyUp היא אפליקציה חינוכית בלבד — היא אינה ייעוץ פיננסי, אינה בנק ואינה פלטפורמת השקעות. התכנים נועדו ללמידה משפחתית בלבד.\n\nכל הסכומים נרשמים ידנית על ידך. הנקודות והמטבעות הם כסף-משחק לצורכי למידה, ללא ערך כספי אמיתי.\n\nאין חיוב אוטומטי: שבוע ההדגמה מסתיים מעצמו, ומנוי בתשלום מופעל רק ידנית מול אלונה לאחר תשלום אמיתי.\n\nהשימוש באחריות ההורה/אפוטרופוס; מומלץ ליווי הורה לילדים.\n\nאין להעתיק, להפיץ או למכור את תכני האפליקציה ללא אישור בכתב.",
+      ru: "PiggyUp — только образовательное приложение: это не финансовый совет, не банк и не инвестиционная платформа. Материалы предназначены только для семейного обучения.\n\nВсе суммы вводятся вручную вами. Очки и монеты — игровые деньги для обучения, без реальной денежной ценности.\n\nАвтоплатежей нет: пробная неделя завершается сама, платная подписка активируется только вручную через Алону после реальной оплаты.\n\nИспользование — под ответственность родителя/опекуна; детям рекомендуется сопровождение родителя.\n\nКопирование, распространение и продажа материалов приложения без письменного разрешения запрещены."
+    }
+  },
+  child: {
+    t: { he: "בטיחות ילדים", ru: "Безопасность детей" },
+    b: {
+      he: "אין פרסומות לילדים, אין צ'אט בין ילדים ואין תוכן שנוצר על ידי משתמשים אחרים.\n\nאין איסוף נתונים מילדים — כל ההגדרות, ההוספות והאישורים נעשים על ידי ההורה בלבד.\n\nמצב הילדים מציג רק את ההתקדמות של הילד עצמו; אין דירוגים ציבוריים ואין שיתוף חיצוני.\n\nהליגה המשפחתית מציגה רק שם, נקודות, רצף והישגים — לעולם לא סכומי כסף — וניתנת לכיבוי בכל עת.",
+      ru: "Никакой рекламы детям, никаких чатов между детьми и никакого контента от других пользователей.\n\nДанные детей не собираются — все настройки, добавления и подтверждения делает только родитель.\n\nДетский режим показывает только прогресс самого ребёнка; публичных рейтингов и внешнего шаринга нет.\n\nСемейная лига показывает только имя, очки, серию и достижения — никогда суммы денег — и отключается в любой момент."
+    }
+  },
+  ai: {
+    t: { he: "מדיניות שימוש ב-AI", ru: "Политика использования ИИ" },
+    b: {
+      he: "תכני ה-AI באפליקציה מגיעים מבנק תכנים מקומי שנבחר מראש — אין שיחה פתוחה עם מודל שפה ואין שליחת נתונים שלך לשירות חיצוני.\n\nההורה מאשר תכנים לפני שהם מגיעים לילד.\n\nהתכנים חינוכיים בלבד ואינם ייעוץ אישי מכל סוג.",
+      ru: "ИИ-материалы в приложении берутся из локального заранее отобранного банка — нет открытого чата с языковой моделью и нет отправки ваших данных во внешние сервисы.\n\nРодитель подтверждает материалы до того, как они попадут к ребёнку.\n\nМатериалы только образовательные и не являются персональными рекомендациями."
+    }
+  },
+  ip: {
+    t: { he: "זכויות יוצרים", ru: "Авторские права" },
+    b: {
+      he: "כל הזכויות בתכנים, בעיצוב, בלוגו ובקוד של PiggyUp שמורות לבעלי האפליקציה.\n\nמותר שימוש אישי ומשפחתי. אין להעתיק, לשכפל, להפיץ או למכור ללא אישור בכתב.",
+      ru: "Все права на материалы, дизайн, логотип и код PiggyUp принадлежат владельцам приложения.\n\nРазрешено личное и семейное использование. Копирование, тиражирование, распространение и продажа без письменного разрешения запрещены."
+    }
+  },
+  datadel: {
+    t: { he: "מדיניות מחיקת נתונים", ru: "Политика удаления данных" },
+    b: {
+      he: "כל הנתונים נשמרים מקומית על המכשיר שלך בלבד — אין עותק אצלנו.\n\n״מחיקת החשבון״ ממסך הניהול מוחקת לצמיתות את כל הנתונים מהמכשיר, ללא אפשרות שחזור.\n\nהודעות וואטסאפ או מיילים ששלחת מרצונך אינם נמחקים אוטומטית — לבקשת מחיקה פני אלינו בדף ׳צור קשר׳.",
+      ru: "Все данные хранятся локально только на вашем устройстве — копии у нас нет.\n\n«Удаление аккаунта» на экране управления безвозвратно удаляет все данные с устройства, восстановить их нельзя.\n\nСообщения WhatsApp и письма, отправленные вами по собственному желанию, автоматически не удаляются — для запроса на удаление напишите нам на странице «Связаться с нами»."
+    }
+  },
+  contact: {
+    t: { he: "צור קשר", ru: "Связаться с нами" },
+    b: {
+      he: "דוא״ל: piggyup2@gmail.com\n\nלדיווח תקלה: השתמשי בכפתור ׳דיווח תקלה׳ בסעיף התמיכה.\n\nלבקשות מנוי: דרך כפתור הוואטסאפ במסך המנוי.",
+      ru: "Email: piggyup2@gmail.com\n\nСообщить об ошибке: кнопка «Сообщить об ошибке» в разделе поддержки.\n\nЗаявки на подписку: через кнопку WhatsApp на экране подписки."
+    }
+  }
+};
+var CARE_LEGAL_ORDER = ["privacy", "terms", "child", "ai", "ip", "datadel", "contact"];
+var CARE_LEGAL_ICONS = { privacy: "🔒", terms: "📜", child: "🧒", ai: "🤖", ip: "©️", datadel: "🗑️", contact: "✉️" };
+function openLegal(id) {
+  var p = CARE_LEGAL[id];
+  if (!p) return;
+  var lang = (LANG === "ru") ? "ru" : "he";
+  /* Templates, not legal advice. Never claim certified compliance. */
+  var note = lang === "he"
+    ? "טיוטת תבנית — אינה ייעוץ משפטי. האפליקציה נבנתה בעקרונות privacy-by-design; מומלצת בדיקה משפטית לפני כל טענת התאמה לתקנות."
+    : "Шаблон — не юридическая консультация. Приложение построено на принципах privacy-by-design; перед заявлениями о соответствии нормам рекомендуется юридическая проверка.";
+  var paras = p.b[lang].split("\n\n").map(function (par) {
+    return "<p>" + esc(par) + "</p>";
+  }).join("");
+  openModal(
+    '<h3>' + (CARE_LEGAL_ICONS[id] || "📄") + " " + esc(p.t[lang]) + '</h3>' +
+    '<div class="upg-legal-body"><p class="upg-template-note">' + esc(note) + "</p>" + paras + "</div>" +
+    '<div class="upg-btn-row"><button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + "</button></div>"
+  );
+}
+
+/* ---------------- data: export + safe delete ---------------- */
+function careExportData() {
+  var payload = Store.exportData(); /* readable JSON, no secrets — there are none */
+  var blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "piggyup-data.json";
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function () { try { URL.revokeObjectURL(a.href); } catch (e) {} a.remove(); }, 500);
+  toast(t("upg.c.data_export_ok"));
+}
+function openDeleteModal() {
+  openModal(
+    '<h3>🗑️ ' + t("upg.c.data_delete") + '</h3>' +
+    '<div class="upg-warn">' + t("upg.c.data_delete_warn") + '</div>' +
+    '<div class="field"><label>' + t("upg.c.data_delete_type") + ' <b>«' + t("upg.c.delete_word") + '»</b></label>' +
+      '<input id="delWord" autocomplete="off" placeholder="' + t("upg.c.delete_word") + '"></div>' +
+    '<div class="upg-btn-row">' +
+      '<button class="btn warn" onclick="A.confirmDeleteStep1()">' + t("upg.c.data_delete_do") + '</button>' +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + '</button>' +
+    '</div>'
+  );
+}
+function confirmDeleteStep1() {
+  var v = ((document.getElementById("delWord") || {}).value || "").trim();
+  if (v !== t("upg.c.delete_word")) {
+    toast(t("upg.c.data_delete_wrong"));
+    return;
+  }
+  openModal(
+    '<h3>⚠️ ' + t("upg.c.data_delete") + '</h3>' +
+    '<p class="muted">' + t("upg.c.data_delete_final_t") + '</p>' +
+    '<div class="upg-btn-row">' +
+      '<button class="btn warn" onclick="A.confirmDeleteStep2()">' + t("upg.c.data_delete_final_do") + '</button>' +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + '</button>' +
+    '</div>'
+  );
+}
+function confirmDeleteStep2() {
+  /* Replaces the old raw A.resetAll: typed word + second confirm first. */
+  try { Store.wipe(); } catch (e) {}
+  try { location.reload(); } catch (e) {}
+}
+
+/* ---------------- family league (privacy-safe: never money) ---------------- */
+function careToggleLeague() {
+  S.leagueOn = !(S.leagueOn !== false);
+  save();
+  renderApp();
+}
+window.UpgLeagueCard = function () {
+  try {
+    if (S.leagueOn === false) return "";
+    var kids = S.children || [];
+    if (!kids.length) return '<div class="empty">' + t("upg.c.league_empty") + "</div>";
+    var EMOJI = ["🐷", "🦊", "🐰", "🐻", "🦁", "🐸", "🐵", "🐯"];
+    var rows = kids.map(function (c, i) {
+      /* avatar emoji + display name + points + streak + achievements.
+         NEVER balances — league is points-only by design. */
+      return '<div class="upg-league-row">' +
+        '<span class="upg-league-av">' + EMOJI[i % EMOJI.length] + "</span>" +
+        '<span class="upg-league-name">' + esc(c.name || "") + "</span>" +
+        '<span class="upg-league-stat">' + t("common.points", c.points || 0) + "</span>" +
+        '<span class="upg-league-stat">🔥 ' + t("upg.c.league_streak", c.streak || 0) + "</span>" +
+        '<span class="upg-league-stat">' + t("upg.c.league_ach", (c.achievements || []).length) + "</span>" +
+      "</div>";
+    }).join("");
+    return '<div class="upg-league"><div class="upg-league-head">🏆 ' + t("upg.c.league_title") + "</div>" + rows + "</div>";
+  } catch (e) { return ""; }
+};
+
+/* ---------------- print home kit ---------------- */
+function printKitHtml() {
+  var days = t("upg.c.print_days").split(",");
+  var child = activeChild() || (S.children || [])[0] || null;
+  var childName = child ? esc(child.name) : "";
+  var today = fmtDate(Date.now());
+  var line = function (lbl, val) {
+    return '<div class="pk-line"><span class="lbl">' + lbl + ':</span><span class="fill">' + (val || "") + "</span></div>";
+  };
+  var weekRows = days.map(function (d) {
+    return "<tr><td><b>" + esc(d) + "</b></td><td></td><td></td><td></td><td></td></tr>";
+  }).join("");
+  var boxes = [
+    { ico: "💰", nm: t("money.save") },
+    { ico: "📈", nm: t("money.invest") },
+    { ico: "🎁", nm: t("money.spend_parent") }
+  ].map(function (b) {
+    return '<div class="pk-box"><div class="ico">' + b.ico + '</div><div class="nm">' + b.nm + '</div>' +
+      '<div class="tot">' + t("upg.c.print_boxes_note") + " ______ ₪</div></div>";
+  }).join("");
+  var taskRows = "";
+  for (var i = 0; i < 8; i++) taskRows += "<tr><td style='text-align:start'></td><td></td></tr>";
+  return '<div class="print-kit">' +
+    '<div class="no-print" style="margin-bottom:12px"><div class="upg-btn-row">' +
+      '<button class="btn" onclick="window.print()">' + t("upg.c.print_btn") + "</button>" +
+      '<button class="btn secondary" onclick="A.closeModal()">' + t("upg.c.close") + "</button>" +
+    "</div></div>" +
+    "<h4>🎯 " + t("upg.c.print_goal_t") + "</h4>" +
+    '<div class="pk-lines">' +
+      line(t("upg.c.print_name"), childName) +
+      line(t("upg.c.print_date"), today) +
+      line(t("upg.c.print_goal"), "") +
+      line(t("upg.c.print_target"), "") +
+      line(t("upg.c.print_saved"), "") +
+    "</div>" +
+    "<h4>📅 " + t("upg.c.print_week_t") + "</h4>" +
+    '<table class="pk-table"><tr><th></th><th>💰</th><th>📈</th><th>🎁</th><th>⭐</th></tr>' + weekRows + "</table>" +
+    "<h4>🐷 " + t("upg.c.print_boxes_t") + '</h4><div class="pk-boxes">' + boxes + "</div>" +
+    "<h4>🏆 " + t("upg.c.print_cert_t") + "</h4>" +
+    '<div class="pk-cert">' +
+      '<div class="pig">🐷</div>' +
+      '<div class="big">' + t("upg.c.print_cert_line1") + "</div>" +
+      '<div>' + t("upg.c.print_cert_line2") + "</div>" +
+      '<div class="pk-lines" style="margin-top:12px">' +
+        line(t("upg.c.print_name"), childName) +
+        line(t("upg.c.print_date"), today) +
+        line(t("upg.c.print_sign"), "") +
+      "</div>" +
+    "</div>" +
+    "<h4>✅ " + t("upg.c.print_tasks_t") + "</h4>" +
+    '<table class="pk-table"><tr><th style="width:80%">' + t("upg.c.print_task") + "</th><th>" + t("upg.c.print_done") + "</th></tr>" + taskRows + "</table>" +
+  "</div>";
+}
+function openPrintKit() {
+  openModal(printKitHtml());
+}
+
+/* ---------------- parentManage override ---------------- */
+function parentManage() {
+  /* kids list — reproduced from the original manage screen */
+  var kidsHtml = S.children.length === 0
+    ? '<div class="empty">' + t("manage.no_kids") + "</div>"
+    : S.children.map(function (c) {
+        var goals = childGoals(c.id);
+        var gl = goals.length ? goals.map(function (g) {
+          var pct = g.target > 0 ? Math.min(100, Math.round((g.saved / g.target) * 100)) : 0;
+          return '<div class="kv"><span>' + esc(g.title) + " · " + fmtAg(g.saved) + "/" + fmtAg(g.target) + " (" + pct + "%)</span>" +
+            '<button class="btn small secondary" onclick="A.openDeposit(\'' + g.id + "')\">" + t("manage.deposit") + "</button></div>";
+        }).join("") : '<div class="empty">' + t("manage.no_goals") + "</div>";
+        return '<div class="card" style="margin-top:8px">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center">' +
+            '<b style="font-size:16px">🐷 ' + esc(c.name) + "</b>" +
+            '<span class="pill">' + t("common.points", c.points) + "</span>" +
+          "</div>" +
+          moneyCols(c.money) +
+          '<div class="chip-row" style="margin-top:10px">' +
+            '<button class="chip" onclick="A.openAddMoney(\'' + c.id + "')\">" + t("manage.add_money") + "</button>" +
+            '<button class="chip" onclick="A.openGoal(\'' + c.id + "')\">" + t("manage.new_goal") + "</button>" +
+            '<button class="chip" onclick="A.selectChild(\'' + c.id + "');A.go('tasks')\">" + t("manage.new_task") + "</button>" +
+          "</div>" +
+          '<div class="section-title" style="margin-top:6px">' + t("manage.goals_title") + "</div>" + gl +
+        "</div>";
+      }).join("");
+
+  var leagueOn = S.leagueOn !== false;
+  var legalBtns = CARE_LEGAL_ORDER.map(function (id) {
+    var lang = (LANG === "ru") ? "ru" : "he";
+    return '<button class="upg-legal-btn" onclick="A.openLegal(\'' + id + "')\">" +
+      "<span>" + (CARE_LEGAL_ICONS[id] || "📄") + "</span><span>" + esc(CARE_LEGAL[id].t[lang]) + "</span></button>";
+  }).join("");
+
+  return '<div class="screen upg-scope">' +
+    '<h2 style="margin:6px 0 2px">' + t("manage.title") + "</h2>" +
+
+    '<div class="section-title">' + t("sub.title") + "</div>" +
+    '<div class="card upgrade-card" style="margin-top:6px">' + careSubCard() + "</div>" +
+
+    '<div class="section-title">' + t("manage.kids_title") + "</div>" +
+    kidsHtml +
+    '<div class="card"><div class="field"><label>' + t("manage.child_name_lbl") + "</label>" +
+      '<input id="ncName" placeholder="' + t("manage.child_name_ph") + '"></div>' +
+      '<button class="btn" onclick="A.createChild()">' + t("manage.add_child") + "</button></div>" +
+
+    '<div class="section-title">🏆 ' + t("upg.c.league_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' +
+      '<div class="kv"><span>' + t("upg.c.league_toggle") + "</span>" +
+      '<button class="btn small secondary" onclick="A.careToggleLeague()">' + (leagueOn ? t("upg.c.league_on") : t("upg.c.league_off")) + "</button></div>" +
+      '<p class="muted" style="font-size:12px">' + t("upg.c.league_note") + "</p>" +
+      (leagueOn ? window.UpgLeagueCard() : "") +
+    "</div>" +
+
+    '<div class="section-title">' + t("manage.appear_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' +
+      '<div class="kv"><span>' + t("manage.dark") + "</span>" +
+      '<button class="btn small secondary" onclick="A.toggleDark()">' + (S.dark ? t("manage.dark_off") : t("manage.dark_on")) + "</button></div>" +
+    "</div>" +
+
+    '<div class="section-title">' + t("upg.c.support_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' +
+      '<p class="muted">' + t("upg.c.support_sub") + "</p>" +
+      '<div class="upg-support-grid">' +
+        '<button class="btn" onclick="A.openBugModal()">' + t("upg.c.bug_btn") + "</button>" +
+        '<button class="btn secondary" onclick="A.openHelpModal()">' + t("upg.c.help_btn") + "</button>" +
+      "</div>" +
+    "</div>" +
+
+    '<div class="card" style="margin-top:8px">' +
+      '<button class="btn secondary" style="width:100%" onclick="A.openPrintKit()">' + t("upg.c.print_open") + "</button>" +
+    "</div>" +
+
+    '<div class="section-title">' + t("upg.c.legal_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' +
+      '<p class="muted">' + t("upg.c.legal_sub") + "</p>" +
+      '<div class="upg-legal-grid">' + legalBtns + "</div>" +
+    "</div>" +
+
+    '<div class="section-title">' + t("upg.c.data_title") + "</div>" +
+    '<div class="card" style="margin-top:6px">' +
+      '<p class="muted">' + t("upg.c.data_sub") + "</p>" +
+      '<div class="upg-support-grid">' +
+        '<button class="btn secondary" onclick="A.careExportData()">' + t("upg.c.data_export") + "</button>" +
+        '<button class="btn warn" onclick="A.openDeleteModal()">' + t("upg.c.data_delete") + "</button>" +
+      "</div>" +
+      '<p class="muted" style="font-size:12px;margin-top:8px">' + t("upg.c.data_export_note") + "</p>" +
+    "</div>" +
+  "</div>";
+}
+
+/* ---------------- extend A ---------------- */
+Object.assign(A, {
+  careStartTrial: careStartTrial,
+  careRequestSub: careRequestSub,
+  careActivateCode: careActivateCode,
+  openBugModal: openBugModal,
+  submitBugReport: submitBugReport,
+  copyBugReport: copyBugReport,
+  reopenBugMail: reopenBugMail,
+  openHelpModal: openHelpModal,
+  openLegal: openLegal,
+  openPrintKit: openPrintKit,
+  careExportData: careExportData,
+  openDeleteModal: openDeleteModal,
+  confirmDeleteStep1: confirmDeleteStep1,
+  confirmDeleteStep2: confirmDeleteStep2,
+  careToggleLeague: careToggleLeague
+});
+
+</script>
+<script>
+/* ===== upgrade wiring patch ===== */
+(function(){
+  try {
+    if (typeof kidsHome === "function" && typeof UpgLeagueCard === "function") {
+      var __kh = kidsHome;
+      kidsHome = function(){ return __kh() + UpgLeagueCard(); };
+    }
+  } catch(e){}
+})();
+</script>
+<!--UPGRADE:SCRIPTS-->
 <script>
 // PiggyUp ping beacon — anonymous usage analytics (event type + timestamp only, no PII)
 (function(){
