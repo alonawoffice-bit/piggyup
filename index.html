@@ -5772,8 +5772,8 @@ var UpgOnb = {
     if (this.i > 0) h += '<button class="btn small secondary" onclick="UpgOnb.back()">' + t("upg.o.back") + "</button>";
     else h += "<span></span>";
     if (opts.skip) h += '<button class="btn small secondary" onclick="UpgOnb.next()">' + t("upg.o.skip") + "</button>";
-    else if (opts.custom) h += opts.custom;
-    else h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
+    if (opts.custom) h += opts.custom;
+    else if (!opts.skip || opts.keepNext) h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
     return h + "</div>";
   },
 
@@ -5834,7 +5834,7 @@ var UpgOnb = {
           '" value="' + esc(d.goalTitle) + '">' +
           '<input id="onbGoalTarget" class="upg-onb-input" inputmode="decimal" placeholder="' + esc(t("upg.o.goal_target_ph")) +
           '" value="' + esc(d.goalTarget) + '">' +
-          this.nav("goal", { skip: true });
+          this.nav("goal", { skip: true, keepNext: true });
 
       case "about":
         return "<h2>" + t("upg.o.about_title") + "</h2>" +
