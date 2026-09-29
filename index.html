@@ -1120,6 +1120,165 @@ function save() {
   try { localStorage.setItem(LS_KEY, JSON.stringify(S)); } catch (e) {}
 }
 
+/* ============================================================
+   GUARDED-v1 — v2-data protection for the legacy build.
+   Added on the guarded-v1 branch. Purpose: if PiggyUp data in
+   v2 format is detected, this build must NEVER read it as v1,
+   migrate it, or write over it.
+   Detection (explicit v2 signals only, never amount-guessing):
+     - stored state piggyup_v1 parses and has numeric v >= 2, OR
+     - piggyup_data_version key parses to an integer >= 2
+   Guarded mode:
+     - window.__PIGGYUP_GUARDED_V1__ = true
+     - every write/remove of the piggyup_v1 key is silently blocked
+       (save(), resetAll(), and any direct localStorage access)
+     - the app is replaced by a full-screen update-required message
+       (Hebrew RTL / Russian LTR, per piggyup_lang)
+     - re-checked on storage events, visibilitychange and focus, so
+       a tab that was open while another tab upgraded the data to v2
+       engages the guard instead of overwriting v2 data
+   If no v2 data exists, this block changes absolutely nothing:
+   boot, rendering, saving and all amounts behave exactly as before.
+   The whole block is exception-safe: if the guard itself throws,
+   the app boots normally.
+   ============================================================ */
+(function installGuardedV1() {
+  "use strict";
+  var DATA_KEY = "piggyup_v1";
+  var VERSION_KEY = "piggyup_data_version";
+  var LANG_KEY = "piggyup_lang";
+
+  function readV2Signal() {
+    /* true only on an explicit v2 signal */
+    try {
+      var raw = null;
+      try { raw = localStorage.getItem(DATA_KEY); } catch (e) { raw = null; }
+      if (raw) {
+        try {
+          var s = JSON.parse(raw);
+          if (s && typeof s.v === "number" && s.v >= 2) return true;
+        } catch (e) { /* unreadable: no explicit signal */ }
+      }
+      var vk = null;
+      try { vk = localStorage.getItem(VERSION_KEY); } catch (e) { vk = null; }
+      if (vk != null && vk !== "" && parseInt(vk, 10) >= 2) return true;
+    } catch (e) {}
+    return false;
+  }
+
+  function guardLang() {
+    var l = "he";
+    try { l = localStorage.getItem(LANG_KEY) || "he"; } catch (e) { l = "he"; }
+    return l === "ru" ? "ru" : "he";
+  }
+
+  function showUpdateRequired() {
+    try {
+      var lang = guardLang();
+      var rtl = lang === "he";
+      document.documentElement.setAttribute("lang", rtl ? "he" : "ru");
+      document.documentElement.setAttribute("dir", rtl ? "rtl" : "ltr");
+      var title = rtl ? "נדרש עדכון" : "Требуется обновление";
+      var msg = rtl
+        ? "גרסה חדשה של PiggyUp זמינה. יש לעדכן כדי להמשיך."
+        : "Доступна новая версия PiggyUp. Обновите приложение, чтобы продолжить.";
+      var btn = rtl ? "רענני" : "Обновить";
+      var root = document.getElementById("app");
+      if (!root) return;
+      root.innerHTML =
+        '<div style="max-width:480px;margin:0 auto;padding:56px 20px;text-align:center">' +
+        '<div style="font-size:48px;margin-bottom:14px" aria-hidden="true">🔄</div>' +
+        "<h2>" + title + "</h2>" +
+        '<p style="color:#5f6b7a;font-size:16px;line-height:1.7">' + msg + "</p>" +
+        '<button type="button" onclick="location.reload()" style="margin-top:14px;padding:13px 30px;font-size:16px;font-weight:800;border:none;border-radius:14px;background:#0e9f6e;color:#fff;cursor:pointer">' +
+        btn + "</button></div>";
+    } catch (e) {}
+  }
+
+  function blockDataWrites() {
+    /* Choke points: every persistence path in this build.
+       1) save() — the only writer of the data key.
+       2) A.resetAll() — the only remover of the data key.
+       3) localStorage methods themselves — second layer for real
+          browsers (silently skipped where host objects reject it). */
+    try {
+      var origSave = save;
+      var guardedSave = function () {
+        if (window.__PIGGYUP_GUARDED_V1__) return; /* guarded: never write */
+        return origSave();
+      };
+      guardedSave.__guardedV1 = true;
+      if (!save.__guardedV1) save = guardedSave;
+    } catch (e) {}
+    try {
+      var wrapReset = function () {
+        try {
+          if (typeof A === "undefined" || !A || typeof A.resetAll !== "function") return;
+          if (A.resetAll.__guardedV1) return;
+          var origReset = A.resetAll;
+          var guardedReset = function () {
+            if (window.__PIGGYUP_GUARDED_V1__) return; /* guarded: never delete */
+            return origReset.apply(this, arguments);
+          };
+          guardedReset.__guardedV1 = true;
+          A.resetAll = guardedReset;
+        } catch (e) {}
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", wrapReset);
+      }
+      try { wrapReset(); } catch (e) {} /* idempotent; safe if A not ready */
+    } catch (e) {}
+    try {
+      var ls = localStorage;
+      var origSet = ls.setItem.bind(ls);
+      var origRemove = ls.removeItem.bind(ls);
+      ls.setItem = function (k, v) {
+        if (String(k) === DATA_KEY) return; /* guarded: never write */
+        return origSet(k, v);
+      };
+      ls.removeItem = function (k) {
+        if (String(k) === DATA_KEY) return; /* guarded: never delete */
+        return origRemove(k);
+      };
+    } catch (e) {}
+  }
+
+  function engageGuard() {
+    if (window.__PIGGYUP_GUARDED_V1__) return;
+    window.__PIGGYUP_GUARDED_V1__ = true;
+    blockDataWrites();
+    try {
+      /* renderApp is hoisted in this script block, so it can be
+         replaced right away; setLang() calls it on DOMContentLoaded. */
+      renderApp = function () { showUpdateRequired(); };
+    } catch (e) {}
+    showUpdateRequired(); /* no-op until #app exists */
+  }
+
+  function recheck() {
+    try { if (readV2Signal()) engageGuard(); } catch (e) {}
+  }
+
+  try {
+    /* cross-tab: another tab upgraded the data while this one was open */
+    window.addEventListener("storage", function (e) {
+      try {
+        if (e && e.key !== DATA_KEY && e.key !== VERSION_KEY && e.key !== null) return;
+        recheck();
+      } catch (err) {}
+    });
+    /* tab-switch race: re-check when the tab becomes visible / focused */
+    document.addEventListener("visibilitychange", function () {
+      try { if (!document.hidden) recheck(); } catch (err) {}
+    });
+    window.addEventListener("focus", recheck);
+
+    /* boot-time check */
+    if (readV2Signal()) engageGuard();
+  } catch (e) { /* guard must never break boot */ }
+})();
+
 /* ---------------- helpers ---------------- */
 function uid() {
   return "id" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
