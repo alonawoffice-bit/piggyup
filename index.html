@@ -5966,9 +5966,16 @@ window.addEventListener("DOMContentLoaded", function () {
 // PiggyUp ping beacon — anonymous usage analytics (event type + timestamp only, no PII)
 (function(){
   var PING_URL = "https://script.google.com/macros/s/AKfycbwYR5sDa-c0kfUpZiGmVPTPHMLf_vn1QmGELKxNXhzB0SZQ2iAe9lYX1lKZGCEFMx3r/exec";
+  // Attribution: capture ?src= (e.g. instagram_profile) once per session; additive only, no PII
+  var SRC = (function(){ try {
+    var q = new URLSearchParams(location.search).get("src");
+    if (q) { try { sessionStorage.setItem("pu_src", q); } catch(e){} return q; }
+    try { return sessionStorage.getItem("pu_src"); } catch(e){ return null; }
+  } catch(e){ return null; } })();
   function ping(event){
     try {
       var body = "event=" + encodeURIComponent(event);
+      if (SRC) { body += "&src=" + encodeURIComponent(SRC); }
       if (navigator.sendBeacon) {
         navigator.sendBeacon(PING_URL, new Blob([body], {type: "application/x-www-form-urlencoded"}));
       } else {
