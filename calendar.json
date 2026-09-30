@@ -573,7 +573,7 @@
       ],
       "visual_idea": "רקע קרם, טקסט חום כהה, חזיר ורוד קטן",
       "account": "piggy.up",
-      "status": "draft",
+      "status": "waiting_approval",
       "needs_approval": true,
       "created_at": "2026-09-30T06:30:00+03:00",
       "updated_at": "2026-09-30T06:30:00+03:00",
@@ -585,6 +585,13 @@
           "from": null,
           "to": "draft",
           "note": "בדיקת סנכרון — יימחק בסוף"
+        },
+        {
+          "at": "2026-09-30T06:30:00+03:00",
+          "actor": "muse-sync-test",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "בדיקת סנכרון: מעבר סטטוס"
         }
       ]
     }
