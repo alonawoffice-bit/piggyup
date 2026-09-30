@@ -205,18 +205,25 @@
           "from": "draft",
           "note": "הופק ע״י קרון הווידאו היומי",
           "to": "waiting_approval"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:28:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
         }
       ],
       "hook": "3 משפטים במקום ״אין כסף״",
       "id": "p-20260930-01",
       "needs_approval": true,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני שעות ב־Insights)",
       "title": "יום 2 — 3 משפטים במקום ״אין כסף״",
-      "updated_at": "2026-09-28T18:46:00+03:00"
+      "updated_at": "2026-09-30T07:28:00+03:00"
     },
     {
       "account": "piggy.up",
@@ -237,18 +244,25 @@
           "from": "draft",
           "note": "הופק ע״י קרון הווידאו היומי",
           "to": "waiting_approval"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:28:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
         }
       ],
       "hook": "״ילדים קטנים לא מבינים כסף״ — טעות",
       "id": "p-20260930-02",
       "needs_approval": true,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "יום 4 — מיתוס ״ילדים קטנים לא מבינים כסף״",
-      "updated_at": "2026-09-28T18:46:00+03:00"
+      "updated_at": "2026-09-30T07:28:00+03:00"
     },
     {
       "account": "piggy.up",
@@ -318,19 +332,26 @@
           "from": "draft",
           "to": "waiting_approval",
           "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:28:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
         }
       ],
       "hook": "מיתוס או אמת? 🤔",
       "id": "p-20260930-04",
       "needs_approval": true,
       "pillar": "community",
-      "status": "waiting_approval",
+      "status": "approved",
       "story_brief": "סקר: ״מיתוס או אמת — אם ניתן לילד דמי כיס הוא יבזבז הכל מיד״ (סטיקר סקר מיתוס/אמת)",
       "time": "12:00",
       "time_basis": "hypothesis",
       "time_reason": "השערה — צהריים לסטורי",
       "title": "סטורי S1: סקר מיתוס/אמת על דמי כיס",
-      "updated_at": "2026-09-30T07:00:00+03:00",
+      "updated_at": "2026-09-30T07:28:00+03:00",
       "hooks_considered": [
         "מיתוס או אמת? 🤔",
         "אם ניתן לילד דמי כיס הוא יבזבז הכל מיד — נכון או לא?",
