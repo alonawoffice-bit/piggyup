@@ -1218,6 +1218,68 @@ html[data-theme="dark"] #upgRefreshBanner { background: #4a3b00; color: #ffe69c;
 /* companion emoji next to the piggy hero */
 .upg-companion { font-size: 30px; margin-inline-start: -4px; vertical-align: middle; }
 
+/* ===== chunk: 50-roles ===== */
+/* 50-roles: Parent Mode + Child Mode */
+.roles-banner {
+  background: #fff3cd;
+  color: #7a5c00;
+  border-bottom: 2px solid #e6c200;
+  padding: 8px 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.roles-lock-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: inherit;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.roles-card .section-title { margin-top: 0; }
+.roles-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(128, 128, 128, 0.18);
+}
+.roles-row:first-of-type { border-top: none; }
+.roles-btns { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
+.roles-note {
+  background: rgba(128, 128, 128, 0.12);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.roles-code-box {
+  margin-top: 12px;
+  text-align: center;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 12px;
+  padding: 14px;
+}
+.roles-code {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 8px;
+  margin: 8px 0;
+  direction: ltr;
+}
+.roles-selfentry { text-align: center; }
+.roles-selfentry .btn { width: 100%; font-size: 17px; padding: 14px; }
+.muted.small { font-size: 12px; }
+
+/* ===== chunk: 51-roles-ui ===== */
+/* 51-roles-ui: no extra CSS (styles live in 50-roles.css) */
+
 /*UPGRADE:CSS*/
 </style>
 </head>
@@ -5772,8 +5834,8 @@ var UpgOnb = {
     if (this.i > 0) h += '<button class="btn small secondary" onclick="UpgOnb.back()">' + t("upg.o.back") + "</button>";
     else h += "<span></span>";
     if (opts.skip) h += '<button class="btn small secondary" onclick="UpgOnb.next()">' + t("upg.o.skip") + "</button>";
-    if (opts.custom) h += opts.custom;
-    else if (!opts.skip || opts.keepNext) h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
+    else if (opts.custom) h += opts.custom;
+    else h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
     return h + "</div>";
   },
 
@@ -5834,7 +5896,7 @@ var UpgOnb = {
           '" value="' + esc(d.goalTitle) + '">' +
           '<input id="onbGoalTarget" class="upg-onb-input" inputmode="decimal" placeholder="' + esc(t("upg.o.goal_target_ph")) +
           '" value="' + esc(d.goalTarget) + '">' +
-          this.nav("goal", { skip: true, keepNext: true });
+          this.nav("goal", { skip: true });
 
       case "about":
         return "<h2>" + t("upg.o.about_title") + "</h2>" +
@@ -5951,6 +6013,1083 @@ window.addEventListener("DOMContentLoaded", function () {
 
 </script>
 <script>
+/* ===== chunk i18n: 50-roles ===== */
+(function(){
+try{
+Object.assign(I18N.he, {"upg.r.age_bad": "גיל חייב להיות בין 3 ל־18", "upg.r.audit_child_added": "{0} הוסיף/ה {1}", "upg.r.audit_tx_deleted": "הורה מחק עסקה של {0} ({1})", "upg.r.back_to_child": "חזרה למצב ילד", "upg.r.child_add_amount": "כמה קיבלת? (₪)", "upg.r.child_add_go": "הוספה", "upg.r.child_add_money": "הוספת כסף שקיבלתי", "upg.r.child_add_source": "מאיפה הכסף?", "upg.r.child_add_title": "הוספת כסף שקיבלתי", "upg.r.child_added": "נרשם! כל הכבוד", "upg.r.child_age": "גיל", "upg.r.child_age_edit": "עריכת גיל", "upg.r.child_not_eligible": "הזנה עצמית תיפתח בגיל {0}", "upg.r.child_scope_denied": "אפשר לפעול רק על הנתונים שלך", "upg.r.code_bad_format": "הקוד חייב להיות 4 עד 8 ספרות", "upg.r.code_current": "קוד נוכחי", "upg.r.code_locked": "יותר מדי ניסיונות, נסי שוב בעוד דקה", "upg.r.code_new": "קוד חדש (4 עד 8 ספרות)", "upg.r.code_not_set_yet": "טרם הוגדר קוד בקרת הורים. ההורה צריך להגדיר אותו במכשיר שלו.", "upg.r.code_saved": "הקוד נשמר", "upg.r.code_verify": "אימות", "upg.r.code_wrong": "קוד שגוי, נסי שוב", "upg.r.connect_bad": "קוד לא תקין או שפג תוקפו", "upg.r.connect_child": "בחירת ילד", "upg.r.connect_code": "קוד החיבור", "upg.r.connect_code_hint": "במכשיר של הילד: פתחי את האפליקציה, ייבאי את נתוני המשפחה והזיני את הקוד הזה.", "upg.r.connect_issue": "יצירת קוד חיבור", "upg.r.connect_ok": "המכשיר חובר אל {0}", "upg.r.connect_redeem_go": "חיבור", "upg.r.connect_redeem_hint": "הזיני את קוד החיבור שקיבלת מההורה", "upg.r.connect_redeem_title": "הצטרפות כמכשיר ילד", "upg.r.connect_title": "חיבור מכשיר לילד", "upg.r.connect_used": "הקוד הזה כבר נוצל", "upg.r.connect_valid_until": "תקף עד {0}", "upg.r.device_child": "מכשיר ילד", "upg.r.device_parent": "מכשיר הורה", "upg.r.device_revoke": "ניתוק", "upg.r.device_revoked": "המכשיר נותק", "upg.r.devices_title": "מכשירים מחוברים", "upg.r.export_copied": "הועתק", "upg.r.export_copy": "העתקה", "upg.r.export_hint": "העתיקי את הטקסט ושלחי אותו למכשיר של הילד.", "upg.r.export_title": "ייצוא נתונים", "upg.r.history_by_child": "הילד/ה", "upg.r.history_by_parent": "הורה", "upg.r.history_empty": "אין פעולות עדיין", "upg.r.history_title": "היסטוריית פעולות", "upg.r.import_bad": "טקסט הייצוא לא תקין", "upg.r.import_do": "ייבוא", "upg.r.import_family_mismatch": "אלו נתונים של משפחה אחרת, הייבוא נחסם", "upg.r.import_first": "קודם צריך לייבא את נתוני המשפחה למכשיר הזה", "upg.r.import_hint": "הדביקי כאן את טקסט הייצוא מהמכשיר של ההורה.", "upg.r.import_ok": "הייבוא הצליח: {0} רשומות חדשות", "upg.r.import_title": "ייבוא נתונים", "upg.r.independence_age": "גיל עצמאות בהזנה", "upg.r.independence_hint": "מגיל זה הילד יוכל להזין בעצמו כסף שקיבל. ריק = כבוי.", "upg.r.independence_off": "כבוי, רק ההורה מזין", "upg.r.no_devices": "אין מכשירים מחוברים עדיין", "upg.r.parent_code_change": "שינוי קוד", "upg.r.parent_code_hint": "הקוד פותח מצב הורה במכשיר של הילד. שמרי אותו בסוד.", "upg.r.parent_code_is_set": "קוד הוגדר", "upg.r.parent_code_not_set": "טרם הוגדר קוד", "upg.r.parent_code_set": "הגדרת קוד", "upg.r.parent_code_title": "קוד בקרת הורים", "upg.r.perm_denied": "פעולה זו זמינה להורה בלבד", "upg.r.roles_title": "מכשירים ומצבים", "upg.r.saved": "נשמר", "upg.r.security_note": "שימי לב: קוד בקרת ההורים נשמר במכשיר הזה בלבד. הוא מרתיע ילד סקרן, אבל מי שיודע לפתוח כלי פיתוח בדפדפן יוכל לעקוף אותו. אין סנכרון אוטומטי בין מכשירים בגרסה זו, הייצוא והייבוא ידניים.", "upg.r.set_as_child_device": "הגדרה כמכשיר ילד", "upg.r.set_as_parent_device": "הגדרה כמכשיר הורה", "upg.r.sync_hint": "ייצאי את נתוני המשפחה והדביקי אותם במכשיר של הילד. סנכרון אוטומטי ידרוש שרת.", "upg.r.sync_title": "סנכרון בין מכשירים", "upg.r.temp_parent": "מצב הורה זמני, סגירת האפליקציה תנעל אותו", "upg.r.this_device": "מכשיר זה", "upg.r.tx_delete_confirm": "למחוק את העסקה הזו? לא ניתן לבטל.", "upg.r.tx_deleted": "העסקה נמחקה", "upg.r.unbind_confirm": "לנתק מכשיר זה ממצב ילד ולהחזיר אותו למכשיר הורה?", "upg.r.unbind_need_code": "צריך קוד בקרת הורים כדי לנתק מכשיר ילד", "upg.r.unlock_hint": "הזיני את קוד בקרת ההורים", "upg.r.unlock_ok": "מצב הורה נפתח", "upg.r.unlock_title": "מעבר למצב הורה"});
+Object.assign(I18N.ru, {"upg.r.age_bad": "Возраст должен быть от 3 до 18", "upg.r.audit_child_added": "{0} добавил(а) {1}", "upg.r.audit_tx_deleted": "Родитель удалил операцию {0} ({1})", "upg.r.back_to_child": "Вернуться в детский режим", "upg.r.child_add_amount": "Сколько получил(а)? (₪)", "upg.r.child_add_go": "Добавить", "upg.r.child_add_money": "Добавить полученные деньги", "upg.r.child_add_source": "Откуда деньги?", "upg.r.child_add_title": "Добавление полученных денег", "upg.r.child_added": "Записано! Молодец", "upg.r.child_age": "Возраст", "upg.r.child_age_edit": "Изменить возраст", "upg.r.child_not_eligible": "Самостоятельный ввод откроется в {0} лет", "upg.r.child_scope_denied": "Можно действовать только со своими данными", "upg.r.code_bad_format": "Код должен содержать от 4 до 8 цифр", "upg.r.code_current": "Текущий код", "upg.r.code_locked": "Слишком много попыток, попробуйте через минуту", "upg.r.code_new": "Новый код (от 4 до 8 цифр)", "upg.r.code_not_set_yet": "Родительский код ещё не установлен. Родитель должен установить его на своём устройстве.", "upg.r.code_saved": "Код сохранён", "upg.r.code_verify": "Подтвердить", "upg.r.code_wrong": "Неверный код, попробуйте ещё раз", "upg.r.connect_bad": "Неверный или просроченный код", "upg.r.connect_child": "Выбор ребёнка", "upg.r.connect_code": "Код подключения", "upg.r.connect_code_hint": "На устройстве ребёнка: откройте приложение, импортируйте данные семьи и введите этот код.", "upg.r.connect_issue": "Создать код подключения", "upg.r.connect_ok": "Устройство подключено к {0}", "upg.r.connect_redeem_go": "Подключить", "upg.r.connect_redeem_hint": "Введите код подключения от родителя", "upg.r.connect_redeem_title": "Подключение как устройство ребёнка", "upg.r.connect_title": "Подключение устройства ребёнка", "upg.r.connect_used": "Этот код уже использован", "upg.r.connect_valid_until": "Действителен до {0}", "upg.r.device_child": "Устройство ребёнка", "upg.r.device_parent": "Устройство родителя", "upg.r.device_revoke": "Отключить", "upg.r.device_revoked": "Устройство отключено", "upg.r.devices_title": "Подключённые устройства", "upg.r.export_copied": "Скопировано", "upg.r.export_copy": "Копировать", "upg.r.export_hint": "Скопируйте текст и отправьте его на устройство ребёнка.", "upg.r.export_title": "Экспорт данных", "upg.r.history_by_child": "Ребёнок", "upg.r.history_by_parent": "Родитель", "upg.r.history_empty": "Пока нет операций", "upg.r.history_title": "История операций", "upg.r.import_bad": "Некорректный текст экспорта", "upg.r.import_do": "Импорт", "upg.r.import_family_mismatch": "Это данные другой семьи, импорт заблокирован", "upg.r.import_first": "Сначала нужно импортировать данные семьи на это устройство", "upg.r.import_hint": "Вставьте сюда текст экспорта с устройства родителя.", "upg.r.import_ok": "Импорт успешен: {0} новых записей", "upg.r.import_title": "Импорт данных", "upg.r.independence_age": "Возраст самостоятельного ввода", "upg.r.independence_hint": "С этого возраста ребёнок сможет сам вводить полученные деньги. Пусто = выкл.", "upg.r.independence_off": "Выкл, вводит только родитель", "upg.r.no_devices": "Пока нет подключённых устройств", "upg.r.parent_code_change": "Изменить код", "upg.r.parent_code_hint": "Код открывает режим родителя на устройстве ребёнка. Держите его в секрете.", "upg.r.parent_code_is_set": "Код установлен", "upg.r.parent_code_not_set": "Код ещё не установлен", "upg.r.parent_code_set": "Установить код", "upg.r.parent_code_title": "Родительский код", "upg.r.perm_denied": "Это действие доступно только родителю", "upg.r.roles_title": "Устройства и режимы", "upg.r.saved": "Сохранено", "upg.r.security_note": "Обратите внимание: родительский код хранится только на этом устройстве. Он остановит любопытного ребёнка, но знающий инструменты разработчика сможет его обойти. Автосинхронизации между устройствами в этой версии нет, экспорт и импорт выполняются вручную.", "upg.r.set_as_child_device": "Сделать устройством ребёнка", "upg.r.set_as_parent_device": "Сделать устройством родителя", "upg.r.sync_hint": "Экспортируйте данные семьи и вставьте их на устройстве ребёнка. Автосинхронизация потребует сервера.", "upg.r.sync_title": "Синхронизация между устройствами", "upg.r.temp_parent": "Временный режим родителя, закрытие приложения снова его заблокирует", "upg.r.this_device": "Это устройство", "upg.r.tx_delete_confirm": "Удалить эту операцию? Это нельзя отменить.", "upg.r.tx_deleted": "Операция удалена", "upg.r.unbind_confirm": "Отвязать это устройство от детского режима и вернуть в режим родителя?", "upg.r.unbind_need_code": "Нужен родительский код, чтобы отвязать детское устройство", "upg.r.unlock_hint": "Введите родительский код", "upg.r.unlock_ok": "Режим родителя открыт", "upg.r.unlock_title": "Переход в режим родителя"});
+}catch(e){}
+})();
+</script>
+<script>
+/* ===== chunk js: 50-roles ===== */
+/* ============================================================
+   50 — Parent Mode + Child Mode (CORE)
+   Additive upgrade on top of schema v2. No breaking changes.
+
+   Model:
+   - S.family       {id, createdAt}              — one family per data set
+   - S.device       {role:"parent"|"child", childId:null} — THIS device
+   - S.devices      []                           — connected devices registry
+   - S.parentAuth   null | {salt, hash, setAt, fail, lockUntil}
+   - S.perms        {childCanCreateGoals:true}
+   - child.age / child.independenceAge (null = feature off)
+
+   Security note (documented honestly in PARENT_CHILD_ARCHITECTURE.md):
+   the parent code is a client-side SHA-256 obfuscation. It stops a
+   curious child, not an attacker with devtools. No fake sync: this
+   build works within one browser; cross-device sync is manual
+   export/import until a backend exists.
+   ============================================================ */
+
+/* ---------- 1. SHA-256 (sync, compact, public-domain style) ---------- */
+function rolesSha256(s) {
+  function rr(v, a) { return (v >>> a) | (v << (32 - a)); }
+  var maxWord = Math.pow(2, 32), i, j, result = "";
+  var words = [], bitLen = s.length * 8;
+  var hash = rolesSha256.h = rolesSha256.h || [];
+  var k = rolesSha256.k = rolesSha256.k || [];
+  var pc = k.length, comp = {};
+  for (var cand = 2; pc < 64; cand++) {
+    if (!comp[cand]) {
+      for (i = 0; i < 313; i += cand) comp[i] = cand;
+      hash[pc] = (Math.pow(cand, 0.5) * maxWord) | 0;
+      k[pc++] = (Math.pow(cand, 1 / 3) * maxWord) | 0;
+    }
+  }
+  s += "\x80";
+  while (s.length % 64 - 56) s += "\x00";
+  for (i = 0; i < s.length; i++) {
+    j = s.charCodeAt(i);
+    if (j >> 8) return ""; /* ASCII only: salt+code are always ASCII */
+    words[i >> 2] |= j << ((3 - i) % 4) * 8;
+  }
+  words[words.length] = (bitLen / maxWord) | 0;
+  words[words.length] = bitLen;
+  for (j = 0; j < words.length;) {
+    var w = words.slice(j, j += 16), old = hash;
+    hash = hash.slice(0, 8);
+    for (i = 0; i < 64; i++) {
+      var w15 = w[i - 15], w2 = w[i - 2], a = hash[0], e = hash[4];
+      var t1 = hash[7]
+        + (rr(e, 6) ^ rr(e, 11) ^ rr(e, 25))
+        + ((e & hash[5]) ^ (~e & hash[6]))
+        + k[i]
+        + (w[i] = i < 16 ? w[i] :
+          (w[i - 16] + (rr(w15, 7) ^ rr(w15, 18) ^ (w15 >>> 3)) + w[i - 7]
+            + (rr(w2, 17) ^ rr(w2, 19) ^ (w2 >>> 10))) | 0);
+      var t2 = (rr(a, 2) ^ rr(a, 13) ^ rr(a, 22))
+        + ((a & hash[1]) ^ (a & hash[2]) ^ (hash[1] & hash[2]));
+      hash = [(t1 + t2) | 0].concat(hash);
+      hash[4] = (hash[4] + t1) | 0;
+    }
+    for (i = 0; i < 8; i++) hash[i] = (hash[i] + old[i]) | 0;
+  }
+  for (i = 0; i < 8; i++) {
+    for (j = 3; j + 1; j--) {
+      var b = (hash[i] >> (j * 8)) & 255;
+      result += (b < 16 ? "0" : "") + b.toString(16);
+    }
+  }
+  return result;
+}
+
+/* ---------- 2. Roles namespace ---------- */
+var Roles = {
+  /* data model of permissions: child-allowed vs parent-only actions */
+  CHILD_ALLOWED_ACTIONS: ["view_own", "add_money_self", "create_goal",
+    "deposit_to_goal", "complete_task", "view_tasks", "view_rewards"],
+  PARENT_ONLY_ACTIONS: ["manage_children", "set_allowance", "set_independence_age",
+    "set_permissions", "delete_history", "family_settings", "parent_code",
+    "delete_child", "system_settings", "approve_task", "issue_device_code",
+    "export_data", "import_data", "reset_all", "activate_subscription"],
+
+  /* ----- device / mode ----- */
+  isChildDevice: function () {
+    return !!(S.device && S.device.role === "child");
+  },
+  parentUnlocked: function () {
+    return !!window.__rolesUnlocked; /* memory only: closing the tab locks again */
+  },
+  effectiveMode: function () {
+    if (this.isChildDevice() && !this.parentUnlocked()) return "kids";
+    return S.mode;
+  },
+  boundChild: function () {
+    if (!this.isChildDevice() || !S.device.childId) return null;
+    var id = S.device.childId;
+    return (S.children || []).filter(function (c) { return c.id === id; })[0] || null;
+  },
+
+  /* ----- parent control code ----- */
+  hasParentCode: function () {
+    return !!(S.parentAuth && S.parentAuth.hash);
+  },
+  /* returns {ok:true} or {ok:false, err:<i18n key>} */
+  setParentCode: function (code) {
+    code = String(code || "").trim();
+    if (!/^\d{4,8}$/.test(code)) return { ok: false, err: "upg.r.code_bad_format" };
+    var salt = (typeof uid === "function" ? uid() : String(Date.now())) + "." + Date.now();
+    S.parentAuth = {
+      salt: salt,
+      hash: rolesSha256(salt + "|" + code),
+      setAt: Date.now(), fail: 0, lockUntil: 0
+    };
+    save();
+    return { ok: true };
+  },
+  /* returns true | false | "locked" | "none" */
+  verifyParentCode: function (code) {
+    var pa = S.parentAuth;
+    if (!pa || !pa.hash) return "none";
+    var now = Date.now();
+    if (pa.lockUntil && now < pa.lockUntil) return "locked";
+    var ok = rolesSha256(pa.salt + "|" + String(code || "").trim()) === pa.hash;
+    if (ok) { pa.fail = 0; pa.lockUntil = 0; }
+    else {
+      pa.fail = (pa.fail || 0) + 1;
+      if (pa.fail >= 5) { pa.lockUntil = now + 60000; pa.fail = 0; } /* 1-minute lockout */
+    }
+    save();
+    return ok;
+  },
+
+  /* ----- child self-entry eligibility ----- */
+  childCanSelfEnter: function (child) {
+    if (!child || child.independenceAge == null) return false;
+    return (Number(child.age) || 0) >= Number(child.independenceAge);
+  },
+
+  /* ----- guards used by A.* actions ----- */
+  /* parent-only gate: returns true when the caller is in parent scope */
+  requireParent: function () {
+    if (!this.isChildDevice()) return true;                 /* parent device */
+    if (this.parentUnlocked()) return true;                 /* session unlock */
+    if (typeof toast === "function") toast(t("upg.r.perm_denied"));
+    return false;
+  },
+  /* child gate: the action must target the bound child (or its own data) */
+  childScopeOk: function (childId) {
+    if (!this.isChildDevice()) return true;
+    if (this.parentUnlocked()) return true;
+    var bc = this.boundChild();
+    if (bc && bc.id === childId) return true;
+    if (typeof toast === "function") toast(t("upg.r.child_scope_denied"));
+    return false;
+  },
+
+  /* session unlock / lock (parent code verified before calling) */
+  unlockParent: function () {
+    window.__rolesUnlocked = true;
+    S.mode = "parent";
+    save();
+  },
+  lockParent: function () {
+    window.__rolesUnlocked = false;
+    if (this.isChildDevice()) S.mode = "kids";
+    save();
+  },
+
+  /* ----- structured audit for child money txs ----- */
+  logChildTx: function (child, amountAg, source) {
+    try {
+      var byLabel = this.isChildDevice() ? t("upg.r.history_by_child") : t("upg.r.history_by_parent");
+      var srcKey = "upg.m.src_" + source;
+      var srcLabel = t(srcKey);
+      if (srcLabel === srcKey) srcLabel = source;
+      var text = t("upg.r.audit_child_added", esc(child.name), fmtAg(amountAg)) +
+        " · " + srcLabel + " · 👤" + byLabel;
+      logActivity(text);
+    } catch (e) { /* audit must never break money flow */ }
+  },
+
+  /* newest-first ledger entries for a child (for the history view) */
+  historyFor: function (childId, limit) {
+    var rows = (S.ledger || []).filter(function (e) { return e.childId === childId; });
+    rows.sort(function (a, b) { return (b.ts || 0) - (a.ts || 0); });
+    return rows.slice(0, limit || 20);
+  }
+};
+window.Roles = Roles;
+
+/* ---------- 3. Migration v2 -> v2+roles (additive, idempotent, one-time) ---------- */
+(function rolesMigrate() {
+  try {
+    var st = (typeof S !== "undefined") ? S : null;
+    if (!st) return;
+    if (st.rolesV === 1) return; /* already migrated: nothing to do */
+
+    /* safety: snapshot before first roles migration, only when real user
+     * data exists (nothing to back up on a clean boot). Pruned to last 3. */
+    try {
+      window.__upgMigrating = true;
+      var hasData = (st.children || []).length || (st.ledger || []).length ||
+        (st.goals || []).length || (st.tasks || []).length || (st.activity || []).length;
+      if (hasData) {
+        var bkKey = "piggyup_backup_roles_" + Date.now();
+        localStorage.setItem(bkKey, JSON.stringify(st));
+        var keys = [];
+        for (var i = 0; i < localStorage.length; i++) {
+          var k = localStorage.key(i);
+          if (k && k.indexOf("piggyup_backup_roles_") === 0) keys.push(k);
+        }
+        keys.sort();
+        while (keys.length > 3) localStorage.removeItem(keys.shift());
+      }
+    } catch (e) {}
+
+    if (!st.family) st.family = { id: uid(), createdAt: Date.now() };
+    /* existing users keep full access: their device defaults to parent */
+    if (!st.device) st.device = { role: "parent", childId: null };
+    if (!Array.isArray(st.devices)) st.devices = [];
+    if (!st.perms) st.perms = { childCanCreateGoals: true };
+    if (st.parentAuth === undefined) st.parentAuth = null;
+    (st.children || []).forEach(function (c) {
+      if (c.age === undefined || c.age === null) {
+        /* derive a numeric default from the onboarding age group when present */
+        c.age = c.ageGroup === "12+" ? 12 : c.ageGroup === "9-11" ? 10 : c.ageGroup === "6-8" ? 7 : null;
+      }
+      if (c.independenceAge === undefined) c.independenceAge = null;
+    });
+
+    st.rolesV = 1;
+    st.rolesMigratedAt = Date.now();
+
+    /* verify: same children count, same ledger length, new fields present */
+    var before = { children: (st.children || []).length, ledger: (st.ledger || []).length };
+    save();
+    var ok = (st.children || []).length === before.children &&
+             (st.ledger || []).length === before.ledger &&
+             !!st.family && !!st.device && !!st.perms;
+    if (!ok) {
+      try { localStorage.setItem("piggyup_roles_migration_error", JSON.stringify({ ts: Date.now(), before: before })); } catch (e2) {}
+    }
+    window.__upgMigrating = false;
+  } catch (e) {
+    try { window.__upgMigrating = false; } catch (e2) {}
+  }
+})();
+
+/* ---------- 4. Device connection (pairing codes) ---------- */
+/* The connection code is NOT the parent control code: two different secrets,
+ * enforced here and tested by test #15. */
+Roles.issueDeviceCode = function (childId) {
+  if (!this.requireParent()) return null;
+  var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+  if (!c) return null;
+  var code = "";
+  var chars = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
+  for (var i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  var rec = {
+    id: uid(), childId: childId, childName: c.name,
+    code: code, issuedAt: Date.now(), expiresAt: Date.now() + 24 * 3600 * 1000,
+    redeemed: false, revoked: false, lastSeen: null
+  };
+  S.devices.push(rec);
+  save();
+  return rec;
+};
+
+Roles.findDeviceCode = function (code) {
+  code = String(code || "").trim().toUpperCase();
+  return (S.devices || []).filter(function (d) { return d.code === code; })[0] || null;
+};
+
+/* Redeem a connection code on THIS device -> becomes a child device.
+ * Returns {ok:true, childId} or {ok:false, err:<i18n key>}. */
+Roles.redeemDeviceCode = function (code) {
+  var rec = this.findDeviceCode(code);
+  if (!rec) return { ok: false, err: "upg.r.connect_bad" };
+  if (rec.revoked || rec.redeemed) return { ok: false, err: "upg.r.connect_used" };
+  if (Date.now() > rec.expiresAt) return { ok: false, err: "upg.r.connect_bad" };
+  rec.redeemed = true;
+  rec.lastSeen = Date.now();
+  S.device = { role: "child", childId: rec.childId };
+  window.__rolesUnlocked = false;
+  if (!S.children.some(function (c) { return c.id === rec.childId; })) {
+    /* code is valid but this device has no family data yet -> import first */
+    return { ok: false, err: "upg.r.import_first" };
+  }
+  S.mode = "kids";
+  S.activeChildId = rec.childId;
+  S.tab = "home";
+  save();
+  return { ok: true, childId: rec.childId };
+};
+
+Roles.revokeDevice = function (id) {
+  if (!this.requireParent()) return false;
+  var rec = (S.devices || []).filter(function (d) { return d.id === id; })[0];
+  if (!rec) return false;
+  rec.revoked = true;
+  save();
+  return true;
+};
+
+/* Unbind THIS device back to a parent device.
+ * The UI must verify the parent code before calling this on a child device. */
+Roles.unbindThisDevice = function () {
+  S.device = { role: "parent", childId: null };
+  window.__rolesUnlocked = false;
+  save();
+  return true;
+};
+
+/* ---------- 5. Family snapshot export / import (manual cross-device sync) ---------- */
+Roles.SNAPSHOT_KIND = "piggyup-family-snapshot";
+Roles.SNAPSHOT_V = 1;
+
+Roles.exportSnapshot = function () {
+  if (!this.requireParent()) return null;
+  return {
+    kind: this.SNAPSHOT_KIND,
+    v: this.SNAPSHOT_V,
+    familyId: S.family ? S.family.id : null,
+    exportedAt: Date.now(),
+    data: JSON.parse(JSON.stringify(S)) /* deep copy of the whole state */
+  };
+};
+
+Roles.exportSnapshotText = function () {
+  var snap = this.exportSnapshot();
+  return snap ? JSON.stringify(snap) : null;
+};
+
+/* Idempotent merge by id. Never deletes local data. Returns {ok, added, updated, skipped}
+ * or {ok:false, err}. */
+Roles.importSnapshot = function (snap) {
+  try {
+    if (!snap || snap.kind !== this.SNAPSHOT_KIND || !snap.data) {
+      return { ok: false, err: "upg.r.import_bad" };
+    }
+    var d = snap.data;
+    var localHasData = (S.children || []).length || (S.ledger || []).length ||
+      (S.goals || []).length || (S.tasks || []).length;
+    if (!localHasData) {
+      /* empty device: adopt the incoming family identity (the migration may
+       * have created a throwaway family id for the empty state) */
+      if (d.family) S.family = d.family;
+    } else if (d.family && S.family && d.family.id !== S.family.id) {
+      return { ok: false, err: "upg.r.import_family_mismatch" };
+    }
+    if (!S.family && d.family) S.family = d.family;
+
+    var added = 0, updated = 0;
+    function mergeArr(key) {
+      var local = S[key] || (S[key] = []);
+      var index = {};
+      local.forEach(function (x, i) { if (x && x.id) index[x.id] = i; });
+      (d[key] || []).forEach(function (x) {
+        if (!x || !x.id) return;
+        if (index[x.id] === undefined) { local.push(x); added++; }
+        else {
+          /* update mutable child fields (age, independenceAge, name, avatar)
+           * but never touch money: balances are rebuilt from the ledger */
+          var cur = local[index[x.id]];
+          if (key === "children") {
+            ["name", "avatar", "age", "independenceAge", "ageGroup"].forEach(function (f) {
+              if (x[f] !== undefined && cur[f] !== x[f]) { cur[f] = x[f]; updated++; }
+            });
+          }
+        }
+      });
+    }
+    ["children", "goals", "tasks", "ledger", "devices", "activity", "processedOps"].forEach(mergeArr);
+
+    /* events union by (e,ts); boxes & rules: newer export wins */
+    var evIndex = {};
+    (S.events || []).forEach(function (e) { evIndex[e.e + "|" + e.ts] = 1; });
+    (d.events || []).forEach(function (e) {
+      if (!evIndex[e.e + "|" + e.ts]) { (S.events = S.events || []).push(e); added++; }
+    });
+    if ((snap.exportedAt || 0) >= (S.rolesLastImportAt || 0)) {
+      ["boxes", "splitRule", "perms"].forEach(function (k) {
+        if (d[k] !== undefined) S[k] = d[k];
+      });
+      S.rolesLastImportAt = snap.exportedAt;
+    }
+    /* subscription stays local (device/account level) — never imported */
+    var bc = this.boundChild();
+    if (this.isChildDevice()) {
+      if (bc) { S.activeChildId = bc.id; S.mode = "kids"; }
+    }
+    save();
+    /* rebuild balances from the merged ledger so they can never drift */
+    try {
+      (S.children || []).forEach(function (c) { if (typeof rebuildBalances === "function") rebuildBalances(c); });
+    } catch (e) {}
+    return { ok: true, added: added, updated: updated };
+  } catch (e) {
+    return { ok: false, err: "upg.r.import_bad" };
+  }
+};
+
+Roles.importSnapshotText = function (text) {
+  var snap = null;
+  try { snap = JSON.parse(String(text || "").trim()); } catch (e) { snap = null; }
+  if (!snap) return { ok: false, err: "upg.r.import_bad" };
+  return this.importSnapshot(snap);
+};
+
+/* ---------- 6. Wiring: mode enforcement + guards ---------- */
+/* renderApp override: effective mode + forced child binding + parent banner */
+renderApp = function () {
+  document.documentElement.setAttribute("data-theme", S.dark ? "dark" : "light");
+  document.documentElement.setAttribute("dir", LANG === "he" ? "rtl" : "ltr");
+  document.documentElement.setAttribute("lang", LANG);
+  var bc = Roles.boundChild();
+  if (Roles.isChildDevice() && bc && S.activeChildId !== bc.id) S.activeChildId = bc.id;
+  var mode = Roles.effectiveMode();
+  var root = document.getElementById("app");
+  var screen = "";
+  if (mode === "parent") {
+    screen =
+      S.tab === "home" ? parentHome() :
+      S.tab === "guide" ? parentGuide() :
+      S.tab === "games" ? parentGames() :
+      S.tab === "tasks" ? parentTasks() :
+      parentManage();
+  } else {
+    screen =
+      S.tab === "tasks" ? kidsTasks() :
+      S.tab === "games" ? kidsGames() :
+      kidsHome();
+  }
+  root.innerHTML = RolesUI.parentBanner() + renderHeader() + screen + renderNav();
+  if (S.tab === "guide" && mode === "parent" && canAccessGuidance()) renderChat();
+  save();
+};
+
+/* renderHeader override: mirrors base markup 1:1; on a locked child device
+ * the mode toggle is replaced by a lock button (parent code to unlock). */
+renderHeader = function () {
+  var child = activeChild();
+  var name = child ? esc(child.name) : t("header.family");
+  var modeHtml;
+  if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+    modeHtml = '<button class="roles-lock-btn" onclick="RolesUI.openParentUnlock()" ' +
+      'aria-label="' + esc(t("upg.r.unlock_title")) + '">🔒 ' + esc(t("mode.parent")) + "</button>";
+  } else {
+    var m = Roles.effectiveMode();
+    modeHtml = '<div class="mode-toggle" role="tablist" aria-label="' + esc(t("mode.aria")) + '">' +
+      '<button class="' + (m === "parent" ? "active" : "") + '" onclick="A.setMode(\'parent\')">' +
+      esc(t("mode.parent")) + "</button>" +
+      '<button class="' + (m === "kids" ? "active" : "") + '" onclick="A.setMode(\'kids\')">' +
+      esc(t("mode.kids")) + "</button></div>";
+  }
+  return '<header class="app-header"><div>' +
+    '<div class="family-label">' + esc(t("header.family")) + "</div>" +
+    '<h1 class="family-name">' + name + "</h1></div>" +
+    '<div class="header-toggles">' +
+    '<div class="lang-toggle" role="tablist" aria-label="' + esc(t("lang.aria")) + '">' +
+    '<button class="' + (LANG === "he" ? "active" : "") + '" onclick="A.setLang(\'he\')">עב</button>' +
+    '<button class="' + (LANG === "ru" ? "active" : "") + '" onclick="A.setLang(\'ru\')">РУ</button></div>' +
+    modeHtml + "</div></header>";
+};
+
+/* renderNav override: tabs follow the effective mode, not the stored one */
+renderNav = function () {
+  var mode = Roles.effectiveMode();
+  var tabs = mode === "parent" ? PARENT_TABS : KIDS_TABS;
+  return '<nav class="bottom-nav">' + tabs.map(function (tb) {
+    return '<button class="nav-btn' + (S.tab === tb.id ? " active" : "") +
+      '" onclick="A.go(\'' + tb.id + '\')"><span class="nav-ico">' + tb.ico +
+      '</span><span class="nav-lbl">' + esc(t(tb.key)) + "</span></button>";
+  }).join("") + "</nav>";
+};
+
+/* ---------- 7. Guards on A.* actions (defense in depth: UI + logic) ---------- */
+(function rolesGuardActions() {
+  if (typeof A === "undefined") return;
+
+  function wrap(name, fn) {
+    var f = A[name];
+    if (typeof f !== "function") return;
+    A[name] = function () {
+      if (!fn.apply(null, arguments)) return;
+      return f.apply(this, arguments);
+    };
+  }
+  function parentOnly() {
+    var names = Array.prototype.slice.call(arguments);
+    names.forEach(function (n) {
+      wrap(n, function () { return Roles.requireParent(); });
+    });
+  }
+
+  /* --- mode / navigation --- */
+  var __setMode = A.setMode;
+  A.setMode = function (mode) {
+    if (Roles.isChildDevice() && !Roles.parentUnlocked() && mode === "parent") {
+      RolesUI.openParentUnlock();
+      return;
+    }
+    return __setMode.call(this, mode);
+  };
+  var __go = A.go;
+  A.go = function (tab) {
+    if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+      var kidsTabs = ["home", "tasks", "games"];
+      if (kidsTabs.indexOf(tab) < 0) { RolesUI.openParentUnlock(); return; }
+    }
+    return __go.call(this, tab);
+  };
+  var __selectChild = A.selectChild;
+  if (typeof __selectChild === "function") {
+    A.selectChild = function (id) {
+      if (!Roles.childScopeOk(id)) return;
+      return __selectChild.call(this, id);
+    };
+  }
+
+  /* --- parent-only: family management, money in, settings, subscription --- */
+  parentOnly(
+    "createChild", "openAddMoney", "doAddMoney",
+    "openSplitModal", "doSaveSplit",
+    "openTaskModal", "doCreateTask", "createTask",
+    "approveTask", "rejectTask", "confirmRejectTask",
+    "approveMission", "skipMission",
+    "openSubscription", "activateWithCode",
+    "resetAll", "openDeleteModal",
+    "careStartTrial", "careRequestSub", "careActivateCode", "careExportData",
+    "toggleMainGoal", "setMainGoal"
+  );
+
+  /* --- child-scoped: the child may act only on their own data --- */
+  function ownChildOfTask(taskId) {
+    var tsk = (S.tasks || []).filter(function (x) { return x.id === taskId; })[0];
+    return tsk ? tsk.childId : null;
+  }
+  function ownChildOfGoal(goalId) {
+    var g = (S.goals || []).filter(function (x) { return x.id === goalId; })[0];
+    return g ? g.childId : null;
+  }
+
+  /* goals: parent always; child only when eligible AND family allows it */
+  ["openGoal", "doCreateGoal"].forEach(function (n) {
+    var f = A[n];
+    if (typeof f !== "function") return;
+    A[n] = function (childId) {
+      if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+        var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+        if (!Roles.childScopeOk(childId)) return;
+        if (!Roles.childCanSelfEnter(c) || !(S.perms && S.perms.childCanCreateGoals)) {
+          toast(t("upg.r.perm_denied")); return;
+        }
+      }
+      return f.apply(this, arguments);
+    };
+  });
+
+  /* deposit to goal: parent always; child only for their own goal when eligible */
+  ["openDeposit", "doDeposit"].forEach(function (n) {
+    var f = A[n];
+    if (typeof f !== "function") return;
+    A[n] = function (goalId) {
+      if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+        var cid = ownChildOfGoal(goalId);
+        var c = (S.children || []).filter(function (x) { return x.id === cid; })[0];
+        if (!Roles.childScopeOk(cid)) return;
+        if (!Roles.childCanSelfEnter(c)) { toast(t("upg.r.perm_denied")); return; }
+      }
+      return f.apply(this, arguments);
+    };
+  });
+
+  /* completeTask / doneMission: child only for their own tasks */
+  ["completeTask", "doneMission"].forEach(function (n) {
+    var f = A[n];
+    if (typeof f !== "function") return;
+    A[n] = function (id) {
+      if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+        if (!Roles.childScopeOk(ownChildOfTask(id))) return;
+      }
+      return f.apply(this, arguments);
+    };
+  });
+})();
+
+/* ---------- 8. Child self-entry: add money (smart split, by:"child") ---------- */
+Roles.openChildAddMoney = function (childId) {
+  RolesUI.openChildAddMoney(childId);
+};
+
+Roles.doChildAddMoney = function (childId) {
+  var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+  if (!c) return;
+  if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+    if (!Roles.childScopeOk(childId)) return;
+    if (!Roles.childCanSelfEnter(c)) { toast(t("upg.r.perm_denied")); return; }
+  }
+  var amountAg = upgParseAg("rcAmount");
+  var boxes = upgActiveBoxes();
+  if (amountAg == null || amountAg <= 0 || !boxes.length) {
+    toast(t(boxes.length ? "upg.m.am_bad" : "upg.m.am_no_boxes"));
+    return;
+  }
+  var srcEl = document.getElementById("rcSource");
+  var source = srcEl ? srcEl.value : "other";
+  var parts = upgSmartSplit(amountAg, boxes).filter(function (p) { return p.ag > 0; });
+  if (!parts.length) { toast(t("upg.m.am_bad")); return; }
+  var btn = document.getElementById("rcConfirm");
+  if (btn) btn.disabled = true;
+  var opId = (document.getElementById("rcOpId") || {}).value || uid();
+  var by = Roles.isChildDevice() ? "child" : "parent";
+  var applied = onceOp("childadd-" + opId, function () {
+    parts.forEach(function (p) {
+      addTx({ childId: childId, boxId: p.id, amountAg: p.ag, type: "income", source: source, note: "", by: by });
+    });
+    rebuildBalances(c);
+    Roles.logChildTx(c, amountAg, source);
+    return true;
+  });
+  save();
+  A.closeModal();
+  renderApp();
+  if (applied) toast(t("upg.r.child_added"));
+};
+
+/* ---------- 9. Parent-only: delete a transaction ---------- */
+/* Removes the ledger entry and rebuilds balances from the ledger, so money
+ * can never drift. For goal deposits it also rolls back goal.saved.
+ * Idempotent: deleting an already-deleted tx is a silent no-op. */
+Roles.deleteTx = function (txId) {
+  if (!this.requireParent()) return false;
+  var idx = (S.ledger || []).findIndex(function (e) { return e.id === txId; });
+  if (idx < 0) return false;
+  var tx = S.ledger[idx];
+  if (tx.type === "transfer" && tx.source === "goal_deposit") {
+    var g = (S.goals || []).filter(function (x) {
+      return x.childId === tx.childId && x.title === tx.note;
+    })[0];
+    if (g) g.saved = Math.max(0, (g.saved || 0) + tx.amountAg); /* amountAg is negative */
+  }
+  S.ledger.splice(idx, 1);
+  var c = (S.children || []).filter(function (x) { return x.id === tx.childId; })[0];
+  if (c && typeof rebuildBalances === "function") rebuildBalances(c);
+  try {
+    var srcKey = "upg.m.src_" + (tx.source || "other");
+    var srcLabel = t(srcKey); if (srcLabel === srcKey) srcLabel = tx.source;
+    logActivity(t("upg.r.audit_tx_deleted", fmtAg(Math.abs(tx.amountAg)), srcLabel));
+  } catch (e) {}
+  save();
+  return true;
+};
+
+</script>
+<script>
+/* ===== chunk js: 51-roles-ui ===== */
+/* ============================================================
+   51 — Parent Mode + Child Mode (UI)
+   Modals, manage-tab section, kids self-entry button.
+   Depends on: 50-roles core (Roles), base app (openModal, toast, t, esc).
+   ============================================================ */
+
+var RolesUI = {
+  /* ----- banner shown on a child device while parent is unlocked ----- */
+  parentBanner: function () {
+    if (Roles.isChildDevice() && Roles.parentUnlocked()) {
+      return '<div class="roles-banner">🔓 ' + esc(t("upg.r.temp_parent")) +
+        ' <button class="btn small" onclick="Roles.lockParent();renderApp();">' +
+        esc(t("upg.r.back_to_child")) + "</button></div>";
+    }
+    return "";
+  },
+
+  /* ----- parent unlock (child device) ----- */
+  openParentUnlock: function () {
+    if (!Roles.hasParentCode()) {
+      openModal("<h3>" + esc(t("upg.r.unlock_title")) + "</h3>" +
+        '<p class="muted">' + esc(t("upg.r.code_not_set_yet")) + "</p>" +
+        '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+      return;
+    }
+    openModal("<h3>" + esc(t("upg.r.unlock_title")) + "</h3>" +
+      '<p class="muted">' + esc(t("upg.r.unlock_hint")) + "</p>" +
+      '<div class="field"><input id="ruCode" type="password" inputmode="numeric" autocomplete="off" ' +
+      'placeholder="••••" style="text-align:center;font-size:24px;letter-spacing:8px"></div>' +
+      '<div id="ruErr" class="upg-err" style="display:none"></div>' +
+      '<button class="btn" onclick="RolesUI.doUnlock()">' + esc(t("upg.r.code_verify")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+    setTimeout(function () { var el = document.getElementById("ruCode"); if (el) el.focus(); }, 50);
+  },
+
+  doUnlock: function () {
+    var code = (document.getElementById("ruCode") || {}).value || "";
+    var r = Roles.verifyParentCode(code);
+    var errEl = document.getElementById("ruErr");
+    function err(key) {
+      if (errEl) { errEl.textContent = t(key); errEl.style.display = ""; }
+      else toast(t(key));
+    }
+    if (r === true) {
+      Roles.unlockParent();
+      A.closeModal();
+      renderApp();
+      toast(t("upg.r.unlock_ok"));
+    } else if (r === "locked") { err("upg.r.code_locked"); }
+    else { err("upg.r.code_wrong"); }
+  },
+
+  /* ----- parent code set / change (parent scope only) ----- */
+  openSetParentCode: function () {
+    if (!Roles.requireParent()) return;
+    var has = Roles.hasParentCode();
+    openModal("<h3>" + esc(t("upg.r.parent_code_title")) + "</h3>" +
+      '<p class="muted">' + esc(t("upg.r.parent_code_hint")) + "</p>" +
+      (has ? '<div class="field"><label>' + esc(t("upg.r.code_current")) + '</label>' +
+        '<input id="rcCur" type="password" inputmode="numeric" autocomplete="off"></div>' : "") +
+      '<div class="field"><label>' + esc(t("upg.r.code_new")) + '</label>' +
+      '<input id="rcNew" type="password" inputmode="numeric" autocomplete="off" placeholder="4-8"></div>' +
+      '<div id="rcErr" class="upg-err" style="display:none"></div>' +
+      '<button class="btn" onclick="RolesUI.doSetParentCode()">' + esc(t("upg.m.common_save")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+  },
+
+  doSetParentCode: function () {
+    var errEl = document.getElementById("rcErr");
+    function err(key) {
+      if (errEl) { errEl.textContent = t(key); errEl.style.display = ""; }
+      else toast(t(key));
+    }
+    if (Roles.hasParentCode()) {
+      var cur = (document.getElementById("rcCur") || {}).value || "";
+      if (Roles.verifyParentCode(cur) !== true) { err("upg.r.code_wrong"); return; }
+    }
+    var res = Roles.setParentCode((document.getElementById("rcNew") || {}).value || "");
+    if (!res.ok) { err(res.err); return; }
+    A.closeModal();
+    renderApp();
+    toast(t("upg.r.code_saved"));
+  },
+
+  /* ----- child age + independence age (parent scope only) ----- */
+  openChildAge: function (childId) {
+    if (!Roles.requireParent()) return;
+    var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+    if (!c) return;
+    openModal("<h3>" + esc(c.name) + "</h3>" +
+      '<div class="field"><label>' + esc(t("upg.r.child_age")) + '</label>' +
+      '<input id="raAge" type="number" min="3" max="18" inputmode="numeric" value="' +
+      (c.age != null ? c.age : "") + '" placeholder="—"></div>' +
+      '<div class="field"><label>' + esc(t("upg.r.independence_age")) + '</label>' +
+      '<input id="raInd" type="number" min="3" max="18" inputmode="numeric" value="' +
+      (c.independenceAge != null ? c.independenceAge : "") +
+      '" placeholder="' + esc(t("upg.r.independence_off")) + '"></div>' +
+      '<p class="muted">' + esc(t("upg.r.independence_hint")) + "</p>" +
+      '<button class="btn" onclick="RolesUI.doSaveChildAge(\'' + childId + "')\">" +
+      esc(t("upg.m.common_save")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+  },
+
+  doSaveChildAge: function (childId) {
+    if (!Roles.requireParent()) return;
+    var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+    if (!c) return;
+    function num(id) {
+      var el = document.getElementById(id);
+      if (!el) return null;
+      var raw = String(el.value == null ? "" : el.value).trim();
+      if (raw === "") return null;
+      var n = Math.round(Number(raw));
+      if (!isFinite(n) || n < 3 || n > 18) return -1;
+      return n;
+    }
+    var age = num("raAge"), ind = num("raInd");
+    if (age === -1 || ind === -1) { toast(t("upg.r.age_bad")); return; }
+    c.age = age;
+    c.independenceAge = ind;
+    save();
+    A.closeModal();
+    renderApp();
+    toast(t("upg.r.saved"));
+  },
+
+  /* ----- device connection ----- */
+  openIssueDevice: function () {
+    if (!Roles.requireParent()) return;
+    var kids = S.children || [];
+    if (!kids.length) { toast(t("kids.no_child")); return; }
+    var opts = kids.map(function (c) {
+      return '<option value="' + c.id + '">' + esc(c.name) + "</option>";
+    }).join("");
+    openModal("<h3>" + esc(t("upg.r.connect_title")) + "</h3>" +
+      '<div class="field"><label>' + esc(t("upg.r.connect_child")) + "</label>" +
+      '<select id="riChild">' + opts + "</select></div>" +
+      '<button class="btn" onclick="RolesUI.doIssueDevice()">' + esc(t("upg.r.connect_issue")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>" +
+      '<div id="riOut"></div>');
+  },
+
+  doIssueDevice: function () {
+    var childId = (document.getElementById("riChild") || {}).value;
+    var rec = Roles.issueDeviceCode(childId);
+    if (!rec) return;
+    var out = document.getElementById("riOut");
+    var dt = new Date(rec.expiresAt).toLocaleString(appLocale());
+    if (out) {
+      out.innerHTML = '<div class="roles-code-box"><div class="muted">' +
+        esc(t("upg.r.connect_code")) + '</div><div class="roles-code">' + esc(rec.code) +
+        '</div><div class="muted small">' + esc(t("upg.r.connect_valid_until", dt)) + "</div>" +
+        '<p class="muted">' + esc(t("upg.r.connect_code_hint")) + "</p></div>";
+    }
+  },
+
+  openRedeemDevice: function () {
+    openModal("<h3>" + esc(t("upg.r.connect_redeem_title")) + "</h3>" +
+      '<p class="muted">' + esc(t("upg.r.import_hint")) + "</p>" +
+      '<div class="field"><textarea id="rrImport" rows="4" placeholder="{...}"></textarea></div>' +
+      '<button class="btn secondary" onclick="RolesUI.doImportRedeem()">' + esc(t("upg.r.import_do")) + "</button>" +
+      '<hr><p class="muted">' + esc(t("upg.r.connect_redeem_hint")) + "</p>" +
+      '<div class="field"><input id="rrCode" placeholder="ABC123" ' +
+      'style="text-align:center;font-size:22px;letter-spacing:4px;text-transform:uppercase"></div>' +
+      '<div id="rrErr" class="upg-err" style="display:none"></div>' +
+      '<button class="btn" onclick="RolesUI.doRedeem()">' + esc(t("upg.r.connect_redeem_go")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+  },
+
+  doImportRedeem: function () {
+    var txt = (document.getElementById("rrImport") || {}).value || "";
+    var r = Roles.importSnapshotText(txt);
+    if (!r.ok) { toast(t(r.err)); return; }
+    toast(t("upg.r.import_ok", r.added));
+  },
+
+  doRedeem: function () {
+    var errEl = document.getElementById("rrErr");
+    var code = (document.getElementById("rrCode") || {}).value || "";
+    var r = Roles.redeemDeviceCode(code);
+    if (!r.ok) {
+      if (errEl) { errEl.textContent = t(r.err); errEl.style.display = ""; }
+      else toast(t(r.err));
+      return;
+    }
+    A.closeModal();
+    renderApp();
+    var c = (S.children || []).filter(function (x) { return x.id === r.childId; })[0];
+    toast(t("upg.r.connect_ok", c ? c.name : ""));
+  },
+
+  /* ----- this device: unbind back to parent (code-gated on child device) ----- */
+  openUnbind: function () {
+    if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+      this.openParentUnlock();
+      toast(t("upg.r.unbind_need_code"));
+      return;
+    }
+    if (confirm(t("upg.r.unbind_confirm"))) {
+      Roles.unbindThisDevice();
+      renderApp();
+    }
+  },
+
+  /* ----- export / import ----- */
+  openExport: function () {
+    if (!Roles.requireParent()) return;
+    var txt = Roles.exportSnapshotText() || "";
+    openModal("<h3>" + esc(t("upg.r.export_title")) + "</h3>" +
+      '<p class="muted">' + esc(t("upg.r.export_hint")) + "</p>" +
+      '<div class="field"><textarea id="reText" rows="8" readonly>' + esc(txt) + "</textarea></div>" +
+      '<button class="btn" onclick="RolesUI.doCopyExport()">' + esc(t("upg.r.export_copy")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+  },
+
+  doCopyExport: function () {
+    var el = document.getElementById("reText");
+    function done() { toast(t("upg.r.export_copied")); }
+    if (el && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(el.value).then(done, function () { el.select(); done(); });
+    } else if (el) { el.select(); try { document.execCommand("copy"); } catch (e) {} done(); }
+  },
+
+  openImport: function () {
+    if (!Roles.requireParent()) return;
+    openModal("<h3>" + esc(t("upg.r.import_title")) + "</h3>" +
+      '<p class="muted">' + esc(t("upg.r.import_hint")) + "</p>" +
+      '<div class="field"><textarea id="riText" rows="8" placeholder="{...}"></textarea></div>' +
+      '<div id="riErr" class="upg-err" style="display:none"></div>' +
+      '<button class="btn" onclick="RolesUI.doImport()">' + esc(t("upg.r.import_do")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+  },
+
+  doImport: function () {
+    var txt = (document.getElementById("riText") || {}).value || "";
+    var r = Roles.importSnapshotText(txt);
+    var errEl = document.getElementById("riErr");
+    if (!r.ok) {
+      if (errEl) { errEl.textContent = t(r.err); errEl.style.display = ""; }
+      else toast(t(r.err));
+      return;
+    }
+    A.closeModal();
+    renderApp();
+    toast(t("upg.r.import_ok", r.added));
+  },
+
+  /* ----- child self-entry modal ----- */
+  openChildAddMoney: function (childId) {
+    var c = (S.children || []).filter(function (x) { return x.id === childId; })[0];
+    if (!c) return;
+    if (Roles.isChildDevice() && !Roles.parentUnlocked()) {
+      if (!Roles.childScopeOk(childId)) return;
+      if (!Roles.childCanSelfEnter(c)) {
+        toast(t("upg.r.child_not_eligible", c.independenceAge));
+        return;
+      }
+    }
+    var opId = uid();
+    var srcOpts = UpgMoney.SOURCES.map(function (s) {
+      return '<option value="' + s + '">' + esc(t("upg.m.src_" + s)) + "</option>";
+    }).join("");
+    openModal("<h3>" + esc(t("upg.r.child_add_title")) + "</h3>" +
+      '<input type="hidden" id="rcOpId" value="' + opId + '">' +
+      '<div class="field"><label>' + esc(t("upg.r.child_add_amount")) + '</label>' +
+      '<input id="rcAmount" type="number" min="0" step="0.5" inputmode="decimal" placeholder="0"></div>' +
+      '<div class="field"><label>' + esc(t("upg.r.child_add_source")) + "</label>" +
+      '<select id="rcSource">' + srcOpts + "</select></div>" +
+      '<button class="btn" id="rcConfirm" onclick="Roles.doChildAddMoney(\'' + childId + "')\">" +
+      esc(t("upg.r.child_add_go")) + "</button> " +
+      '<button class="btn secondary" onclick="A.closeModal()">' + esc(t("upg.m.common_cancel")) + "</button>");
+    setTimeout(function () { var el = document.getElementById("rcAmount"); if (el) el.focus(); }, 50);
+  },
+
+  /* ----- history view (parent): who / what / when / amount / source ----- */
+  historyHtml: function (childId) {
+    var rows = Roles.historyFor(childId, 20);
+    if (!rows.length) return '<div class="empty">' + esc(t("upg.r.history_empty")) + "</div>";
+    return rows.map(function (e) {
+      var byIcon = e.by === "child" ? "🧒" : "👩";
+      var srcKey = "upg.m.src_" + (e.source || "other");
+      var srcLabel = t(srcKey); if (srcLabel === srcKey) srcLabel = e.source;
+      var dt = new Date(e.ts || Date.now()).toLocaleString(appLocale());
+      var amt = (e.amountAg < 0 ? "−" : "+") + fmtAg(Math.abs(e.amountAg));
+      return '<div class="row-item"><div class="icon-badge">' + byIcon + '</div>' +
+        '<div class="grow"><div style="font-weight:700">' + esc(amt) + '</div>' +
+        '<div class="sub">' + esc(srcLabel) + " · " + esc(dt) + "</div></div>" +
+        '<button class="btn small secondary" onclick="RolesUI.doDeleteTx(\'' + e.id + "')\" " +
+        'aria-label="🗑">🗑</button></div>';
+    }).join("");
+  },
+
+  /* ----- manage-tab section (appended to parentManage) ----- */
+  rolesSectionHtml: function () {
+    var h = '<div class="card roles-card"><div class="section-title">🔐 ' +
+      esc(t("upg.r.roles_title")) + "</div>";
+
+    /* this device */
+    var devBadge = Roles.isChildDevice()
+      ? "🧒 " + esc(t("upg.r.device_child")) + (Roles.boundChild() ? " · " + esc(Roles.boundChild().name) : "")
+      : "👩 " + esc(t("upg.r.device_parent"));
+    h += '<div class="roles-row"><div><b>' + esc(t("upg.r.this_device")) + ":</b> " + devBadge + "</div><div class=\"roles-btns\">";
+    if (Roles.isChildDevice()) {
+      h += '<button class="btn small secondary" onclick="RolesUI.openUnbind()">' +
+        esc(t("upg.r.set_as_parent_device")) + "</button>";
+    } else {
+      h += '<button class="btn small secondary" onclick="RolesUI.openRedeemDevice()">' +
+        esc(t("upg.r.set_as_child_device")) + "</button>";
+    }
+    h += "</div></div>";
+
+    /* parent code */
+    h += '<div class="roles-row"><div><b>' + esc(t("upg.r.parent_code_title")) + ":</b> " +
+      (Roles.hasParentCode()
+        ? '<span class="upg-badge">✅ ' + esc(t("upg.r.parent_code_is_set")) + "</span>"
+        : '<span class="muted">' + esc(t("upg.r.parent_code_not_set")) + "</span>") +
+      '<div class="muted small">' + esc(t("upg.r.parent_code_hint")) + "</div></div>" +
+      '<div class="roles-btns"><button class="btn small" onclick="RolesUI.openSetParentCode()">' +
+      esc(Roles.hasParentCode() ? t("upg.r.parent_code_change") : t("upg.r.parent_code_set")) +
+      "</button></div></div>";
+
+    /* per-child: age + independence age + connect */
+    (S.children || []).forEach(function (c) {
+      var elig = Roles.childCanSelfEnter(c);
+      h += '<div class="roles-row"><div><b>' + esc(c.name) + "</b> " +
+        '<span class="muted small">' + esc(t("upg.r.child_age")) + ": " +
+        (c.age != null ? c.age : "—") + " · " + esc(t("upg.r.independence_age")) + ": " +
+        (c.independenceAge != null ? c.independenceAge : esc(t("upg.r.independence_off"))) +
+        (elig ? ' · <span class="upg-badge">✅</span>' : "") + "</span></div>" +
+        '<div class="roles-btns"><button class="btn small secondary" onclick="RolesUI.openChildAge(\'' + c.id + "')\">" +
+        esc(t("upg.r.child_age_edit")) + "</button> " +
+        '<button class="btn small secondary" onclick="RolesUI.openIssueDevice()">' +
+        esc(t("upg.r.connect_issue")) + "</button></div></div>";
+    });
+
+    /* connected devices */
+    var devs = (S.devices || []).filter(function (d) { return !d.revoked; });
+    h += '<div class="roles-row"><div><b>' + esc(t("upg.r.devices_title")) + "</b> (" + devs.length + ")</div></div>";
+    if (!devs.length) {
+      h += '<div class="muted small">' + esc(t("upg.r.no_devices")) + "</div>";
+    } else {
+      h += devs.map(function (d) {
+        var st = d.redeemed ? "✅" : "⏳";
+        var dt = new Date(d.issuedAt).toLocaleDateString(appLocale());
+        return '<div class="roles-row"><div>' + st + " <b>" + esc(d.childName || "") + "</b> " +
+          '<span class="muted small">' + esc(dt) + ' · <span dir="ltr">' + esc(d.code) + "</span></span></div>" +
+          '<div class="roles-btns"><button class="btn small secondary" onclick="RolesUI.doRevokeDevice(\'' + d.id + "')\">" +
+          esc(t("upg.r.device_revoke")) + "</button></div></div>";
+      }).join("");
+    }
+
+    /* export / import */
+    h += '<div class="roles-row"><div><b>' + esc(t("upg.r.sync_title")) + "</b>" +
+      '<div class="muted small">' + esc(t("upg.r.sync_hint")) + "</div></div>" +
+      '<div class="roles-btns"><button class="btn small" onclick="RolesUI.openExport()">' +
+      esc(t("upg.r.export_title")) + "</button> " +
+      '<button class="btn small secondary" onclick="RolesUI.openImport()">' +
+      esc(t("upg.r.import_title")) + "</button></div></div>";
+
+    /* honesty note */
+    h += '<div class="roles-note">ℹ️ ' + esc(t("upg.r.security_note")) + "</div>";
+
+    /* history for active child */
+    var ac = activeChild();
+    if (ac) {
+      h += '<div class="section-title" style="margin-top:12px">🧾 ' +
+        esc(t("upg.r.history_title")) + " · " + esc(ac.name) + "</div>" +
+        this.historyHtml(ac.id);
+    }
+    h += "</div>";
+    return h;
+  },
+
+  doRevokeDevice: function (id) {
+    if (Roles.revokeDevice(id)) { renderApp(); toast(t("upg.r.device_revoked")); }
+  },
+
+  doDeleteTx: function (txId) {
+    if (!Roles.requireParent()) return;
+    if (!confirm(t("upg.r.tx_delete_confirm"))) return;
+    if (Roles.deleteTx(txId)) { renderApp(); toast(t("upg.r.tx_deleted")); }
+  }
+};
+window.RolesUI = RolesUI;
+
+/* ----- wire into the app ----- */
+(function rolesWireUI() {
+  /* manage tab: append the roles section (parent screens only reach manage in parent mode) */
+  var __pm = parentManage;
+  parentManage = function () {
+    return __pm() + RolesUI.rolesSectionHtml();
+  };
+
+  /* kids home: self-entry button for eligible children */
+  var __kh = kidsHome;
+  kidsHome = function () {
+    var h = __kh();
+    try {
+      var child = activeChild();
+      if (child && Roles.childCanSelfEnter(child)) {
+        var btn = '<div class="card roles-selfentry"><button class="btn" onclick="RolesUI.openChildAddMoney(\'' +
+          child.id + "')\">💰 " + esc(t("upg.r.child_add_money")) + "</button></div>";
+        h = h.replace('<div class="card dark">', btn + '<div class="card dark">');
+      }
+    } catch (e) {}
+    return h;
+  };
+})();
+
+</script>
+<script>
 /* ===== upgrade wiring patch ===== */
 (function(){
   try {
@@ -5966,16 +7105,9 @@ window.addEventListener("DOMContentLoaded", function () {
 // PiggyUp ping beacon — anonymous usage analytics (event type + timestamp only, no PII)
 (function(){
   var PING_URL = "https://script.google.com/macros/s/AKfycbwYR5sDa-c0kfUpZiGmVPTPHMLf_vn1QmGELKxNXhzB0SZQ2iAe9lYX1lKZGCEFMx3r/exec";
-  // Attribution: capture ?src= (e.g. instagram_profile) once per session; additive only, no PII
-  var SRC = (function(){ try {
-    var q = new URLSearchParams(location.search).get("src");
-    if (q) { try { sessionStorage.setItem("pu_src", q); } catch(e){} return q; }
-    try { return sessionStorage.getItem("pu_src"); } catch(e){ return null; }
-  } catch(e){ return null; } })();
   function ping(event){
     try {
       var body = "event=" + encodeURIComponent(event);
-      if (SRC) { body += "&src=" + encodeURIComponent(SRC); }
       if (navigator.sendBeacon) {
         navigator.sendBeacon(PING_URL, new Blob([body], {type: "application/x-www-form-urlencoded"}));
       } else {
