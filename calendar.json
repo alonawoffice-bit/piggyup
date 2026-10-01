@@ -478,18 +478,32 @@
           "from": "approved",
           "to": "approved",
           "note": "הופק וידאו day-05.mp4 (30.0 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית, כתוביות libass שרופות, סגנון UGC) מהתסריט המאושר — נבדק ויזואלית, מוכן לפרסום 18:30"
+        },
+        {
+          "at": "2026-10-01T10:07:50+00:00",
+          "actor": "alona",
+          "from": "approved",
+          "to": "approved",
+          "note": "אלונה אישרה את הוידאו הסופי (day-05.mp4) — לפרסום 18:30"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-01T18:34:22+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם ב־@piggy.up; media_fbid=18025959227696756; https://www.instagram.com/reel/Dd9PafCiXi8/"
         }
       ],
       "hook": "אליאן צרחה בסופר שהיא רוצה צעצוע. הנה מה שעשיתי",
       "id": "p-20261001-01",
       "needs_approval": false,
       "pillar": "educational",
-      "status": "approved",
+      "status": "published",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 5 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-10-01T13:00:00+03:00",
+      "updated_at": "2026-10-01T18:34:22+03:00",
       "hooks_considered": [
         "הילד צורח בסופר שהוא רוצה צעצוע — מה את עושה?",
         "3 משפטים שיעצרו את הדרמה בסופר",
@@ -510,7 +524,10 @@
         "video": "~/workspace/your_files/piggyup-video/daily/day-05.mp4",
         "cover": "~/workspace/your_files/piggyup-video/daily/day-05-cover.jpg",
         "srt": "~/workspace/your_files/piggyup-video/daily/day-05.he.srt"
-      }
+      },
+      "published_at": "2026-10-01T18:34:22+03:00",
+      "media_id": "18025959227696756",
+      "published_url": "https://www.instagram.com/reel/Dd9PafCiXi8/"
     },
     {
       "account": "piggy.up",
