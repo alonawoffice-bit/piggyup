@@ -5843,8 +5843,8 @@ var UpgOnb = {
     if (this.i > 0) h += '<button class="btn small secondary" onclick="UpgOnb.back()">' + t("upg.o.back") + "</button>";
     else h += "<span></span>";
     if (opts.skip) h += '<button class="btn small secondary" onclick="UpgOnb.next()">' + t("upg.o.skip") + "</button>";
-    else if (opts.custom) h += opts.custom;
-    else h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
+    if (opts.custom) h += opts.custom;
+    else if (!opts.skip || opts.keepNext) h += '<button class="btn small" id="' + (opts.nextId || "onbNext") + '" onclick="UpgOnb.nextFrom(\'' + step + '\')">' + t("upg.o.next") + "</button>";
     return h + "</div>";
   },
 
@@ -5905,7 +5905,7 @@ var UpgOnb = {
           '" value="' + esc(d.goalTitle) + '">' +
           '<input id="onbGoalTarget" class="upg-onb-input" inputmode="decimal" placeholder="' + esc(t("upg.o.goal_target_ph")) +
           '" value="' + esc(d.goalTarget) + '">' +
-          this.nav("goal", { skip: true });
+          this.nav("goal", { skip: true, keepNext: true });
 
       case "about":
         return "<h2>" + t("upg.o.about_title") + "</h2>" +
@@ -7202,9 +7202,16 @@ window.RolesUI = RolesUI;
 // PiggyUp ping beacon — anonymous usage analytics (event type + timestamp only, no PII)
 (function(){
   var PING_URL = "https://script.google.com/macros/s/AKfycbwYR5sDa-c0kfUpZiGmVPTPHMLf_vn1QmGELKxNXhzB0SZQ2iAe9lYX1lKZGCEFMx3r/exec";
+  // Attribution: capture ?src= (e.g. instagram_profile) once per session; additive only, no PII
+  var SRC = (function(){ try {
+    var q = new URLSearchParams(location.search).get("src");
+    if (q) { try { sessionStorage.setItem("pu_src", q); } catch(e){} return q; }
+    try { return sessionStorage.getItem("pu_src"); } catch(e){ return null; }
+  } catch(e){ return null; } })();
   function ping(event){
     try {
       var body = "event=" + encodeURIComponent(event);
+      if (SRC) { body += "&src=" + encodeURIComponent(SRC); }
       if (navigator.sendBeacon) {
         navigator.sendBeacon(PING_URL, new Blob([body], {type: "application/x-www-form-urlencoded"}));
       } else {
