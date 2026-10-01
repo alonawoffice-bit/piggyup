@@ -6565,8 +6565,8 @@ renderNav = function () {
   var tabs = mode === "parent" ? PARENT_TABS : KIDS_TABS;
   return '<nav class="bottom-nav">' + tabs.map(function (tb) {
     return '<button class="nav-btn' + (S.tab === tb.id ? " active" : "") +
-      '" onclick="A.go(\'' + tb.id + '\')"><span class="nav-ico">' + tb.ico +
-      '</span><span class="nav-lbl">' + esc(t(tb.key)) + "</span></button>";
+      '" onclick="A.go(\'' + tb.id + '\')"><span class="nav-ico">' + tb.icon +
+      '</span><span class="nav-lbl">' + esc(tabLabel(tb.id)) + "</span></button>";
   }).join("") + "</nav>";
 };
 
