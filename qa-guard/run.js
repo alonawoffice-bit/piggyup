@@ -1,5 +1,16 @@
-/* PiggyUp Guarded-v1 — automated jsdom tests (read-only; no commits, no pushes).
- * Run: node qa-guard/run.js   (from ~/workspace/piggyup-guard)
+/* PiggyUp data-safety — automated jsdom tests (read-only; no commits, no pushes).
+ * Run: node qa-guard/run.js   (from ~/workspace/pgq-repo)
+ *
+ * History: this suite started as "Guarded-v1" tests for the legacy v1 build.
+ * After the parent-child merge (2026-10-01) the GUARDED-v1 block was removed
+ * from index.html because this file IS the v2 build — the guard treated valid
+ * v2 data as legacy and silently blocked all writes (data loss). All tests
+ * asserting the guard engages were removed as obsolete. What remains are the
+ * data-safety properties that are still real for this build:
+ *   - v1 data is migrated to v2 on boot, never wiped
+ *   - save() persists mutations (write path intact)
+ *   - fresh boot initializes storage
+ *   - corrupt stored JSON boots without crashing
  */
 const fs = require("fs");
 const path = require("path");
@@ -9,17 +20,12 @@ const HTML = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
 const DATA_KEY = "piggyup_v1";
 
 const V1_STATE = {
-  v: 1, mode: "parent", tab: "home", children: [], activeChildId: null,
+  v: 1, mode: "parent", tab: "home",
+  children: [{ id: "c1", name: "Test" }], activeChildId: "c1",
   goals: [], tasks: [], activity: [],
   sub: { trialStart: null, plan: "none", subs: 0 }, dark: false,
 };
-const V2_STATE = {
-  v: 2, mode: "parent", tab: "home", children: [{ id: "c1", name: "Test" }],
-  goals: [], tasks: [], activity: [],
-  sub: { trialStart: 1720000000000, plan: "monthly", subs: 3 }, dark: false,
-};
 const V1_JSON = JSON.stringify(V1_STATE);
-const V2_JSON = JSON.stringify(V2_STATE);
 
 async function boot(seeds) {
   const dom = new JSDOM(HTML, {
@@ -28,7 +34,6 @@ async function boot(seeds) {
     beforeParse(window) {
       for (const [k, v] of Object.entries(seeds || {})) window.localStorage.setItem(k, v);
       window.fetch = () => Promise.resolve({ ok: true }); // neutralize ping beacon
-      window.confirm = () => true; // A.resetAll asks for confirmation
     },
   });
   await new Promise((resolve) => {
@@ -58,22 +63,27 @@ async function test(name, fn) {
 }
 function assert(cond, msg) { if (!cond) throw new Error(msg || "assertion failed"); }
 function rawOf(dom) { return dom.window.localStorage.getItem(DATA_KEY); }
-function guarded(dom) { return !!dom.window.__PIGGYUP_GUARDED_V1__; }
 function appHTML(dom) { return dom.window.document.getElementById("app").innerHTML; }
 
 (async () => {
-  // (1) v1 data boots unguarded
-  await test("v1 data {v:1} boots unguarded", async () => {
+  // (1) v1 data is migrated to v2 on boot — never wiped, never blocked.
+  // Regression pin for the 2026-10-01 incident: valid data must survive boot.
+  await test("v1 data migrates to v2 on boot, data preserved", async () => {
     const dom = await boot({ [DATA_KEY]: V1_JSON });
-    assert(!guarded(dom), "flag set for v1 data");
-    assert(!appHTML(dom).includes("גרסה חדשה של PiggyUp זמינה"), "update screen shown for v1");
+    const raw = rawOf(dom);
+    assert(raw !== null, "data key missing after boot with v1 data");
+    const st = JSON.parse(raw);
+    assert(st.v === 2, "v1 data was not migrated to v2, got v=" + st.v);
+    assert(st.children && st.children[0] && st.children[0].id === "c1",
+      "child data lost during migration");
+    assert(!dom.window.__PIGGYUP_GUARDED_V1__, "guard flag set on valid data");
+    assert(!appHTML(dom).includes("נדרש עדכון"), "update screen shown for valid data");
     return dom;
   });
 
-  // (2) v1 data: save() persists a mutation (write path intact)
-  await test("v1 data: save() persists mutation", async () => {
+  // (2) save() persists a mutation (write path intact)
+  await test("save() persists mutation", async () => {
     const dom = await boot({ [DATA_KEY]: V1_JSON });
-    assert(!guarded(dom), "unexpected guard");
     const before = rawOf(dom);
     dom.window.eval("S.dark = true; save();");
     const after = rawOf(dom);
@@ -82,111 +92,18 @@ function appHTML(dom) { return dom.window.document.getElementById("app").innerHT
     return dom;
   });
 
-  // (3) no stored data boots unguarded
-  await test("no stored data boots unguarded", async () => {
+  // (3) fresh boot initializes storage
+  await test("fresh boot initializes storage", async () => {
     const dom = await boot({});
-    assert(!guarded(dom), "flag set with no data");
     assert(rawOf(dom) !== null, "app did not initialize storage on boot");
     return dom;
   });
 
-  // (4) corrupt JSON boots unguarded (v1 behavior preserved)
-  await test("corrupt JSON boots unguarded", async () => {
+  // (4) corrupt stored JSON boots without crashing
+  await test("corrupt JSON boots without crashing", async () => {
     const dom = await boot({ [DATA_KEY]: "{this is not valid json!!!" });
-    assert(!guarded(dom), "flag set for corrupt data");
-    assert(!appHTML(dom).includes("גרסה חדשה של PiggyUp זמינה"), "update screen shown for corrupt data");
-    return dom;
-  });
-
-  // (5) explicit {v:1} unguarded
-  await test("explicit {v:1} boots unguarded", async () => {
-    const dom = await boot({ [DATA_KEY]: JSON.stringify({ v: 1 }) });
-    assert(!guarded(dom), "flag set for explicit v:1");
-    return dom;
-  });
-
-  // (6) v2 data: guarded, Hebrew update message, dir=rtl
-  await test("v2 data: guarded, Hebrew message, dir=rtl", async () => {
-    const dom = await boot({ [DATA_KEY]: V2_JSON });
-    assert(guarded(dom), "guard flag not set for v2 data");
-    assert(appHTML(dom).includes("גרסה חדשה של PiggyUp זמינה. יש לעדכן כדי להמשיך."),
-      "Hebrew update message missing from #app");
-    assert(dom.window.document.dir === "rtl", "document.dir is not rtl, got: " + dom.window.document.dir);
-    return dom;
-  });
-
-  // (7) v2 data + lang=ru: Russian message, dir=ltr
-  await test("v2 data + lang=ru: Russian message, dir=ltr", async () => {
-    const dom = await boot({ [DATA_KEY]: V2_JSON, piggyup_lang: "ru" });
-    assert(guarded(dom), "guard flag not set for v2 data (ru)");
-    assert(appHTML(dom).includes("Доступна новая версия PiggyUp. Обновите приложение, чтобы продолжить."),
-      "Russian update message missing from #app");
-    assert(dom.window.document.dir === "ltr", "document.dir is not ltr, got: " + dom.window.document.dir);
-    return dom;
-  });
-
-  // (8) v2: S mutation + save() leaves raw storage byte-identical
-  await test("v2 data: save() blocked, storage byte-identical", async () => {
-    const dom = await boot({ [DATA_KEY]: V2_JSON });
-    assert(guarded(dom), "guard flag not set");
-    const before = rawOf(dom);
-    assert(before === V2_JSON, "boot altered the stored v2 bytes");
-    dom.window.eval('S.dark = true; S.mode = "kids"; save();');
-    const after = rawOf(dom);
-    assert(after === before, "storage changed after save() in guarded mode");
-    return dom;
-  });
-
-  // (9) v2: A.resetAll() does not delete the key
-  await test("v2 data: A.resetAll() does not delete key", async () => {
-    const dom = await boot({ [DATA_KEY]: V2_JSON });
-    assert(guarded(dom), "guard flag not set");
-    const before = rawOf(dom);
-    dom.window.A.resetAll();
-    const after = rawOf(dom);
-    assert(after === before, "resetAll changed the stored v2 data");
-    assert(after !== null, "data key was deleted by resetAll");
-    return dom;
-  });
-
-  // (10) v2: piggyup_lang key remains writable
-  await test("v2 data: piggyup_lang key remains writable", async () => {
-    const dom = await boot({ [DATA_KEY]: V2_JSON });
-    assert(guarded(dom), "guard flag not set");
-    dom.window.localStorage.setItem("piggyup_lang", "ru");
-    assert(dom.window.localStorage.getItem("piggyup_lang") === "ru", "piggyup_lang not writable in guarded mode");
-    return dom;
-  });
-
-  // (11) piggyup_data_version="2" with v1-shaped state: guarded (fail-closed)
-  await test('piggyup_data_version="2" with v1 state: guarded', async () => {
-    const dom = await boot({ [DATA_KEY]: V1_JSON, piggyup_data_version: "2" });
-    assert(guarded(dom), "guard flag not set for secondary v2 signal");
-    assert(appHTML(dom).includes("גרסה חדשה של PiggyUp זמינה"), "update message missing for secondary signal");
-    return dom;
-  });
-
-  // (12) late upgrade: boot v1, set v2 + storage event -> guard engages, save blocked
-  await test("late upgrade via storage event engages guard", async () => {
-    const dom = await boot({ [DATA_KEY]: V1_JSON });
-    assert(!guarded(dom), "guarded at boot with v1 data");
-    dom.window.localStorage.setItem(DATA_KEY, V2_JSON);
-    dom.window.dispatchEvent(new dom.window.StorageEvent("storage", { key: DATA_KEY }));
-    assert(guarded(dom), "guard did not engage on storage event");
-    assert(appHTML(dom).includes("גרסה חדשה של PiggyUp זמינה"), "update message missing after late engage");
-    dom.window.eval("S.dark = true; save();");
-    assert(rawOf(dom) === V2_JSON, "save() wrote v2 data after late guard engage");
-    return dom;
-  });
-
-  // (13) focus recheck: boot v1, set v2, dispatch focus -> guard engages
-  await test("focus recheck engages guard after data upgrade", async () => {
-    const dom = await boot({ [DATA_KEY]: V1_JSON });
-    assert(!guarded(dom), "guarded at boot with v1 data");
-    dom.window.localStorage.setItem(DATA_KEY, V2_JSON);
-    dom.window.dispatchEvent(new dom.window.Event("focus"));
-    assert(guarded(dom), "guard did not engage on focus recheck");
-    assert(appHTML(dom).includes("גרסה חדשה של PiggyUp זמינה"), "update message missing after focus engage");
+    assert(!appHTML(dom).includes("נדרש עדכון"), "update screen shown for corrupt data");
+    assert(rawOf(dom) !== null, "storage not initialized after corrupt-data boot");
     return dom;
   });
 
