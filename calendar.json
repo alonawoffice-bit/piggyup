@@ -464,18 +464,25 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:31+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
         }
       ],
       "hook": "אליאן צרחה בסופר שהיא רוצה צעצוע. הנה מה שעשיתי",
       "id": "p-20261001-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 5 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T09:34:31+03:00",
       "hooks_considered": [
         "הילד צורח בסופר שהוא רוצה צעצוע — מה את עושה?",
         "3 משפטים שיעצרו את הדרמה בסופר",
@@ -496,7 +503,7 @@
     {
       "account": "piggy.up",
       "created_at": "2026-09-29T22:00:00+03:00",
-      "date": "2026-10-02",
+      "date": "2026-10-01",
       "format": "story",
       "goal": "STOP",
       "history": [
@@ -527,32 +534,64 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:31+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-01T12:24:16+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "תיקון לבקשת אלונה: הוסר 'בגן' מפריים 1 (ילדים לא מביאים צעצועים לגן); עודכן גם הכיתוב"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-01T12:46:31+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם ב-@piggy.up לבקשת אלונה בצ'אט (יום מוקדם מהמתוכנן); 2 פריימים אומתו כחיים"
         }
       ],
       "hook": "אליאן שברה צעצוע של חברה, מה הייתן עושות?",
       "id": "p-20261002-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "parenting",
-      "status": "waiting_approval",
+      "status": "published",
       "story_brief": "״מה היית עושה?״, הילד שבר צעצוע של חבר. מי משלם? (סטיקר שאלה) → מטרה: תגובות/פרטי",
-      "time": "12:00",
+      "time": "12:46",
       "time_basis": "hypothesis",
-      "time_reason": "השערה — צהריים לסטורי",
+      "time_reason": "פורסם בפועל 1.10 בשעה 12:46 לבקשת אלונה (הוקדם מהתוכנית המקורית 2.10 12:00)",
       "title": "סטורי S2: מה היית עושה?",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T12:46:31+03:00",
       "hooks_considered": [
         "מה היית עושה? 🤔",
         "הילד שבר צעצוע של חבר — מי משלם?",
         "דילמה אמיתית מהגן"
       ],
       "story_frames": [
-        "פריים 1: ״דילמה אמיתית מהבית: אליאן שברה בטעות צעצוע של חברה בגן. הוא עלה 80 שקל. אני מתלבטת — לשלם מהכיס שלי? לבקש ממנה להשתתף? מה הייתן עושות?״ + סטיקר שאלה",
+        "דילמה אמיתית מהבית: אליאן שברה בטעות צעצוע של חברה. הוא עלה 80 שקל. אני מתלבטת, לשלם מהכיס שלי? לבקש ממנה להשתתף? מה הייתן עושות? (סטיקר שאלה)",
         "פריים 2: ״אין תשובה אחת נכונה בעיניי. אבל יש הבדל בין אשמה לאחריות — להשתתף בתיקון, אפילו בסכום סמלי מהחיסכון שלה, זה שיעור. מה דעתכן?״"
       ],
-      "caption": "דילמה מהגן: אליאן שברה צעצוע של חברה. מי משלם? ענו בסטורי 👆",
+      "caption": "דילמה אמיתית: אליאן שברה צעצוע של חברה. מי משלם? ענו בסטורי 👆",
       "cta": "כתבו לי בסטיקר מה הייתן עושות 👇",
       "hashtags": [],
-      "visual_idea": "טקסט על רקע רגוע, סטיקר שאלה פתוח, פריים שני עם נקודת המבט שלי"
+      "visual_idea": "טקסט על רקע רגוע, סטיקר שאלה פתוח, פריים שני עם נקודת המבט שלי",
+      "published_at": "2026-10-01T12:46:31+03:00",
+      "media": {
+        "frame1": "goals/piggyup/files/piggyup-video/story-s2/frame-1.png",
+        "frame2": "goals/piggyup/files/piggyup-video/story-s2/frame-2.png",
+        "media_fbids": [
+          "18112417498853836",
+          "18105006956121182"
+        ],
+        "permalink": "https://instagram.com/stories/piggy.up/3998243165680985975"
+      },
+      "instagram_media_fbid": "18112417498853836,18105006956121182"
     },
     {
       "account": "piggy.up",
@@ -588,18 +627,25 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:34+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
         }
       ],
       "hook": "שיחקנו חנות בסופ״ש, ואליאן למדה תקציב בלי לשים לב",
       "id": "p-20261002-02",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 6 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T09:34:34+03:00",
       "hooks_considered": [
         "משחק אחד לסופ\"ש שילמד את הילד יותר מכל שיחה על כסף",
         "5 דקות הכנה, שעתיים של שקט 😌",
@@ -668,18 +714,25 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:43+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
         }
       ],
       "hook": "הקופה של אליאן התמלאה, ואני עשיתי את הטעות הגדולה",
       "id": "p-20261003-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "parenting",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 7 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T09:34:43+03:00",
       "hooks_considered": [
         "למה אמא לשתי בנות קטנות בונה אפליקציית כסף",
         "הרגע שהבנתי שהבת שלי לא מבינה מה זה כסף",
@@ -730,18 +783,25 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:35:11+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
         }
       ],
       "hook": "כמה דמי כיס נתתי לאליאן, ואיך הגעתי לסכום",
       "id": "p-20261004-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 8 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T09:35:11+03:00",
       "hooks_considered": [
         "כמה דמי כיס באמת צריך לתת? יש נוסחה פשוטה",
         "הטעות הכי נפוצה בסכום דמי הכיס",
@@ -792,19 +852,26 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:35:20+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
         }
       ],
       "hook": "יש לכן שאלה על דמי כיס? עכשיו הזמן",
       "id": "p-20261005-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "community",
-      "status": "waiting_approval",
+      "status": "approved",
       "story_brief": "תיבת שאלות: ״שאלי אותי על דמי כיס״ → חומר לסדרה ״הורה שואל, PiggyUp עונה״",
       "time": "12:00",
       "time_basis": "hypothesis",
       "time_reason": "השערה — צהריים לסטורי",
       "title": "סטורי S3: תיבת שאלות",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T09:35:20+03:00",
       "hooks_considered": [
         "קיבלתי השבוע 3 שאלות בפרטי על דמי כיס — עכשיו תורכם 👇",
         "שאלי אותי כל שאלה על כסף וילדים",
@@ -857,18 +924,25 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:35:33+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
         }
       ],
       "hook": "אליאן חוסכת לבד ללגו, בלי שאזכיר לה",
       "id": "p-20261005-02",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 9 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-09-30T19:48:16+03:00",
+      "updated_at": "2026-10-01T09:35:33+03:00",
       "hooks_considered": [
         "ככה הילד שלי חוסך לבד לצעצוע — בלי שאזכיר לו",
         "הפיצ׳ר שהכי שינה אצלנו את השיח על כסף",
