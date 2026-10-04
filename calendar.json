@@ -1,1569 +1,1576 @@
 {
- "account": "piggy.up",
- "account_id": "17841425949329594",
- "items": [
-  {
-   "account": "piggy.up",
-   "assets": {
-    "preview": "contact sheet בוואטסאפ (29.09)"
-   },
-   "caption": "הצצה ראשונה ל-PiggyUp 🐷",
-   "created_at": "2026-09-26T10:00:00+03:00",
-   "cta": "עקבו לעוד",
-   "date": "2026-09-26",
-   "format": "carousel",
-   "goal": "FOLLOW",
-   "hashtags": [],
-   "history": [
+  "account": "piggy.up",
+  "account_id": "17841425949329594",
+  "items": [
     {
-     "actor": "alona",
-     "at": "2026-09-26T10:00:00+03:00",
-     "from": null,
-     "note": "פורסם ידנית",
-     "to": "published"
+      "account": "piggy.up",
+      "assets": {
+        "preview": "contact sheet בוואטסאפ (29.09)"
+      },
+      "caption": "הצצה ראשונה ל-PiggyUp 🐷",
+      "created_at": "2026-09-26T10:00:00+03:00",
+      "cta": "עקבו לעוד",
+      "date": "2026-09-26",
+      "format": "carousel",
+      "goal": "FOLLOW",
+      "hashtags": [],
+      "history": [
+        {
+          "actor": "alona",
+          "at": "2026-09-26T10:00:00+03:00",
+          "from": null,
+          "note": "פורסם ידנית",
+          "to": "published"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "hook": "הצצה ראשונה",
+      "id": "p-20260926-01",
+      "needs_approval": false,
+      "pillar": "product",
+      "status": "published",
+      "time": "12:00",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה ראשונית — אין עדיין נתוני Insights",
+      "title": "הצצה ראשונה — 3 צילומי מסך",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "url": "https://www.instagram.com/p/DdwY_r6jm4z/",
+      "metrics": {
+        "likes": 1,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
     },
     {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+      "account": "piggy.up",
+      "created_at": "2026-09-26T11:00:00+03:00",
+      "date": "2026-09-26",
+      "format": "reel",
+      "goal": "FOLLOW",
+      "history": [
+        {
+          "actor": "alona",
+          "at": "2026-09-26T11:00:00+03:00",
+          "from": null,
+          "note": "repost מחשבון אישי",
+          "to": "published"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "id": "p-20260926-02",
+      "needs_approval": false,
+      "pillar": "product",
+      "status": "published",
+      "time": "13:00",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה ראשונית",
+      "title": "רילס הסבר (repost)",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "url": "https://www.instagram.com/reel/DdwZM-yjh9b/",
+      "metrics": {
+        "likes": 3,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-26T12:00:00+03:00",
+      "date": "2026-09-26",
+      "format": "reel",
+      "goal": "FOLLOW",
+      "history": [
+        {
+          "actor": "alona",
+          "at": "2026-09-26T12:00:00+03:00",
+          "from": null,
+          "note": "repost מחשבון אישי",
+          "to": "published"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "id": "p-20260926-03",
+      "needs_approval": false,
+      "pillar": "product",
+      "status": "published",
+      "time": "14:00",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה ראשונית",
+      "title": "פרסומת (repost)",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "url": "https://www.instagram.com/reel/DdwZTOODmHd/",
+      "metrics": {
+        "likes": 3,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-26T18:00:00+03:00",
+      "date": "2026-09-26",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-26T18:00:00+03:00",
+          "from": "waiting_approval",
+          "note": "אלונה אישרה (פרסמי)",
+          "to": "approved"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-09-26T18:30:00+03:00",
+          "from": "approved",
+          "note": "פורסם ב־@piggy.up",
+          "to": "published"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "id": "p-20260926-04",
+      "needs_approval": false,
+      "pillar": "relatable",
+      "status": "published",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "יום 1 — סיפור אישי",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "url": "https://www.instagram.com/reel/DdwcK81jhJt/",
+      "metrics": {
+        "likes": 14,
+        "comments": 5,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T17:00:00+03:00",
+      "date": "2026-09-29",
+      "format": "reel",
+      "goal": "SAVE",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T17:00:00+03:00",
+          "from": "waiting_approval",
+          "note": "אלונה אישרה (פרסמי)",
+          "to": "approved"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-09-29T17:30:00+03:00",
+          "from": "approved",
+          "note": "פורסם ב־@piggy.up",
+          "to": "published"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "id": "p-20260929-01",
+      "needs_approval": false,
+      "pillar": "educational",
+      "status": "published",
+      "time": "17:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — אחר הצהריים",
+      "title": "יום 3 — שיטת 3 הקופסאות",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "url": "https://www.instagram.com/reel/Dd3IiXLD5Yl/",
+      "metrics": {
+        "likes": 1,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T19:00:00+03:00",
+      "date": "2026-09-29",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T19:00:00+03:00",
+          "from": "waiting_approval",
+          "note": "אלונה אישרה (פרסמי)",
+          "to": "approved"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-09-29T19:30:00+03:00",
+          "from": "approved",
+          "note": "פורסם ב־@piggy.up",
+          "to": "published"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "id": "p-20260929-02",
+      "needs_approval": false,
+      "pillar": "product",
+      "status": "published",
+      "time": "19:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב",
+      "title": "פרסומת ריאליסטית",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "url": "https://www.instagram.com/reel/Dd3Yzj0D4gD/",
+      "metrics": {
+        "likes": 5,
+        "comments": 1,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "assets": {
+        "cover": "~/workspace/your_files/piggyup-video/daily/day-02-cover.jpg",
+        "video": "~/workspace/your_files/piggyup-video/daily/day-02.mp4"
+      },
+      "caption": "\"אין כסף\" זה משפט שסוגר שיחה. 3 המשפטים האלה פותחים אותה:\n1. זה לא בתקציב שלנו החודש\n2. בואי נשים את זה ברשימת המשאלות ונחסוך לזה ביחד\n3. את יכולה לבחור — זה, או משהו אחר שאת רוצה\nשמרי לאחר כך 💛 ועקבי לעוד טיפים\n#חינוךפיננסי #דמיכיס #הורות",
+      "created_at": "2026-09-28T18:46:00+03:00",
+      "cta": "עקבו לעוד טיפים",
+      "date": "2026-09-30",
+      "format": "reel",
+      "goal": "SAVE",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-28T18:46:00+03:00",
+          "from": "draft",
+          "note": "הופק ע״י קרון הווידאו היומי",
+          "to": "waiting_approval"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:28:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:42:00+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "נשמר כיתוב חדש שאלונה אישרה (במקום 'נשלח בוואטסאפ'). פרסום מתוזמן ל-18:30."
+        },
+        {
+          "actor": "muse",
+          "from": "approved",
+          "to": "published",
+          "note": "Published to @piggy.up; instagram_media_fbid=18107077697578474. Client CLI timed out but server-side post verified via posts list.",
+          "at": "2026-09-30T18:43:05+03:00"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "hook": "3 משפטים במקום ״אין כסף״",
+      "id": "p-20260930-01",
+      "needs_approval": true,
+      "pillar": "educational",
+      "status": "published",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני שעות ב־Insights)",
+      "title": "יום 2 — 3 משפטים במקום ״אין כסף״",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "hashtags": [
+        "#חינוךפיננסי",
+        "#דמיכיס",
+        "#הורות"
+      ],
+      "published_at": "2026-09-30T18:43:05+03:00",
+      "instagram_media_fbid": "18107077697578474",
+      "metrics": {
+        "likes": 0,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "assets": {
+        "cover": "~/workspace/your_files/piggyup-video/daily/day-04-cover.jpg",
+        "video": "~/workspace/your_files/piggyup-video/daily/day-04.mp4"
+      },
+      "caption": "\"ילדים קטנים לא מבינים כסף\" — טעות.\nהם אולי לא מבינים בנקים, אבל הם מבינים מצוין בחירות: מה לשמור ומה לבזבז.\nכשנותנים להם בחירה אמיתית — כל שקל מתחלק לשלוש קופסאות — הם רואים בדיוק לאן הולך כל שקל.\nשתפי עם הורה שחושב ככה 💛\n#חינוךפיננסי #דמיכיס #הורות",
+      "created_at": "2026-09-28T18:46:00+03:00",
+      "cta": "שתפו עם הורה שחושב ככה",
+      "date": "2026-09-30",
+      "format": "reel",
+      "goal": "SHARE",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-28T18:46:00+03:00",
+          "from": "draft",
+          "note": "הופק ע״י קרון הווידאו היומי",
+          "to": "waiting_approval"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:28:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:42:00+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "נשמר כיתוב חדש שאלונה אישרה (במקום 'נשלח בוואטסאפ'). פרסום מתוזמן ל-18:30."
+        },
+        {
+          "actor": "muse",
+          "from": "approved",
+          "to": "published",
+          "note": "Published to @piggy.up; instagram_media_fbid=18098366411383220. Client CLI hung again but server-side post verified via posts list.",
+          "at": "2026-09-30T18:47:19+03:00"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "hook": "״ילדים קטנים לא מבינים כסף״ — טעות",
+      "id": "p-20260930-02",
+      "needs_approval": true,
+      "pillar": "educational",
+      "status": "published",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "יום 4 — מיתוס ״ילדים קטנים לא מבינים כסף״",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "hashtags": [
+        "#חינוךפיננסי",
+        "#דמיכיס",
+        "#הורות"
+      ],
+      "published_at": "2026-09-30T18:47:19+03:00",
+      "instagram_media_fbid": "18098366411383220",
+      "metrics": {
+        "likes": 0,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "assets": {
+        "contact_sheet": "~/workspace/your_files/piggyup-video/carousel/demo-01/contact.png",
+        "slides_dir": "~/workspace/your_files/piggyup-video/carousel/demo-01/"
+      },
+      "caption": "דמי הכיס נגמרים תוך יומיים? 💸 הנה הטעות שרובנו עושים — ואיך מתקנים אותה. שמרי ושתפי עם הורה שצריך את זה 💚",
+      "created_at": "2026-09-29T20:00:00+03:00",
+      "cta": "שמירה + שיתוף + תגובת ״ניהול פיננסי״",
+      "date": "2026-09-30",
+      "format": "carousel",
+      "goal": "SAVE",
+      "hashtags": [],
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T20:00:00+03:00",
+          "from": "draft",
+          "note": "דמו סגנון — הוצג לאלונה",
+          "to": "waiting_approval"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:23:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן p-20260930-03'"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:32:00+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם לאינסטגרם @piggy.up לבקשת אלונה ('פרסמי'). media_fbid=18105381797212765"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "published",
+          "to": "published",
+          "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
+        }
+      ],
+      "hook": "דמי הכיס נגמרים תוך יומיים?",
+      "id": "p-20260930-03",
+      "needs_approval": true,
+      "pillar": "educational",
+      "slides": [
+        "1 · דמי הכיס נגמרים תוך יומיים? / הטעות שרובנו עושים — ואיך מתקנים 💸",
+        "2 · הבעיה: נותנים סכום בלי חוקים / הילד לא לומד לתכנן — רק לבזבז",
+        "3 · הטעות: ״יהיה בסדר״ / בלי גבול ברור הכסף פשוט נעלם",
+        "4 · הפתרון: 3 קופסאות / חיסכון · בזבוז · נתינה — כל שקל עם תפקיד",
+        "5 · בפיגיאפ זה הופך למשחק / הילד רואה את הקופסאות גדלות 🐷",
+        "6 · שמרי ושתפי / עם הורה שדמי הכיס אצלו נגמרים תוך יומיים 💚"
+      ],
+      "status": "published",
+      "time": "10:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — בוקר, לפני חלון הערב של הרילס",
+      "title": "קרוסלה: דמי הכיס נגמרים תוך יומיים",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "published_at": "2026-09-30T07:32:00+03:00",
+      "instagram_media_fbid": "18105381797212765",
+      "metrics": {
+        "likes": 3,
+        "comments": 0,
+        "observed_at": "2026-10-04T10:05:00+03:00",
+        "source": "instagram-cli posts (likes/comments only)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-09-30",
+      "format": "story",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:28:00+03:00",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:32:00+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם לאינסטגרם @piggy.up לבקשת אלונה ('פרסמי'). media_fbid=18092932472649204,18114357053042553"
+        }
+      ],
+      "hook": "מיתוס או אמת? 🤔",
+      "id": "p-20260930-04",
+      "needs_approval": true,
+      "pillar": "community",
+      "status": "published",
+      "story_brief": "סקר: ״מיתוס או אמת — אם ניתן לילד דמי כיס הוא יבזבז הכל מיד״ (סטיקר סקר מיתוס/אמת)",
+      "time": "12:00",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — צהריים לסטורי",
+      "title": "סטורי S1: סקר מיתוס/אמת על דמי כיס",
+      "updated_at": "2026-09-30T07:32:00+03:00",
+      "hooks_considered": [
+        "מיתוס או אמת? 🤔",
+        "אם ניתן לילד דמי כיס הוא יבזבז הכל מיד — נכון או לא?",
+        "המשפט ששמעתי הכי הרבה על דמי כיס"
+      ],
+      "story_frames": [
+        "פריים 1: רקע חם בצבעי המותג, טקסט גדול \"מיתוס או אמת? 🤔\" + טקסט: \"אם ניתן לילד דמי כיס — הוא יבזבז את הכל מיד\" + סטיקר סקר עם שתי אופציות: \"מיתוס\" / \"אמת\"",
+        "פריים 2 (חשיפת תשובה): \"אז מה התשובה? מיתוס! ✅ כשדמי הכיס קבועים ויש כללים פשוטים — ילדים לומדים לתכנן, לא לבזבז. הבעיה היא לא דמי הכיס, אלא דמי כיס בלי מסגרת 💛\" + סטיקר שאלה: \"ומה קורה אצלכם — הילד חוסך או מבזבז?\""
+      ],
+      "caption": "מיתוס או אמת? 🤔 \"אם ניתן לילד דמי כיס — הוא יבזבז את הכל מיד\". הצביעו בסטורי וגלו את התשובה 👆",
+      "cta": "הצביעו בסקר וכתבו לי מה קורה אצלכם 👇",
+      "hashtags": [],
+      "visual_idea": "רקע חם בצבעי המותג, טקסט גדול וברור, סטיקר סקר מיתוס/אמת, ופריים שני עם חשיפת התשובה",
+      "published_at": "2026-09-30T07:32:00+03:00",
+      "instagram_media_fbid": "18092932472649204,18114357053042553"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-01",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "נוסף CTA טבעי לקישור בביו — רשימת משאלות היא פיצ׳ר מרכזי באפליקציה. לא אושר/תוזמן."
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:31+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-01T13:00:00+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "הופק וידאו day-05.mp4 (30.0 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית, כתוביות libass שרופות, סגנון UGC) מהתסריט המאושר — נבדק ויזואלית, מוכן לפרסום 18:30"
+        },
+        {
+          "at": "2026-10-01T10:07:50+00:00",
+          "actor": "alona",
+          "from": "approved",
+          "to": "approved",
+          "note": "אלונה אישרה את הוידאו הסופי (day-05.mp4) — לפרסום 18:30"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-01T18:34:22+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם ב־@piggy.up; media_fbid=18025959227696756; https://www.instagram.com/reel/Dd9PafCiXi8/"
+        }
+      ],
+      "hook": "אליאן צרחה בסופר שהיא רוצה צעצוע. הנה מה שעשיתי",
+      "id": "p-20261001-01",
+      "needs_approval": false,
+      "pillar": "educational",
+      "status": "published",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "רילס יום 5 (מתוך תוכנית 30 הימים)",
+      "updated_at": "2026-10-01T18:34:22+03:00",
+      "hooks_considered": [
+        "הילד צורח בסופר שהוא רוצה צעצוע — מה את עושה?",
+        "3 משפטים שיעצרו את הדרמה בסופר",
+        "הטעות שכולנו עושות בסופר עם הילדים"
+      ],
+      "script": "שבוע שעבר בסופר. אליאן רואה בובה, העיניים נדלקות, ואז, הצרחות. כולם מסתכלים. פעם הייתי או קונה כדי לסיים את זה, או אומרת לה ״אין כסף״ ומרגישה רע עם עצמי כל הדרך הביתה. הפעם עשיתי משהו אחר. אמרתי לה: ״איזו בובה יפה. בואי נצלם אותה לרשימת המשאלות שלך.״ ואז: ״כמה היא עולה? בואי נראה כמה כבר חסכת.״ ופתאום הדרמה הפכה לתכנון. היא עדיין רוצה את הבובה, אבל עכשיו היא מבינה מה צריך לקרות כדי לקבל אותה. ואני יצאתי מהסופר בלי לקנות ובלי רגשות אשם.",
+      "caption": "מכירות את הרגע הזה? 😅 אליאן ראתה בובה בסופר והתחילה לצרוח. פעם הייתי נכנעת או אומרת ״אין כסף״, ושתי האופציות הרגישו לי גרוע.\nהפעם ניסיתי משהו אחר: צילמנו את הבובה לרשימת המשאלות, בדקנו כמה היא עולה וכמה אליאן כבר חסכה. הדרמה הפכה לתכנון.\nהיא עדיין רוצה את הבובה. אבל עכשיו היא מבינה שכסף זה לא קסם, זה תכנון.\nאצלנו רשימת המשאלות יושבת באפליקציה, הקישור בביו 👆",
+      "cta": "מה הטריק שלכן ברגעי הסופר? ספרו בתגובות 👇",
+      "hashtags": [
+        "#חינוךפיננסי",
+        "#דמיכיס",
+        "#הורות",
+        "#אמהות",
+        "#ילדים"
+      ],
+      "visual_idea": "אמא מדברת למצלמה בבית, קטעי B-roll קצרים מסופר (עגלה, מדף צעצועים), כתוביות על המסך עם 3 המשפטים",
+      "assets": {
+        "video": "~/workspace/your_files/piggyup-video/daily/day-05.mp4",
+        "cover": "~/workspace/your_files/piggyup-video/daily/day-05-cover.jpg",
+        "srt": "~/workspace/your_files/piggyup-video/daily/day-05.he.srt"
+      },
+      "published_at": "2026-10-01T18:34:22+03:00",
+      "media_id": "18025959227696756",
+      "published_url": "https://www.instagram.com/reel/Dd9PafCiXi8/"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-01",
+      "format": "story",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:31+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-01T12:24:16+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "תיקון לבקשת אלונה: הוסר 'בגן' מפריים 1 (ילדים לא מביאים צעצועים לגן); עודכן גם הכיתוב"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-01T12:46:31+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם ב-@piggy.up לבקשת אלונה בצ'אט (יום מוקדם מהמתוכנן); 2 פריימים אומתו כחיים"
+        }
+      ],
+      "hook": "אליאן שברה צעצוע של חברה, מה הייתן עושות?",
+      "id": "p-20261002-01",
+      "needs_approval": false,
+      "pillar": "parenting",
+      "status": "published",
+      "story_brief": "״מה היית עושה?״, הילד שבר צעצוע של חבר. מי משלם? (סטיקר שאלה) → מטרה: תגובות/פרטי",
+      "time": "12:46",
+      "time_basis": "hypothesis",
+      "time_reason": "פורסם בפועל 1.10 בשעה 12:46 לבקשת אלונה (הוקדם מהתוכנית המקורית 2.10 12:00)",
+      "title": "סטורי S2: מה היית עושה?",
+      "updated_at": "2026-10-01T12:46:31+03:00",
+      "hooks_considered": [
+        "מה היית עושה? 🤔",
+        "הילד שבר צעצוע של חבר — מי משלם?",
+        "דילמה אמיתית מהגן"
+      ],
+      "story_frames": [
+        "דילמה אמיתית מהבית: אליאן שברה בטעות צעצוע של חברה. הוא עלה 80 שקל. אני מתלבטת, לשלם מהכיס שלי? לבקש ממנה להשתתף? מה הייתן עושות? (סטיקר שאלה)",
+        "פריים 2: ״אין תשובה אחת נכונה בעיניי. אבל יש הבדל בין אשמה לאחריות — להשתתף בתיקון, אפילו בסכום סמלי מהחיסכון שלה, זה שיעור. מה דעתכן?״"
+      ],
+      "caption": "דילמה אמיתית: אליאן שברה צעצוע של חברה. מי משלם? ענו בסטורי 👆",
+      "cta": "כתבו לי בסטיקר מה הייתן עושות 👇",
+      "hashtags": [],
+      "visual_idea": "טקסט על רקע רגוע, סטיקר שאלה פתוח, פריים שני עם נקודת המבט שלי",
+      "published_at": "2026-10-01T12:46:31+03:00",
+      "media": {
+        "frame1": "goals/piggyup/files/piggyup-video/story-s2/frame-1.png",
+        "frame2": "goals/piggyup/files/piggyup-video/story-s2/frame-2.png",
+        "media_fbids": [
+          "18112417498853836",
+          "18105006956121182"
+        ],
+        "permalink": "https://instagram.com/stories/piggy.up/3998243165680985975"
+      },
+      "instagram_media_fbid": "18112417498853836,18105006956121182"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-02",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:34+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        },
+        {
+          "at": "2026-10-01T21:32:59+03:00",
+          "actor": "muse",
+          "from": "approved",
+          "to": "waiting_approval",
+          "note": "MVP מיני-סטורי: תסריט קוצר ל-5 משפטים, ויזואלים AI עם דמות עקבית, motion graphics לתקציב, קריינות חדשה בקצב טבעי. ממתין לאישור אלונה, אין לפרסם"
+        },
+        {
+          "at": "2026-10-04T07:22:21.564496+00:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "needs_changes",
+          "note": "לא מרוצה מהסרטון; לא רוצה מלל באנגלית"
+        },
+        {
+          "actor": "alona",
+          "at": "2026-10-04T11:52:56.437020+00:00",
+          "from": "needs_changes",
+          "to": "approved",
+          "note": "אלונה אישרה את הגרסה המחודשת (day-06-v2): \"יש לך 20 ₪. מה תקנה?\" — MVP מאושר. לא להרחיב/לשכפל אוטומטית; לשמור על העיקרון (מעשי, אינטראקטיבי) עם גיוון סיטואציות."
+        }
+      ],
+      "hook": "שיחקנו חנות בסופ״ש, ואליאן למדה תקציב בלי לשים לב",
+      "id": "p-20261002-02",
+      "needs_approval": false,
+      "pillar": "educational",
+      "status": "approved",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "רילס יום 6 (מתוך תוכנית 30 הימים)",
+      "updated_at": "2026-10-01T21:32:59+03:00",
+      "hooks_considered": [
+        "משחק אחד לסופ\"ש שילמד את הילד יותר מכל שיחה על כסף",
+        "5 דקות הכנה, שעתיים של שקט 😌",
+        "הילדים שלי ביקשו לשחק בזה שוב ושוב"
+      ],
+      "script": "אליאן אוהבת לשחק בחנות. הפכתי את זה לשיעור כסף בלי שהיא תשים לב. חמישה מוצרים מהמזווה, מדבקות מחיר, 20 שקל בכסף משחק. תקני ארוחת ערב. היא בחרה, חישבה, וגילתה שלא הכל נכנס בתקציב. ראיתי אותה מול המדף מחליטה על מה לוותר. זה היה הרגע. חישבנו את העודף ביחד. היא חשבה שזה משחק, ואני קיבלתי שיעור תקציב.",
+      "caption": "המשחק שהכי עבד אצלנו בסופ״ש 🏪\nאליאן משחקת בחנות, אז נתתי לה תקציב אמיתי: 20 שקל בכסף משחק, חמישה מוצרים עם מחירים, ומשימה אחת, לקנות ארוחת ערב.\nהרגע שהיא גילתה שלא הכל נכנס בתקציב? שם קרה הלימוד.\nהיא בחרה, ויתרה, חישבה עודף. ואני לא אמרתי מילה על ״תקציב״.\nלפעמים השיעור הכי טוב הוא זה שהם לא יודעים שהוא שיעור 💛",
+      "cta": "ניסיתן? ספרו איך הלך 👇",
+      "hashtags": [
+        "#פעילותלילדים",
+        "#משחקים",
+        "#חינוךפיננסי",
+        "#סופשעםילדים"
+      ],
+      "visual_idea": "צילומי הכנה מהירים (מדבקות מחיר, מוצרים), הילד \"קונה\" ומשלם, טקסט על המסך עם השלבים",
+      "assets": {
+        "video": "your_files/piggyup-video/daily/day-06.mp4",
+        "cover": "your_files/piggyup-video/daily/day-06-cover.jpg",
+        "srt": "your_files/piggyup-video/daily/day-06.he.srt",
+        "duration_sec": 30.7,
+        "style": "mini-story MVP (AI visuals + motion graphics)"
+      }
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-03",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "נוסף CTA לקישור בביו — הפוסט מספר על הקמת PiggyUp. לא אושר/תוזמן."
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:44:35+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona personal story rewrite 30.09 — 3 boxes, lost track of money"
+        },
+        {
+          "at": "2026-09-30T19:47:13+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona corrected story: savings box filled, she didn't spend, I bought with my money, realized my mistake, learned the hard way"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:34:43+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        }
+      ],
+      "hook": "הקופה של אליאן התמלאה, ואני עשיתי את הטעות הגדולה",
+      "id": "p-20261003-01",
+      "needs_approval": false,
+      "pillar": "parenting",
+      "status": "approved",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "רילס יום 7 (מתוך תוכנית 30 הימים)",
+      "updated_at": "2026-10-01T09:34:43+03:00",
+      "hooks_considered": [
+        "למה אמא לשתי בנות קטנות בונה אפליקציית כסף",
+        "הרגע שהבנתי שהבת שלי לא מבינה מה זה כסף",
+        "אף אחד לא לימד אותי — אז אני מלמדת אותה"
+      ],
+      "script": "שואלים אותי למה התחלתי לבנות אפליקציה לחינוך פיננסי. אז האמת? זה התחיל משאלה אחת של אליאן. היא הייתה בת חמש, עמדנו ליד הכספומט, והיא שואלת: ״אמא, למה לא פשוט לקחת כסף מהמכונה?״ ופתאום הבנתי משהו לא נעים, אף אחד לא ילמד אותה את זה. לא בגן, לא בבית ספר. רק אני. התחלתי עם שלוש קופסאות במטבח, חיסכון, הוצאות, נתינה. וראיתי איך היא מתחילה להבין. אז בניתי את זה כאפליקציה, כי אם זה עבד אצלנו במטבח, אולי זה יעבוד גם אצלכן.",
+      "caption": "הסיפור האמיתי מאחורי PiggyUp\nבהתחלה הבאתי לאליאן קופת חיסכון. היא התמלאה לאט־לאט, והיא לא בזבזה ממנה כלום.\nבכל זאת, כל פעם שהיא רצתה משהו, אני קניתי. בכסף שלי.\nואז זה נפל לי: אני עושה טעות.\nאותי לא לימדו להתנהל עם כסף מגיל קטן, אני למדתי את זה בדרך הקשה.\nאז למה שהיא תעבור את אותו הדבר? למה לא לתת לה את הכלים כבר מעכשיו?\nנתנו לי טיפ לחלק ל־3 קופות, חיסכון, מטרה והוצאות. ניסיתי. אבל לא הצלחתי לעקוב: כמה יש בכל קופה? כמה נשאר?\nככה נולד PiggyUp, מה שאנחנו עושות בבית, ארוז לאפליקציה.\nהקישור בביו 👆",
+      "cta": "עקבו — כל יום משהו קטן שעובד אצלנו באמת 💛",
+      "hashtags": [
+        "#אמהות",
+        "#הורות",
+        "#חינוךפיננסי",
+        "#מאחוריהקלעים"
+      ],
+      "visual_idea": "צילומי בית חמים, תמונות מההתחלה (3 הקופסאות), הצצה לאפליקציה, טון אישי וקרוב"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-04",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:35:11+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "הפקת הווידאו מושהית: חריג MVP (01.10) — אין להחיל מיני־סטורי על רילסים נוספים עד שאלונה תאשר את p-20261002-02. התוכן מאושר, הווידאו יופק אחרי אישור הסגנון"
+        }
+      ],
+      "hook": "כמה דמי כיס נתתי לאליאן, ואיך הגעתי לסכום",
+      "id": "p-20261004-01",
+      "needs_approval": false,
+      "pillar": "educational",
+      "status": "approved",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "רילס יום 8 (מתוך תוכנית 30 הימים)",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "hooks_considered": [
+        "כמה דמי כיס באמת צריך לתת? יש נוסחה פשוטה",
+        "הטעות הכי נפוצה בסכום דמי הכיס",
+        "גיל כפול 5 — שמעתם על הכלל הזה?"
+      ],
+      "script": "שואלות אותי כל הזמן כמה דמי כיס לתת. אז יש נוסחה שאני מכירה, גיל כפול חמש שקל לחודש. אליאן בת חמש וקצת, אז אצלנו זה יוצא בערך 28 שקל. אבל אני אגיד לכן משהו, הסכום הוא החלק הכי פחות חשוב. מה שלמדתי בדרך הקשה: סכום קבוע ביום קבוע, כי כסף זה הרגל. להחליט מראש מה זה מכסה, אצלנו ממתקים כן, צעצועים גדולים לא. והכי קשה, לא להשלים באמצע החודש. נשברתי פעם אחת, והיא למדה מיד שאפשר לבקש עוד. אז עכשיו אני מחזיקה חזק.",
+      "caption": "כמה דמי כיס לתת? השאלה שכולן שואלות.\nיש נוסחה: גיל × 5 שקל לחודש. אצלנו עם אליאן (בת חמש וקצת) זה יוצא כ־28 שקל.\nאבל מה שלמדתי בדרך הקשה, הסכום פחות חשוב מהמסגרת: סכום קבוע ביום קבוע, להחליט מראש מה זה מכסה, ולא להשלים באמצע החודש.\nנשברתי פעם אחת והשלמתי, היא למדה מיד שאפשר לבקש עוד 😅\nשמרו 📌, כשתתלבטו, תחזרו לכאן",
+      "cta": "שמרו את הפוסט 📌 — כשתתלבטו על הסכום, תחזרו אליו",
+      "hashtags": [
+        "#דמיכיס",
+        "#חינוךפיננסי",
+        "#טיפיםלהורים",
+        "#הורות"
+      ],
+      "visual_idea": "טקסט על המסך עם הנוסחה (גיל × 5 ₪), 3 הכללים ככרטיסיות, אמא מדברת למצלמה"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-05",
+      "format": "story",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:35:20+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        }
+      ],
+      "hook": "יש לכן שאלה על דמי כיס? עכשיו הזמן",
+      "id": "p-20261005-01",
+      "needs_approval": false,
+      "pillar": "community",
+      "status": "approved",
+      "story_brief": "תיבת שאלות: ״שאלי אותי על דמי כיס״ → חומר לסדרה ״הורה שואל, PiggyUp עונה״",
+      "time": "12:00",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — צהריים לסטורי",
+      "title": "סטורי S3: תיבת שאלות",
+      "updated_at": "2026-10-01T09:35:20+03:00",
+      "hooks_considered": [
+        "קיבלתי השבוע 3 שאלות בפרטי על דמי כיס — עכשיו תורכם 👇",
+        "שאלי אותי כל שאלה על כסף וילדים",
+        "יש לכם שאלה על דמי כיס?"
+      ],
+      "story_frames": [
+        "פריים 1: ״בנות, קיבלתי השבוע כמה שאלות בפרטי על דמי כיס — על סכומים, על גילאים, על מה עושים כשהכסף נגמר באמצע החודש. פותחת תיבת שאלות — שאלו אותי הכל, באמת הכל״ + תיבת שאלות",
+        "פריים 2: ״אענה השבוע בסטורי. אין שאלות טיפשיות — אני שואלת את עצמי את אותן שאלות כל חודש״"
+      ],
+      "caption": "תיבת שאלות פתוחה, כל מה שרציתן לשאול על כסף וילדים 👆",
+      "cta": "כתבו את השאלה שלכן בתיבה 👇",
+      "hashtags": [],
+      "visual_idea": "סלפי חם וקרוב, תיבת שאלות גדולה, טון מזמין"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-05",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "הוחלף CTA ממנגנון תגובות (\"ניהול פיננסי\" → DM) לקישור בביו, לפי אסטרטגיית המשפך החדשה. CTA קודם: רוצות לנסות? כתבו \"ניהול פיננסי\" בתגובות ואשלח לכן פרטים בפרטי 💛. לא אושר/תוזמן."
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "at": "2026-10-01T09:35:33+03:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        }
+      ],
+      "hook": "אליאן חוסכת לבד ללגו, בלי שאזכיר לה",
+      "id": "p-20261005-02",
+      "needs_approval": false,
+      "pillar": "educational",
+      "status": "approved",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "רילס יום 9 (מתוך תוכנית 30 הימים)",
+      "updated_at": "2026-10-01T09:35:33+03:00",
+      "hooks_considered": [
+        "ככה הילד שלי חוסך לבד לצעצוע — בלי שאזכיר לו",
+        "הפיצ׳ר שהכי שינה אצלנו את השיח על כסף",
+        "יעד חיסכון ב־60 שניות"
+      ],
+      "script": "אליאן רוצה לגו ב־120 שקל. פעם זה היה אומר שבועות של ״אמא תקני לי״. עכשיו יש לה יעד חיסכון, היא רואה את הלגו, רואה פס התקדמות, רואה כמה כבר נחסך. כל פעם שהיא מכניסת כסף הפס מתמלא. ואני לא צריכה להזכיר כלום, היא נכנסת לבדוק לבד ״כמה עוד נשאר״. זה אצלנו באפליקציה, אבל הרעיון עובד גם על דף, כשהיעד מוחשי וההתקדמות נראית, ילדים חוסכים כי הם רוצים, לא כי אמרו להם.",
+      "caption": "הלגו ב־120 שקל 🧱\nפעם זה היה שבועות של ״אמא תקני לי״. היום לאליאן יש יעד חיסכון, היא רואה את הלגו, את פס ההתקדמות, את מה שכבר נחסך.\nוכל הפקדה מקרבת אותה. היא נכנסת לבדוק לבד ״כמה עוד נשאר״.\nבלי נאומים ממני. בלי תזכורות.\nככה זה אצלנו, הקישור בביו 👆",
+      "cta": "רוצות לנסות? הקישור בביו 👆",
+      "hashtags": [
+        "#פיגיאפ",
+        "#חינוךפיננסי",
+        "#דמיכיס",
+        "#חיסכון"
+      ],
+      "visual_idea": "הקלטת מסך של יצירת יעד חיסכון באפליקציה + קריינות של אמא, מעברים מהירים"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-06",
+      "format": "reel",
+      "goal": "STOP",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        }
+      ],
+      "hook": "לשלם לילד על ציון טוב, כן או לא?",
+      "id": "p-20261006-01",
+      "needs_approval": true,
+      "pillar": "parenting",
+      "status": "waiting_approval",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים",
+      "title": "רילס יום 10 (מתוך תוכנית 30 הימים)",
+      "updated_at": "2026-09-30T19:48:16+03:00",
+      "hooks_considered": [
+        "לשלם לילד על ציון טוב — כן או לא?",
+        "הוויכוח הכי גדול אצלנו בבית: כסף וציונים",
+        "מה המחקר אומר על תשלום עבור ציונים"
+      ],
+      "script": "אצלנו בבית יש ויכוח: לשלם לילד על ציון טוב? אני אגיד לכן איפה אני עומדת, וזה לא סגור אצלי עד הסוף. מצד אחד, זה מלמד שמאמץ מביא תגמול. מצד שני, מה קורה ביום שאין תשלום? הלמידה נהיית עסקה. אני נוטה להפריד: לימודים זה אחריות, כמו לצחצח שיניים, לא משלמים על זה. כסף מרוויחים מיוזמה, ממשימות. אבל אני באמת מתלבטת, אז תגידו לי אתן.",
+      "caption": "הוויכוח אצלנו בבית: לשלם על ציונים? 🎓\nאני נוטה להפריד, לימודים זה אחריות (לא משלמים על צחצוח שיניים), כסף מרוויחים מיוזמה.\nאבל זה לא סגור אצלי. באמת סקרנית, אתן בעד או נגד? 👇",
+      "cta": "כתבו בתגובות — אתן בעד או נגד? 👇",
+      "hashtags": [
+        "#הורות",
+        "#חינוךפיננסי",
+        "#דילמה",
+        "#ביתספר"
+      ],
+      "visual_idea": "אמא מדברת למצלמה, כיתוב \"בעד / נגד\" מתחלף על המסך, טון דיון פתוח"
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-09-29T22:00:00+03:00",
+      "date": "2026-10-12",
+      "format": "carousel",
+      "goal": "SAVE",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-09-29T22:00:00+03:00",
+          "from": null,
+          "note": "נדחתה לשבוע 3 — ריווח מנושא דמי כיס",
+          "to": "draft"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-09-30T07:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
+        },
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "נוסף CTA טבעי לקישור בביו — הצעד הבא אחרי צ׳קליסט המוכנות. לא אושר/תוזמן."
+        },
+        {
+          "at": "2026-09-30T19:38:21+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "authentic voice rewrite 30.09"
+        },
+        {
+          "at": "2026-09-30T19:48:16+03:00",
+          "actor": "voice-rewrite",
+          "from": "waiting_approval",
+          "to": "waiting_approval",
+          "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        }
+      ],
+      "hook": "איך ידעתי שאליאן מוכנה לדמי כיס",
+      "id": "p-20261012-01",
+      "needs_approval": true,
+      "pillar": "educational",
+      "status": "waiting_approval",
+      "time": "10:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — בוקר לקרוסלה",
+      "title": "קרוסלה C2: 5 סימנים שהילד מוכן לדמי כיס",
+      "updated_at": "2026-09-30T19:48:16+03:00",
+      "hooks_considered": [
+        "5 סימנים שהילד מוכן לדמי כיס",
+        "איך יודעים שהגיע הזמן לדמי כיס?",
+        "הצ׳קליסט לפני שמתחילים דמי כיס"
+      ],
+      "slides": [
+        "איך ידעתי שאליאן מוכנה לדמי כיס\nלא לפי הגיל — לפי הסימנים\nשמרי 📌",
+        "היא התחילה לשאול כמה דברים עולים\nופתאום הבינה שלא הכל אפשרי",
+        "היא למדה לחכות\nלא כל אני רוצה חייב להיענות מיד",
+        "היא בוחרת ומסבירה למה\nבין שתי אופציות — ויש לה נימוק",
+        "היא משווה מחירים\nבסופר היא כבר בודקת מה יותר זול",
+        "היא שומרת דברים\nמדבקות קלפים אוספים — היא מתכננת",
+        "יש לכן 3 סימנים ויותר\nאפשר להתחיל בקטן\nקבוע ועם כללים ברורים\nשמרי וחזרי כשתתחילי 📌"
+      ],
+      "caption": "איך ידעתי שאליאן מוכנה לדמי כיס?\nלא לפי הגיל, לפי הסימנים. היא התחילה לשאול כמה דברים עולים, למדה לחכות, לבחור ולהסביר למה.\nהכנתי את הצ׳קליסט שעברתי איתה, 5 סימנים. אם יש 3 ויותר אפשר להתחיל.\nוהכלל שלי: להתחיל קטן, קבוע, ועם כללים ברורים. דמי כיס הם לא פרס, הם כלי לימוד.\nשמרו 📌\nמוכנות להתחיל? הקישור בביו 👆",
+      "cta": "שמרו את הצ׳קליסט 📌 וכשתתחילו — ספרו לי איך הלך 👇",
+      "hashtags": [
+        "#דמיכיס",
+        "#חינוךפיננסי",
+        "#הורות",
+        "#צקליסט",
+        "#ילדים"
+      ],
+      "visual_idea": "קרוסלת 7 שקופיות 1080×1350 בעברית RTL בצבעי PiggyUp — שקופית 1 = הוק, שקופיות 2–6 = הסימנים, שקופית 7 = סיכום + CTA (לפי סקיל piggyup-carousel)"
+    },
+    {
+      "id": "p-pinned-01",
+      "account": "@piggy.up",
+      "format": "carousel",
+      "title": "📌 מוצמד: מה זה PiggyUp? (טיוטה — ממתין לבריף)",
+      "hook": "האפליקציה שמלמדת ילדים כסף דרך החיים עצמם",
+      "caption": "",
+      "cta": "הקישור בביו 👆",
+      "hashtags": [],
+      "visual_idea": "בריף בלבד, ללא תוכן מוכן: קרוסלת 4-5 שקופיות — (1) הבעיה: ילדים לא מבינים כסף, (2) הפתרון: PiggyUp, (3) למי: הורים לילדים 4-12, (4) מה מקבלים: חיסכון/מטרות/דמי כיס, (5) CTA: הקישור בביו. טון אישי של אמא, לא מכירתי.",
+      "pillar": "app",
+      "goal": "funnel-pin",
+      "date": "2026-09-30",
+      "time": "10:00",
+      "time_basis": "placeholder",
+      "time_reason": "טיוטה נטולת תאריך — פוסט מוצמד נצחי, ממתין לבריף ואישור",
+      "status": "draft",
+      "needs_approval": true,
+      "created_at": "2026-09-30T05:54:51",
+      "updated_at": "2026-09-30T05:54:51",
+      "history": [
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "נוצר כטיוטה: לא נמצא תוכן קיים מתאים להצמדה. ממתין לבריף/אישור — לא לפרסם."
+        }
+      ]
+    },
+    {
+      "id": "p-pinned-02",
+      "account": "@piggy.up",
+      "format": "reel",
+      "title": "📌 מוצמד: איך PiggyUp עובדת? (טיוטה — ממתין לבריף)",
+      "hook": "ככה נראה שבוע עם PiggyUp — ב-40 שניות",
+      "caption": "",
+      "cta": "הקישור בביו 👆",
+      "hashtags": [],
+      "visual_idea": "בריף בלבד, ללא תוכן מוכן: רילס הדגמה קצר — 3 הקופסאות (חיסכון/בזבוז/נתינה), יעד חיסכון עם פס התקדמות, רשימת משאלות. צילומי מסך מהאפליקציה + קול אישי. CTA: הקישור בביו.",
+      "pillar": "app",
+      "goal": "funnel-pin",
+      "date": "2026-09-30",
+      "time": "10:00",
+      "time_basis": "placeholder",
+      "time_reason": "טיוטה נטולת תאריך — פוסט מוצמד נצחי, ממתין לבריף ואישור",
+      "status": "draft",
+      "needs_approval": true,
+      "created_at": "2026-09-30T05:54:51",
+      "updated_at": "2026-09-30T05:54:51",
+      "history": [
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "נוצר כטיוטה: לא נמצא תוכן קיים מתאים להצמדה. ממתין לבריף/אישור — לא לפרסם."
+        }
+      ]
+    },
+    {
+      "id": "p-pinned-03",
+      "account": "@piggy.up",
+      "format": "carousel",
+      "title": "📌 מוצמד: מתחילים כאן 👋 (טיוטה — ממתין לבריף)",
+      "hook": "3 צעדים להתחלה — הערב כבר אפשר",
+      "caption": "",
+      "cta": "הקישור בביו 👆",
+      "hashtags": [],
+      "visual_idea": "בריף בלבד, ללא תוכן מוכן: 3 צעדים פשוטים — (1) נכנסים מהקישור בביו, (2) פותחים יעד חיסכון ראשון עם הילד, (3) מגדירים דמי כיס. טון מעודד, בלי לחץ. CTA: הקישור בביו.",
+      "pillar": "app",
+      "goal": "funnel-pin",
+      "date": "2026-09-30",
+      "time": "10:00",
+      "time_basis": "placeholder",
+      "time_reason": "טיוטה נטולת תאריך — פוסט מוצמד נצחי, ממתין לבריף ואישור",
+      "status": "draft",
+      "needs_approval": true,
+      "created_at": "2026-09-30T05:54:51",
+      "updated_at": "2026-09-30T05:54:51",
+      "history": [
+        {
+          "t": "2026-09-30T05:54:51",
+          "note": "נוצר כטיוטה: לא נמצא תוכן קיים מתאים להצמדה. ממתין לבריף/אישור — לא לפרסם."
+        }
+      ]
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-10-04T10:05:00+03:00",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "date": "2026-10-07",
+      "format": "reel",
+      "goal": "STOP",
+      "id": "p-20261007-01",
+      "needs_approval": true,
+      "pillar": "relatable",
+      "status": "draft",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
+      "title": "רילס יום 11 (מתוך תוכנית 30 הימים)",
+      "hook": "\"לכולם בכיתה יש, רק לי אין\", המשפט שמכניס אותי למלכודת",
+      "hooks_considered": [
+        "\"לכולם בכיתה יש, רק לי אין\", המשפט שמכניס אותי למלכודת",
+        "איך עונים על \"לכולם יש\" בלי לצעוק ובלי להיכנע",
+        "הבת שלי חזרה מהגן עם דרישה, ואני עם דילמה"
+      ],
+      "script": "אליאן חזרה מהגן ואמרה, לכולם יש קופסת אוכל חדשה, רק לי אין. והלב שלי נשבר קצת, כי אני רוצה לתת לה הכל. אבל אז נזכרתי, אם אקנה כל פעם ש\"לכולם יש\", אני מלמדת אותה שהכסף נועד לרצות אחרים. אז ישבנו ביחד, בדקנו כמה זה עולה, והיא החליטה לחסוך חצי מדמי הכיס שלה. שבועיים אחר כך היא קנתה אותה בעצמה. והיא לא הפסיקה לספר לכולם שהיא קנתה לבד.",
+      "caption": "\"לכולם בכיתה יש\" 🏫 המשפט שכל הורה מכיר. הפיתוי הכי גדול הוא לקנות מיד ולסגור את הנושא. אבל מה שהיא למדה כשהיא חסכה לזה לבד שווה הרבה יותר מקופסת אוכל. לא אמרתי לא, אמרתי בואי נחשוב איך. וזה עשה את כל ההבדל 💛",
+      "cta": "קרה לכן גם? ספרו בתגובות 👇",
+      "hashtags": [
+        "#הורות",
+        "#חינוךפיננסי",
+        "#ילדיםוכסף",
+        "#אמהות"
+      ],
+      "visual_idea": "סצנת בוקר בגן, שיחה אמא-בת, רגע הקנייה העצמאית בחנות",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": null,
+          "to": "draft",
+          "note": "תוכנית שבועית 04.10 (ימים 5-11.10) — יופק ע״י המנוע היומי"
+        }
+      ]
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-10-04T10:05:00+03:00",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "date": "2026-10-08",
+      "format": "reel",
+      "goal": "SAVE",
+      "id": "p-20261008-01",
+      "needs_approval": true,
+      "pillar": "tips",
+      "status": "draft",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
+      "title": "רילס יום 12 (מתוך תוכנית 30 הימים)",
+      "hook": "לפני כל קנייה אימפולסיבית, אנחנו עושות דבר אחד",
+      "hooks_considered": [
+        "לפני כל קנייה אימפולסיבית, אנחנו עושות דבר אחד",
+        "הכלל שחסך לנו הכי הרבה כסף השנה",
+        "הילדה רוצה, רוצה, רוצה, עכשיו! אז עשינו הסכם"
+      ],
+      "script": "אצלנו יש כלל אחד פשוט, לפני כל קנייה שלא תיכננו, מחכים 24 שעות. בהתחלה אליאן חשבה שזה עונש. אז הפכנו את זה למשחק, כותבים על פתק מה רוצים, מדביקים על המקרר, ומחר בודקים אם עדיין רוצים. תשעים אחוז מהפתקים? היא בעצמה מורידה אותם למחרת. היא למדה משהו שאני למדתי רק בגיל שלושים, הרצון עובר, הכסף נשאר.",
+      "caption": "כלל ה־24 שעות ⏳ לפני כל קנייה שלא תיכננו, מחכים יום. פתק על המקרר, ובודקים מחר אם עדיין רוצים. רוב הפעמים התשובה היא לא. שמרו את זה, זה הכלל הכי פשוט והכי חזק שיש לנו בבית 📌",
+      "cta": "שמרו 📌 ונסו השבוע",
+      "hashtags": [
+        "#טיפיםלהורים",
+        "#חינוךפיננסי",
+        "#חיסכון",
+        "#דמיכיס"
+      ],
+      "visual_idea": "פתקים על מקרר, מדבקה יורדת למחרת, טיימר 24 שעות",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": null,
+          "to": "draft",
+          "note": "תוכנית שבועית 04.10 (ימים 5-11.10) — יופק ע״י המנוע היומי"
+        }
+      ]
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-10-04T10:05:00+03:00",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "date": "2026-10-09",
+      "format": "carousel",
+      "goal": "SAVE",
+      "id": "p-20261009-01",
+      "needs_approval": true,
+      "pillar": "parenting",
+      "status": "draft",
+      "time": "10:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — בוקר לקרוסלה (אין עדיין נתוני קהל לפי שעה)",
+      "title": "קרוסלה: טעות פרק 2, לשלם על כל מטלה בבית",
+      "hook": "משלמים לילד על כל מטלה? יש עם זה בעיה אחת",
+      "hooks_considered": [
+        "משלמים לילד על כל מטלה? יש עם זה בעיה אחת",
+        "הטעות שעשיתי עם תשלום על מטלות",
+        "למה הפסקתי לשלם לאליאן על סידור החדר"
+      ],
+      "slides": [
+        "שקופית 1: \"משלמים לילד על כל מטלה בבית?\" / \"פרק 2 בסדרה · הטעות שאני עשיתי\" 💸",
+        "שקופית 2: \"ההיגיון נשמע טוב\" / \"ילד שעובד מרוויח · ככה לומדים שכסף לא גדל על העצים\"",
+        "שקופית 3: \"אבל אז קרה משהו\" / \"אליאן התחילה לשאול ״כמה תשלמי לי״ על כל דבר · גם על דברים שהיא עשתה תמיד\"",
+        "שקופית 4: \"הבית הפך לעסקה\" / \"לסדר את החדר? בתשלום. לעזור לאחות? בתשלום. שום דבר לא בחינם יותר\"",
+        "שקופית 5: \"מה עובד אצלנו עכשיו\" / \"מטלות בית = חלק מהמשפחה, בלי תשלום · כסף מרוויחים ממשימות מיוחדות ובחירה\"",
+        "שקופית 6: \"איפה עובר הגבול אצלכם?\" / \"שמרי ושתפי עם הורה שמשלם על כל מטלה 💚\""
+      ],
+      "caption": "פרק 2 בסדרה: טעויות שאנחנו עושים עם דמי כיס 💸 פעם שילמתי לאליאן על כל מטלה. נשמע הגיוני, נכון? עד שהיא התחילה לדרוש תשלום גם על דברים שהיא עשתה תמיד בחינם. הבית הפך לעסקה אחת גדולה. היום אצלנו: מטלות = חלק מהמשפחה. כסף מרוויחים מיוזמה. שמרו ושתפו 📌",
+      "cta": "שמרו 📌 ושתפו עם הורה שצריך את זה",
+      "hashtags": [
+        "#הורות",
+        "#חינוךפיננסי",
+        "#דמיכיס",
+        "#טעויותהורים"
+      ],
+      "visual_idea": "מיתוג ירוק־קרם, אמוג׳י עוגן 💸 (שונה מ־C1/C2), מספרי פרקים",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": null,
+          "to": "draft",
+          "note": "תוכנית שבועית 04.10 — סדרה: טעויות שאנחנו עושים עם דמי כיס, פרק 2"
+        }
+      ]
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-10-04T10:05:00+03:00",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "date": "2026-10-10",
+      "format": "story",
+      "goal": "SHARE",
+      "id": "p-20261010-01",
+      "needs_approval": true,
+      "pillar": "community",
+      "status": "draft",
+      "time": "12:00",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — צהריים לסטורי (אין עדיין נתוני קהל לפי שעה)",
+      "title": "סטורי S4: דילמה, לבזבז את כל החיסכון?",
+      "hook": "היא חסכה חודשיים, ועכשיו רוצה לבזבז הכל בבת אחת",
+      "hooks_considered": [
+        "היא חסכה חודשיים, ועכשיו רוצה לבזבז הכל בבת אחת",
+        "לתת לה לבזבז את החיסכון או לעצור אותה?",
+        "דילמה אמיתית מהבית שלנו"
+      ],
+      "story_brief": "סדרה \"מה היית עושה?\", סטיקר שאלה: הילד חסך סכום יפה ועכשיו רוצה לבזבז הכל על משהו רגעי. נותנים לו? מה היית עושה?",
+      "story_frames": [
+        "פריים 1: \"דילמת השבוע 💭 אליאן חסכה יפה, ועכשיו היא רוצה לבזבז הכל בבת אחת על משהו שאני יודעת שהיא תשכח ממנו בעוד שבוע. מה הייתן עושות?\" + סטיקר שאלה",
+        "פריים 2: \"אספר לכן מה אני עשיתי, אחרי שאשמע אתכן 👇\""
+      ],
+      "caption": "דילמה אמיתית מהבית: לתת לה לבזבז את החיסכון? 👆",
+      "cta": "כתבו מה הייתן עושות 👇",
+      "hashtags": [],
+      "visual_idea": "סלפי חם, סטיקר שאלה גדול, טון מתלבט אמיתי",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": null,
+          "to": "draft",
+          "note": "תוכנית שבועית 04.10 — סדרה: מה היית עושה?"
+        }
+      ]
+    },
+    {
+      "account": "piggy.up",
+      "created_at": "2026-10-04T10:05:00+03:00",
+      "updated_at": "2026-10-04T10:05:00+03:00",
+      "date": "2026-10-11",
+      "format": "reel",
+      "goal": "STOP",
+      "id": "p-20261011-01",
+      "needs_approval": true,
+      "pillar": "educational",
+      "status": "draft",
+      "time": "18:30",
+      "time_basis": "hypothesis",
+      "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
+      "title": "רילס יום 13 (מתוך תוכנית 30 הימים)",
+      "hook": "עד גיל 7, הרגלי הכסף של הילד כבר כמעט סגורים",
+      "hooks_considered": [
+        "עד גיל 7, הרגלי הכסף של הילד כבר כמעט סגורים",
+        "מחקר אחד ששינה לי את הגישה לדמי כיס",
+        "למה להתחיל לדבר על כסף כבר בגן?"
+      ],
+      "script": "שמעתי פעם שחוקרים בקיימברידג׳ מצאו שהרגלי הכסף שלנו מתגבשים עד גיל שבע. שבע! זה אומר שהשנים שבהן אנחנו חושבים \"היא עוד קטנה, לא מבינה\" הן בדיוק השנים שקובעות. זה לא אומר להושיב ילדה בת חמש לשיעור כלכלה. זה אומר לתת לה להחליט על דמי הכיס שלה, לטעות בקטן, ללמוד שכסף נגמר. הטעויות הקטנות של היום הן החוכמה הגדולה של מחר.",
+      "caption": "עד גיל 7 ⏰ לפי חוקרים, הרגלי הכסף מתגבשים מוקדם משחשבנו. זה לא אומר שיעורי כלכלה בגן, זה אומר לתת להם להחליט, לטעות בקטן וללמוד. כל דמי כיס הוא שיעור. שמרו 📌",
+      "cta": "שמרו 📌, תזכורת להתחיל מוקדם",
+      "hashtags": [
+        "#חינוךפיננסי",
+        "#הורות",
+        "#דמיכיס",
+        "#ילדיםוכסף"
+      ],
+      "visual_idea": "ציר זמן גילאים, גרפיקת \"עד גיל 7\", ילדה מחליטה בחנות",
+      "history": [
+        {
+          "actor": "engine",
+          "at": "2026-10-04T10:05:00+03:00",
+          "from": null,
+          "to": "draft",
+          "note": "תוכנית שבועית 04.10 (ימים 5-11.10) — סדרה: דקה של חינוך פיננסי"
+        }
+      ]
     }
-   ],
-   "hook": "הצצה ראשונה",
-   "id": "p-20260926-01",
-   "needs_approval": false,
-   "pillar": "product",
-   "status": "published",
-   "time": "12:00",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה ראשונית — אין עדיין נתוני Insights",
-   "title": "הצצה ראשונה — 3 צילומי מסך",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "url": "https://www.instagram.com/p/DdwY_r6jm4z/",
-   "metrics": {
-    "likes": 1,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-26T11:00:00+03:00",
-   "date": "2026-09-26",
-   "format": "reel",
-   "goal": "FOLLOW",
-   "history": [
-    {
-     "actor": "alona",
-     "at": "2026-09-26T11:00:00+03:00",
-     "from": null,
-     "note": "repost מחשבון אישי",
-     "to": "published"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "id": "p-20260926-02",
-   "needs_approval": false,
-   "pillar": "product",
-   "status": "published",
-   "time": "13:00",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה ראשונית",
-   "title": "רילס הסבר (repost)",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "url": "https://www.instagram.com/reel/DdwZM-yjh9b/",
-   "metrics": {
-    "likes": 3,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-26T12:00:00+03:00",
-   "date": "2026-09-26",
-   "format": "reel",
-   "goal": "FOLLOW",
-   "history": [
-    {
-     "actor": "alona",
-     "at": "2026-09-26T12:00:00+03:00",
-     "from": null,
-     "note": "repost מחשבון אישי",
-     "to": "published"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "id": "p-20260926-03",
-   "needs_approval": false,
-   "pillar": "product",
-   "status": "published",
-   "time": "14:00",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה ראשונית",
-   "title": "פרסומת (repost)",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "url": "https://www.instagram.com/reel/DdwZTOODmHd/",
-   "metrics": {
-    "likes": 3,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-26T18:00:00+03:00",
-   "date": "2026-09-26",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-26T18:00:00+03:00",
-     "from": "waiting_approval",
-     "note": "אלונה אישרה (פרסמי)",
-     "to": "approved"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-09-26T18:30:00+03:00",
-     "from": "approved",
-     "note": "פורסם ב־@piggy.up",
-     "to": "published"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "id": "p-20260926-04",
-   "needs_approval": false,
-   "pillar": "relatable",
-   "status": "published",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "יום 1 — סיפור אישי",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "url": "https://www.instagram.com/reel/DdwcK81jhJt/",
-   "metrics": {
-    "likes": 14,
-    "comments": 5,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T17:00:00+03:00",
-   "date": "2026-09-29",
-   "format": "reel",
-   "goal": "SAVE",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T17:00:00+03:00",
-     "from": "waiting_approval",
-     "note": "אלונה אישרה (פרסמי)",
-     "to": "approved"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-09-29T17:30:00+03:00",
-     "from": "approved",
-     "note": "פורסם ב־@piggy.up",
-     "to": "published"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "id": "p-20260929-01",
-   "needs_approval": false,
-   "pillar": "educational",
-   "status": "published",
-   "time": "17:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — אחר הצהריים",
-   "title": "יום 3 — שיטת 3 הקופסאות",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "url": "https://www.instagram.com/reel/Dd3IiXLD5Yl/",
-   "metrics": {
-    "likes": 1,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T19:00:00+03:00",
-   "date": "2026-09-29",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T19:00:00+03:00",
-     "from": "waiting_approval",
-     "note": "אלונה אישרה (פרסמי)",
-     "to": "approved"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-09-29T19:30:00+03:00",
-     "from": "approved",
-     "note": "פורסם ב־@piggy.up",
-     "to": "published"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "id": "p-20260929-02",
-   "needs_approval": false,
-   "pillar": "product",
-   "status": "published",
-   "time": "19:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב",
-   "title": "פרסומת ריאליסטית",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "url": "https://www.instagram.com/reel/Dd3Yzj0D4gD/",
-   "metrics": {
-    "likes": 5,
-    "comments": 1,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "assets": {
-    "cover": "~/workspace/your_files/piggyup-video/daily/day-02-cover.jpg",
-    "video": "~/workspace/your_files/piggyup-video/daily/day-02.mp4"
-   },
-   "caption": "\"אין כסף\" זה משפט שסוגר שיחה. 3 המשפטים האלה פותחים אותה:\n1. זה לא בתקציב שלנו החודש\n2. בואי נשים את זה ברשימת המשאלות ונחסוך לזה ביחד\n3. את יכולה לבחור — זה, או משהו אחר שאת רוצה\nשמרי לאחר כך 💛 ועקבי לעוד טיפים\n#חינוךפיננסי #דמיכיס #הורות",
-   "created_at": "2026-09-28T18:46:00+03:00",
-   "cta": "עקבו לעוד טיפים",
-   "date": "2026-09-30",
-   "format": "reel",
-   "goal": "SAVE",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-28T18:46:00+03:00",
-     "from": "draft",
-     "note": "הופק ע״י קרון הווידאו היומי",
-     "to": "waiting_approval"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:28:00+03:00",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:42:00+03:00",
-     "from": "approved",
-     "to": "approved",
-     "note": "נשמר כיתוב חדש שאלונה אישרה (במקום 'נשלח בוואטסאפ'). פרסום מתוזמן ל-18:30."
-    },
-    {
-     "actor": "muse",
-     "from": "approved",
-     "to": "published",
-     "note": "Published to @piggy.up; instagram_media_fbid=18107077697578474. Client CLI timed out but server-side post verified via posts list.",
-     "at": "2026-09-30T18:43:05+03:00"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "hook": "3 משפטים במקום ״אין כסף״",
-   "id": "p-20260930-01",
-   "needs_approval": true,
-   "pillar": "educational",
-   "status": "published",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני שעות ב־Insights)",
-   "title": "יום 2 — 3 משפטים במקום ״אין כסף״",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "hashtags": [
-    "#חינוךפיננסי",
-    "#דמיכיס",
-    "#הורות"
-   ],
-   "published_at": "2026-09-30T18:43:05+03:00",
-   "instagram_media_fbid": "18107077697578474",
-   "metrics": {
-    "likes": 0,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "assets": {
-    "cover": "~/workspace/your_files/piggyup-video/daily/day-04-cover.jpg",
-    "video": "~/workspace/your_files/piggyup-video/daily/day-04.mp4"
-   },
-   "caption": "\"ילדים קטנים לא מבינים כסף\" — טעות.\nהם אולי לא מבינים בנקים, אבל הם מבינים מצוין בחירות: מה לשמור ומה לבזבז.\nכשנותנים להם בחירה אמיתית — כל שקל מתחלק לשלוש קופסאות — הם רואים בדיוק לאן הולך כל שקל.\nשתפי עם הורה שחושב ככה 💛\n#חינוךפיננסי #דמיכיס #הורות",
-   "created_at": "2026-09-28T18:46:00+03:00",
-   "cta": "שתפו עם הורה שחושב ככה",
-   "date": "2026-09-30",
-   "format": "reel",
-   "goal": "SHARE",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-28T18:46:00+03:00",
-     "from": "draft",
-     "note": "הופק ע״י קרון הווידאו היומי",
-     "to": "waiting_approval"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:28:00+03:00",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:42:00+03:00",
-     "from": "approved",
-     "to": "approved",
-     "note": "נשמר כיתוב חדש שאלונה אישרה (במקום 'נשלח בוואטסאפ'). פרסום מתוזמן ל-18:30."
-    },
-    {
-     "actor": "muse",
-     "from": "approved",
-     "to": "published",
-     "note": "Published to @piggy.up; instagram_media_fbid=18098366411383220. Client CLI hung again but server-side post verified via posts list.",
-     "at": "2026-09-30T18:47:19+03:00"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "hook": "״ילדים קטנים לא מבינים כסף״ — טעות",
-   "id": "p-20260930-02",
-   "needs_approval": true,
-   "pillar": "educational",
-   "status": "published",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "יום 4 — מיתוס ״ילדים קטנים לא מבינים כסף״",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "hashtags": [
-    "#חינוךפיננסי",
-    "#דמיכיס",
-    "#הורות"
-   ],
-   "published_at": "2026-09-30T18:47:19+03:00",
-   "instagram_media_fbid": "18098366411383220",
-   "metrics": {
-    "likes": 0,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "assets": {
-    "contact_sheet": "~/workspace/your_files/piggyup-video/carousel/demo-01/contact.png",
-    "slides_dir": "~/workspace/your_files/piggyup-video/carousel/demo-01/"
-   },
-   "caption": "דמי הכיס נגמרים תוך יומיים? 💸 הנה הטעות שרובנו עושים — ואיך מתקנים אותה. שמרי ושתפי עם הורה שצריך את זה 💚",
-   "created_at": "2026-09-29T20:00:00+03:00",
-   "cta": "שמירה + שיתוף + תגובת ״ניהול פיננסי״",
-   "date": "2026-09-30",
-   "format": "carousel",
-   "goal": "SAVE",
-   "hashtags": [],
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T20:00:00+03:00",
-     "from": "draft",
-     "note": "דמו סגנון — הוצג לאלונה",
-     "to": "waiting_approval"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:23:00+03:00",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן p-20260930-03'"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:32:00+03:00",
-     "from": "approved",
-     "to": "published",
-     "note": "פורסם לאינסטגרם @piggy.up לבקשת אלונה ('פרסמי'). media_fbid=18105381797212765"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "published",
-     "to": "published",
-     "note": "סקירה שבועית 04.10: מדדים עודכנו (לייקים/תגובות)"
-    }
-   ],
-   "hook": "דמי הכיס נגמרים תוך יומיים?",
-   "id": "p-20260930-03",
-   "needs_approval": true,
-   "pillar": "educational",
-   "slides": [
-    "1 · דמי הכיס נגמרים תוך יומיים? / הטעות שרובנו עושים — ואיך מתקנים 💸",
-    "2 · הבעיה: נותנים סכום בלי חוקים / הילד לא לומד לתכנן — רק לבזבז",
-    "3 · הטעות: ״יהיה בסדר״ / בלי גבול ברור הכסף פשוט נעלם",
-    "4 · הפתרון: 3 קופסאות / חיסכון · בזבוז · נתינה — כל שקל עם תפקיד",
-    "5 · בפיגיאפ זה הופך למשחק / הילד רואה את הקופסאות גדלות 🐷",
-    "6 · שמרי ושתפי / עם הורה שדמי הכיס אצלו נגמרים תוך יומיים 💚"
-   ],
-   "status": "published",
-   "time": "10:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — בוקר, לפני חלון הערב של הרילס",
-   "title": "קרוסלה: דמי הכיס נגמרים תוך יומיים",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "published_at": "2026-09-30T07:32:00+03:00",
-   "instagram_media_fbid": "18105381797212765",
-   "metrics": {
-    "likes": 3,
-    "comments": 0,
-    "observed_at": "2026-10-04T10:05:00+03:00",
-    "source": "instagram-cli posts (likes/comments only)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-09-30",
-   "format": "story",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:28:00+03:00",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אלונה אישרה בצ'אט: 'אשרי את התוכן של היום ופרסמי'"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:32:00+03:00",
-     "from": "approved",
-     "to": "published",
-     "note": "פורסם לאינסטגרם @piggy.up לבקשת אלונה ('פרסמי'). media_fbid=18092932472649204,18114357053042553"
-    }
-   ],
-   "hook": "מיתוס או אמת? 🤔",
-   "id": "p-20260930-04",
-   "needs_approval": true,
-   "pillar": "community",
-   "status": "published",
-   "story_brief": "סקר: ״מיתוס או אמת — אם ניתן לילד דמי כיס הוא יבזבז הכל מיד״ (סטיקר סקר מיתוס/אמת)",
-   "time": "12:00",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — צהריים לסטורי",
-   "title": "סטורי S1: סקר מיתוס/אמת על דמי כיס",
-   "updated_at": "2026-09-30T07:32:00+03:00",
-   "hooks_considered": [
-    "מיתוס או אמת? 🤔",
-    "אם ניתן לילד דמי כיס הוא יבזבז הכל מיד — נכון או לא?",
-    "המשפט ששמעתי הכי הרבה על דמי כיס"
-   ],
-   "story_frames": [
-    "פריים 1: רקע חם בצבעי המותג, טקסט גדול \"מיתוס או אמת? 🤔\" + טקסט: \"אם ניתן לילד דמי כיס — הוא יבזבז את הכל מיד\" + סטיקר סקר עם שתי אופציות: \"מיתוס\" / \"אמת\"",
-    "פריים 2 (חשיפת תשובה): \"אז מה התשובה? מיתוס! ✅ כשדמי הכיס קבועים ויש כללים פשוטים — ילדים לומדים לתכנן, לא לבזבז. הבעיה היא לא דמי הכיס, אלא דמי כיס בלי מסגרת 💛\" + סטיקר שאלה: \"ומה קורה אצלכם — הילד חוסך או מבזבז?\""
-   ],
-   "caption": "מיתוס או אמת? 🤔 \"אם ניתן לילד דמי כיס — הוא יבזבז את הכל מיד\". הצביעו בסטורי וגלו את התשובה 👆",
-   "cta": "הצביעו בסקר וכתבו לי מה קורה אצלכם 👇",
-   "hashtags": [],
-   "visual_idea": "רקע חם בצבעי המותג, טקסט גדול וברור, סטיקר סקר מיתוס/אמת, ופריים שני עם חשיפת התשובה",
-   "published_at": "2026-09-30T07:32:00+03:00",
-   "instagram_media_fbid": "18092932472649204,18114357053042553"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-01",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "נוסף CTA טבעי לקישור בביו — רשימת משאלות היא פיצ׳ר מרכזי באפליקציה. לא אושר/תוזמן."
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:34:31+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-01T13:00:00+03:00",
-     "from": "approved",
-     "to": "approved",
-     "note": "הופק וידאו day-05.mp4 (30.0 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית, כתוביות libass שרופות, סגנון UGC) מהתסריט המאושר — נבדק ויזואלית, מוכן לפרסום 18:30"
-    },
-    {
-     "at": "2026-10-01T10:07:50+00:00",
-     "actor": "alona",
-     "from": "approved",
-     "to": "approved",
-     "note": "אלונה אישרה את הוידאו הסופי (day-05.mp4) — לפרסום 18:30"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-10-01T18:34:22+03:00",
-     "from": "approved",
-     "to": "published",
-     "note": "פורסם ב־@piggy.up; media_fbid=18025959227696756; https://www.instagram.com/reel/Dd9PafCiXi8/"
-    }
-   ],
-   "hook": "אליאן צרחה בסופר שהיא רוצה צעצוע. הנה מה שעשיתי",
-   "id": "p-20261001-01",
-   "needs_approval": false,
-   "pillar": "educational",
-   "status": "published",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "רילס יום 5 (מתוך תוכנית 30 הימים)",
-   "updated_at": "2026-10-01T18:34:22+03:00",
-   "hooks_considered": [
-    "הילד צורח בסופר שהוא רוצה צעצוע — מה את עושה?",
-    "3 משפטים שיעצרו את הדרמה בסופר",
-    "הטעות שכולנו עושות בסופר עם הילדים"
-   ],
-   "script": "שבוע שעבר בסופר. אליאן רואה בובה, העיניים נדלקות, ואז, הצרחות. כולם מסתכלים. פעם הייתי או קונה כדי לסיים את זה, או אומרת לה ״אין כסף״ ומרגישה רע עם עצמי כל הדרך הביתה. הפעם עשיתי משהו אחר. אמרתי לה: ״איזו בובה יפה. בואי נצלם אותה לרשימת המשאלות שלך.״ ואז: ״כמה היא עולה? בואי נראה כמה כבר חסכת.״ ופתאום הדרמה הפכה לתכנון. היא עדיין רוצה את הבובה, אבל עכשיו היא מבינה מה צריך לקרות כדי לקבל אותה. ואני יצאתי מהסופר בלי לקנות ובלי רגשות אשם.",
-   "caption": "מכירות את הרגע הזה? 😅 אליאן ראתה בובה בסופר והתחילה לצרוח. פעם הייתי נכנעת או אומרת ״אין כסף״, ושתי האופציות הרגישו לי גרוע.\nהפעם ניסיתי משהו אחר: צילמנו את הבובה לרשימת המשאלות, בדקנו כמה היא עולה וכמה אליאן כבר חסכה. הדרמה הפכה לתכנון.\nהיא עדיין רוצה את הבובה. אבל עכשיו היא מבינה שכסף זה לא קסם, זה תכנון.\nאצלנו רשימת המשאלות יושבת באפליקציה, הקישור בביו 👆",
-   "cta": "מה הטריק שלכן ברגעי הסופר? ספרו בתגובות 👇",
-   "hashtags": [
-    "#חינוךפיננסי",
-    "#דמיכיס",
-    "#הורות",
-    "#אמהות",
-    "#ילדים"
-   ],
-   "visual_idea": "אמא מדברת למצלמה בבית, קטעי B-roll קצרים מסופר (עגלה, מדף צעצועים), כתוביות על המסך עם 3 המשפטים",
-   "assets": {
-    "video": "~/workspace/your_files/piggyup-video/daily/day-05.mp4",
-    "cover": "~/workspace/your_files/piggyup-video/daily/day-05-cover.jpg",
-    "srt": "~/workspace/your_files/piggyup-video/daily/day-05.he.srt"
-   },
-   "published_at": "2026-10-01T18:34:22+03:00",
-   "media_id": "18025959227696756",
-   "published_url": "https://www.instagram.com/reel/Dd9PafCiXi8/"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-01",
-   "format": "story",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:34:31+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-10-01T12:24:16+03:00",
-     "from": "approved",
-     "to": "approved",
-     "note": "תיקון לבקשת אלונה: הוסר 'בגן' מפריים 1 (ילדים לא מביאים צעצועים לגן); עודכן גם הכיתוב"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-10-01T12:46:31+03:00",
-     "from": "approved",
-     "to": "published",
-     "note": "פורסם ב-@piggy.up לבקשת אלונה בצ'אט (יום מוקדם מהמתוכנן); 2 פריימים אומתו כחיים"
-    }
-   ],
-   "hook": "אליאן שברה צעצוע של חברה, מה הייתן עושות?",
-   "id": "p-20261002-01",
-   "needs_approval": false,
-   "pillar": "parenting",
-   "status": "published",
-   "story_brief": "״מה היית עושה?״, הילד שבר צעצוע של חבר. מי משלם? (סטיקר שאלה) → מטרה: תגובות/פרטי",
-   "time": "12:46",
-   "time_basis": "hypothesis",
-   "time_reason": "פורסם בפועל 1.10 בשעה 12:46 לבקשת אלונה (הוקדם מהתוכנית המקורית 2.10 12:00)",
-   "title": "סטורי S2: מה היית עושה?",
-   "updated_at": "2026-10-01T12:46:31+03:00",
-   "hooks_considered": [
-    "מה היית עושה? 🤔",
-    "הילד שבר צעצוע של חבר — מי משלם?",
-    "דילמה אמיתית מהגן"
-   ],
-   "story_frames": [
-    "דילמה אמיתית מהבית: אליאן שברה בטעות צעצוע של חברה. הוא עלה 80 שקל. אני מתלבטת, לשלם מהכיס שלי? לבקש ממנה להשתתף? מה הייתן עושות? (סטיקר שאלה)",
-    "פריים 2: ״אין תשובה אחת נכונה בעיניי. אבל יש הבדל בין אשמה לאחריות — להשתתף בתיקון, אפילו בסכום סמלי מהחיסכון שלה, זה שיעור. מה דעתכן?״"
-   ],
-   "caption": "דילמה אמיתית: אליאן שברה צעצוע של חברה. מי משלם? ענו בסטורי 👆",
-   "cta": "כתבו לי בסטיקר מה הייתן עושות 👇",
-   "hashtags": [],
-   "visual_idea": "טקסט על רקע רגוע, סטיקר שאלה פתוח, פריים שני עם נקודת המבט שלי",
-   "published_at": "2026-10-01T12:46:31+03:00",
-   "media": {
-    "frame1": "goals/piggyup/files/piggyup-video/story-s2/frame-1.png",
-    "frame2": "goals/piggyup/files/piggyup-video/story-s2/frame-2.png",
-    "media_fbids": [
-     "18112417498853836",
-     "18105006956121182"
-    ],
-    "permalink": "https://instagram.com/stories/piggy.up/3998243165680985975"
-   },
-   "instagram_media_fbid": "18112417498853836,18105006956121182"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-02",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:34:34+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    },
-    {
-     "at": "2026-10-01T21:32:59+03:00",
-     "actor": "muse",
-     "from": "approved",
-     "to": "waiting_approval",
-     "note": "MVP מיני-סטורי: תסריט קוצר ל-5 משפטים, ויזואלים AI עם דמות עקבית, motion graphics לתקציב, קריינות חדשה בקצב טבעי. ממתין לאישור אלונה, אין לפרסם"
-    },
-    {
-     "at": "2026-10-04T07:22:21.564496+00:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "needs_changes",
-     "note": "לא מרוצה מהסרטון; לא רוצה מלל באנגלית"
-    }
-   ],
-   "hook": "שיחקנו חנות בסופ״ש, ואליאן למדה תקציב בלי לשים לב",
-   "id": "p-20261002-02",
-   "needs_approval": false,
-   "pillar": "educational",
-   "status": "needs_changes",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "רילס יום 6 (מתוך תוכנית 30 הימים)",
-   "updated_at": "2026-10-01T21:32:59+03:00",
-   "hooks_considered": [
-    "משחק אחד לסופ\"ש שילמד את הילד יותר מכל שיחה על כסף",
-    "5 דקות הכנה, שעתיים של שקט 😌",
-    "הילדים שלי ביקשו לשחק בזה שוב ושוב"
-   ],
-   "script": "אליאן אוהבת לשחק בחנות. הפכתי את זה לשיעור כסף בלי שהיא תשים לב. חמישה מוצרים מהמזווה, מדבקות מחיר, 20 שקל בכסף משחק. תקני ארוחת ערב. היא בחרה, חישבה, וגילתה שלא הכל נכנס בתקציב. ראיתי אותה מול המדף מחליטה על מה לוותר. זה היה הרגע. חישבנו את העודף ביחד. היא חשבה שזה משחק, ואני קיבלתי שיעור תקציב.",
-   "caption": "המשחק שהכי עבד אצלנו בסופ״ש 🏪\nאליאן משחקת בחנות, אז נתתי לה תקציב אמיתי: 20 שקל בכסף משחק, חמישה מוצרים עם מחירים, ומשימה אחת, לקנות ארוחת ערב.\nהרגע שהיא גילתה שלא הכל נכנס בתקציב? שם קרה הלימוד.\nהיא בחרה, ויתרה, חישבה עודף. ואני לא אמרתי מילה על ״תקציב״.\nלפעמים השיעור הכי טוב הוא זה שהם לא יודעים שהוא שיעור 💛",
-   "cta": "ניסיתן? ספרו איך הלך 👇",
-   "hashtags": [
-    "#פעילותלילדים",
-    "#משחקים",
-    "#חינוךפיננסי",
-    "#סופשעםילדים"
-   ],
-   "visual_idea": "צילומי הכנה מהירים (מדבקות מחיר, מוצרים), הילד \"קונה\" ומשלם, טקסט על המסך עם השלבים",
-   "assets": {
-    "video": "your_files/piggyup-video/daily/day-06.mp4",
-    "cover": "your_files/piggyup-video/daily/day-06-cover.jpg",
-    "srt": "your_files/piggyup-video/daily/day-06.he.srt",
-    "duration_sec": 30.7,
-    "style": "mini-story MVP (AI visuals + motion graphics)"
-   }
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-03",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "נוסף CTA לקישור בביו — הפוסט מספר על הקמת PiggyUp. לא אושר/תוזמן."
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:44:35+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona personal story rewrite 30.09 — 3 boxes, lost track of money"
-    },
-    {
-     "at": "2026-09-30T19:47:13+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona corrected story: savings box filled, she didn't spend, I bought with my money, realized my mistake, learned the hard way"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:34:43+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    }
-   ],
-   "hook": "הקופה של אליאן התמלאה, ואני עשיתי את הטעות הגדולה",
-   "id": "p-20261003-01",
-   "needs_approval": false,
-   "pillar": "parenting",
-   "status": "approved",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "רילס יום 7 (מתוך תוכנית 30 הימים)",
-   "updated_at": "2026-10-01T09:34:43+03:00",
-   "hooks_considered": [
-    "למה אמא לשתי בנות קטנות בונה אפליקציית כסף",
-    "הרגע שהבנתי שהבת שלי לא מבינה מה זה כסף",
-    "אף אחד לא לימד אותי — אז אני מלמדת אותה"
-   ],
-   "script": "שואלים אותי למה התחלתי לבנות אפליקציה לחינוך פיננסי. אז האמת? זה התחיל משאלה אחת של אליאן. היא הייתה בת חמש, עמדנו ליד הכספומט, והיא שואלת: ״אמא, למה לא פשוט לקחת כסף מהמכונה?״ ופתאום הבנתי משהו לא נעים, אף אחד לא ילמד אותה את זה. לא בגן, לא בבית ספר. רק אני. התחלתי עם שלוש קופסאות במטבח, חיסכון, הוצאות, נתינה. וראיתי איך היא מתחילה להבין. אז בניתי את זה כאפליקציה, כי אם זה עבד אצלנו במטבח, אולי זה יעבוד גם אצלכן.",
-   "caption": "הסיפור האמיתי מאחורי PiggyUp\nבהתחלה הבאתי לאליאן קופת חיסכון. היא התמלאה לאט־לאט, והיא לא בזבזה ממנה כלום.\nבכל זאת, כל פעם שהיא רצתה משהו, אני קניתי. בכסף שלי.\nואז זה נפל לי: אני עושה טעות.\nאותי לא לימדו להתנהל עם כסף מגיל קטן, אני למדתי את זה בדרך הקשה.\nאז למה שהיא תעבור את אותו הדבר? למה לא לתת לה את הכלים כבר מעכשיו?\nנתנו לי טיפ לחלק ל־3 קופות, חיסכון, מטרה והוצאות. ניסיתי. אבל לא הצלחתי לעקוב: כמה יש בכל קופה? כמה נשאר?\nככה נולד PiggyUp, מה שאנחנו עושות בבית, ארוז לאפליקציה.\nהקישור בביו 👆",
-   "cta": "עקבו — כל יום משהו קטן שעובד אצלנו באמת 💛",
-   "hashtags": [
-    "#אמהות",
-    "#הורות",
-    "#חינוךפיננסי",
-    "#מאחוריהקלעים"
-   ],
-   "visual_idea": "צילומי בית חמים, תמונות מההתחלה (3 הקופסאות), הצצה לאפליקציה, טון אישי וקרוב"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-04",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:35:11+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    },
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": "approved",
-     "to": "approved",
-     "note": "הפקת הווידאו מושהית: חריג MVP (01.10) — אין להחיל מיני־סטורי על רילסים נוספים עד שאלונה תאשר את p-20261002-02. התוכן מאושר, הווידאו יופק אחרי אישור הסגנון"
-    }
-   ],
-   "hook": "כמה דמי כיס נתתי לאליאן, ואיך הגעתי לסכום",
-   "id": "p-20261004-01",
-   "needs_approval": false,
-   "pillar": "educational",
-   "status": "approved",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "רילס יום 8 (מתוך תוכנית 30 הימים)",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "hooks_considered": [
-    "כמה דמי כיס באמת צריך לתת? יש נוסחה פשוטה",
-    "הטעות הכי נפוצה בסכום דמי הכיס",
-    "גיל כפול 5 — שמעתם על הכלל הזה?"
-   ],
-   "script": "שואלות אותי כל הזמן כמה דמי כיס לתת. אז יש נוסחה שאני מכירה, גיל כפול חמש שקל לחודש. אליאן בת חמש וקצת, אז אצלנו זה יוצא בערך 28 שקל. אבל אני אגיד לכן משהו, הסכום הוא החלק הכי פחות חשוב. מה שלמדתי בדרך הקשה: סכום קבוע ביום קבוע, כי כסף זה הרגל. להחליט מראש מה זה מכסה, אצלנו ממתקים כן, צעצועים גדולים לא. והכי קשה, לא להשלים באמצע החודש. נשברתי פעם אחת, והיא למדה מיד שאפשר לבקש עוד. אז עכשיו אני מחזיקה חזק.",
-   "caption": "כמה דמי כיס לתת? השאלה שכולן שואלות.\nיש נוסחה: גיל × 5 שקל לחודש. אצלנו עם אליאן (בת חמש וקצת) זה יוצא כ־28 שקל.\nאבל מה שלמדתי בדרך הקשה, הסכום פחות חשוב מהמסגרת: סכום קבוע ביום קבוע, להחליט מראש מה זה מכסה, ולא להשלים באמצע החודש.\nנשברתי פעם אחת והשלמתי, היא למדה מיד שאפשר לבקש עוד 😅\nשמרו 📌, כשתתלבטו, תחזרו לכאן",
-   "cta": "שמרו את הפוסט 📌 — כשתתלבטו על הסכום, תחזרו אליו",
-   "hashtags": [
-    "#דמיכיס",
-    "#חינוךפיננסי",
-    "#טיפיםלהורים",
-    "#הורות"
-   ],
-   "visual_idea": "טקסט על המסך עם הנוסחה (גיל × 5 ₪), 3 הכללים ככרטיסיות, אמא מדברת למצלמה"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-05",
-   "format": "story",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:35:20+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    }
-   ],
-   "hook": "יש לכן שאלה על דמי כיס? עכשיו הזמן",
-   "id": "p-20261005-01",
-   "needs_approval": false,
-   "pillar": "community",
-   "status": "approved",
-   "story_brief": "תיבת שאלות: ״שאלי אותי על דמי כיס״ → חומר לסדרה ״הורה שואל, PiggyUp עונה״",
-   "time": "12:00",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — צהריים לסטורי",
-   "title": "סטורי S3: תיבת שאלות",
-   "updated_at": "2026-10-01T09:35:20+03:00",
-   "hooks_considered": [
-    "קיבלתי השבוע 3 שאלות בפרטי על דמי כיס — עכשיו תורכם 👇",
-    "שאלי אותי כל שאלה על כסף וילדים",
-    "יש לכם שאלה על דמי כיס?"
-   ],
-   "story_frames": [
-    "פריים 1: ״בנות, קיבלתי השבוע כמה שאלות בפרטי על דמי כיס — על סכומים, על גילאים, על מה עושים כשהכסף נגמר באמצע החודש. פותחת תיבת שאלות — שאלו אותי הכל, באמת הכל״ + תיבת שאלות",
-    "פריים 2: ״אענה השבוע בסטורי. אין שאלות טיפשיות — אני שואלת את עצמי את אותן שאלות כל חודש״"
-   ],
-   "caption": "תיבת שאלות פתוחה, כל מה שרציתן לשאול על כסף וילדים 👆",
-   "cta": "כתבו את השאלה שלכן בתיבה 👇",
-   "hashtags": [],
-   "visual_idea": "סלפי חם וקרוב, תיבת שאלות גדולה, טון מזמין"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-05",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "הוחלף CTA ממנגנון תגובות (\"ניהול פיננסי\" → DM) לקישור בביו, לפי אסטרטגיית המשפך החדשה. CTA קודם: רוצות לנסות? כתבו \"ניהול פיננסי\" בתגובות ואשלח לכן פרטים בפרטי 💛. לא אושר/תוזמן."
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    },
-    {
-     "at": "2026-10-01T09:35:33+03:00",
-     "actor": "alona",
-     "from": "waiting_approval",
-     "to": "approved",
-     "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
-    }
-   ],
-   "hook": "אליאן חוסכת לבד ללגו, בלי שאזכיר לה",
-   "id": "p-20261005-02",
-   "needs_approval": false,
-   "pillar": "educational",
-   "status": "approved",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "רילס יום 9 (מתוך תוכנית 30 הימים)",
-   "updated_at": "2026-10-01T09:35:33+03:00",
-   "hooks_considered": [
-    "ככה הילד שלי חוסך לבד לצעצוע — בלי שאזכיר לו",
-    "הפיצ׳ר שהכי שינה אצלנו את השיח על כסף",
-    "יעד חיסכון ב־60 שניות"
-   ],
-   "script": "אליאן רוצה לגו ב־120 שקל. פעם זה היה אומר שבועות של ״אמא תקני לי״. עכשיו יש לה יעד חיסכון, היא רואה את הלגו, רואה פס התקדמות, רואה כמה כבר נחסך. כל פעם שהיא מכניסת כסף הפס מתמלא. ואני לא צריכה להזכיר כלום, היא נכנסת לבדוק לבד ״כמה עוד נשאר״. זה אצלנו באפליקציה, אבל הרעיון עובד גם על דף, כשהיעד מוחשי וההתקדמות נראית, ילדים חוסכים כי הם רוצים, לא כי אמרו להם.",
-   "caption": "הלגו ב־120 שקל 🧱\nפעם זה היה שבועות של ״אמא תקני לי״. היום לאליאן יש יעד חיסכון, היא רואה את הלגו, את פס ההתקדמות, את מה שכבר נחסך.\nוכל הפקדה מקרבת אותה. היא נכנסת לבדוק לבד ״כמה עוד נשאר״.\nבלי נאומים ממני. בלי תזכורות.\nככה זה אצלנו, הקישור בביו 👆",
-   "cta": "רוצות לנסות? הקישור בביו 👆",
-   "hashtags": [
-    "#פיגיאפ",
-    "#חינוךפיננסי",
-    "#דמיכיס",
-    "#חיסכון"
-   ],
-   "visual_idea": "הקלטת מסך של יצירת יעד חיסכון באפליקציה + קריינות של אמא, מעברים מהירים"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-06",
-   "format": "reel",
-   "goal": "STOP",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "תוכנית שבועית — יופק ע״י המנוע היומי",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    }
-   ],
-   "hook": "לשלם לילד על ציון טוב, כן או לא?",
-   "id": "p-20261006-01",
-   "needs_approval": true,
-   "pillar": "parenting",
-   "status": "waiting_approval",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים",
-   "title": "רילס יום 10 (מתוך תוכנית 30 הימים)",
-   "updated_at": "2026-09-30T19:48:16+03:00",
-   "hooks_considered": [
-    "לשלם לילד על ציון טוב — כן או לא?",
-    "הוויכוח הכי גדול אצלנו בבית: כסף וציונים",
-    "מה המחקר אומר על תשלום עבור ציונים"
-   ],
-   "script": "אצלנו בבית יש ויכוח: לשלם לילד על ציון טוב? אני אגיד לכן איפה אני עומדת, וזה לא סגור אצלי עד הסוף. מצד אחד, זה מלמד שמאמץ מביא תגמול. מצד שני, מה קורה ביום שאין תשלום? הלמידה נהיית עסקה. אני נוטה להפריד: לימודים זה אחריות, כמו לצחצח שיניים, לא משלמים על זה. כסף מרוויחים מיוזמה, ממשימות. אבל אני באמת מתלבטת, אז תגידו לי אתן.",
-   "caption": "הוויכוח אצלנו בבית: לשלם על ציונים? 🎓\nאני נוטה להפריד, לימודים זה אחריות (לא משלמים על צחצוח שיניים), כסף מרוויחים מיוזמה.\nאבל זה לא סגור אצלי. באמת סקרנית, אתן בעד או נגד? 👇",
-   "cta": "כתבו בתגובות — אתן בעד או נגד? 👇",
-   "hashtags": [
-    "#הורות",
-    "#חינוךפיננסי",
-    "#דילמה",
-    "#ביתספר"
-   ],
-   "visual_idea": "אמא מדברת למצלמה, כיתוב \"בעד / נגד\" מתחלף על המסך, טון דיון פתוח"
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-09-29T22:00:00+03:00",
-   "date": "2026-10-12",
-   "format": "carousel",
-   "goal": "SAVE",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-09-29T22:00:00+03:00",
-     "from": null,
-     "note": "נדחתה לשבוע 3 — ריווח מנושא דמי כיס",
-     "to": "draft"
-    },
-    {
-     "actor": "muse",
-     "at": "2026-09-30T07:00:00+03:00",
-     "from": "draft",
-     "to": "waiting_approval",
-     "note": "הושלם תוכן מלא (הוק, תסריט/שקופיות, כיתוב, CTA) — מוכן לבדיקת אלונה"
-    },
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "נוסף CTA טבעי לקישור בביו — הצעד הבא אחרי צ׳קליסט המוכנות. לא אושר/תוזמן."
-    },
-    {
-     "at": "2026-09-30T19:38:21+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "authentic voice rewrite 30.09"
-    },
-    {
-     "at": "2026-09-30T19:48:16+03:00",
-     "actor": "voice-rewrite",
-     "from": "waiting_approval",
-     "to": "waiting_approval",
-     "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
-    }
-   ],
-   "hook": "איך ידעתי שאליאן מוכנה לדמי כיס",
-   "id": "p-20261012-01",
-   "needs_approval": true,
-   "pillar": "educational",
-   "status": "waiting_approval",
-   "time": "10:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — בוקר לקרוסלה",
-   "title": "קרוסלה C2: 5 סימנים שהילד מוכן לדמי כיס",
-   "updated_at": "2026-09-30T19:48:16+03:00",
-   "hooks_considered": [
-    "5 סימנים שהילד מוכן לדמי כיס",
-    "איך יודעים שהגיע הזמן לדמי כיס?",
-    "הצ׳קליסט לפני שמתחילים דמי כיס"
-   ],
-   "slides": [
-    "איך ידעתי שאליאן מוכנה לדמי כיס\nלא לפי הגיל — לפי הסימנים\nשמרי 📌",
-    "היא התחילה לשאול כמה דברים עולים\nופתאום הבינה שלא הכל אפשרי",
-    "היא למדה לחכות\nלא כל אני רוצה חייב להיענות מיד",
-    "היא בוחרת ומסבירה למה\nבין שתי אופציות — ויש לה נימוק",
-    "היא משווה מחירים\nבסופר היא כבר בודקת מה יותר זול",
-    "היא שומרת דברים\nמדבקות קלפים אוספים — היא מתכננת",
-    "יש לכן 3 סימנים ויותר\nאפשר להתחיל בקטן\nקבוע ועם כללים ברורים\nשמרי וחזרי כשתתחילי 📌"
-   ],
-   "caption": "איך ידעתי שאליאן מוכנה לדמי כיס?\nלא לפי הגיל, לפי הסימנים. היא התחילה לשאול כמה דברים עולים, למדה לחכות, לבחור ולהסביר למה.\nהכנתי את הצ׳קליסט שעברתי איתה, 5 סימנים. אם יש 3 ויותר אפשר להתחיל.\nוהכלל שלי: להתחיל קטן, קבוע, ועם כללים ברורים. דמי כיס הם לא פרס, הם כלי לימוד.\nשמרו 📌\nמוכנות להתחיל? הקישור בביו 👆",
-   "cta": "שמרו את הצ׳קליסט 📌 וכשתתחילו — ספרו לי איך הלך 👇",
-   "hashtags": [
-    "#דמיכיס",
-    "#חינוךפיננסי",
-    "#הורות",
-    "#צקליסט",
-    "#ילדים"
-   ],
-   "visual_idea": "קרוסלת 7 שקופיות 1080×1350 בעברית RTL בצבעי PiggyUp — שקופית 1 = הוק, שקופיות 2–6 = הסימנים, שקופית 7 = סיכום + CTA (לפי סקיל piggyup-carousel)"
-  },
-  {
-   "id": "p-pinned-01",
-   "account": "@piggy.up",
-   "format": "carousel",
-   "title": "📌 מוצמד: מה זה PiggyUp? (טיוטה — ממתין לבריף)",
-   "hook": "האפליקציה שמלמדת ילדים כסף דרך החיים עצמם",
-   "caption": "",
-   "cta": "הקישור בביו 👆",
-   "hashtags": [],
-   "visual_idea": "בריף בלבד, ללא תוכן מוכן: קרוסלת 4-5 שקופיות — (1) הבעיה: ילדים לא מבינים כסף, (2) הפתרון: PiggyUp, (3) למי: הורים לילדים 4-12, (4) מה מקבלים: חיסכון/מטרות/דמי כיס, (5) CTA: הקישור בביו. טון אישי של אמא, לא מכירתי.",
-   "pillar": "app",
-   "goal": "funnel-pin",
-   "date": "2026-09-30",
-   "time": "10:00",
-   "time_basis": "placeholder",
-   "time_reason": "טיוטה נטולת תאריך — פוסט מוצמד נצחי, ממתין לבריף ואישור",
-   "status": "draft",
-   "needs_approval": true,
-   "created_at": "2026-09-30T05:54:51",
-   "updated_at": "2026-09-30T05:54:51",
-   "history": [
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "נוצר כטיוטה: לא נמצא תוכן קיים מתאים להצמדה. ממתין לבריף/אישור — לא לפרסם."
-    }
-   ]
-  },
-  {
-   "id": "p-pinned-02",
-   "account": "@piggy.up",
-   "format": "reel",
-   "title": "📌 מוצמד: איך PiggyUp עובדת? (טיוטה — ממתין לבריף)",
-   "hook": "ככה נראה שבוע עם PiggyUp — ב-40 שניות",
-   "caption": "",
-   "cta": "הקישור בביו 👆",
-   "hashtags": [],
-   "visual_idea": "בריף בלבד, ללא תוכן מוכן: רילס הדגמה קצר — 3 הקופסאות (חיסכון/בזבוז/נתינה), יעד חיסכון עם פס התקדמות, רשימת משאלות. צילומי מסך מהאפליקציה + קול אישי. CTA: הקישור בביו.",
-   "pillar": "app",
-   "goal": "funnel-pin",
-   "date": "2026-09-30",
-   "time": "10:00",
-   "time_basis": "placeholder",
-   "time_reason": "טיוטה נטולת תאריך — פוסט מוצמד נצחי, ממתין לבריף ואישור",
-   "status": "draft",
-   "needs_approval": true,
-   "created_at": "2026-09-30T05:54:51",
-   "updated_at": "2026-09-30T05:54:51",
-   "history": [
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "נוצר כטיוטה: לא נמצא תוכן קיים מתאים להצמדה. ממתין לבריף/אישור — לא לפרסם."
-    }
-   ]
-  },
-  {
-   "id": "p-pinned-03",
-   "account": "@piggy.up",
-   "format": "carousel",
-   "title": "📌 מוצמד: מתחילים כאן 👋 (טיוטה — ממתין לבריף)",
-   "hook": "3 צעדים להתחלה — הערב כבר אפשר",
-   "caption": "",
-   "cta": "הקישור בביו 👆",
-   "hashtags": [],
-   "visual_idea": "בריף בלבד, ללא תוכן מוכן: 3 צעדים פשוטים — (1) נכנסים מהקישור בביו, (2) פותחים יעד חיסכון ראשון עם הילד, (3) מגדירים דמי כיס. טון מעודד, בלי לחץ. CTA: הקישור בביו.",
-   "pillar": "app",
-   "goal": "funnel-pin",
-   "date": "2026-09-30",
-   "time": "10:00",
-   "time_basis": "placeholder",
-   "time_reason": "טיוטה נטולת תאריך — פוסט מוצמד נצחי, ממתין לבריף ואישור",
-   "status": "draft",
-   "needs_approval": true,
-   "created_at": "2026-09-30T05:54:51",
-   "updated_at": "2026-09-30T05:54:51",
-   "history": [
-    {
-     "t": "2026-09-30T05:54:51",
-     "note": "נוצר כטיוטה: לא נמצא תוכן קיים מתאים להצמדה. ממתין לבריף/אישור — לא לפרסם."
-    }
-   ]
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-10-04T10:05:00+03:00",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "date": "2026-10-07",
-   "format": "reel",
-   "goal": "STOP",
-   "id": "p-20261007-01",
-   "needs_approval": true,
-   "pillar": "relatable",
-   "status": "draft",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
-   "title": "רילס יום 11 (מתוך תוכנית 30 הימים)",
-   "hook": "\"לכולם בכיתה יש, רק לי אין\", המשפט שמכניס אותי למלכודת",
-   "hooks_considered": [
-    "\"לכולם בכיתה יש, רק לי אין\", המשפט שמכניס אותי למלכודת",
-    "איך עונים על \"לכולם יש\" בלי לצעוק ובלי להיכנע",
-    "הבת שלי חזרה מהגן עם דרישה, ואני עם דילמה"
-   ],
-   "script": "אליאן חזרה מהגן ואמרה, לכולם יש קופסת אוכל חדשה, רק לי אין. והלב שלי נשבר קצת, כי אני רוצה לתת לה הכל. אבל אז נזכרתי, אם אקנה כל פעם ש\"לכולם יש\", אני מלמדת אותה שהכסף נועד לרצות אחרים. אז ישבנו ביחד, בדקנו כמה זה עולה, והיא החליטה לחסוך חצי מדמי הכיס שלה. שבועיים אחר כך היא קנתה אותה בעצמה. והיא לא הפסיקה לספר לכולם שהיא קנתה לבד.",
-   "caption": "\"לכולם בכיתה יש\" 🏫 המשפט שכל הורה מכיר. הפיתוי הכי גדול הוא לקנות מיד ולסגור את הנושא. אבל מה שהיא למדה כשהיא חסכה לזה לבד שווה הרבה יותר מקופסת אוכל. לא אמרתי לא, אמרתי בואי נחשוב איך. וזה עשה את כל ההבדל 💛",
-   "cta": "קרה לכן גם? ספרו בתגובות 👇",
-   "hashtags": [
-    "#הורות",
-    "#חינוךפיננסי",
-    "#ילדיםוכסף",
-    "#אמהות"
-   ],
-   "visual_idea": "סצנת בוקר בגן, שיחה אמא-בת, רגע הקנייה העצמאית בחנות",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": null,
-     "to": "draft",
-     "note": "תוכנית שבועית 04.10 (ימים 5-11.10) — יופק ע״י המנוע היומי"
-    }
-   ]
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-10-04T10:05:00+03:00",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "date": "2026-10-08",
-   "format": "reel",
-   "goal": "SAVE",
-   "id": "p-20261008-01",
-   "needs_approval": true,
-   "pillar": "tips",
-   "status": "draft",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
-   "title": "רילס יום 12 (מתוך תוכנית 30 הימים)",
-   "hook": "לפני כל קנייה אימפולסיבית, אנחנו עושות דבר אחד",
-   "hooks_considered": [
-    "לפני כל קנייה אימפולסיבית, אנחנו עושות דבר אחד",
-    "הכלל שחסך לנו הכי הרבה כסף השנה",
-    "הילדה רוצה, רוצה, רוצה, עכשיו! אז עשינו הסכם"
-   ],
-   "script": "אצלנו יש כלל אחד פשוט, לפני כל קנייה שלא תיכננו, מחכים 24 שעות. בהתחלה אליאן חשבה שזה עונש. אז הפכנו את זה למשחק, כותבים על פתק מה רוצים, מדביקים על המקרר, ומחר בודקים אם עדיין רוצים. תשעים אחוז מהפתקים? היא בעצמה מורידה אותם למחרת. היא למדה משהו שאני למדתי רק בגיל שלושים, הרצון עובר, הכסף נשאר.",
-   "caption": "כלל ה־24 שעות ⏳ לפני כל קנייה שלא תיכננו, מחכים יום. פתק על המקרר, ובודקים מחר אם עדיין רוצים. רוב הפעמים התשובה היא לא. שמרו את זה, זה הכלל הכי פשוט והכי חזק שיש לנו בבית 📌",
-   "cta": "שמרו 📌 ונסו השבוע",
-   "hashtags": [
-    "#טיפיםלהורים",
-    "#חינוךפיננסי",
-    "#חיסכון",
-    "#דמיכיס"
-   ],
-   "visual_idea": "פתקים על מקרר, מדבקה יורדת למחרת, טיימר 24 שעות",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": null,
-     "to": "draft",
-     "note": "תוכנית שבועית 04.10 (ימים 5-11.10) — יופק ע״י המנוע היומי"
-    }
-   ]
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-10-04T10:05:00+03:00",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "date": "2026-10-09",
-   "format": "carousel",
-   "goal": "SAVE",
-   "id": "p-20261009-01",
-   "needs_approval": true,
-   "pillar": "parenting",
-   "status": "draft",
-   "time": "10:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — בוקר לקרוסלה (אין עדיין נתוני קהל לפי שעה)",
-   "title": "קרוסלה: טעות פרק 2, לשלם על כל מטלה בבית",
-   "hook": "משלמים לילד על כל מטלה? יש עם זה בעיה אחת",
-   "hooks_considered": [
-    "משלמים לילד על כל מטלה? יש עם זה בעיה אחת",
-    "הטעות שעשיתי עם תשלום על מטלות",
-    "למה הפסקתי לשלם לאליאן על סידור החדר"
-   ],
-   "slides": [
-    "שקופית 1: \"משלמים לילד על כל מטלה בבית?\" / \"פרק 2 בסדרה · הטעות שאני עשיתי\" 💸",
-    "שקופית 2: \"ההיגיון נשמע טוב\" / \"ילד שעובד מרוויח · ככה לומדים שכסף לא גדל על העצים\"",
-    "שקופית 3: \"אבל אז קרה משהו\" / \"אליאן התחילה לשאול ״כמה תשלמי לי״ על כל דבר · גם על דברים שהיא עשתה תמיד\"",
-    "שקופית 4: \"הבית הפך לעסקה\" / \"לסדר את החדר? בתשלום. לעזור לאחות? בתשלום. שום דבר לא בחינם יותר\"",
-    "שקופית 5: \"מה עובד אצלנו עכשיו\" / \"מטלות בית = חלק מהמשפחה, בלי תשלום · כסף מרוויחים ממשימות מיוחדות ובחירה\"",
-    "שקופית 6: \"איפה עובר הגבול אצלכם?\" / \"שמרי ושתפי עם הורה שמשלם על כל מטלה 💚\""
-   ],
-   "caption": "פרק 2 בסדרה: טעויות שאנחנו עושים עם דמי כיס 💸 פעם שילמתי לאליאן על כל מטלה. נשמע הגיוני, נכון? עד שהיא התחילה לדרוש תשלום גם על דברים שהיא עשתה תמיד בחינם. הבית הפך לעסקה אחת גדולה. היום אצלנו: מטלות = חלק מהמשפחה. כסף מרוויחים מיוזמה. שמרו ושתפו 📌",
-   "cta": "שמרו 📌 ושתפו עם הורה שצריך את זה",
-   "hashtags": [
-    "#הורות",
-    "#חינוךפיננסי",
-    "#דמיכיס",
-    "#טעויותהורים"
-   ],
-   "visual_idea": "מיתוג ירוק־קרם, אמוג׳י עוגן 💸 (שונה מ־C1/C2), מספרי פרקים",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": null,
-     "to": "draft",
-     "note": "תוכנית שבועית 04.10 — סדרה: טעויות שאנחנו עושים עם דמי כיס, פרק 2"
-    }
-   ]
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-10-04T10:05:00+03:00",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "date": "2026-10-10",
-   "format": "story",
-   "goal": "SHARE",
-   "id": "p-20261010-01",
-   "needs_approval": true,
-   "pillar": "community",
-   "status": "draft",
-   "time": "12:00",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — צהריים לסטורי (אין עדיין נתוני קהל לפי שעה)",
-   "title": "סטורי S4: דילמה, לבזבז את כל החיסכון?",
-   "hook": "היא חסכה חודשיים, ועכשיו רוצה לבזבז הכל בבת אחת",
-   "hooks_considered": [
-    "היא חסכה חודשיים, ועכשיו רוצה לבזבז הכל בבת אחת",
-    "לתת לה לבזבז את החיסכון או לעצור אותה?",
-    "דילמה אמיתית מהבית שלנו"
-   ],
-   "story_brief": "סדרה \"מה היית עושה?\", סטיקר שאלה: הילד חסך סכום יפה ועכשיו רוצה לבזבז הכל על משהו רגעי. נותנים לו? מה היית עושה?",
-   "story_frames": [
-    "פריים 1: \"דילמת השבוע 💭 אליאן חסכה יפה, ועכשיו היא רוצה לבזבז הכל בבת אחת על משהו שאני יודעת שהיא תשכח ממנו בעוד שבוע. מה הייתן עושות?\" + סטיקר שאלה",
-    "פריים 2: \"אספר לכן מה אני עשיתי, אחרי שאשמע אתכן 👇\""
-   ],
-   "caption": "דילמה אמיתית מהבית: לתת לה לבזבז את החיסכון? 👆",
-   "cta": "כתבו מה הייתן עושות 👇",
-   "hashtags": [],
-   "visual_idea": "סלפי חם, סטיקר שאלה גדול, טון מתלבט אמיתי",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": null,
-     "to": "draft",
-     "note": "תוכנית שבועית 04.10 — סדרה: מה היית עושה?"
-    }
-   ]
-  },
-  {
-   "account": "piggy.up",
-   "created_at": "2026-10-04T10:05:00+03:00",
-   "updated_at": "2026-10-04T10:05:00+03:00",
-   "date": "2026-10-11",
-   "format": "reel",
-   "goal": "STOP",
-   "id": "p-20261011-01",
-   "needs_approval": true,
-   "pillar": "educational",
-   "status": "draft",
-   "time": "18:30",
-   "time_basis": "hypothesis",
-   "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
-   "title": "רילס יום 13 (מתוך תוכנית 30 הימים)",
-   "hook": "עד גיל 7, הרגלי הכסף של הילד כבר כמעט סגורים",
-   "hooks_considered": [
-    "עד גיל 7, הרגלי הכסף של הילד כבר כמעט סגורים",
-    "מחקר אחד ששינה לי את הגישה לדמי כיס",
-    "למה להתחיל לדבר על כסף כבר בגן?"
-   ],
-   "script": "שמעתי פעם שחוקרים בקיימברידג׳ מצאו שהרגלי הכסף שלנו מתגבשים עד גיל שבע. שבע! זה אומר שהשנים שבהן אנחנו חושבים \"היא עוד קטנה, לא מבינה\" הן בדיוק השנים שקובעות. זה לא אומר להושיב ילדה בת חמש לשיעור כלכלה. זה אומר לתת לה להחליט על דמי הכיס שלה, לטעות בקטן, ללמוד שכסף נגמר. הטעויות הקטנות של היום הן החוכמה הגדולה של מחר.",
-   "caption": "עד גיל 7 ⏰ לפי חוקרים, הרגלי הכסף מתגבשים מוקדם משחשבנו. זה לא אומר שיעורי כלכלה בגן, זה אומר לתת להם להחליט, לטעות בקטן וללמוד. כל דמי כיס הוא שיעור. שמרו 📌",
-   "cta": "שמרו 📌, תזכורת להתחיל מוקדם",
-   "hashtags": [
-    "#חינוךפיננסי",
-    "#הורות",
-    "#דמיכיס",
-    "#ילדיםוכסף"
-   ],
-   "visual_idea": "ציר זמן גילאים, גרפיקת \"עד גיל 7\", ילדה מחליטה בחנות",
-   "history": [
-    {
-     "actor": "engine",
-     "at": "2026-10-04T10:05:00+03:00",
-     "from": null,
-     "to": "draft",
-     "note": "תוכנית שבועית 04.10 (ימים 5-11.10) — סדרה: דקה של חינוך פיננסי"
-    }
-   ]
-  }
- ],
- "notes": "מקור האמת היחיד לכל תוכן האינסטגרם של PiggyUp. כל פריט חייב להופיע כאן. אין פרסום בלי רשומה כאן ובסטטוס approved.",
- "schema_version": 1,
- "updated_at": "2026-09-30T05:54:51"
+  ],
+  "notes": "מקור האמת היחיד לכל תוכן האינסטגרם של PiggyUp. כל פריט חייב להופיע כאן. אין פרסום בלי רשומה כאן ובסטטוס approved.",
+  "schema_version": 1,
+  "updated_at": "2026-09-30T05:54:51"
 }
