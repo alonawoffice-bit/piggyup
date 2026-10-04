@@ -1174,13 +1174,20 @@
           "from": "waiting_approval",
           "to": "waiting_approval",
           "note": "Alona rule 30.09: removed all em dashes (—) - reads as AI"
+        },
+        {
+          "actor": "alona",
+          "at": "2026-10-04T11:55:09.974473+00:00",
+          "from": "waiting_approval",
+          "to": "needs_changes",
+          "note": "אלונה: הילדה עדיין בגן, אין ציונים — הנושא לא רלוונטי ולא אותנטי לקול האמא. נדרש נושא חלופי לגיל גן."
         }
       ],
       "hook": "לשלם לילד על ציון טוב, כן או לא?",
       "id": "p-20261006-01",
       "needs_approval": true,
       "pillar": "parenting",
-      "status": "waiting_approval",
+      "status": "needs_changes",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
