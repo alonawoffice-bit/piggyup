@@ -1133,6 +1133,13 @@
           "from": "waiting_approval",
           "to": "approved",
           "note": "אושר ע״י אלונה — מוכן לפרסום במועד המתוכנן"
+        },
+        {
+          "at": "2026-10-05T10:01:59+03:00",
+          "actor": "engine",
+          "from": "approved",
+          "to": "approved",
+          "note": "הופק day-09.mp4 (29.7 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית במהירות 100, כתוביות שרופות, סגנון מיני-סטורי לפי MVP מאושר; אומת ויזואלית: עברית בלבד, בלי מלל באנגלית, הוק ב-2 השניות הראשונות, בלי לוגו פתיחה). ממתין לסקירת אלונה — אין לפרסם"
         }
       ],
       "hook": "אליאן חוסכת לבד ללגו, בלי שאזכיר לה",
@@ -1144,7 +1151,7 @@
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס יום 9 (מתוך תוכנית 30 הימים)",
-      "updated_at": "2026-10-01T09:35:33+03:00",
+      "updated_at": "2026-10-05T10:01:59+03:00",
       "hooks_considered": [
         "ככה הילד שלי חוסך לבד לצעצוע — בלי שאזכיר לו",
         "הפיצ׳ר שהכי שינה אצלנו את השיח על כסף",
@@ -1159,7 +1166,14 @@
         "#דמיכיס",
         "#חיסכון"
       ],
-      "visual_idea": "הקלטת מסך של יצירת יעד חיסכון באפליקציה + קריינות של אמא, מעברים מהירים"
+      "visual_idea": "הקלטת מסך של יצירת יעד חיסכון באפליקציה + קריינות של אמא, מעברים מהירים",
+      "assets": {
+        "video": "~/workspace/your_files/piggyup-video/daily/day-09.mp4",
+        "cover": "~/workspace/your_files/piggyup-video/daily/day-09-cover.jpg",
+        "srt": "~/workspace/your_files/piggyup-video/daily/day-09.he.srt",
+        "whatsapp": "~/workspace/your_files/piggyup-video/daily/day-09-whatsapp.mp4",
+        "duration_sec": 29.69
+      }
     },
     {
       "account": "piggy.up",
@@ -1641,5 +1655,5 @@
   ],
   "notes": "מקור האמת היחיד לכל תוכן האינסטגרם של PiggyUp. כל פריט חייב להופיע כאן. אין פרסום בלי רשומה כאן ובסטטוס approved.",
   "schema_version": 1,
-  "updated_at": "2026-10-04T14:29:24+03:00"
+  "updated_at": "2026-10-05T10:01:59+03:00"
 }
