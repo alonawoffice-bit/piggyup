@@ -1237,6 +1237,13 @@
           "from": "approved",
           "to": "approved",
           "note": "וידאו day-10.mp4 הופק בצ'אט לבקשת אלונה (\"להפיק וידאו\"); 42.6 שניות — מעל מפרט 15–35 השניות; ממתין לסקירת אלונה, אין לפרסם"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-06T10:12:21.859531+03:00",
+          "from": "approved",
+          "to": "approved",
+          "note": "רישום נכס day-10-whatsapp.mp4 (הופק 04.10, היה חסר ברישום הלוח)"
         }
       ],
       "hook": "הילד עזר בבית. הייתם משלמים לו על זה?",
@@ -1248,7 +1255,7 @@
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים",
       "title": "רילס: הילד עזר בבית — לשלם לו או לא?",
-      "updated_at": "2026-10-04T12:50:31+03:00",
+      "updated_at": "2026-10-06T10:12:21.859531+03:00",
       "hooks_considered": [
         "הילד עזר בבית. הייתם משלמים לו על זה?",
         "לשלם לילד על עזרה בבית — כן או לא?",
@@ -1268,7 +1275,8 @@
         "video": "~/workspace/your_files/piggyup-video/daily/day-10.mp4",
         "cover": "~/workspace/your_files/piggyup-video/daily/day-10-cover.jpg",
         "srt": "~/workspace/your_files/piggyup-video/daily/day-10.he.srt",
-        "duration_sec": 42.6
+        "duration_sec": 42.6,
+        "whatsapp": "~/workspace/your_files/piggyup-video/daily/day-10-whatsapp.mp4"
       }
     },
     {
@@ -1655,5 +1663,5 @@
   ],
   "notes": "מקור האמת היחיד לכל תוכן האינסטגרם של PiggyUp. כל פריט חייב להופיע כאן. אין פרסום בלי רשומה כאן ובסטטוס approved.",
   "schema_version": 1,
-  "updated_at": "2026-10-05T10:01:59+03:00"
+  "updated_at": "2026-10-06T10:12:21.859531+03:00"
 }
