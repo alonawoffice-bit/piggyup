@@ -1507,14 +1507,14 @@
     {
       "account": "piggy.up",
       "created_at": "2026-10-04T10:05:00+03:00",
-      "updated_at": "2026-10-08T10:45:00+03:00",
+      "updated_at": "2026-10-08T18:48:00+03:00",
       "date": "2026-10-08",
       "format": "reel",
       "goal": "FOLLOW",
       "id": "p-20261008-01",
       "needs_approval": false,
       "pillar": "product",
-      "status": "approved",
+      "status": "published",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים (online_followers עדיין null ב־Insights נכון ל־08.10)",
@@ -1563,6 +1563,13 @@
           "from": "waiting_approval",
           "to": "approved",
           "note": "אלונה אישרה בוואטסאפ (\"רילס יום 13 מאושר\") — נשלח לפרסום מתוזמן 18:30"
+        },
+        {
+          "actor": "muse",
+          "at": "2026-10-08T18:48:00+03:00",
+          "from": "approved",
+          "to": "published",
+          "note": "פורסם ב־@piggy.up; media_id=18154944784547673; שימו לב: post-feed בצד הלקוח נתקע (timeout 300 שניות) אבל הפרסום הושלם בשרת ואומת ברשימת הפוסטים (אין כפילות — ניסיון חוזר אסור)"
         }
       ],
       "assets": {
@@ -1571,7 +1578,10 @@
         "srt": "~/workspace/your_files/piggyup-video/daily/day-13.he.srt",
         "whatsapp": "~/workspace/your_files/piggyup-video/daily/day-13-whatsapp.mp4",
         "duration_sec": 34.1
-      }
+      },
+      "published_at": "2026-10-08T18:41:00+03:00",
+      "media_id": "18154944784547673",
+      "published_url": "https://www.instagram.com/reel/DePSV2xjk4N/"
     },
     {
       "account": "piggy.up",
@@ -1800,5 +1810,5 @@
   ],
   "notes": "מקור האמת היחיד לכל תוכן האינסטגרם של PiggyUp. כל פריט חייב להופיע כאן. אין פרסום בלי רשומה כאן ובסטטוס approved.",
   "schema_version": 1,
-  "updated_at": "2026-10-07T09:58:00+03:00"
+  "updated_at": "2026-10-08T18:48:00+03:00"
 }
