@@ -1591,9 +1591,9 @@
       "format": "carousel",
       "goal": "SAVE",
       "id": "p-20261009-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "parenting",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "10:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — בוקר לקרוסלה (אין עדיין נתוני קהל לפי שעה)",
@@ -1635,6 +1635,13 @@
           "from": "draft",
           "to": "waiting_approval",
           "note": "הופקו 6 שקופיות 1080x1350 (piggyup-carousel) + contact sheet; QA ויזואלי עבר — RTL תקין, אין טקסט חתוך, מיתוג עקבי. מוכן לסקירת אלונה."
+        },
+        {
+          "at": "2026-10-09T07:50:11.302657+00:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע\"י אלונה בוואטסאפ 09.10"
         }
       ],
       "assets": {
@@ -1691,9 +1698,9 @@
       "format": "reel",
       "goal": "STOP",
       "id": "p-20261011-01",
-      "needs_approval": true,
+      "needs_approval": false,
       "pillar": "educational",
-      "status": "waiting_approval",
+      "status": "approved",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — חלון ערב להורים (אין עדיין נתוני קהל לפי שעה)",
@@ -1739,6 +1746,13 @@
           "from": "draft",
           "to": "waiting_approval",
           "note": "הופק day-14.mp4 (30.4 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית מהירות 100, כתוביות שרופות, סגנון מיני-סטורי). QA ויזואלי 9 פרימים עבר — עברית RTL תקינה, אין מלל אנגלי. חריגה: ״קיימברידג׳״ הוחלף ב״קיימברידג״ (באג TTS גרש). מוכן לסקירת אלונה — אין לפרסם."
+        },
+        {
+          "at": "2026-10-09T07:50:11.302657+00:00",
+          "actor": "alona",
+          "from": "waiting_approval",
+          "to": "approved",
+          "note": "אושר ע\"י אלונה בוואטסאפ 09.10"
         }
       ],
       "assets": {
