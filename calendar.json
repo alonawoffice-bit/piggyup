@@ -1653,14 +1653,14 @@
     {
       "account": "piggy.up",
       "created_at": "2026-10-04T10:05:00+03:00",
-      "updated_at": "2026-10-04T10:05:00+03:00",
+      "updated_at": "2026-10-10T09:47:42+03:00",
       "date": "2026-10-10",
       "format": "story",
       "goal": "SHARE",
       "id": "p-20261010-01",
       "needs_approval": true,
       "pillar": "community",
-      "status": "draft",
+      "status": "waiting_approval",
       "time": "12:00",
       "time_basis": "hypothesis",
       "time_reason": "השערה — צהריים לסטורי (אין עדיין נתוני קהל לפי שעה)",
@@ -1687,6 +1687,13 @@
           "from": null,
           "to": "draft",
           "note": "תוכנית שבועית 04.10 — סדרה: מה היית עושה?"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-10T09:47:42+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "ריצת מנוע יומית 10.10: בדיקת כפילויות מול calendar.json (14 יום אחרונים) נקייה — נושא 'לבזבז את כל החיסכון' לא הופיע; idea-bank.md חסר (נמחק 07.10, לא שוחזר). סוג Hook שונה מהסטורי הקודם (סיטואציה מוכרת מול שאלה). תוכן מלא מוכן לסקירת אלונה — סטורי, אין נכסי וידאו להפקה."
         }
       ]
     },
