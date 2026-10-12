@@ -1331,6 +1331,13 @@
      "from": "waiting_approval",
      "to": "approved",
      "note": "אלונה אישרה עם שינוי שקופית 7 לפי הנוסח שלה (בלי רושם של \"מבחן\" רשמי). לרנדר קרוסלה."
+    },
+    {
+     "at": "2026-10-12T09:49:45.553479+00:00",
+     "actor": "engine",
+     "from": "approved",
+     "to": "approved",
+     "note": "רונדרו 7 שקופיות 1080x1350 לפי הנוסח המאושר (04.10) + contact sheet; QA ויזואלי עבר (RTL תקין, בלי חיתוכי טקסט). מוכן לפרסום 10:30 — אין לפרסם מהריצה הזו"
     }
    ],
    "hook": "איך יודעים שהילד מוכן לדמי כיס? לא לפי הגיל — לפי הסימנים.",
@@ -1342,7 +1349,7 @@
    "time_basis": "hypothesis",
    "time_reason": "השערה — בוקר לקרוסלה",
    "title": "קרוסלה C2: 5 סימנים שהילד מוכן לדמי כיס",
-   "updated_at": "2026-09-30T19:48:16+03:00",
+   "updated_at": "2026-10-12T09:49:45.553479+00:00",
    "hooks_considered": [
     "5 סימנים שהילד מוכן לדמי כיס",
     "איך יודעים שהגיע הזמן לדמי כיס?",
@@ -1366,7 +1373,12 @@
     "#צקליסט",
     "#ילדים"
    ],
-   "visual_idea": "קרוסלת 7 שקופיות 1080×1350 בעברית RTL בצבעי PiggyUp — שקופית 1 = הוק, שקופיות 2–6 = הסימנים, שקופית 7 = סיכום + CTA (לפי סקיל piggyup-carousel)"
+   "visual_idea": "קרוסלת 7 שקופיות 1080×1350 בעברית RTL בצבעי PiggyUp — שקופית 1 = הוק, שקופיות 2–6 = הסימנים, שקופית 7 = סיכום + CTA (לפי סקיל piggyup-carousel)",
+   "assets": {
+    "slides_dir": "~/workspace/your_files/piggyup-video/carousel/c2-pocket-money-ready/",
+    "contact": "~/workspace/your_files/piggyup-video/carousel/c2-pocket-money-ready/contact.png",
+    "spec": "~/workspace/your_files/piggyup-video/carousel/c2-pocket-money-ready/spec.json"
+   }
   },
   {
    "id": "p-pinned-01",
@@ -1941,14 +1953,14 @@
   {
    "account": "piggy.up",
    "created_at": "2026-10-11T10:05:00+03:00",
-   "updated_at": "2026-10-11T10:05:00+03:00",
+   "updated_at": "2026-10-12T10:03:21.696133+00:00",
    "date": "2026-10-12",
    "format": "reel",
    "goal": "STOP",
    "id": "p-20261012-02",
    "needs_approval": true,
    "pillar": "community",
-   "status": "draft",
+   "status": "waiting_approval",
    "time": "18:30",
    "time_basis": "hypothesis",
    "time_reason": "השערה — אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־11.10)",
@@ -1974,11 +1986,26 @@
      "from": null,
      "to": "draft",
      "note": "תוכנית שבועית 11.10 (ימים 12-18.10) — יופק ע״י המנוע היומי"
+    },
+    {
+     "at": "2026-10-12T10:03:21.696133+00:00",
+     "actor": "engine",
+     "from": "draft",
+     "to": "waiting_approval",
+     "note": "הופק day-17.mp4 (25.37 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית, כתוביות שרופות, סגנון מיני-סטורי). QA עבר: עברית בלבד בפריימים, הוק ב-2 השניות הראשונות, בלי לוגו פתיחה, דמויות עקביות. סטייה: TTS במהירות 85 (ב-100 נמדד 14 תווים/שנייה, מעל התקרה; צפיפות סופית 11.06). ממתין לסקירת אלונה — אין לפרסם"
     }
    ],
    "series": "הורה שואל, PiggyUp עונה #1",
-   "script": "אליאן באה אלי אתמול ואמרה, אמא, תלווי לי עשרים שקל, אחזיר לך מדמי הכיס. ואני נתקעתי. כי מצד אחד, איזה כיף שהיא חושבת על החזר. מצד שני, אם אני המלווה שלה, היא לומדת שכסף תמיד יש מאיפה לקחת. אז עשינו חוזה. כתבנו על דף: כמה, מתי מחזירה, ומה קורה אם לא. היא חתמה. ואתן יודעות מה? היא החזירה לפני הזמן. הלוואה לילד זה לא רע, אם יש לה חוקים.",
-   "visual_idea": "אמא וילדה כותבות 'חוזה הלוואה' על דף במטבח, צילום החתימה, כרטיס עם 3 החוקים"
+   "script": "אליאן באה אלי אתמול: אמא, תלווי לי עשרים שקל? אחזיר לך מדמי הכיס. ונתקעתי. מצד אחד, איזה כיף שהיא חושבת על החזר. מצד שני, אם אני המלווה שלה, היא לומדת שכסף תמיד יש. אז עשינו חוזה על דף: כמה, מתי מחזירה, ומה קורה אם לא. היא חתמה. והחזירה לפני הזמן. הלוואה לילד זה לא רע, אם יש לה חוקים.",
+   "visual_idea": "אמא וילדה כותבות 'חוזה הלוואה' על דף במטבח, צילום החתימה, כרטיס עם 3 החוקים",
+   "assets": {
+    "video": "~/workspace/your_files/piggyup-video/daily/day-17.mp4",
+    "cover": "~/workspace/your_files/piggyup-video/daily/day-17-cover.jpg",
+    "srt": "~/workspace/your_files/piggyup-video/daily/day-17.he.srt",
+    "whatsapp": "~/workspace/your_files/piggyup-video/daily/day-17-whatsapp.mp4",
+    "duration_sec": 25.37,
+    "style": "mini-story (AI visuals + motion graphics), TTS MAI_01 he speed 85"
+   }
   },
   {
    "account": "piggy.up",
