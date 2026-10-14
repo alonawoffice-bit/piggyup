@@ -2070,14 +2070,14 @@
     {
       "account": "piggy.up",
       "created_at": "2026-10-11T10:05:00+03:00",
-      "updated_at": "2026-10-11T10:05:00+03:00",
+      "updated_at": "2026-10-14T10:00:00+03:00",
       "date": "2026-10-14",
       "format": "reel",
       "goal": "FOLLOW",
       "id": "p-20261014-01",
       "needs_approval": true,
       "pillar": "product",
-      "status": "draft",
+      "status": "waiting_approval",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה — אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־11.10)",
@@ -2103,10 +2103,26 @@
           "from": null,
           "to": "draft",
           "note": "תוכנית שבועית 11.10 (ימים 12-18.10) — יופק ע״י המנוע היומי"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-14T10:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הופק וידאו day-19.mp4 (36.1 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית MAI_01 ~9.8 תווים/שנ׳, כתוביות שרופות RTL, סגנון מיני־סטורי). חריגה קלה ממפרט 15–35: קצב טבעי הועדף על קיצור; בתוך פרצדנט day-08 (39.1). אומת ויזואלית: עברית בלבד, הוק ב־2 השניות הראשונות, אין רגעים מתים. ממתין לסקירת אלונה — אין לפרסם"
         }
       ],
       "script": "אליאן רוצה חמישה דברים בו זמנית. פעם כל 'אני רוצה' נגמר בוויכוח. אז עשינו רשימת משאלות. כל דבר שהיא רוצה נכנס לרשימה עם מחיר. והיא מסדרת לפי סדר חשיבות. משהו נדחק החוצה? היא מחליטה מה. פתאום היא לא צריכה הכל עכשיו, כי הכל שמור ומסודר. וכשהיא חוסכת למשהו מהרשימה ומגיעה אליו, השמחה כפולה. אצלנו הרשימה יושבת באפליקציה, הקישור בביו.",
-      "visual_idea": "הקלטת מסך של רשימת משאלות באפליקציה + אמא מדברת, מעברים מהירים"
+      "visual_idea": "הקלטת מסך של רשימת משאלות באפליקציה + אמא מדברת, מעברים מהירים",
+      "assets": {
+        "video": "~/workspace/your_files/piggyup-video/daily/day-19.mp4",
+        "cover": "~/workspace/your_files/piggyup-video/daily/day-19-cover.jpg",
+        "whatsapp": "~/workspace/your_files/piggyup-video/daily/day-19-whatsapp.mp4",
+        "srt": "~/workspace/your_files/piggyup-video/daily/day-19.he.srt",
+        "duration_sec": 36.1,
+        "density_chars_per_sec": 9.79,
+        "style": "mini-story (AI visuals + motion graphics wishlist)"
+      }
     },
     {
       "account": "piggy.up",
