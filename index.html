@@ -264,6 +264,11 @@ body {
 .chat-input-row { display: flex; gap: 8px; }
 .chat-input-row input { flex: 1; }
 .chat-input-row .btn { width: auto; margin-top: 0; padding: 10px 16px; }
+/* activation-code row: input + button side by side (the global .btn width:100%
+   would otherwise squeeze the input to zero) */
+.code-row { display: flex; gap: 8px; margin-top: 6px; align-items: center; }
+.code-row input { flex: 1; min-width: 0; }
+.code-row .btn { width: auto; margin-top: 0; padding: 10px 16px; flex: 0 0 auto; }
 
 /* ---------- Tip card ---------- */
 .tip-card {
@@ -1781,7 +1786,7 @@ he: {
   "sub.code_lbl": "קוד הפעלה מאלונה",
   "sub.code_ph": "6 ספרות",
   "sub.activate": "הפעלה",
-  "sub.code_help": "קיבלת קוד מאלונה לאחר אישור ותשלום? הזיני אותו כאן.", "sub.code_what": "🔑 <b>מהו קוד ההפעלה?</b> קוד אישי שאלונה שולחת לך בוואטסאפ אחרי אישור הבקשה והתשלום. מזינים אותו בשדה למטה — והמנוי נפתח מיד.",
+  "sub.code_help": "קיבלת קוד מאלונה לאחר אישור? הזיני אותו כאן.", "sub.code_what": "🔑 <b>מהו קוד ההפעלה?</b> קוד אישי שאלונה שולחת לך בוואטסאפ אחרי אישור הבקשה. מזינים אותו בשדה למטה — והגישה נפתחת מיד.",
   "sub.premium_pill": "מנוי פעיל · {0}₪/חודש",
   "sub.premium_t1": "המנוי פעיל וכל כלי הליווי פתוחים.",
   "sub.premium_t2": "המנוי נפתח מיד עם הזנת הקוד. אין חידוש אוטומטי — להארכת המנוי פני לאלונה.",
@@ -1958,7 +1963,7 @@ ru: {
   "sub.code_lbl": "Код активации от Алоны",
   "sub.code_ph": "6 цифр",
   "sub.activate": "Активировать",
-  "sub.code_help": "Получили код от Алоны после подтверждения и оплаты? Введите его здесь.", "sub.code_what": "🔑 <b>Что такое код активации?</b> Персональный код, который Алёна отправляет вам в WhatsApp после подтверждения заявки и оплаты. Введите его в поле ниже — и подписка откроется сразу.",
+  "sub.code_help": "Получили код от Алоны после подтверждения? Введите его здесь.", "sub.code_what": "🔑 <b>Что такое код активации?</b> Персональный код, который Алёна отправляет вам в WhatsApp после подтверждения заявки. Введите его в поле ниже — и доступ откроется сразу.",
   "sub.premium_pill": "Подписка активна · {0}₪/мес",
   "sub.premium_t1": "Подписка активна, все инструменты гида открыты.",
   "sub.premium_t2": "Подписка открывается сразу после ввода кода. Автопродления нет — для продления обратитесь к Алёне.",
@@ -2501,7 +2506,7 @@ function parentManage() {
   let subHtml = "";
   const codeEntryHtml = `
       <div class="kv" style="margin-top:10px"><span>${t("sub.code_lbl")}</span></div>
-      <div style="display:flex;gap:8px;margin-top:6px">
+      <div class="code-row" style="display:flex;gap:8px;margin-top:6px">
         <input id="admin-code-input" inputmode="numeric" maxlength="6" placeholder="${t("sub.code_ph")}" style="flex:1;min-width:0">
         <button class="btn" onclick="A.activateWithCode()">${t("sub.activate")}</button>
       </div>
@@ -5269,7 +5274,7 @@ function careSubCard() {
   var codeEntryHtml =
     '<p class="muted" style="font-size:13px;margin-top:10px">' + t("sub.code_what") + '</p>' +
     '<div class="kv" style="margin-top:10px"><span>' + t("sub.code_lbl") + '</span></div>' +
-    '<div style="display:flex;gap:8px;margin-top:6px">' +
+    '<div class="code-row" style="display:flex;gap:8px;margin-top:6px">' +
       '<input id="admin-code-input" inputmode="numeric" maxlength="6" placeholder="' + t("sub.code_ph") + '" style="flex:1;min-width:0">' +
       '<button class="btn" onclick="A.careActivateCode()">' + t("sub.activate") + '</button>' +
     '</div>' +
