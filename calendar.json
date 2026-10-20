@@ -2637,14 +2637,14 @@
   {
    "account": "piggy.up",
    "created_at": "2026-10-18T09:55:00+03:00",
-   "updated_at": "2026-10-18T09:55:00+03:00",
+   "updated_at": "2026-10-20T10:05:00+03:00",
    "date": "2026-10-20",
    "format": "reel",
    "goal": "STOP",
    "id": "p-20261020-01",
    "needs_approval": true,
    "pillar": "educational",
-   "status": "draft",
+   "status": "waiting_approval",
    "time": "18:30",
    "time_basis": "hypothesis",
    "time_reason": "השערה — אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־18.10)",
@@ -2671,9 +2671,27 @@
      "from": null,
      "to": "draft",
      "note": "תוכנית שבועית 18.10 (ימים 19-25.10) — יופק ע״י המנוע היומי"
+    },
+    {
+     "actor": "engine",
+     "at": "2026-10-20T10:05:00+03:00",
+     "from": "draft",
+     "to": "waiting_approval",
+     "note": "הופק day-25.mp4 (35.0 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית בקצב טבעי ≤10 תווים/שנייה, כתוביות שרופות libass, סגנון מיני-סטורי; QA PASS: הוק ב-0.4s, אפס אנגלית, מספרים במילים, דמויות עקביות). ממתין לסקירת אלונה — אין לפרסם"
     }
    ],
-   "series": "משחק כסף לשבוע #1"
+   "series": "משחק כסף לשבוע #1",
+   "assets": {
+    "video": "~/workspace/your_files/piggyup-video/daily/day-25.mp4",
+    "cover": "~/workspace/your_files/piggyup-video/daily/day-25-cover.jpg",
+    "srt": "~/workspace/your_files/piggyup-video/daily/day-25.he.srt",
+    "whatsapp": "~/workspace/your_files/piggyup-video/daily/day-25-whatsapp.mp4",
+    "caption_file": "~/workspace/your_files/piggyup-video/daily/day-25-caption.txt",
+    "duration_sec": 35.0,
+    "style": "mini-story (AI visuals + motion graphics), consistent mom+daughter characters",
+    "preview_video": "https://raw.githubusercontent.com/alonawoffice-bit/piggyup/content-calendar/previews/2026-10-20/day-25-whatsapp.mp4",
+    "preview_cover": "https://raw.githubusercontent.com/alonawoffice-bit/piggyup/content-calendar/previews/2026-10-20/day-25-cover.jpg"
+   }
   },
   {
    "account": "piggy.up",
