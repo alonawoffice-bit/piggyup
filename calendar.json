@@ -2744,14 +2744,14 @@
   {
    "account": "piggy.up",
    "created_at": "2026-10-18T09:55:00+03:00",
-   "updated_at": "2026-10-22T10:00:00+03:00",
+   "updated_at": "2026-10-22T11:29:47.358067+03:00",
    "date": "2026-10-22",
    "format": "reel",
    "goal": "SHARE",
    "id": "p-20261022-01",
-   "needs_approval": true,
+   "needs_approval": false,
    "pillar": "parenting",
-   "status": "waiting_approval",
+   "status": "approved",
    "time": "18:30",
    "time_basis": "hypothesis",
    "time_reason": "השערה — אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־18.10)",
@@ -2785,6 +2785,13 @@
      "from": "draft",
      "to": "waiting_approval",
      "note": "הופק day-27.mp4 (34.1 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית, צפיפות מקסימלית 9.76 תווים/שנייה, כתוביות שרופות, סגנון מיני-סטורי). QA: הוק ב-0.4 שניות, תמונות AI נקיות מאנגלית, כל הטקסט דרך libass. ממתין לסקירת אלונה — אין לפרסם"
+    },
+    {
+     "at": "2026-10-22T11:29:47.358067+03:00",
+     "actor": "alona",
+     "from": "waiting_approval",
+     "to": "approved",
+     "note": "אושר על ידי אלונה בצ׳אט (22.10). ממתין ל״פרסמי״ לפרסום בפועל."
     }
    ],
    "assets": {
