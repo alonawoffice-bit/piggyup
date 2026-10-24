@@ -2869,14 +2869,14 @@
     {
       "account": "piggy.up",
       "created_at": "2026-10-18T09:55:00+03:00",
-      "updated_at": "2026-10-18T09:55:00+03:00",
+      "updated_at": "2026-10-24T09:46:52.014809+03:00",
       "date": "2026-10-24",
       "format": "story",
       "goal": "STOP",
       "id": "p-20261024-01",
       "needs_approval": true,
       "pillar": "community",
-      "status": "draft",
+      "status": "waiting_approval",
       "time": "12:00",
       "time_basis": "hypothesis",
       "time_reason": "השערה — אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־18.10)",
@@ -2898,6 +2898,13 @@
           "from": null,
           "to": "draft",
           "note": "תוכנית שבועית 18.10 (ימים 19-25.10) — יופק ע״י המנוע היומי"
+        },
+        {
+          "at": "2026-10-24T09:46:52.014809+03:00",
+          "actor": "engine",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הושלם תוכן מלא (בריף סטורי, 2 פריימים, הוק, כיתוב, CTA, רעיון ויזואלי) — מוכן לבדיקת אלונה. בדיקת כפילויות מול idea-bank: נקי (סדרה 'מיתוס או אמת?' #3, תוכננה לתאריך זה בתוכנית השבועית 18.10). זמן 12:00 נשאר hypothesis (online_followers=null ב־account-insights)."
         }
       ],
       "series": "מיתוס או אמת? #3",
