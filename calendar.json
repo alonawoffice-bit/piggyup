@@ -2965,14 +2965,14 @@
     {
       "account": "piggy.up",
       "created_at": "2026-10-25T09:50:00+03:00",
-      "updated_at": "2026-10-25T09:50:00+03:00",
+      "updated_at": "2026-10-26T10:00:00+03:00",
       "date": "2026-10-26",
       "format": "reel",
       "goal": "SAVE",
       "id": "p-20261026-01",
       "needs_approval": true,
       "pillar": "educational",
-      "status": "draft",
+      "status": "waiting_approval",
       "time": "18:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה, אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־25.10)",
@@ -2998,8 +2998,26 @@
           "from": null,
           "to": "draft",
           "note": "תוכנית שבועית 25.10 (ימים 26.10-01.11)"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-26T10:00:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הופק וידאו day-31.mp4 (34.07 שניות, 1080x1920, H.264+AAC, קריינות TTS עברית, כתוביות שרופות, סגנון מיני-סטורי). תסריט 269 תווים, צפיפות קריינות עד 9.96 תווים/שנייה. QA PASS; מקף ארוך בהוק תוקן לפסיק ורונדר מחדש. ממתין לסקירת אלונה, אין לפרסם."
         }
-      ]
+      ],
+      "script": "ליום ההולדת של אליאן עשינו משהו אחר השנה. נתתי לה תקציב, ואמרתי לה, את בוחרת לבד. היא עמדה מול המדף, התלבטה, השוותה מחירים, ויתרה על בובה אחת כדי לקבל משהו אחר שהיא רצתה יותר. אני עמדתי בצד ולא התערבתי. והמתנה שהיא בחרה לבד? היא שווה לה הרבה יותר מכל מתנה שבחרתי עבורה.",
+      "assets": {
+        "video": "~/workspace/goals/piggyup/files/piggyup-video/daily/day-31.mp4",
+        "cover": "~/workspace/goals/piggyup/files/piggyup-video/daily/day-31-cover.jpg",
+        "srt": "~/workspace/goals/piggyup/files/piggyup-video/daily/day-31.he.srt",
+        "whatsapp": "~/workspace/goals/piggyup/files/piggyup-video/daily/day-31-whatsapp.mp4",
+        "caption_file": "~/workspace/goals/piggyup/files/piggyup-video/daily/day-31-caption.txt",
+        "duration_sec": 34.07,
+        "style": "mini-story (AI visuals + motion graphics), consistent mom+daughter characters",
+        "qa_log": "~/workspace/goals/piggyup/files/piggyup-video/daily/work/day31/QA-LOG.md"
+      }
     },
     {
       "account": "piggy.up",
