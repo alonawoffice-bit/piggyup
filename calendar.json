@@ -3022,14 +3022,14 @@
     {
       "account": "piggy.up",
       "created_at": "2026-10-25T09:50:00+03:00",
-      "updated_at": "2026-10-25T09:50:00+03:00",
+      "updated_at": "2026-10-27T09:50:00+03:00",
       "date": "2026-10-27",
       "format": "carousel",
       "goal": "SAVE",
       "id": "p-20261027-01",
       "needs_approval": true,
       "pillar": "tips",
-      "status": "draft",
+      "status": "waiting_approval",
       "time": "10:30",
       "time_basis": "hypothesis",
       "time_reason": "השערה, אין עדיין נתוני קהל לפי שעה (online_followers=null נכון ל־25.10)",
@@ -3055,8 +3055,28 @@
           "from": null,
           "to": "draft",
           "note": "תוכנית שבועית 25.10 (ימים 26.10-01.11)"
+        },
+        {
+          "actor": "engine",
+          "at": "2026-10-27T09:50:00+03:00",
+          "from": "draft",
+          "to": "waiting_approval",
+          "note": "הופקו 6 שקופיות 1080x1350 (RTL, נבדקו ויזואלית) לפי סקיל piggyup-carousel; מוכן לסקירת אלונה, אין לפרסם"
         }
-      ]
+      ],
+      "slides": [
+        "1 · כל שנה אותה שאלה: כמה לתת עכשיו שהיא גדלה? / טבלה אחת שחוסכת את הניחוש, כל שנה מחדש",
+        "2 · הכלל שאצלנו עובד: גיל כפול 5 שקל לחודש / פשוט, קבוע, בלי ויכוח. וזה רק נקודת התחלה, לא חוק",
+        "3 · גילאים 5 עד 7 / גיל 5: 25 שקל לחודש. גיל 6: 30 שקל. גיל 7: 35 שקל",
+        "4 · גילאים 8 עד 10 / גיל 8: 40 שקל לחודש. גיל 9: 45 שקל. גיל 10: 50 שקל",
+        "5 · הסכום פחות חשוב מהמסגרת / סכום קבוע ביום קבוע. מחליטים מראש מה זה מכסה. ולא משלימים באמצע החודש",
+        "6 · שמרי את הטבלה וחזרי אליה / כשהיא תגדל בשנה, תעדכני את הסכום. אצלנו זה יושב באפליקציה, כמו כל השאר"
+      ],
+      "assets": {
+        "slides_dir": "~/workspace/goals/piggyup/hidden_files/piggyup-video/carousel/pocket-money-table/",
+        "spec": "~/workspace/goals/piggyup/hidden_files/piggyup-video/carousel/pocket-money-table/spec.json",
+        "caption_file": "~/workspace/goals/piggyup/hidden_files/piggyup-video/carousel/pocket-money-table/caption.txt"
+      }
     },
     {
       "account": "piggy.up",
